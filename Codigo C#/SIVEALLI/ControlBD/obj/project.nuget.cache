@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "JaR00kyZl54QEYwPiphrXncR6ocFlq6zYy8efneQbWVUuMt+JpRXDF3cW1XH0erSaR/J/fhzn9X+V/VQbzsRWQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Marcelo\\source\\repos\\SIVEALLI\\Codigo C#\\SIVEALLI\\ControlBD\\ControlBD.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Marcelo\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
