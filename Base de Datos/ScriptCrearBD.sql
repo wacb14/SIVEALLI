@@ -30,6 +30,12 @@ go
 CREATE TYPE TIdCliente FROM varchar(8) ;
 go
 
+CREATE TYPE TIdPedido FROM varchar(8) NOT NULL ;
+go
+
+CREATE TYPE TIdEntrada FROM varchar(8) NOT NULL ;
+go
+
 
 /* Activar la Base de datos DBAlmacenes */
 use DBAlmacen
@@ -87,6 +93,52 @@ create table TProveedor(
 	PRIMARY KEY (IdCliente)
  )
  go
+ 
+ create table TPedido
+(
+	IdPedido 	TIdPedido NOT NULL,
+    	IdProveedor 	TIdProveedor NOT NULL,
+    	IdUsuario 	TIdUsuario NOT NULL,
+    	FechaPago 	datetime not null,
+	FechaPedido 	datetime not null,
+    	TerminosEntrega varchar(15),
+	primary key(IdProducto),
+    	foreign key(IdProveedor) references TProveedor(IdProveedor),
+    	foreign key(IdUsuario) references TUsuario(IdUsuario)
+)
+go
+
+create table TEntrada
+(
+	IdEntrada 	TIdEntrada NOT NULL,
+    	IdProveedor 	TIdProveedor NOT NULL,
+    	IdUsuario 	TIdUsuario NOT NULL,
+	Fecha 		datetime not null,
+	primary key(IdEntrada)
+    	foreign key(IdProveedor) references TProveedor(IdProveedor),
+    	foreign key(IdUsuario) references TUsuario(IdUsuario)
+)
+go
+create table TPedidoDetalle
+(
+    	IdPedido 	TIdPedido NOT NULL,
+    	IdProducto 	TIdProducto NOT NULL,
+	Cantidad 	int not null,
+	PrecioUnitario 	float not null,
+	primary key (IdPedido, IdProducto),
+	foreign key(IdPedido) references TPedido(IdVenta),
+	foreign key(IdProducto) references TProducto(IdProducto)
+)
+go
+create table TEntradaDetalle
+(
+	IdEntrada 	TIdEntrada NOT NULL,
+	IdProducto 	TIdProducto NOT NULL,
+	Cantidad 	int not null,
+	primary key (IdEntrada, IdProducto),
+	foreign key(IdEntrada) references TEntrada(IdEntrada),
+	foreign key(IdProducto) references TProducto(IdProducto)
+)
 
 ---------- DATOS PRODUCTO ----------------------
 insert into TProducto values('PR000001','Portaminas Mars','Lapices y portaminas','Portaminas Mars Technico 780 HB con Clip','Staedtler',25.90,'--','ACTIVO')
@@ -114,3 +166,12 @@ insert into TCliente values('CL000003','Pedro','Waywa','El abismo','936645652','
 insert into TCliente values('CL000004','Carlos','Ascci','Quien sabe pero hay wifi wiii...','936656752','ElAbismo@15asoc.com')
 insert into TCliente values('CL000005','Martin','plin plin plon','Detras de ti prro','933456352','Lobo@15asoc.com')
 insert into TCliente values('CL000006','Juan','gwyn','A ver, no se, san algo nro algo?','936678952','Espada@15asoc.com')
+--------- DATOS PEDIDO, PEDIDO DETALLE ----------------------
+insert into TPedido values ('PE000001','PR001', 'US001', 15/08/2020, 10/08/2020, "Buen estado")
+insert into TPedidoDetalle values ('PE000001','PR000001',20, 5)
+insert into TPedidoDetalle values ('PE000001','PR000002',24, 50)
+--------- DATOS ENTRADA, ENTRADA DETALLE ----------------------
+insert into TEntrada values ('EN000001','PR001', 'US002', 15/08/2020)
+insert into TEntradaDetalle values ('EN000001','PR001',8)
+insert into TEntradaDetalle values ('EN000001','PR002',15)
+insert into TEntradaDetalle values ('EN000001','PR003',23)
