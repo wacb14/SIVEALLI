@@ -1,5 +1,5 @@
 /* Create DataBase */
-Create DATABASE DBAlmacen  -- Creates the Almacenes DataBase
+Create DATABASE DBAlmacen2  -- Creates the Almacenes DataBase
 /*
 on
   (NAME = DBAlmacen,    -- Primary data file
@@ -15,9 +15,9 @@ on
   )
 go
 */
-
+go
 /* Activar Base de datos: DBAlmacen */
-use DBAlmacen
+use DBAlmacen2
 go
 
 CREATE TYPE TIdProducto FROM varchar(8) NOT NULL ;
@@ -44,9 +44,6 @@ go
 CREATE TYPE TIdDevolucion FROM varchar(8) ;
 go
 
-/* Activar la Base de datos DBAlmacenes */
-use DBAlmacen
-go
 
 /* Crear las tablas */
 
@@ -147,7 +144,7 @@ create table TEntradaDetalle
 	foreign key(IdEntrada) references TEntrada(IdEntrada),
 	foreign key(IdProducto) references TProducto(IdProducto)
 )
-
+go
  -- Tabla Venta
 create table TVenta
 (
@@ -209,12 +206,12 @@ insert into TProducto values('PR000005','Papel Bond Premium A4','Papel y sobres'
  insert into TProveedor values('PR004','Distribuciones Mark SA','Jiron San Sebastian 125','930656879','Mark@gmail.com','ACTIVO')
  insert into TProveedor values('PR005','Papeleria Rolf','Urb. Mariscal Gamarra','984409063','Rolf@gmail.com','ACTIVO')
 --------- DATOS USUARIOS ----------------------
-insert into TUsuario values('US001','Carlos','Carreta','Me la pelas','936686352','Mudos@15asoc.com','huevos1','ACTIVO')
-insert into TUsuario values('US002','Quispe','Huchija Luigi','Me la pelas','936686352','GAaaa@15asoc.com','huevos1','ACTIVO')
-insert into TUsuario values('US003','Dolores','Waywa','Me la pelas','936686352','Solores@15asoc.com','huevos1','ACTIVO')
-insert into TUsuario values('US004','Carlos','Carreta','Me la pelas','936686352','Mudos@15asoc.com','huevos1','ACTIVO')
-insert into TUsuario values('US005','Quispe','Huchija Luigi','Me la pelas','936686352','GAaaa@15asoc.com','huevos1','ACTIVO')
-insert into TUsuario values('US006','Dolores','Waywa','Me la pelas','936686352','Solores@15asoc.com','huevos1','ACTIVO')
+insert into TUsuario values('US001','Carlos','Carreta','Me la pelas','936686352','Mudos@15asoc.com','huevos1','SUPERVISOR','ACTIVO')
+insert into TUsuario values('US002','Quispe','Huchija Luigi','Me la pelas','936686352','GAaaa@15asoc.com','huevos1','SUPERVISOR','ACTIVO')
+insert into TUsuario values('US003','Dolores','Waywa','Me la pelas','936686352','Solores@15asoc.com','huevos1','EMPLEADO','ACTIVO')
+insert into TUsuario values('US004','Carlos','Carreta','Me la pelas','936686352','Mudos@15asoc.com','huevos1','EMPLEADO','ACTIVO')
+insert into TUsuario values('US005','Quispe','Huchija Luigi','Me la pelas','936686352','GAaaa@15asoc.com','huevos1','EMPLEADO','ACTIVO')
+insert into TUsuario values('US006','Dolores','Waywa','Me la pelas','936686352','Solores@15asoc.com','huevos1','EMPLEADO','ACTIVO')
 --------- DATOS CLIENTE ----------------------
 insert into TCliente values('CL000001','Jose','Carreta','El valle de la felicidad','936683452','Jose@15asoc.com')
 insert into TCliente values('CL000002','Marco','Sudado Pinto','Que te importa','936456352','GAaaa@15asoc.com')
@@ -223,26 +220,26 @@ insert into TCliente values('CL000004','Carlos','Ascci','Quien sabe pero hay wif
 insert into TCliente values('CL000005','Martin','plin plin plon','Detras de ti prro','933456352','Lobo@15asoc.com')
 insert into TCliente values('CL000006','Juan','gwyn','A ver, no se, san algo nro algo?','936678952','Espada@15asoc.com')
 --------- DATOS PEDIDO, PEDIDO DETALLE ----------------------
-insert into TPedido values ('PE000001','PR001', 'US001', '2020/08/15', '2020/08/15', 'Buen estado')
+insert into TPedido values ('PE000001','PR001', 'US001', '15/08/2020', '15/08/2020', 'Buen estado')
 insert into TPedidoDetalle values ('PE000001','PR000001',20, 5)
 insert into TPedidoDetalle values ('PE000001','PR000002',24, 50)
 --------- DATOS ENTRADA, ENTRADA DETALLE ----------------------
-insert into TEntrada values ('EN000001','PR001', 'US002', '2020/08/15')
+insert into TEntrada values ('EN000001','PR001', 'US002', '15/08/2020')
 insert into TEntradaDetalle values ('EN000001','PR000001',8)
 insert into TEntradaDetalle values ('EN000001','PR000002',15)
 insert into TEntradaDetalle values ('EN000001','PR000003',23)
 --------- DATOS VENTA ----------------------
-insert into TVenta values ('VE000001','US006','CL000002','2020/08/20')
+insert into TVenta values ('VE000001','US006','CL000002','20/08/2020')
 insert into TVentaDetalle values ('VE000001','PR000001',2,25.90)
 insert into TVentaDetalle values ('VE000001','PR000003',1,11.90)
 
-insert into TVenta values ('VE000002','US006','CL000005','2020/08/20')
+insert into TVenta values ('VE000002','US006','CL000005','20/08/2020')
 insert into TVentaDetalle values ('VE000002','PR000001',2,25.90)
 insert into TVentaDetalle values ('VE000002','PR000003',1,11.90)
 insert into TVentaDetalle values ('VE000002','PR000005',9,10.90)
 --------- DATOS DEVOLUCION ----------------------
-insert into TDevolucion values ('DE000001','VE000001','2020/08/20')
+insert into TDevolucion values ('DE000001','VE000001','20/08/2020')
 insert into TDevolucionDetalle values ('DE000001','VE000001','PR000001',1,'Nuevo',25.90)
 
-insert into TDevolucion values ('DE000002','VE000002','2020/08/20')
+insert into TDevolucion values ('DE000002','VE000002','20/08/2020')
 insert into TDevolucionDetalle values ('DE000002','VE000002','PR000005',6,'Desgastado',10.90)
