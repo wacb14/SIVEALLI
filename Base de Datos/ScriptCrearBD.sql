@@ -1,17 +1,6 @@
 /* Create DataBase */
 Create DATABASE DBAlmacen  -- Creates the Almacenes DataBase
-on
-  (NAME = DBAlmacen,    -- Primary data file
-  FILENAME = 'D:\DBAlmacen.mdf',
-  SIZE = 5MB,
-  FILEGROWTH = 1MB
-  )
-  LOG ON
-  (NAME = DBAlmacen_Log,   -- Log file
-  FILENAME = 'D:\DBAlmacen.ldf',
-  SIZE = 5MB,
-  FILEGROWTH = 1MB
-  )
+
 go
 
 /* Activar Base de datos: DBAlmacen */
@@ -36,6 +25,11 @@ go
 CREATE TYPE TIdEntrada FROM varchar(8) NOT NULL ;
 go
 
+CREATE TYPE TIdVenta FROM varchar(8) ;
+go
+
+CREATE TYPE TIdDevolucion FROM varchar(8) ;
+go
 
 /* Activar la Base de datos DBAlmacenes */
 use DBAlmacen
@@ -97,36 +91,36 @@ create table TProveedor(
  create table TPedido
 (
 	IdPedido 	TIdPedido NOT NULL,
-    	IdProveedor 	TIdProveedor NOT NULL,
-    	IdUsuario 	TIdUsuario NOT NULL,
-    	FechaPago 	datetime not null,
+    IdProveedor 	TIdProveedor NOT NULL,
+    IdUsuario 	TIdUsuario NOT NULL,
+    FechaPago 	datetime not null,
 	FechaPedido 	datetime not null,
-    	TerminosEntrega varchar(15),
-	primary key(IdProducto),
-    	foreign key(IdProveedor) references TProveedor(IdProveedor),
-    	foreign key(IdUsuario) references TUsuario(IdUsuario)
+    TerminosEntrega varchar(15),
+	primary key(IdPedido),
+    foreign key(IdProveedor) references TProveedor(IdProveedor),
+    foreign key(IdUsuario) references TUsuario(IdUsuario)
 )
 go
 
 create table TEntrada
 (
 	IdEntrada 	TIdEntrada NOT NULL,
-    	IdProveedor 	TIdProveedor NOT NULL,
-    	IdUsuario 	TIdUsuario NOT NULL,
+    IdProveedor 	TIdProveedor NOT NULL,
+    IdUsuario 	TIdUsuario NOT NULL,
 	Fecha 		datetime not null,
-	primary key(IdEntrada)
-    	foreign key(IdProveedor) references TProveedor(IdProveedor),
-    	foreign key(IdUsuario) references TUsuario(IdUsuario)
+	primary key(IdEntrada),
+    foreign key(IdProveedor) references TProveedor(IdProveedor),
+    foreign key(IdUsuario) references TUsuario(IdUsuario)
 )
 go
 create table TPedidoDetalle
 (
-    	IdPedido 	TIdPedido NOT NULL,
-    	IdProducto 	TIdProducto NOT NULL,
+    IdPedido 	TIdPedido NOT NULL,
+    IdProducto 	TIdProducto NOT NULL,
 	Cantidad 	int not null,
 	PrecioUnitario 	float not null,
 	primary key (IdPedido, IdProducto),
-	foreign key(IdPedido) references TPedido(IdVenta),
+	foreign key(IdPedido) references TPedido(IdPedido),
 	foreign key(IdProducto) references TProducto(IdProducto)
 )
 go
@@ -140,11 +134,57 @@ create table TEntradaDetalle
 	foreign key(IdProducto) references TProducto(IdProducto)
 )
 
+ -- Tabla Venta
+create table TVenta
+(
+	IdVenta TIdventa,
+	IdUsuario	TIdUsuario NOT NULL,
+	Fecha datetime,
+	primary key(IdVenta),
+	foreign key(IdUsuario) references TUsuario(IdUsuario),
+)
+go
+create table TVentaDetalle
+(
+	IdVenta TIdVenta,
+	IdProducto TIdProducto,
+	Cantidad int,
+	PrecioUnitario float,
+	primary key (IdVenta, IdProducto),
+	foreign key(IdVenta) references TVenta(IdVenta),
+	foreign key(IdProducto) references TProducto(IdProducto)
+)
+go
+-- Tabla Devolucion
+create table TDevolucion
+(
+	IdDevolucion TIdDevolucion,
+	IdVenta TIdVenta,
+	Fecha datetime,
+	primary key(IdDevolucion),
+	foreign key(IdVenta) references TVenta(IdVenta),
+)
+go
+create table TDevolucionDetalle
+(
+	IdDevolucion TIdDevolucion,
+	IdVenta TIdVenta,
+	IdProducto TIdProducto,
+	Cantidad int,
+	Estado varchar(12),
+	PrecioUnitario float,
+	primary key (IdDevolucion, IdProducto),
+	foreign key(IdVenta) references TVenta(IdVenta),
+	foreign key(IdDevolucion) references TDevolucion(IdDevolucion),
+	foreign key(IdProducto) references TProducto(IdProducto)
+)
+go
+
 ---------- DATOS PRODUCTO ----------------------
 insert into TProducto values('PR000001','Portaminas Mars','Lapices y portaminas','Portaminas Mars Technico 780 HB con Clip','Staedtler',25.90,'--','ACTIVO')
 insert into TProducto values('PR000002','Lápiz Grafito','Lapices y portaminas','Lápiz Grafito Escolar Fantasía','Artesco',0.90,'--','ACTIVO')
 insert into TProducto values('PR000003','Diccionario Inglés - Español','Libros','Diccionario Tapa Dura Bilingüe Inglés - Español Plus','Norma',11.90,'--','ACTIVO')
-insert into TProducto values('PR000004','Papel Bulky A4','Papel y sobres','Papel Bulky A4 x 500 Hojas','Gallo',12.40','--','ACTIVO')
+insert into TProducto values('PR000004','Papel Bulky A4','Papel y sobres','Papel Bulky A4 x 500 Hojas','Gallo',12.40,'--','ACTIVO')
 insert into TProducto values('PR000005','Papel Bond Premium A4','Papel y sobres','Papel Bond Premium A4 80 g Paquete x 500 Hojas','Stanford',10.90,'--','ACTIVO')
 --------- DATOS PROVEEDOR ----------------------
  insert into TProveedor values('PR001','Organizacion Book SAC','Calle Santa Rosa 456','963157845','distribudirasBook@gmail.com','ACTIVO')
@@ -167,11 +207,24 @@ insert into TCliente values('CL000004','Carlos','Ascci','Quien sabe pero hay wif
 insert into TCliente values('CL000005','Martin','plin plin plon','Detras de ti prro','933456352','Lobo@15asoc.com')
 insert into TCliente values('CL000006','Juan','gwyn','A ver, no se, san algo nro algo?','936678952','Espada@15asoc.com')
 --------- DATOS PEDIDO, PEDIDO DETALLE ----------------------
-insert into TPedido values ('PE000001','PR001', 'US001', 15/08/2020, 10/08/2020, "Buen estado")
+insert into TPedido values ('PE000001','PR001', 'US001', '2020/08/15', '2020/08/15', 'Buen estado')
 insert into TPedidoDetalle values ('PE000001','PR000001',20, 5)
 insert into TPedidoDetalle values ('PE000001','PR000002',24, 50)
 --------- DATOS ENTRADA, ENTRADA DETALLE ----------------------
-insert into TEntrada values ('EN000001','PR001', 'US002', 15/08/2020)
-insert into TEntradaDetalle values ('EN000001','PR001',8)
-insert into TEntradaDetalle values ('EN000001','PR002',15)
-insert into TEntradaDetalle values ('EN000001','PR003',23)
+insert into TEntrada values ('EN000001','PR001', 'US002', '2020/08/15')
+insert into TEntradaDetalle values ('EN000001','PR000001',8)
+insert into TEntradaDetalle values ('EN000001','PR000002',15)
+insert into TEntradaDetalle values ('EN000001','PR000003',23)
+--------- DATOS VENTA ----------------------
+insert into TVenta values ('VE000001','US001','2020/08/20')
+insert into TVentaDetalle values ('VE000001','PR000001',2,25.90)
+insert into TVentaDetalle values ('VE000001','PR000003',1,11.90)
+
+insert into TVenta values ('VE000002','US006','2020/08/20')
+insert into TVentaDetalle values ('VE000002','PR000005',9,10.90)
+--------- DATOS DEVOLUCION ----------------------
+insert into TDevolucion values ('DE000001','VE000001','2020/08/20')
+insert into TDevolucionDetalle values ('DE000001','VE000001','PR000001',1,'Nuevo',25.90)
+
+insert into TDevolucion values ('DE000002','VE000002','2020/08/20')
+insert into TDevolucionDetalle values ('DE000002','VE000002','PR000005',6,'Desgastado',10.90)
