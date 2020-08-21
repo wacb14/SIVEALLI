@@ -84,6 +84,7 @@ create table TProveedor(
 	Telefono		varchar(12),
 	Correo			varchar(40),
 	Contraseña		varchar(12),
+	Tipo		varchar(10) check (Tipo in ('EMPLEADO', 'SUPERVISOR')),
 	Estado          varchar(10) check (Estado in ('RETIRADO','ACTIVO','OTRO')),
 	PRIMARY KEY (IdUsuario)
  )
