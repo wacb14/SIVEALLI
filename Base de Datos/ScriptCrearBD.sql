@@ -1,6 +1,17 @@
 /* Create DataBase */
 Create DATABASE DBAlmacen  -- Creates the Almacenes DataBase
-
+on
+  (NAME = DBAlmacen,    -- Primary data file
+  FILENAME = 'B:\DBAlmacen.mdf',
+  SIZE = 5MB,
+  FILEGROWTH = 1MB
+  )
+  LOG ON
+  (NAME = DBAlmacen_Log,   -- Log file
+  FILENAME = 'B:\DBAlmacen.ldf',
+  SIZE = 5MB,
+  FILEGROWTH = 1MB
+  )
 go
 
 /* Activar Base de datos: DBAlmacen */
@@ -139,9 +150,11 @@ create table TVenta
 (
 	IdVenta TIdventa,
 	IdUsuario	TIdUsuario NOT NULL,
+	IdCliente TIdCliente,
 	Fecha datetime,
 	primary key(IdVenta),
 	foreign key(IdUsuario) references TUsuario(IdUsuario),
+	foreign key(IdCliente) references TCliente(IdCliente)
 )
 go
 create table TVentaDetalle
