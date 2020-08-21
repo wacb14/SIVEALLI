@@ -150,7 +150,7 @@ create table TVenta
 (
 	IdVenta TIdventa,
 	IdUsuario	TIdUsuario NOT NULL,
-	IdCliente TIdCliente,
+	IdCliente	TIdCliente,
 	Fecha datetime,
 	primary key(IdVenta),
 	foreign key(IdUsuario) references TUsuario(IdUsuario),
@@ -229,11 +229,11 @@ insert into TEntradaDetalle values ('EN000001','PR000001',8)
 insert into TEntradaDetalle values ('EN000001','PR000002',15)
 insert into TEntradaDetalle values ('EN000001','PR000003',23)
 --------- DATOS VENTA ----------------------
-insert into TVenta values ('VE000001','US001','2020/08/20')
+insert into TVenta values ('VE000001','US001','CL000001','2020/08/20')
 insert into TVentaDetalle values ('VE000001','PR000001',2,25.90)
 insert into TVentaDetalle values ('VE000001','PR000003',1,11.90)
 
-insert into TVenta values ('VE000002','US006','2020/08/20')
+insert into TVenta values ('VE000002','US006','CL000002','2020/08/20')
 insert into TVentaDetalle values ('VE000002','PR000005',9,10.90)
 --------- DATOS DEVOLUCION ----------------------
 insert into TDevolucion values ('DE000001','VE000001','2020/08/20')
