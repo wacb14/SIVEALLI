@@ -82,6 +82,8 @@
             // 
             // tabControlEmpleado
             // 
+            this.tabControlEmpleado.Alignment = System.Windows.Forms.TabAlignment.Left;
+            this.tabControlEmpleado.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.tabControlEmpleado.Controls.Add(this.tabPageVentas);
             this.tabControlEmpleado.Controls.Add(this.tabPageProductos);
             this.tabControlEmpleado.Controls.Add(this.tabPageClientes);
@@ -91,19 +93,20 @@
             this.tabControlEmpleado.Multiline = true;
             this.tabControlEmpleado.Name = "tabControlEmpleado";
             this.tabControlEmpleado.SelectedIndex = 0;
-            this.tabControlEmpleado.Size = new System.Drawing.Size(932, 493);
+            this.tabControlEmpleado.Size = new System.Drawing.Size(951, 493);
             this.tabControlEmpleado.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControlEmpleado.TabIndex = 1;
             // 
             // tabPageVentas
             // 
+            this.tabPageVentas.AutoScroll = true;
             this.tabPageVentas.Controls.Add(this.groupBoxBoleta);
             this.tabPageVentas.Controls.Add(this.groupBoxCliente);
             this.tabPageVentas.Controls.Add(this.groupBoxVenta);
-            this.tabPageVentas.Location = new System.Drawing.Point(4, 22);
+            this.tabPageVentas.Location = new System.Drawing.Point(23, 4);
             this.tabPageVentas.Name = "tabPageVentas";
             this.tabPageVentas.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageVentas.Size = new System.Drawing.Size(924, 467);
+            this.tabPageVentas.Size = new System.Drawing.Size(924, 485);
             this.tabPageVentas.TabIndex = 0;
             this.tabPageVentas.Text = "Ventas";
             this.tabPageVentas.UseVisualStyleBackColor = true;
@@ -311,10 +314,10 @@
             this.tabPageProductos.Controls.Add(this.dataGridViewProducto);
             this.tabPageProductos.Controls.Add(this.textBoxCodigoProducto);
             this.tabPageProductos.Controls.Add(this.label6);
-            this.tabPageProductos.Location = new System.Drawing.Point(4, 22);
+            this.tabPageProductos.Location = new System.Drawing.Point(23, 4);
             this.tabPageProductos.Name = "tabPageProductos";
             this.tabPageProductos.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageProductos.Size = new System.Drawing.Size(924, 467);
+            this.tabPageProductos.Size = new System.Drawing.Size(924, 485);
             this.tabPageProductos.TabIndex = 1;
             this.tabPageProductos.Text = "Productos";
             this.tabPageProductos.UseVisualStyleBackColor = true;
@@ -390,38 +393,38 @@
             // 
             // tabPageClientes
             // 
-            this.tabPageClientes.Location = new System.Drawing.Point(4, 22);
+            this.tabPageClientes.Location = new System.Drawing.Point(23, 4);
             this.tabPageClientes.Name = "tabPageClientes";
-            this.tabPageClientes.Size = new System.Drawing.Size(924, 467);
+            this.tabPageClientes.Size = new System.Drawing.Size(924, 485);
             this.tabPageClientes.TabIndex = 2;
             this.tabPageClientes.Text = "Clientes";
             this.tabPageClientes.UseVisualStyleBackColor = true;
             // 
             // tabPageInformes
             // 
-            this.tabPageInformes.Location = new System.Drawing.Point(4, 22);
+            this.tabPageInformes.Location = new System.Drawing.Point(23, 4);
             this.tabPageInformes.Name = "tabPageInformes";
-            this.tabPageInformes.Size = new System.Drawing.Size(924, 467);
+            this.tabPageInformes.Size = new System.Drawing.Size(924, 485);
             this.tabPageInformes.TabIndex = 3;
             this.tabPageInformes.Text = "Informes";
             this.tabPageInformes.UseVisualStyleBackColor = true;
             // 
             // tabPageProveedor
             // 
-            this.tabPageProveedor.Location = new System.Drawing.Point(4, 22);
+            this.tabPageProveedor.Location = new System.Drawing.Point(23, 4);
             this.tabPageProveedor.Name = "tabPageProveedor";
-            this.tabPageProveedor.Size = new System.Drawing.Size(924, 467);
+            this.tabPageProveedor.Size = new System.Drawing.Size(905, 485);
             this.tabPageProveedor.TabIndex = 4;
             this.tabPageProveedor.Text = "Proveedores";
             this.tabPageProveedor.UseVisualStyleBackColor = true;
             // 
-            // FormSupervisor
+            // FrmSupervisor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1101, 573);
             this.Controls.Add(this.tabControlEmpleado);
-            this.Name = "FormSupervisor";
+            this.Name = "FrmSupervisor";
             this.Text = "FormSupervisor";
             this.tabControlEmpleado.ResumeLayout(false);
             this.tabPageVentas.ResumeLayout(false);
@@ -442,8 +445,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TabControl tabControlEmpleado;
         private System.Windows.Forms.TabPage tabPageVentas;
         private System.Windows.Forms.GroupBox groupBoxBoleta;
         private System.Windows.Forms.TextBox textBoxImpTotal;
@@ -483,5 +484,6 @@
         private System.Windows.Forms.TabPage tabPageClientes;
         private System.Windows.Forms.TabPage tabPageInformes;
         private System.Windows.Forms.TabPage tabPageProveedor;
+        protected internal System.Windows.Forms.TabControl tabControlEmpleado;
     }
 }
