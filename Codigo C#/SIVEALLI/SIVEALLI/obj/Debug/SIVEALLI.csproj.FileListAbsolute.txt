@@ -1,0 +1,10 @@
+C:\Users\ASUS\Source\Repos\wacb14\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\bin\Debug\SIVEALLI.exe.config
+C:\Users\ASUS\Source\Repos\wacb14\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\bin\Debug\SIVEALLI.exe
+C:\Users\ASUS\Source\Repos\wacb14\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\bin\Debug\SIVEALLI.pdb
+C:\Users\ASUS\Source\Repos\wacb14\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj\Debug\SIVEALLI.csprojAssemblyReference.cache
+C:\Users\ASUS\Source\Repos\wacb14\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj\Debug\SIVEALLI.Form1.resources
+C:\Users\ASUS\Source\Repos\wacb14\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj\Debug\SIVEALLI.Properties.Resources.resources
+C:\Users\ASUS\Source\Repos\wacb14\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj\Debug\SIVEALLI.csproj.GenerateResource.cache
+C:\Users\ASUS\Source\Repos\wacb14\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj\Debug\SIVEALLI.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\Source\Repos\wacb14\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj\Debug\SIVEALLI.exe
+C:\Users\ASUS\Source\Repos\wacb14\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj\Debug\SIVEALLI.pdb

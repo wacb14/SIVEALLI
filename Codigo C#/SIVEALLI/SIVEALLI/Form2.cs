@@ -10,12 +10,11 @@ using System.Windows.Forms;
 
 namespace SIVEALLI
 {
-    public partial class Form1 : Form
+    public partial class Form2 : Form
     {
-        public Form1()
+        public Form2()
         {
             InitializeComponent();
-            MessageBox.Show(ScHorizontal.Panel2.Width.ToString() + "--" + ScHorizontal.Panel2.Height.ToString());
         }
     }
 }
