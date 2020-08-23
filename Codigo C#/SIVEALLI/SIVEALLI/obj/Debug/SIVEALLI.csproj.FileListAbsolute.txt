@@ -9,3 +9,15 @@ C:\Users\ASUS\Source\Repos\wacb14\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj\Debug
 C:\Users\ASUS\Source\Repos\wacb14\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj\Debug\SIVEALLI.exe
 C:\Users\ASUS\Source\Repos\wacb14\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj\Debug\SIVEALLI.pdb
 C:\Users\ASUS\Source\Repos\wacb14\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj\Debug\SIVEALLI.FrmSupervisor.resources
+C:\Users\Marcelo\source\repos\SIVEALLI\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\bin\Debug\SIVEALLI.exe.config
+C:\Users\Marcelo\source\repos\SIVEALLI\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\bin\Debug\SIVEALLI.exe
+C:\Users\Marcelo\source\repos\SIVEALLI\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\bin\Debug\SIVEALLI.pdb
+C:\Users\Marcelo\source\repos\SIVEALLI\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj\Debug\SIVEALLI.csprojAssemblyReference.cache
+C:\Users\Marcelo\source\repos\SIVEALLI\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj\Debug\SIVEALLI.FormSupervisor.resources
+C:\Users\Marcelo\source\repos\SIVEALLI\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj\Debug\SIVEALLI.FormClientes.resources
+C:\Users\Marcelo\source\repos\SIVEALLI\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj\Debug\SIVEALLI.FormUsuarios.resources
+C:\Users\Marcelo\source\repos\SIVEALLI\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj\Debug\SIVEALLI.Properties.Resources.resources
+C:\Users\Marcelo\source\repos\SIVEALLI\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj\Debug\SIVEALLI.csproj.GenerateResource.cache
+C:\Users\Marcelo\source\repos\SIVEALLI\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj\Debug\SIVEALLI.csproj.CoreCompileInputs.cache
+C:\Users\Marcelo\source\repos\SIVEALLI\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj\Debug\SIVEALLI.exe
+C:\Users\Marcelo\source\repos\SIVEALLI\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj\Debug\SIVEALLI.pdb

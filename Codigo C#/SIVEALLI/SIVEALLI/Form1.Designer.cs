@@ -75,6 +75,7 @@
             this.buttonUsuarios.TabIndex = 4;
             this.buttonUsuarios.Text = "Usuarios";
             this.buttonUsuarios.UseVisualStyleBackColor = true;
+            this.buttonUsuarios.Click += new System.EventHandler(this.buttonUsuarios_Click);
             // 
             // button4
             // 
