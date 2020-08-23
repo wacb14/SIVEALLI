@@ -21,3 +21,6 @@ C:\Users\Marcelo\source\repos\SIVEALLI\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj\
 C:\Users\Marcelo\source\repos\SIVEALLI\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj\Debug\SIVEALLI.csproj.CoreCompileInputs.cache
 C:\Users\Marcelo\source\repos\SIVEALLI\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj\Debug\SIVEALLI.exe
 C:\Users\Marcelo\source\repos\SIVEALLI\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj\Debug\SIVEALLI.pdb
+C:\Users\Marcelo\source\repos\SIVEALLI\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\bin\Debug\BibClases.dll
+C:\Users\Marcelo\source\repos\SIVEALLI\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\bin\Debug\BibClases.pdb
+C:\Users\Marcelo\source\repos\SIVEALLI\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj\Debug\SIVEALLI.csproj.CopyComplete

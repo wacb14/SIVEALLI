@@ -33,18 +33,22 @@ namespace BibClases
         {
             return aNombreTabla;
         }
+
+
         //******************** METODOS DE SOPORTE DE BD ***********************
         //-> Metodo abstracto encargado de establecer los nombre de los campos
         //-> (atributos) de la tabla. 
         //-> Se deben implementar necesariamente en los herederos como arreglos de cadenas.
         //-> Estos atributos deben coincidir con los existentes  en LA BASE DE DATOS
 
+        public abstract string[] NombresAtributos();
+
         public virtual void Insertar(params string[] Atributos)
         {
             aNuevo = true;
             aValores = Atributos;
             //--Formar cadena de insercion 
-            string CadenaInsertar = "exec spuInsertar" + aNombreTabla + " '";
+            string CadenaInsertar = "exec spu_" + aNombreTabla + "_Insertar '";
             for (int k = 0; k < aValores.Length; k++)
             {   //--Incluir los atributos en la consulta
                 CadenaInsertar += aValores[k];
@@ -65,7 +69,7 @@ namespace BibClases
             aValores = Atributos;
 
             //--formar cadena actualizar
-            string CadenaActualizar = "exec spuActualizar" + aNombreTabla + " '";
+            string CadenaActualizar = "exec spu_" + aNombreTabla + "_Modificar '";
             for (int k = 0; k < aValores.Length; k++)
             {   //--Incluir los atributos en la consulta
                 CadenaActualizar += aValores[k];
@@ -84,7 +88,7 @@ namespace BibClases
         {//--Permite eliminar la informacion de un registro
             aValores = Atributos;
             //--Formar cadena eliminar
-            string CadenaEliminar = "exec spuEliminar" + aNombreTabla + " '" + aValores[0] + "'";
+            string CadenaEliminar = "exec spu_" + aNombreTabla + "_Eliminar '" + aValores[0] + "'";
             //--Ejecutar la consulta paraeliminar el registro
             aConexion.EjecutarComando(CadenaEliminar);
         }
@@ -140,7 +144,7 @@ namespace BibClases
         //------------------------------------------------------------------------------------------
         public DataTable ListaGeneral()
         {   //--Retornar un tabla con la lista completa de  libros
-            string CadenaConsulta = "exec spuListaGeneral" + aNombreTabla + "";
+            string CadenaConsulta = "exec spu_" + aNombreTabla + "_Listar";
             aConexion.EjecutarSelect(CadenaConsulta);
             return aConexion.Datos.Tables[0];
         }
@@ -175,7 +179,7 @@ namespace BibClases
         public int NumeroRegistros()
         {
             //--Retornar un tabla con el producto
-            string CadenaConsulta = "exec spuListar" + aNombreTabla;
+            string CadenaConsulta = "exec spu_" + aNombreTabla + "_Listar";
             aConexion.EjecutarSelect(CadenaConsulta);
             return aConexion.Datos.Tables[0].Rows.Count;
         }

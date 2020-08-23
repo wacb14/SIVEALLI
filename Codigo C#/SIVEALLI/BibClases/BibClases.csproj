@@ -45,6 +45,7 @@
     <Compile Include="CConexion.cs" />
     <Compile Include="CEntidad.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="CUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

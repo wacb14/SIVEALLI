@@ -58,6 +58,12 @@
     <Compile Include="FormClientes.Designer.cs">
       <DependentUpon>FormClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPadre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPadre.Designer.cs">
+      <DependentUpon>FormPadre.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +102,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BibClases\BibClases.csproj">
+      <Project>{e77794ab-09d3-4183-a746-fcb5d826aefc}</Project>
+      <Name>BibClases</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

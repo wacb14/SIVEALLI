@@ -31,14 +31,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxCodigo = new System.Windows.Forms.TextBox();
             this.dataGridViewUsuarios = new System.Windows.Forms.DataGridView();
-            this.ColumnCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnNombres = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnApellidos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDireccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBoxNombres = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxApellidos = new System.Windows.Forms.TextBox();
@@ -51,8 +43,10 @@
             this.label6 = new System.Windows.Forms.Label();
             this.textBoxEstado = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBoxTipo = new System.Windows.Forms.TextBox();
+            this.textBoxContrasegna = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.textBoxTipo = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsuarios)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,72 +73,11 @@
             this.dataGridViewUsuarios.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridViewUsuarios.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColumnCodigo,
-            this.ColumnNombres,
-            this.ColumnApellidos,
-            this.ColumnDireccion,
-            this.ColumnTelefono,
-            this.ColumnCorreo,
-            this.ColumnTipo,
-            this.ColumnEstado});
             this.dataGridViewUsuarios.Location = new System.Drawing.Point(317, 12);
             this.dataGridViewUsuarios.Name = "dataGridViewUsuarios";
             this.dataGridViewUsuarios.ReadOnly = true;
             this.dataGridViewUsuarios.Size = new System.Drawing.Size(741, 495);
             this.dataGridViewUsuarios.TabIndex = 2;
-            // 
-            // ColumnCodigo
-            // 
-            this.ColumnCodigo.HeaderText = "Código";
-            this.ColumnCodigo.Name = "ColumnCodigo";
-            this.ColumnCodigo.ReadOnly = true;
-            this.ColumnCodigo.Width = 70;
-            // 
-            // ColumnNombres
-            // 
-            this.ColumnNombres.HeaderText = "Nombres";
-            this.ColumnNombres.Name = "ColumnNombres";
-            this.ColumnNombres.ReadOnly = true;
-            // 
-            // ColumnApellidos
-            // 
-            this.ColumnApellidos.HeaderText = "Apellidos";
-            this.ColumnApellidos.Name = "ColumnApellidos";
-            this.ColumnApellidos.ReadOnly = true;
-            // 
-            // ColumnDireccion
-            // 
-            this.ColumnDireccion.HeaderText = "Direccion";
-            this.ColumnDireccion.Name = "ColumnDireccion";
-            this.ColumnDireccion.ReadOnly = true;
-            // 
-            // ColumnTelefono
-            // 
-            this.ColumnTelefono.HeaderText = "Teléfono";
-            this.ColumnTelefono.Name = "ColumnTelefono";
-            this.ColumnTelefono.ReadOnly = true;
-            this.ColumnTelefono.Width = 80;
-            // 
-            // ColumnCorreo
-            // 
-            this.ColumnCorreo.HeaderText = "Correo";
-            this.ColumnCorreo.Name = "ColumnCorreo";
-            this.ColumnCorreo.ReadOnly = true;
-            // 
-            // ColumnTipo
-            // 
-            this.ColumnTipo.HeaderText = "Tipo";
-            this.ColumnTipo.Name = "ColumnTipo";
-            this.ColumnTipo.ReadOnly = true;
-            this.ColumnTipo.Width = 70;
-            // 
-            // ColumnEstado
-            // 
-            this.ColumnEstado.HeaderText = "Estado";
-            this.ColumnEstado.Name = "ColumnEstado";
-            this.ColumnEstado.ReadOnly = true;
-            this.ColumnEstado.Width = 70;
             // 
             // textBoxNombres
             // 
@@ -228,7 +161,7 @@
             // 
             // textBoxEstado
             // 
-            this.textBoxEstado.Location = new System.Drawing.Point(97, 238);
+            this.textBoxEstado.Location = new System.Drawing.Point(97, 264);
             this.textBoxEstado.Name = "textBoxEstado";
             this.textBoxEstado.Size = new System.Drawing.Size(200, 20);
             this.textBoxEstado.TabIndex = 16;
@@ -236,27 +169,43 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(12, 241);
+            this.label8.Location = new System.Drawing.Point(12, 267);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(40, 13);
             this.label8.TabIndex = 15;
             this.label8.Text = "Estado";
             // 
-            // textBoxTipo
+            // textBoxContrasegna
             // 
-            this.textBoxTipo.Location = new System.Drawing.Point(97, 212);
-            this.textBoxTipo.Name = "textBoxTipo";
-            this.textBoxTipo.Size = new System.Drawing.Size(200, 20);
-            this.textBoxTipo.TabIndex = 14;
+            this.textBoxContrasegna.Location = new System.Drawing.Point(97, 212);
+            this.textBoxContrasegna.Name = "textBoxContrasegna";
+            this.textBoxContrasegna.Size = new System.Drawing.Size(200, 20);
+            this.textBoxContrasegna.TabIndex = 14;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(12, 215);
+            this.label9.Location = new System.Drawing.Point(12, 241);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(28, 13);
             this.label9.TabIndex = 13;
             this.label9.Text = "Tipo";
+            // 
+            // textBoxTipo
+            // 
+            this.textBoxTipo.Location = new System.Drawing.Point(97, 238);
+            this.textBoxTipo.Name = "textBoxTipo";
+            this.textBoxTipo.Size = new System.Drawing.Size(200, 20);
+            this.textBoxTipo.TabIndex = 18;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(12, 215);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(61, 13);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "Contraseña";
             // 
             // FormUsuarios
             // 
@@ -264,9 +213,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1070, 519);
+            this.Controls.Add(this.textBoxTipo);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.textBoxEstado);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.textBoxTipo);
+            this.Controls.Add(this.textBoxContrasegna);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.textBoxCorreo);
             this.Controls.Add(this.label6);
@@ -306,15 +257,9 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBoxEstado;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBoxTipo;
+        private System.Windows.Forms.TextBox textBoxContrasegna;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCodigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNombres;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnApellidos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDireccion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTelefono;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCorreo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTipo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnEstado;
+        private System.Windows.Forms.TextBox textBoxTipo;
+        private System.Windows.Forms.Label label7;
     }
 }
