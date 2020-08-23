@@ -21,7 +21,7 @@ namespace BibClases
             aDatos = new DataSet();
             aAdaptador = new SqlDataAdapter();
             //--Realizar conexion
-            string CadenaConexion = "Data Source=.;Initial Catalog = DBAlmacen2;Integrated Security = SSPI; ";
+            string CadenaConexion = "Data Source=.;Initial Catalog = DBAlmacen;Integrated Security = SSPI; ";
             aConexion = new SqlConnection(CadenaConexion);
         }
         //-----------------------Propiedades------------------------------------
