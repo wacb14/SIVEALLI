@@ -2,6 +2,7 @@
 {
     partial class FormSupervisor
     {
+
         /// <summary>
         /// Variable del diseñador necesaria.
         /// </summary>
