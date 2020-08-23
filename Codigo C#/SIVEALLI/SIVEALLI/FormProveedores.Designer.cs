@@ -187,8 +187,9 @@
             // 
             // TxtCodigo
             // 
-            this.TxtCodigo.Enabled = false;
+            this.TxtCodigo.BackColor = System.Drawing.SystemColors.GrayText;
             this.TxtCodigo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtCodigo.ForeColor = System.Drawing.SystemColors.WindowText;
             this.TxtCodigo.Location = new System.Drawing.Point(197, 130);
             this.TxtCodigo.Name = "TxtCodigo";
             this.TxtCodigo.Size = new System.Drawing.Size(100, 26);
