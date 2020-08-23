@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormUsuarios));
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxCodigo = new System.Windows.Forms.TextBox();
             this.dataGridViewUsuarios = new System.Windows.Forms.DataGridView();
@@ -47,6 +48,10 @@
             this.label9 = new System.Windows.Forms.Label();
             this.textBoxTipo = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.BtnGuardar = new System.Windows.Forms.Button();
+            this.BtnLimpiar = new System.Windows.Forms.Button();
+            this.buttonEliminar = new System.Windows.Forms.Button();
+            this.buttonNuevoUsuario = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsuarios)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,7 +81,7 @@
             this.dataGridViewUsuarios.Location = new System.Drawing.Point(317, 12);
             this.dataGridViewUsuarios.Name = "dataGridViewUsuarios";
             this.dataGridViewUsuarios.ReadOnly = true;
-            this.dataGridViewUsuarios.Size = new System.Drawing.Size(741, 495);
+            this.dataGridViewUsuarios.Size = new System.Drawing.Size(741, 433);
             this.dataGridViewUsuarios.TabIndex = 2;
             // 
             // textBoxNombres
@@ -196,7 +201,7 @@
             this.textBoxTipo.Location = new System.Drawing.Point(97, 238);
             this.textBoxTipo.Name = "textBoxTipo";
             this.textBoxTipo.Size = new System.Drawing.Size(200, 20);
-            this.textBoxTipo.TabIndex = 18;
+            this.textBoxTipo.TabIndex = 15;
             // 
             // label7
             // 
@@ -207,12 +212,67 @@
             this.label7.TabIndex = 17;
             this.label7.Text = "Contraseña";
             // 
+            // BtnGuardar
+            // 
+            this.BtnGuardar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.BtnGuardar.FlatAppearance.BorderSize = 0;
+            this.BtnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("BtnGuardar.Image")));
+            this.BtnGuardar.Location = new System.Drawing.Point(252, 290);
+            this.BtnGuardar.Name = "BtnGuardar";
+            this.BtnGuardar.Size = new System.Drawing.Size(45, 45);
+            this.BtnGuardar.TabIndex = 31;
+            this.BtnGuardar.UseVisualStyleBackColor = true;
+            this.BtnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
+            // 
+            // BtnLimpiar
+            // 
+            this.BtnLimpiar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.BtnLimpiar.FlatAppearance.BorderSize = 0;
+            this.BtnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnLimpiar.Image = ((System.Drawing.Image)(resources.GetObject("BtnLimpiar.Image")));
+            this.BtnLimpiar.Location = new System.Drawing.Point(12, 290);
+            this.BtnLimpiar.Name = "BtnLimpiar";
+            this.BtnLimpiar.Size = new System.Drawing.Size(45, 45);
+            this.BtnLimpiar.TabIndex = 32;
+            this.BtnLimpiar.UseVisualStyleBackColor = true;
+            this.BtnLimpiar.Click += new System.EventHandler(this.BtnLimpiar_Click);
+            // 
+            // buttonEliminar
+            // 
+            this.buttonEliminar.FlatAppearance.BorderSize = 0;
+            this.buttonEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonEliminar.Image = ((System.Drawing.Image)(resources.GetObject("buttonEliminar.Image")));
+            this.buttonEliminar.Location = new System.Drawing.Point(1013, 462);
+            this.buttonEliminar.Name = "buttonEliminar";
+            this.buttonEliminar.Size = new System.Drawing.Size(45, 45);
+            this.buttonEliminar.TabIndex = 33;
+            this.buttonEliminar.UseVisualStyleBackColor = true;
+            this.buttonEliminar.Click += new System.EventHandler(this.buttonEliminar_Click);
+            // 
+            // buttonNuevoUsuario
+            // 
+            this.buttonNuevoUsuario.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonNuevoUsuario.FlatAppearance.BorderSize = 0;
+            this.buttonNuevoUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonNuevoUsuario.Image = ((System.Drawing.Image)(resources.GetObject("buttonNuevoUsuario.Image")));
+            this.buttonNuevoUsuario.Location = new System.Drawing.Point(252, -1);
+            this.buttonNuevoUsuario.Name = "buttonNuevoUsuario";
+            this.buttonNuevoUsuario.Size = new System.Drawing.Size(45, 45);
+            this.buttonNuevoUsuario.TabIndex = 34;
+            this.buttonNuevoUsuario.UseVisualStyleBackColor = true;
+            this.buttonNuevoUsuario.Click += new System.EventHandler(this.buttonNuevoUsuario_Click);
+            // 
             // FormUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1070, 519);
+            this.Controls.Add(this.buttonNuevoUsuario);
+            this.Controls.Add(this.buttonEliminar);
+            this.Controls.Add(this.BtnLimpiar);
+            this.Controls.Add(this.BtnGuardar);
             this.Controls.Add(this.textBoxTipo);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBoxEstado);
@@ -261,5 +321,9 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBoxTipo;
         private System.Windows.Forms.Label label7;
+        public System.Windows.Forms.Button BtnGuardar;
+        protected System.Windows.Forms.Button BtnLimpiar;
+        private System.Windows.Forms.Button buttonEliminar;
+        public System.Windows.Forms.Button buttonNuevoUsuario;
     }
 }

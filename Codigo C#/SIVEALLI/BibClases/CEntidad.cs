@@ -112,7 +112,7 @@ namespace BibClases
             aValores = Atributos;
 
             //formar la consulta
-            string CadenaConsulta = "exec spuExiste" + aNombreTabla + " ";
+            string CadenaConsulta = "exec spuExisteClavePrimaria" + aNombreTabla + " ";
             for (int k = 0; k < n; k++)
             {
                 CadenaConsulta += "'" + aValores[k] + "'";
