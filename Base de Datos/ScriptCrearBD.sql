@@ -193,6 +193,7 @@ create table TDevolucionDetalle
 )
 go
 
+set dateformat dmy
 ---------- DATOS PRODUCTO ----------------------
 insert into TProducto values('PR000001','Portaminas Mars','Lapices y portaminas','Portaminas Mars Technico 780 HB con Clip','Staedtler',25.90,'--','ACTIVO')
 insert into TProducto values('PR000002','Lápiz Grafito','Lapices y portaminas','Lápiz Grafito Escolar Fantasía','Artesco',0.90,'--','ACTIVO')

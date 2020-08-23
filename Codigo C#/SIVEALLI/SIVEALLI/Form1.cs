@@ -24,5 +24,11 @@ namespace SIVEALLI
             fu.Show();
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FormProveedores P = new FormProveedores();
+            P.Show();
+        }
     }
 }

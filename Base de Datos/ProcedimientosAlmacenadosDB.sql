@@ -1124,3 +1124,36 @@ begin
 end;
 go
 
+
+------------------- VALIDACION USUARIO -------------------
+create procedure spuExisteClavePrimariaTUsuario @IdUsuario varchar(8)
+as
+begin
+	select * from TUsuario 
+	where IdUsuario = @IdUsuario
+end;
+go
+
+create procedure spuRegistroTUsuario @IdUsuario varchar(8)
+as
+begin
+	select * from TUsuario
+	where IdUsuario = @IdUsuario
+end;
+go
+------------------- VALIDACION PROVEEDOR -------------------
+create procedure spuExisteClavePrimariaTProveedor @IdProveedor varchar(8)
+as
+begin
+	select * from TProveedor
+	where IdProveedor = @IdProveedor
+end;
+go
+
+create procedure spuRegistroTProveedor @IdProveedor varchar(8)
+as
+begin
+	select * from TProveedor
+	where IdProveedor = @IdProveedor
+end;
+go

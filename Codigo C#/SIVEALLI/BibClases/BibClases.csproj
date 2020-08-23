@@ -46,6 +46,7 @@
     <Compile Include="CConexion.cs" />
     <Compile Include="CEntidad.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="CProveedor.cs" />
     <Compile Include="CUsuario.cs" />
     <Compile Include="Procesos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
