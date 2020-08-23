@@ -69,7 +69,7 @@
             this.BtnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnLimpiar.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnLimpiar.Image = ((System.Drawing.Image)(resources.GetObject("BtnLimpiar.Image")));
-            this.BtnLimpiar.Location = new System.Drawing.Point(12, 365);
+            this.BtnLimpiar.Location = new System.Drawing.Point(12, 383);
             this.BtnLimpiar.Name = "BtnLimpiar";
             this.BtnLimpiar.Size = new System.Drawing.Size(45, 45);
             this.BtnLimpiar.TabIndex = 55;
@@ -83,7 +83,7 @@
             this.BtnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnGuardar.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("BtnGuardar.Image")));
-            this.BtnGuardar.Location = new System.Drawing.Point(252, 365);
+            this.BtnGuardar.Location = new System.Drawing.Point(252, 383);
             this.BtnGuardar.Name = "BtnGuardar";
             this.BtnGuardar.Size = new System.Drawing.Size(45, 45);
             this.BtnGuardar.TabIndex = 54;
@@ -94,7 +94,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(12, 334);
+            this.label8.Location = new System.Drawing.Point(12, 353);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(54, 19);
             this.label8.TabIndex = 50;
@@ -103,7 +103,7 @@
             // TxtCorreo
             // 
             this.TxtCorreo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtCorreo.Location = new System.Drawing.Point(97, 304);
+            this.TxtCorreo.Location = new System.Drawing.Point(97, 318);
             this.TxtCorreo.Name = "TxtCorreo";
             this.TxtCorreo.Size = new System.Drawing.Size(200, 26);
             this.TxtCorreo.TabIndex = 47;
@@ -112,7 +112,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(12, 307);
+            this.label6.Location = new System.Drawing.Point(12, 321);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(56, 19);
             this.label6.TabIndex = 46;
@@ -121,7 +121,7 @@
             // TxtTelefono
             // 
             this.TxtTelefono.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtTelefono.Location = new System.Drawing.Point(97, 278);
+            this.TxtTelefono.Location = new System.Drawing.Point(97, 286);
             this.TxtTelefono.Name = "TxtTelefono";
             this.TxtTelefono.Size = new System.Drawing.Size(200, 26);
             this.TxtTelefono.TabIndex = 45;
@@ -130,7 +130,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(12, 281);
+            this.label5.Location = new System.Drawing.Point(13, 289);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(64, 19);
             this.label5.TabIndex = 44;
@@ -139,7 +139,7 @@
             // TxtDireccion
             // 
             this.TxtDireccion.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtDireccion.Location = new System.Drawing.Point(97, 252);
+            this.TxtDireccion.Location = new System.Drawing.Point(97, 255);
             this.TxtDireccion.Name = "TxtDireccion";
             this.TxtDireccion.Size = new System.Drawing.Size(200, 26);
             this.TxtDireccion.TabIndex = 43;
@@ -148,7 +148,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(12, 255);
+            this.label4.Location = new System.Drawing.Point(13, 258);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(70, 19);
             this.label4.TabIndex = 42;
@@ -166,11 +166,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 226);
+            this.label2.Location = new System.Drawing.Point(13, 226);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 19);
+            this.label2.Size = new System.Drawing.Size(63, 19);
             this.label2.TabIndex = 38;
-            this.label2.Text = "Nombres:";
+            this.label2.Text = "Nombre:";
             // 
             // DgvProveedores
             // 
@@ -213,7 +213,7 @@
             "ACTIVO",
             "RETIRADO",
             "OTRO"});
-            this.CboEstado.Location = new System.Drawing.Point(97, 336);
+            this.CboEstado.Location = new System.Drawing.Point(97, 350);
             this.CboEstado.Name = "CboEstado";
             this.CboEstado.Size = new System.Drawing.Size(200, 27);
             this.CboEstado.TabIndex = 57;
