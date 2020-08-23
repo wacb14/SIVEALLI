@@ -1,6 +1,6 @@
 ﻿namespace SIVEALLI
 {
-    partial class Form1
+    partial class FormSupervisor
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.ScVertical = new System.Windows.Forms.SplitContainer();
-            this.button5 = new System.Windows.Forms.Button();
+            this.buttonUsuarios = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonDevoluciones = new System.Windows.Forms.Button();
             this.ScHorizontal = new System.Windows.Forms.SplitContainer();
             ((System.ComponentModel.ISupportInitialize)(this.ScVertical)).BeginInit();
             this.ScVertical.Panel1.SuspendLayout();
@@ -53,11 +53,11 @@
             // ScVertical.Panel1
             // 
             this.ScVertical.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.ScVertical.Panel1.Controls.Add(this.button5);
+            this.ScVertical.Panel1.Controls.Add(this.buttonUsuarios);
             this.ScVertical.Panel1.Controls.Add(this.button4);
             this.ScVertical.Panel1.Controls.Add(this.button3);
             this.ScVertical.Panel1.Controls.Add(this.button2);
-            this.ScVertical.Panel1.Controls.Add(this.button1);
+            this.ScVertical.Panel1.Controls.Add(this.buttonDevoluciones);
             // 
             // ScVertical.Panel2
             // 
@@ -66,15 +66,15 @@
             this.ScVertical.SplitterDistance = 174;
             this.ScVertical.TabIndex = 0;
             // 
-            // button5
+            // buttonUsuarios
             // 
-            this.button5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(12, 70);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(148, 34);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "button5";
-            this.button5.UseVisualStyleBackColor = true;
+            this.buttonUsuarios.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonUsuarios.Location = new System.Drawing.Point(12, 70);
+            this.buttonUsuarios.Name = "buttonUsuarios";
+            this.buttonUsuarios.Size = new System.Drawing.Size(148, 34);
+            this.buttonUsuarios.TabIndex = 4;
+            this.buttonUsuarios.Text = "Usuarios";
+            this.buttonUsuarios.UseVisualStyleBackColor = true;
             // 
             // button4
             // 
@@ -106,15 +106,15 @@
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // buttonDevoluciones
             // 
-            this.button1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(12, 30);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(148, 34);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Devoluciones";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonDevoluciones.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDevoluciones.Location = new System.Drawing.Point(12, 30);
+            this.buttonDevoluciones.Name = "buttonDevoluciones";
+            this.buttonDevoluciones.Size = new System.Drawing.Size(148, 34);
+            this.buttonDevoluciones.TabIndex = 0;
+            this.buttonDevoluciones.Text = "Devoluciones";
+            this.buttonDevoluciones.UseVisualStyleBackColor = true;
             // 
             // ScHorizontal
             // 
@@ -135,14 +135,14 @@
             this.ScHorizontal.SplitterDistance = 119;
             this.ScHorizontal.TabIndex = 0;
             // 
-            // Form1
+            // FormSupervisor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.ScVertical);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "FormSupervisor";
+            this.Text = "Supervisor";
             this.ScVertical.Panel1.ResumeLayout(false);
             this.ScVertical.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ScVertical)).EndInit();
@@ -156,11 +156,11 @@
         #endregion
 
         private System.Windows.Forms.SplitContainer ScVertical;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button buttonUsuarios;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonDevoluciones;
         private System.Windows.Forms.SplitContainer ScHorizontal;
     }
 }
