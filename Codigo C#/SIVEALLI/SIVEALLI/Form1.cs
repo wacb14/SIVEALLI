@@ -15,7 +15,7 @@ namespace SIVEALLI
         public FormSupervisor()
         {
             InitializeComponent();
-            MessageBox.Show(ScHorizontal.Panel2.Width.ToString() + "--" + ScHorizontal.Panel2.Height.ToString());
+            //MessageBox.Show(ScHorizontal.Panel2.Width.ToString() + "--" + ScHorizontal.Panel2.Height.ToString());
         }
         protected void AbrirFormPanel(Form Ventana)
         {
