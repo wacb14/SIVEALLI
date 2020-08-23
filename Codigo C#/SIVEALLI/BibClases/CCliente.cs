@@ -3,11 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace BibClases
 {
-    class CCliente
+    public class CCliente : CEntidad
     {
-        //--Algo sera pz
+        public CCliente() : base("TCliente")
+        {
+        }
+        public override string[] NombresAtributos()
+        {
+            return new string[]
+            {
+                "IdCliente", "Nombres", "Apellidos", "Direccion",
+                "Telefono", "Correo"
+            };
+        }
     }
 }

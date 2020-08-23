@@ -34,8 +34,8 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.buttonDevoluciones = new System.Windows.Forms.Button();
             this.ScHorizontal = new System.Windows.Forms.SplitContainer();
+            this.BtnClientes = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ScVertical)).BeginInit();
             this.ScVertical.Panel1.SuspendLayout();
             this.ScVertical.Panel2.SuspendLayout();
@@ -54,11 +54,11 @@
             // ScVertical.Panel1
             // 
             this.ScVertical.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.ScVertical.Panel1.Controls.Add(this.BtnClientes);
             this.ScVertical.Panel1.Controls.Add(this.buttonUsuarios);
             this.ScVertical.Panel1.Controls.Add(this.button4);
             this.ScVertical.Panel1.Controls.Add(this.button3);
             this.ScVertical.Panel1.Controls.Add(this.button2);
-            this.ScVertical.Panel1.Controls.Add(this.buttonDevoluciones);
             // 
             // ScVertical.Panel2
             // 
@@ -109,16 +109,6 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // buttonDevoluciones
-            // 
-            this.buttonDevoluciones.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDevoluciones.Location = new System.Drawing.Point(12, 30);
-            this.buttonDevoluciones.Name = "buttonDevoluciones";
-            this.buttonDevoluciones.Size = new System.Drawing.Size(148, 34);
-            this.buttonDevoluciones.TabIndex = 0;
-            this.buttonDevoluciones.Text = "Devoluciones";
-            this.buttonDevoluciones.UseVisualStyleBackColor = true;
-            // 
             // ScHorizontal
             // 
             this.ScHorizontal.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -134,9 +124,21 @@
             // ScHorizontal.Panel2
             // 
             this.ScHorizontal.Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.ScHorizontal.Panel2.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ScHorizontal.Size = new System.Drawing.Size(1086, 681);
             this.ScHorizontal.SplitterDistance = 119;
             this.ScHorizontal.TabIndex = 0;
+            // 
+            // BtnClientes
+            // 
+            this.BtnClientes.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnClientes.Location = new System.Drawing.Point(12, 30);
+            this.BtnClientes.Name = "BtnClientes";
+            this.BtnClientes.Size = new System.Drawing.Size(148, 34);
+            this.BtnClientes.TabIndex = 5;
+            this.BtnClientes.Text = "Clientes";
+            this.BtnClientes.UseVisualStyleBackColor = true;
+            this.BtnClientes.Click += new System.EventHandler(this.BtnClientes_Click);
             // 
             // FormSupervisor
             // 
@@ -163,8 +165,8 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button buttonDevoluciones;
         private System.Windows.Forms.SplitContainer ScHorizontal;
+        private System.Windows.Forms.Button BtnClientes;
     }
 }
 

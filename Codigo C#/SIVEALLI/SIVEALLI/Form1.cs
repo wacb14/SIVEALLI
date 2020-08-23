@@ -17,6 +17,17 @@ namespace SIVEALLI
             InitializeComponent();
             MessageBox.Show(ScHorizontal.Panel2.Width.ToString() + "--" + ScHorizontal.Panel2.Height.ToString());
         }
+        protected void AbrirFormPanel(Form Ventana)
+        {
+            Ventana.TopLevel = false;
+            //--Se quitan los bordes
+            Ventana.FormBorderStyle = FormBorderStyle.None;
+            Ventana.Dock = DockStyle.Fill;
+            //--Se agrega el form al panel
+            ScHorizontal.Panel2.Controls.Add(Ventana);
+            ScHorizontal.Panel2.Tag = Ventana;
+            Ventana.Show();//--Se inicia el form
+        }
 
         private void buttonUsuarios_Click(object sender, EventArgs e)
         {
@@ -29,6 +40,13 @@ namespace SIVEALLI
         {
             FormProveedores P = new FormProveedores();
             P.Show();
+        }
+
+        private void BtnClientes_Click(object sender, EventArgs e)
+        {
+            FormClientes Fc = new FormClientes();
+            //Fc.Show();
+            AbrirFormPanel(Fc);
         }
     }
 }

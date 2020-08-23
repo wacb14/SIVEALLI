@@ -10,3 +10,9 @@ C:\Users\Home\Documents\GitHub\SIVEALLI\Codigo C#\SIVEALLI\BibClases\obj\Debug\B
 C:\Users\Home\Documents\GitHub\SIVEALLI\Codigo C#\SIVEALLI\BibClases\obj\Debug\BibClases.csproj.CoreCompileInputs.cache
 C:\Users\Home\Documents\GitHub\SIVEALLI\Codigo C#\SIVEALLI\BibClases\obj\Debug\BibClases.dll
 C:\Users\Home\Documents\GitHub\SIVEALLI\Codigo C#\SIVEALLI\BibClases\obj\Debug\BibClases.pdb
+C:\Users\ASUS\Documents\ProyectoIngSoft\SIVEALLI\Codigo C#\SIVEALLI\BibClases\bin\Debug\BibClases.dll
+C:\Users\ASUS\Documents\ProyectoIngSoft\SIVEALLI\Codigo C#\SIVEALLI\BibClases\bin\Debug\BibClases.pdb
+C:\Users\ASUS\Documents\ProyectoIngSoft\SIVEALLI\Codigo C#\SIVEALLI\BibClases\obj\Debug\BibClases.csprojAssemblyReference.cache
+C:\Users\ASUS\Documents\ProyectoIngSoft\SIVEALLI\Codigo C#\SIVEALLI\BibClases\obj\Debug\BibClases.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\Documents\ProyectoIngSoft\SIVEALLI\Codigo C#\SIVEALLI\BibClases\obj\Debug\BibClases.dll
+C:\Users\ASUS\Documents\ProyectoIngSoft\SIVEALLI\Codigo C#\SIVEALLI\BibClases\obj\Debug\BibClases.pdb
