@@ -57,3 +57,5 @@ C:\Users\ASUS\Documents\ProyectoIngSoft\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj
 C:\Users\ASUS\Documents\ProyectoIngSoft\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj\Debug\SIVEALLI.exe
 C:\Users\ASUS\Documents\ProyectoIngSoft\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj\Debug\SIVEALLI.pdb
 C:\Users\Marcelo\source\repos\SIVEALLI\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj\Debug\SIVEALLI.FormProveedores.resources
+C:\Users\Marcelo\source\repos\SIVEALLI\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj\Debug\SIVEALLI.FormEntrada.resources
+C:\Users\Marcelo\source\repos\SIVEALLI\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj\Debug\SIVEALLI.FormProductos.resources

@@ -262,7 +262,7 @@
             this.buttonNuevoUsuario.FlatAppearance.BorderSize = 0;
             this.buttonNuevoUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonNuevoUsuario.Image = ((System.Drawing.Image)(resources.GetObject("buttonNuevoUsuario.Image")));
-            this.buttonNuevoUsuario.Location = new System.Drawing.Point(250, 21);
+            this.buttonNuevoUsuario.Location = new System.Drawing.Point(250, 23);
             this.buttonNuevoUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.buttonNuevoUsuario.Name = "buttonNuevoUsuario";
             this.buttonNuevoUsuario.Size = new System.Drawing.Size(68, 66);

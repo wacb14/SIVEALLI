@@ -33,7 +33,7 @@ namespace SIVEALLI
         {
             FormUsuarios fu = new FormUsuarios();
             fu.Show();
-
+            //AbrirFormPanel(fu);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -47,6 +47,12 @@ namespace SIVEALLI
             FormClientes Fc = new FormClientes();
             //Fc.Show();
             AbrirFormPanel(Fc);
+        }
+
+        private void buttonEntrada_Click(object sender, EventArgs e)
+        {
+            FormEntrada fe = new FormEntrada();
+            fe.Show();
         }
     }
 }
