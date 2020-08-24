@@ -1,6 +1,6 @@
 /* Create DataBase */
-Create DATABASE DBAlmacen2  -- Creates the Almacenes DataBase
-/*
+Create DATABASE DBAlmacen  -- Creates the Almacenes DataBase
+
 on
   (NAME = DBAlmacen,    -- Primary data file
   FILENAME = 'B:\DBAlmacen.mdf',
@@ -14,10 +14,10 @@ on
   FILEGROWTH = 1MB
   )
 go
-*/
+
 go
 /* Activar Base de datos: DBAlmacen */
-use DBAlmacen2
+use DBAlmacen
 go
 
 CREATE TYPE TIdProducto FROM varchar(8) NOT NULL ;
