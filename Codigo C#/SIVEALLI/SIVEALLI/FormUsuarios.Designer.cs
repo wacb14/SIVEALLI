@@ -42,16 +42,16 @@
             this.label5 = new System.Windows.Forms.Label();
             this.textBoxCorreo = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBoxEstado = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.textBoxContrasegna = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBoxTipo = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.BtnGuardar = new System.Windows.Forms.Button();
             this.BtnLimpiar = new System.Windows.Forms.Button();
             this.buttonEliminar = new System.Windows.Forms.Button();
             this.buttonNuevoUsuario = new System.Windows.Forms.Button();
+            this.comboBoxEstado = new System.Windows.Forms.ComboBox();
+            this.comboBoxTipo = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsuarios)).BeginInit();
             this.SuspendLayout();
             // 
@@ -177,14 +177,6 @@
             this.label6.TabIndex = 11;
             this.label6.Text = "Correo";
             // 
-            // textBoxEstado
-            // 
-            this.textBoxEstado.Location = new System.Drawing.Point(104, 387);
-            this.textBoxEstado.Margin = new System.Windows.Forms.Padding(4);
-            this.textBoxEstado.Name = "textBoxEstado";
-            this.textBoxEstado.Size = new System.Drawing.Size(214, 26);
-            this.textBoxEstado.TabIndex = 16;
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -212,14 +204,6 @@
             this.label9.Size = new System.Drawing.Size(36, 19);
             this.label9.TabIndex = 13;
             this.label9.Text = "Tipo";
-            // 
-            // textBoxTipo
-            // 
-            this.textBoxTipo.Location = new System.Drawing.Point(104, 349);
-            this.textBoxTipo.Margin = new System.Windows.Forms.Padding(4);
-            this.textBoxTipo.Name = "textBoxTipo";
-            this.textBoxTipo.Size = new System.Drawing.Size(214, 26);
-            this.textBoxTipo.TabIndex = 15;
             // 
             // label7
             // 
@@ -286,19 +270,42 @@
             this.buttonNuevoUsuario.UseVisualStyleBackColor = true;
             this.buttonNuevoUsuario.Click += new System.EventHandler(this.buttonNuevoUsuario_Click);
             // 
+            // comboBoxEstado
+            // 
+            this.comboBoxEstado.FormattingEnabled = true;
+            this.comboBoxEstado.Items.AddRange(new object[] {
+            "ACTIVO",
+            "RETIRADO",
+            "OTRO"});
+            this.comboBoxEstado.Location = new System.Drawing.Point(104, 387);
+            this.comboBoxEstado.Name = "comboBoxEstado";
+            this.comboBoxEstado.Size = new System.Drawing.Size(214, 27);
+            this.comboBoxEstado.TabIndex = 35;
+            // 
+            // comboBoxTipo
+            // 
+            this.comboBoxTipo.FormattingEnabled = true;
+            this.comboBoxTipo.Items.AddRange(new object[] {
+            "SUPERVISOR",
+            "EMPLEADO"});
+            this.comboBoxTipo.Location = new System.Drawing.Point(104, 349);
+            this.comboBoxTipo.Name = "comboBoxTipo";
+            this.comboBoxTipo.Size = new System.Drawing.Size(214, 27);
+            this.comboBoxTipo.TabIndex = 36;
+            // 
             // FormUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1070, 519);
+            this.Controls.Add(this.comboBoxTipo);
+            this.Controls.Add(this.comboBoxEstado);
             this.Controls.Add(this.buttonNuevoUsuario);
             this.Controls.Add(this.buttonEliminar);
             this.Controls.Add(this.BtnLimpiar);
             this.Controls.Add(this.BtnGuardar);
-            this.Controls.Add(this.textBoxTipo);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBoxEstado);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.textBoxContrasegna);
             this.Controls.Add(this.label9);
@@ -340,15 +347,15 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBoxCorreo;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBoxEstado;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBoxContrasegna;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBoxTipo;
         private System.Windows.Forms.Label label7;
         public System.Windows.Forms.Button BtnGuardar;
         protected System.Windows.Forms.Button BtnLimpiar;
         private System.Windows.Forms.Button buttonEliminar;
         public System.Windows.Forms.Button buttonNuevoUsuario;
+        private System.Windows.Forms.ComboBox comboBoxEstado;
+        private System.Windows.Forms.ComboBox comboBoxTipo;
     }
 }

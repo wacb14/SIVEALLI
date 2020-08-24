@@ -8,7 +8,7 @@ using System.Windows.Forms;
 namespace BibClases
 {
 
-    class Procesos
+    public class Procesos
     {
 
         /// <summary>
