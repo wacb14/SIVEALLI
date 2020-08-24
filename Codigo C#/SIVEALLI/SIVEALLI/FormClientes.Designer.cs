@@ -346,7 +346,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.GbCliente);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormClientes";
             this.Text = "Clientes";
             ((System.ComponentModel.ISupportInitialize)(this.DgvClientes)).EndInit();
