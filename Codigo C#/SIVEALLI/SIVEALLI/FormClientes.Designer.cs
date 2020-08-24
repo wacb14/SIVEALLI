@@ -147,6 +147,8 @@
             // 
             this.DgvClientes.AllowUserToAddRows = false;
             this.DgvClientes.AllowUserToDeleteRows = false;
+            this.DgvClientes.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.DgvClientes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvClientes.Location = new System.Drawing.Point(6, 25);
             this.DgvClientes.Name = "DgvClientes";
@@ -343,12 +345,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1070, 519);
             this.Controls.Add(this.GbClientes);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.GbCliente);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormClientes";
             this.Text = "Clientes";
             ((System.ComponentModel.ISupportInitialize)(this.DgvClientes)).EndInit();
