@@ -27,6 +27,17 @@ namespace SIVEALLI
         {
             this.Load += new EventHandler(CargarDatos);
             textBoxCodigo.Leave += new EventHandler(AbandonarTextBoxCodigo);
+            textBoxCodigo.TextChanged += new EventHandler(CambioCodigo);
+
+            //Validaciones
+            textBoxNombres.KeyPress += new KeyPressEventHandler(Procesos.ValidarTextBoxSoloLetras);
+            textBoxApellidos.KeyPress += new KeyPressEventHandler(Procesos.ValidarTextBoxSoloLetras);
+            textBoxTelefono.KeyPress += new KeyPressEventHandler(Procesos.ValidarTextBoxSoloNumeros);
+        }
+
+        private void CambioCodigo(object sender, EventArgs e)
+        {
+            InicializarAtributosNoClave();
         }
 
         private void AbandonarTextBoxCodigo(object sender, EventArgs e)
@@ -57,7 +68,7 @@ namespace SIVEALLI
                 textBoxNombres.Text, textBoxApellidos.Text,
                 textBoxDireccion.Text, textBoxTelefono.Text,
                 textBoxCorreo.Text, textBoxContrasegna.Text, 
-                textBoxTipo.Text, textBoxEstado.Text};
+                comboBoxTipo.Text, comboBoxEstado.Text};
         }
         public override void MostrarDatos()
         {
@@ -68,8 +79,8 @@ namespace SIVEALLI
             textBoxTelefono.Text = aEntidad.ValorAtributo("Telefono");
             textBoxCorreo.Text = aEntidad.ValorAtributo("Correo");
             textBoxContrasegna.Text = aEntidad.ValorAtributo("Contraseña");
-            textBoxTipo.Text = aEntidad.ValorAtributo("Tipo");
-            textBoxEstado.Text = aEntidad.ValorAtributo("Estado");
+            comboBoxTipo.Text = aEntidad.ValorAtributo("Tipo");
+            comboBoxEstado.Text = aEntidad.ValorAtributo("Estado");
         }
         public override void InicializarAtributoClave()
         {
@@ -84,8 +95,8 @@ namespace SIVEALLI
             textBoxTelefono.Text = "";
             textBoxCorreo.Text = "";
             textBoxContrasegna.Text = "";
-            textBoxTipo.Text = "";
-            textBoxEstado.Text = "";
+            comboBoxEstado.Text = "";
+            comboBoxTipo.Text = "";
         }
         public override void ListarRegistros()
         {
@@ -96,7 +107,7 @@ namespace SIVEALLI
             if (textBoxCodigo.Text.Trim() != "" && 
                 textBoxApellidos.Text.Trim() != "" &&
                 textBoxNombres.Text.Trim() != "" &&
-                textBoxTipo.Text.Trim() != "" &&
+                comboBoxTipo.Text.Trim() != "" &&
                 textBoxContrasegna.Text.Trim() != "")
                 return true;
             else
@@ -198,6 +209,8 @@ namespace SIVEALLI
 
         private void buttonNuevoUsuario_Click(object sender, EventArgs e)
         {
+
+            InicializarAtributosNoClave();
             int cant = aEntidad.NumeroRegistros();
             string cantCeros = "";
             if (cant < 10)
@@ -208,6 +221,7 @@ namespace SIVEALLI
             textBoxCodigo.Text = "US"+cantCeros+(cant+1);
 
             textBoxNombres.Focus();
+
         }
     }
 }
