@@ -56,6 +56,9 @@ create table TProducto(
   PrecioUnitario float NOT NULL,
   Imagen		varchar(40) NOT NULL,
   Estado          varchar(10) check (Estado in ('ACTIVO','RETIRADO','OTRO')),
+  Cantidad 		int,
+  Maximo		int,
+  Minimo		int,
   PRIMARY KEY (IdProducto)
  )
  go
