@@ -41,8 +41,8 @@
             this.buttonNuevaEntrada = new System.Windows.Forms.Button();
             this.groupBoxDatosEntrada = new System.Windows.Forms.GroupBox();
             this.groupBoxEntradaProducto = new System.Windows.Forms.GroupBox();
-            this.dataGridViewDetalleEntrada = new System.Windows.Forms.DataGridView();
             this.comboBoxCodigoProducto = new System.Windows.Forms.ComboBox();
+            this.dataGridViewDetalleEntrada = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCantidad)).BeginInit();
             this.groupBoxDatosEntrada.SuspendLayout();
             this.groupBoxEntradaProducto.SuspendLayout();
@@ -65,7 +65,7 @@
             this.textBoxCodigoEntrada.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxCodigoEntrada.Name = "textBoxCodigoEntrada";
             this.textBoxCodigoEntrada.Size = new System.Drawing.Size(188, 26);
-            this.textBoxCodigoEntrada.TabIndex = 1;
+            this.textBoxCodigoEntrada.TabIndex = 2;
             // 
             // label2
             // 
@@ -90,7 +90,7 @@
             this.comboBoxCodigoProveedor.Location = new System.Drawing.Point(152, 75);
             this.comboBoxCodigoProveedor.Name = "comboBoxCodigoProveedor";
             this.comboBoxCodigoProveedor.Size = new System.Drawing.Size(188, 27);
-            this.comboBoxCodigoProveedor.TabIndex = 7;
+            this.comboBoxCodigoProveedor.TabIndex = 3;
             // 
             // label4
             // 
@@ -115,9 +115,19 @@
             // numericUpDownCantidad
             // 
             this.numericUpDownCantidad.Location = new System.Drawing.Point(442, 42);
+            this.numericUpDownCantidad.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numericUpDownCantidad.Name = "numericUpDownCantidad";
             this.numericUpDownCantidad.Size = new System.Drawing.Size(72, 26);
-            this.numericUpDownCantidad.TabIndex = 11;
+            this.numericUpDownCantidad.TabIndex = 5;
+            this.numericUpDownCantidad.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // buttonAniadir
             // 
@@ -129,7 +139,7 @@
             this.buttonAniadir.Margin = new System.Windows.Forms.Padding(4);
             this.buttonAniadir.Name = "buttonAniadir";
             this.buttonAniadir.Size = new System.Drawing.Size(68, 66);
-            this.buttonAniadir.TabIndex = 33;
+            this.buttonAniadir.TabIndex = 6;
             this.buttonAniadir.UseVisualStyleBackColor = true;
             // 
             // buttonNuevaEntrada
@@ -142,7 +152,7 @@
             this.buttonNuevaEntrada.Margin = new System.Windows.Forms.Padding(4);
             this.buttonNuevaEntrada.Name = "buttonNuevaEntrada";
             this.buttonNuevaEntrada.Size = new System.Drawing.Size(68, 66);
-            this.buttonNuevaEntrada.TabIndex = 34;
+            this.buttonNuevaEntrada.TabIndex = 1;
             this.buttonNuevaEntrada.UseVisualStyleBackColor = true;
             // 
             // groupBoxDatosEntrada
@@ -173,6 +183,14 @@
             this.groupBoxEntradaProducto.TabStop = false;
             this.groupBoxEntradaProducto.Text = "Datos de producto";
             // 
+            // comboBoxCodigoProducto
+            // 
+            this.comboBoxCodigoProducto.FormattingEnabled = true;
+            this.comboBoxCodigoProducto.Location = new System.Drawing.Point(139, 42);
+            this.comboBoxCodigoProducto.Name = "comboBoxCodigoProducto";
+            this.comboBoxCodigoProducto.Size = new System.Drawing.Size(188, 27);
+            this.comboBoxCodigoProducto.TabIndex = 4;
+            // 
             // dataGridViewDetalleEntrada
             // 
             this.dataGridViewDetalleEntrada.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -182,14 +200,6 @@
             this.dataGridViewDetalleEntrada.Name = "dataGridViewDetalleEntrada";
             this.dataGridViewDetalleEntrada.Size = new System.Drawing.Size(1046, 357);
             this.dataGridViewDetalleEntrada.TabIndex = 37;
-            // 
-            // comboBoxCodigoProducto
-            // 
-            this.comboBoxCodigoProducto.FormattingEnabled = true;
-            this.comboBoxCodigoProducto.Location = new System.Drawing.Point(139, 42);
-            this.comboBoxCodigoProducto.Name = "comboBoxCodigoProducto";
-            this.comboBoxCodigoProducto.Size = new System.Drawing.Size(188, 27);
-            this.comboBoxCodigoProducto.TabIndex = 35;
             // 
             // FormEntrada
             // 
@@ -204,7 +214,7 @@
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormEntrada";
-            this.Text = "FormEntrada";
+            this.Text = "Entrada";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCantidad)).EndInit();
             this.groupBoxDatosEntrada.ResumeLayout(false);
             this.groupBoxDatosEntrada.PerformLayout();

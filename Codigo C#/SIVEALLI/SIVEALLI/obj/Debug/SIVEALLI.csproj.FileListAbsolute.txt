@@ -62,3 +62,4 @@ C:\Users\Marcelo\source\repos\SIVEALLI\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj\
 C:\Users\ASUS\Documents\ProyectoIngSoft\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj\Debug\SIVEALLI.FormEntrada.resources
 C:\Users\ASUS\Documents\ProyectoIngSoft\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj\Debug\SIVEALLI.FormProductos.resources
 C:\Users\ASUS\Documents\ProyectoIngSoft\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj\Debug\SIVEALLI.FormPedidos.resources
+C:\Users\Marcelo\source\repos\SIVEALLI\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj\Debug\SIVEALLI.FormPedidos.resources
