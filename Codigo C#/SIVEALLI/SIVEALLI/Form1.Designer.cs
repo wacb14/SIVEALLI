@@ -30,13 +30,13 @@
         private void InitializeComponent()
         {
             this.ScVertical = new System.Windows.Forms.SplitContainer();
+            this.BtnPedidos = new System.Windows.Forms.Button();
             this.BtnClientes = new System.Windows.Forms.Button();
             this.buttonUsuarios = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.BtnProductos = new System.Windows.Forms.Button();
             this.buttonEntrada = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.ScHorizontal = new System.Windows.Forms.SplitContainer();
-            this.BtnPedidos = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ScVertical)).BeginInit();
             this.ScVertical.Panel1.SuspendLayout();
             this.ScVertical.Panel2.SuspendLayout();
@@ -58,7 +58,7 @@
             this.ScVertical.Panel1.Controls.Add(this.BtnPedidos);
             this.ScVertical.Panel1.Controls.Add(this.BtnClientes);
             this.ScVertical.Panel1.Controls.Add(this.buttonUsuarios);
-            this.ScVertical.Panel1.Controls.Add(this.button4);
+            this.ScVertical.Panel1.Controls.Add(this.BtnProductos);
             this.ScVertical.Panel1.Controls.Add(this.buttonEntrada);
             this.ScVertical.Panel1.Controls.Add(this.button2);
             // 
@@ -68,6 +68,17 @@
             this.ScVertical.Size = new System.Drawing.Size(1264, 681);
             this.ScVertical.SplitterDistance = 174;
             this.ScVertical.TabIndex = 0;
+            // 
+            // BtnPedidos
+            // 
+            this.BtnPedidos.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnPedidos.Location = new System.Drawing.Point(12, 190);
+            this.BtnPedidos.Name = "BtnPedidos";
+            this.BtnPedidos.Size = new System.Drawing.Size(148, 34);
+            this.BtnPedidos.TabIndex = 6;
+            this.BtnPedidos.Text = "Pedidos";
+            this.BtnPedidos.UseVisualStyleBackColor = true;
+            this.BtnPedidos.Click += new System.EventHandler(this.BtnPedidos_Click);
             // 
             // BtnClientes
             // 
@@ -91,15 +102,16 @@
             this.buttonUsuarios.UseVisualStyleBackColor = true;
             this.buttonUsuarios.Click += new System.EventHandler(this.buttonUsuarios_Click);
             // 
-            // button4
+            // BtnProductos
             // 
-            this.button4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(12, 110);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(148, 34);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
+            this.BtnProductos.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnProductos.Location = new System.Drawing.Point(12, 110);
+            this.BtnProductos.Name = "BtnProductos";
+            this.BtnProductos.Size = new System.Drawing.Size(148, 34);
+            this.BtnProductos.TabIndex = 3;
+            this.BtnProductos.Text = "Productos";
+            this.BtnProductos.UseVisualStyleBackColor = true;
+            this.BtnProductos.Click += new System.EventHandler(this.BtnProductos_Click);
             // 
             // buttonEntrada
             // 
@@ -143,17 +155,6 @@
             this.ScHorizontal.SplitterDistance = 119;
             this.ScHorizontal.TabIndex = 0;
             // 
-            // BtnPedidos
-            // 
-            this.BtnPedidos.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnPedidos.Location = new System.Drawing.Point(12, 190);
-            this.BtnPedidos.Name = "BtnPedidos";
-            this.BtnPedidos.Size = new System.Drawing.Size(148, 34);
-            this.BtnPedidos.TabIndex = 6;
-            this.BtnPedidos.Text = "Pedidos";
-            this.BtnPedidos.UseVisualStyleBackColor = true;
-            this.BtnPedidos.Click += new System.EventHandler(this.BtnPedidos_Click);
-            // 
             // FormSupervisor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -161,6 +162,7 @@
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.ScVertical);
             this.Name = "FormSupervisor";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Supervisor";
             this.ScVertical.Panel1.ResumeLayout(false);
             this.ScVertical.Panel2.ResumeLayout(false);
@@ -176,7 +178,7 @@
 
         private System.Windows.Forms.SplitContainer ScVertical;
         private System.Windows.Forms.Button buttonUsuarios;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button BtnProductos;
         private System.Windows.Forms.Button buttonEntrada;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.SplitContainer ScHorizontal;

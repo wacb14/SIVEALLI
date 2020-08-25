@@ -19,6 +19,7 @@ namespace SIVEALLI
         }
         protected void AbrirFormPanel(Form Ventana)
         {
+            ScHorizontal.Panel2.Controls.Clear();
             Ventana.TopLevel = false;
             //--Se quitan los bordes
             Ventana.FormBorderStyle = FormBorderStyle.None;
@@ -59,6 +60,13 @@ namespace SIVEALLI
         {
             FormPedidos fp = new FormPedidos("--");
             fp.Show();
+        }
+
+        private void BtnProductos_Click(object sender, EventArgs e)
+        {
+            FormProductos Fp = new FormProductos();
+            //Fc.Show();
+            AbrirFormPanel(Fp);
         }
     }
 }
