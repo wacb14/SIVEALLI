@@ -54,5 +54,11 @@ namespace SIVEALLI
             FormEntrada fe = new FormEntrada();
             fe.Show();
         }
+
+        private void BtnPedidos_Click(object sender, EventArgs e)
+        {
+            FormPedidos fp = new FormPedidos("--");
+            fp.Show();
+        }
     }
 }
