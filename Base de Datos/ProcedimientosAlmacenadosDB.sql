@@ -1,6 +1,6 @@
----------------------------------------------TProducto----------------------------------------------------------------- 
+-------------------------------------------------------------------------------------------------------------- TProducto
 -------------------------------------------------------------------------------------------------------------- 
------------------------------------------Insertar-------------------------------------------------------------
+------------------------------------------------------------------------------------------------------Insertar
 if exists (select * from sysobjects where name='spu_TProducto_Insertar') 
 	drop procedure spu_TProducto_Insertar
 go
@@ -13,12 +13,15 @@ create procedure spu_TProducto_Insertar
 	@Marca varchar(20),
 	@PrecioUnitario float,
 	@Imagen varchar(40),
-	@Estado varchar(10)
+	@Estado varchar(10),
+	@Cantidad int,
+	@Maximo int,
+	@Minimo int
 as
 begin  --verificacion de clave primaria
 	if not exists (select * from TProducto where IdProducto = @IdProducto)
 	begin
-		insert into TProducto values (@IdProducto, @Nombre, @Categoria, @Descripcion, @Marca, @PrecioUnitario, @Imagen, @Estado)
+		insert into TProducto values (@IdProducto, @Nombre, @Categoria, @Descripcion, @Marca, @PrecioUnitario, @Imagen, @Estado, @Cantidad, @Maximo, @Minimo)
 		select codError = 0, mensaje = 'TProducto insertado correctamente'
 	end;
 	else
@@ -38,13 +41,16 @@ create procedure spu_TProducto_Modificar
 	@Marca varchar(20),
 	@PrecioUnitario float,
 	@Imagen varchar(40),
-	@Estado varchar(10)
+	@Estado varchar(10),
+	@Cantidad int,
+	@Maximo int,
+	@Minimo int
 as
 begin  --verificacion de clave primaria
 	if exists (select * from TProducto where IdProducto = @IdProducto)
 	begin
 		update TProducto
-		set IdProducto = @IdProducto, Nombre = @Nombre, Categoria = @Categoria, Descripcion = @Descripcion, Marca = @Marca, PrecioUnitario = @PrecioUnitario, Imagen = @Imagen, Estado = @Estado
+		set IdProducto = @IdProducto, Nombre = @Nombre, Categoria = @Categoria, Descripcion = @Descripcion, Marca = @Marca, PrecioUnitario = @PrecioUnitario, Imagen = @Imagen, Estado = @Estado, Cantidad = @Cantidad, Maximo = @Maximo, Minimo = @Minimo
 		where IdProducto = @IdProducto
 		select codError = 0, mensaje = 'TProducto actualizado correctamente'
 	end;
@@ -1124,36 +1130,3 @@ begin
 end;
 go
 
-
-------------------- VALIDACION USUARIO -------------------
-create procedure spuExisteClavePrimariaTUsuario @IdUsuario varchar(8)
-as
-begin
-	select * from TUsuario 
-	where IdUsuario = @IdUsuario
-end;
-go
-
-create procedure spuRegistroTUsuario @IdUsuario varchar(8)
-as
-begin
-	select * from TUsuario
-	where IdUsuario = @IdUsuario
-end;
-go
-------------------- VALIDACION PROVEEDOR -------------------
-create procedure spuExisteClavePrimariaTProveedor @IdProveedor varchar(8)
-as
-begin
-	select * from TProveedor
-	where IdProveedor = @IdProveedor
-end;
-go
-
-create procedure spuRegistroTProveedor @IdProveedor varchar(8)
-as
-begin
-	select * from TProveedor
-	where IdProveedor = @IdProveedor
-end;
-go
