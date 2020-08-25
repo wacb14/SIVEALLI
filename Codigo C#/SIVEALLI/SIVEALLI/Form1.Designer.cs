@@ -36,6 +36,7 @@
             this.buttonEntrada = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.ScHorizontal = new System.Windows.Forms.SplitContainer();
+            this.BtnPedidos = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ScVertical)).BeginInit();
             this.ScVertical.Panel1.SuspendLayout();
             this.ScVertical.Panel2.SuspendLayout();
@@ -54,6 +55,7 @@
             // ScVertical.Panel1
             // 
             this.ScVertical.Panel1.BackColor = System.Drawing.Color.White;
+            this.ScVertical.Panel1.Controls.Add(this.BtnPedidos);
             this.ScVertical.Panel1.Controls.Add(this.BtnClientes);
             this.ScVertical.Panel1.Controls.Add(this.buttonUsuarios);
             this.ScVertical.Panel1.Controls.Add(this.button4);
@@ -141,6 +143,17 @@
             this.ScHorizontal.SplitterDistance = 119;
             this.ScHorizontal.TabIndex = 0;
             // 
+            // BtnPedidos
+            // 
+            this.BtnPedidos.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnPedidos.Location = new System.Drawing.Point(12, 190);
+            this.BtnPedidos.Name = "BtnPedidos";
+            this.BtnPedidos.Size = new System.Drawing.Size(148, 34);
+            this.BtnPedidos.TabIndex = 6;
+            this.BtnPedidos.Text = "Pedidos";
+            this.BtnPedidos.UseVisualStyleBackColor = true;
+            this.BtnPedidos.Click += new System.EventHandler(this.BtnPedidos_Click);
+            // 
             // FormSupervisor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -168,6 +181,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.SplitContainer ScHorizontal;
         private System.Windows.Forms.Button BtnClientes;
+        private System.Windows.Forms.Button BtnPedidos;
     }
 }
 

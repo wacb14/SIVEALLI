@@ -30,8 +30,6 @@
         {
             this.CbBuscar = new System.Windows.Forms.ComboBox();
             this.LbNroClientes = new System.Windows.Forms.Label();
-            this.BtnModificar = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.BtnGuardar = new System.Windows.Forms.Button();
             this.TbCorreo = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -82,25 +80,6 @@
             this.LbNroClientes.Size = new System.Drawing.Size(141, 19);
             this.LbNroClientes.TabIndex = 17;
             this.LbNroClientes.Text = "Numero de clientes: 0";
-            // 
-            // BtnModificar
-            // 
-            this.BtnModificar.Location = new System.Drawing.Point(243, 379);
-            this.BtnModificar.Name = "BtnModificar";
-            this.BtnModificar.Size = new System.Drawing.Size(92, 37);
-            this.BtnModificar.TabIndex = 14;
-            this.BtnModificar.Text = "Modificar?";
-            this.BtnModificar.UseVisualStyleBackColor = true;
-            this.BtnModificar.Click += new System.EventHandler(this.BtnModificar_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(243, 422);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(92, 37);
-            this.button2.TabIndex = 13;
-            this.button2.Text = "Eliminar?";
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // BtnGuardar
             // 
@@ -308,8 +287,6 @@
             // 
             // GbCliente
             // 
-            this.GbCliente.Controls.Add(this.BtnModificar);
-            this.GbCliente.Controls.Add(this.button2);
             this.GbCliente.Controls.Add(this.BtnGuardar);
             this.GbCliente.Controls.Add(this.TbCorreo);
             this.GbCliente.Controls.Add(this.label6);
@@ -369,8 +346,6 @@
 
         private System.Windows.Forms.ComboBox CbBuscar;
         private System.Windows.Forms.Label LbNroClientes;
-        private System.Windows.Forms.Button BtnModificar;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button BtnGuardar;
         private System.Windows.Forms.TextBox TbCorreo;
         private System.Windows.Forms.Label label6;
