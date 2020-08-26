@@ -1,5 +1,5 @@
 
-alter procedure spuListarCatalogoProductos
+create procedure spuListarCatalogoProductos
 as
 begin
 	select Tp.IdProducto,TP.Nombre,TP.Categoria,TP.Marca,TP.PrecioUnitario as Precio 
@@ -8,4 +8,23 @@ begin
 end;
 go
 
-spuListarCatalogoProductos
+create procedure spuCantidadMax @IdProducto varchar(8)
+as
+begin
+	select TP.Maximo
+	from TProducto TP
+	where TP.IdProducto=@IdProducto
+end;
+go
+
+create procedure spuListaProveedores 
+as 
+begin
+	select P.IdProveedor,P.Nombre
+	from TProveedor P
+end;
+go
+
+--spuListaProveedores
+--spuCantidadMax 'PR000001'
+--spuListarCatalogoProductos

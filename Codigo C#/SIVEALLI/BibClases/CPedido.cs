@@ -28,5 +28,12 @@ namespace BibClases
             aConexion.EjecutarSelect(CadenaConsulta);
             return aConexion.Datos.Tables[0];
         }
+        //------------------------------------------------------------------------------------------
+        public DataTable ListaProveedores()
+        {   //--Retornar un tabla con la lista completa de  libros
+            string CadenaConsulta = "spuListaProveedores";
+            aConexion.EjecutarSelect(CadenaConsulta);
+            return aConexion.Datos.Tables[0];
+        }
     }
 }
