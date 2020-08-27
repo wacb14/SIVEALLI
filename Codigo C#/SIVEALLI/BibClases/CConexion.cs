@@ -59,5 +59,28 @@ namespace BibClases
             oComando.ExecuteNonQuery();
             aConexion.Close();
         }
+        public virtual void InsertarImagen(string IdProducto, byte[] Imagen)
+        {   //--Metodo para ingresar una imagen a una base de datos
+            string pComando = "update TProducto set Imagen=@Imagen where IdProducto = @IdProducto; ";
+            SqlCommand oComando = new SqlCommand(pComando, aConexion);
+            oComando.Parameters.Add(new SqlParameter("@Imagen", Imagen));
+            oComando.Parameters.Add(new SqlParameter("@IdProducto", IdProducto));
+            aConexion.Open();
+            oComando.ExecuteNonQuery();
+            aConexion.Close();
+        }
+        public virtual byte[] RecuperarImagen(string IdProducto)
+        {
+            //--Metodo para ingresar una imagen a una base de datos
+            string pComando = "select Imagen from TProducto where IdProducto = @IdProducto; ";
+            SqlCommand oComando = new SqlCommand(pComando, aConexion);
+            oComando.Parameters.Add(new SqlParameter("@IdProducto", IdProducto));
+            aConexion.Open();
+            SqlDataReader Lector = oComando.ExecuteReader();
+            Lector.Read();
+            byte[] Imagen = (byte[])(Lector.GetValue(0));
+            aConexion.Close();
+            return Imagen;
+        }
     }
 }

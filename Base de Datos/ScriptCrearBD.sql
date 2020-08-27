@@ -54,8 +54,8 @@ create table TProducto(
   Descripcion	varchar(500) NOT NULL,
   Marca			varchar(20) NOT NULL,
   PrecioUnitario float NOT NULL,
-  Imagen		varchar(40) NOT NULL,
-  Estado          varchar(10) check (Estado in ('ACTIVO','RETIRADO','OTRO')),
+  Imagen		varbinary(MAX),
+  Estado        varchar(10) check (Estado in ('ACTIVO','RETIRADO','OTRO')),
   Cantidad 		int,
   Maximo		int,
   Minimo		int,
@@ -198,11 +198,12 @@ go
 
 set dateformat dmy
 ---------- DATOS PRODUCTO ----------------------
-insert into TProducto values('PR000001','Portaminas Mars','Lapices y portaminas','Portaminas Mars Technico 780 HB con Clip','Staedtler',25.90,'--','ACTIVO', 0, 100, 10)
-insert into TProducto values('PR000002','Lápiz Grafito','Lapices y portaminas','Lápiz Grafito Escolar Fantasía','Artesco',0.90,'--','ACTIVO', 0, 100, 10)
-insert into TProducto values('PR000003','Diccionario Inglés - Español','Libros','Diccionario Tapa Dura Bilingüe Inglés - Español Plus','Norma',11.90,'--','ACTIVO', 0, 100, 10)
-insert into TProducto values('PR000004','Papel Bulky A4','Papel y sobres','Papel Bulky A4 x 500 Hojas','Gallo',12.40,'--','ACTIVO', 0, 100, 10)
-insert into TProducto values('PR000005','Papel Bond Premium A4','Papel y sobres','Papel Bond Premium A4 80 g Paquete x 500 Hojas','Stanford',10.90,'--','ACTIVO', 0, 100, 10)
+insert into TProducto values('PR000001','Portaminas Mars','Lapices y portaminas','Portaminas Mars Technico 780 HB con Clip','Staedtler',25.90,NULL,'ACTIVO', 0, 100, 10)
+insert into TProducto values('PR000002','Lápiz Grafito','Lapices y portaminas','Lápiz Grafito Escolar Fantasía','Artesco',0.90,NULL,'ACTIVO', 0, 100, 10)
+insert into TProducto values('PR000003','Diccionario Inglés - Español','Libros','Diccionario Tapa Dura Bilingüe Inglés - Español Plus','Norma',11.90,NULL,'ACTIVO', 0, 100, 10)
+insert into TProducto values('PR000004','Papel Bulky A4','Papel y sobres','Papel Bulky A4 x 500 Hojas','Gallo',12.40,NULL,'ACTIVO', 0, 100, 10)
+insert into TProducto values('PR000005','Papel Bond Premium A4','Papel y sobres','Papel Bond Premium A4 80 g Paquete x 500 Hojas','Stanford',10.90,NULL,'ACTIVO', 0, 100, 10)
+
 --------- DATOS PROVEEDOR ----------------------
  insert into TProveedor values('PR001','Organizacion Book SAC','Calle Santa Rosa 456','963157845','distribudirasBook@gmail.com','ACTIVO')
  insert into TProveedor values('PR002','Genesis Group SA','Jiron San Pedro 1225','930654879','genesisg@gmail.com','ACTIVO')
