@@ -63,7 +63,7 @@ namespace BibClases
             aNuevo = false;
         }
         //----------------------------Actualizacion de registros------------
-        public void Actualizar(params string[] Atributos)
+        public virtual void Actualizar(params string[] Atributos)
         {   //--Permite actuzalizar la informacion de un registro de la tabla
             //--Recuperar los nombres y valores de los atributos de la tabla
             aValores = Atributos;
