@@ -16,9 +16,14 @@ namespace SIVEALLI
         //----------ATRIBUTOS--------------------
         CPedido Pedido = new CPedido();
         bool Añadiendo = true;
-        public FormPedidos(string IdUsuario)
+        //--datos de entrada
+        DateTime aFecha;
+        string aIdUsuario;
+        public FormPedidos(string IdUsuario,DateTime Fecha)
         {
             InitializeComponent();
+            aIdUsuario = IdUsuario;
+            aFecha = Fecha;
             CargarCatalogoProductos();
             CargarCbProveedores();
         }
@@ -52,7 +57,43 @@ namespace SIVEALLI
         }
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
-
+            if(TbId.Text.Trim()!="" && CbProv.Text.Trim()!="" && TbTermPedido.Text.Trim() != "")
+            {//--Se valida que el pedido no exceda la cantidad maxima de los productos
+                if (ValidarCantidadMaxima())
+                {/*/--Primero se agrega el elmento a la tabla TPedido
+                    if (Pedido.ExisteClavePrimaria(new string[] { TbId.Text }))//?
+                        Pedido.Actualizar(new string[] { TbId.Text, CbProv.Text, aIdUsuario, });
+                            l
+                    //--Luego se guarda pedido detalle
+                    for (int k = 0; k < DgvPedidosDetalle.Rows.Count; k++)
+                    {
+                        string id = DgvCatalogoProductos.Rows[k].Cells[0].Value.ToString();
+                        string Cant = DgvCatalogoProductos.Rows[k].Cells[3].Value.ToString();
+                        string prec = DgvCatalogoProductos.Rows[k].Cells[2].Value.ToString();
+                        if (Pedido.ExisteClavePrimaria(new string[] { TbId.Text }))//?
+                            Pedido.Actualizar(new string[] { TbId.Text, id, Cant,prec });
+                        else
+                            Pedido.Insertar(new string[] { TbId.Text, id, Cant, prec });
+                        MessageBox.Show("Los datos se guardaron exitosamente", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }*/
+                }
+            }
+            else MessageBox.Show("Todos los campos deben tener algun valor", "CUIDADO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+        public bool ValidarCantidadMaxima()
+        {
+            bool Guardar = true;
+            for (int k = 0; k < DgvPedidosDetalle.Rows.Count; k++)
+            {
+                string idPro = DgvPedidosDetalle.Rows[k].Cells[0].Value.ToString();
+                DataTable Datos = Pedido.CantidadMaxProducto(idPro);
+                if (int.Parse(Datos.Rows[0][0].ToString()) < (int.Parse(Datos.Rows[0][1].ToString()) + int.Parse(DgvPedidosDetalle.Rows[k].Cells[3].Value.ToString())))
+                {
+                    MessageBox.Show("Se si se realiza el pedido, se exsedera el numero maximo de unidades de" + idPro, "CUIDADO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Guardar = false;
+                }
+            }
+            return Guardar;
         }
 
         /// <summary>
@@ -72,15 +113,19 @@ namespace SIVEALLI
                     string Id = DgvCatalogoProductos.Rows[fila].Cells[1].Value.ToString();
                     string Nombre = DgvCatalogoProductos.Rows[fila].Cells[2].Value.ToString();
                     string Precio = DgvCatalogoProductos.Rows[fila].Cells[5].Value.ToString();
-                    Button Boton = new Button(); Boton.Text = "Quitar";
-                    Añadiendo = true;
+                    //--Abrir el form que pedira la cantidad del producto
+                    FormPedidosCantidad fc = new FormPedidosCantidad(DgvPedidosDetalle,DgvCatalogoProductos,Id,Nombre,Precio,fila,Añadiendo,LTotal);
+                    fc.StartPosition= FormStartPosition.CenterScreen;
+                    fc.Show();
+
+                    /*Añadiendo = true;
                     DgvPedidosDetalle.Rows.Add(Id, Nombre, Precio, "1", Precio, "X",fila.ToString());
                     Añadiendo = false;
                     DgvCatalogoProductos.Rows[fila].Cells[0].ReadOnly = true;
                     //--Calcular el total del importe
                     double Total = double.Parse(LTotal.Text.Split('/')[1].ToString());
                     double PrecioPro = double.Parse(Precio);
-                    LTotal.Text = LTotal.Text.Split('/')[0] + "/ " + (Total+PrecioPro).ToString();
+                    LTotal.Text = LTotal.Text.Split('/')[0] + "/ " + (Total+PrecioPro).ToString();*/
                 }
             }
         }
@@ -126,6 +171,7 @@ namespace SIVEALLI
             }
             //--Cololcar el total 
             LTotal.Text = LTotal.Text.Split('/')[0] + "/ " + Total.ToString();
+            Añadiendo= false;
         }
         /// <summary>
         /// Evento que filtrara el contenido del catalogo de producto
@@ -134,12 +180,16 @@ namespace SIVEALLI
         /// <param name="e"></param>
         private void BtnFiltrar_Click(object sender, EventArgs e)
         {
-            for(int k = 0; k < DgvCatalogoProductos.Rows.Count; k++)
+            CurrencyManager cm = (CurrencyManager)BindingContext[DgvCatalogoProductos.DataSource];
+            cm.SuspendBinding();
+            for (int k = DgvCatalogoProductos.Rows.Count-1; k>=0; k--)
             {
                 if (DgvCatalogoProductos.Rows[k].Cells[2].Value.ToString().Contains(TbFiltrar.Text))
                     DgvCatalogoProductos.Rows[k].Visible = true;
                 else
+                {
                     DgvCatalogoProductos.Rows[k].Visible = false;
+                }
             }
         }
     }

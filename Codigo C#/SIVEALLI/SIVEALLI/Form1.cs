@@ -58,7 +58,7 @@ namespace SIVEALLI
 
         private void BtnPedidos_Click(object sender, EventArgs e)
         {
-            FormPedidos fp = new FormPedidos("--");
+            FormPedidos fp = new FormPedidos("--",new DateTime(2019,12,12));
             fp.Show();
         }
 

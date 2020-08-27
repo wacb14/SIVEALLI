@@ -35,5 +35,12 @@ namespace BibClases
             aConexion.EjecutarSelect(CadenaConsulta);
             return aConexion.Datos.Tables[0];
         }
+        //------------------------------------------------------------------------------------------
+        public DataTable CantidadMaxProducto(string Id)
+        {   //--Retornar un tabla con la lista completa de  libros
+            string CadenaConsulta = "spuCantidadMax '"+Id+"'";
+            aConexion.EjecutarSelect(CadenaConsulta);
+            return aConexion.Datos.Tables[0];
+        }
     }
 }

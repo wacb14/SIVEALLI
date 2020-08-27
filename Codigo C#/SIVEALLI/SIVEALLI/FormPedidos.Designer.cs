@@ -71,14 +71,14 @@
             this.CbProveedores.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CbProveedores.Location = new System.Drawing.Point(398, 12);
             this.CbProveedores.Name = "CbProveedores";
-            this.CbProveedores.Size = new System.Drawing.Size(660, 442);
+            this.CbProveedores.Size = new System.Drawing.Size(660, 428);
             this.CbProveedores.TabIndex = 11;
             this.CbProveedores.TabStop = false;
             this.CbProveedores.Text = "Detalles de pedido";
             // 
             // BtnGuardar
             // 
-            this.BtnGuardar.Location = new System.Drawing.Point(10, 399);
+            this.BtnGuardar.Location = new System.Drawing.Point(6, 385);
             this.BtnGuardar.Name = "BtnGuardar";
             this.BtnGuardar.Size = new System.Drawing.Size(92, 37);
             this.BtnGuardar.TabIndex = 12;
@@ -104,7 +104,7 @@
             this.DgvPedidosDetalle.Location = new System.Drawing.Point(6, 22);
             this.DgvPedidosDetalle.Name = "DgvPedidosDetalle";
             this.DgvPedidosDetalle.RowHeadersVisible = false;
-            this.DgvPedidosDetalle.Size = new System.Drawing.Size(648, 341);
+            this.DgvPedidosDetalle.Size = new System.Drawing.Size(648, 338);
             this.DgvPedidosDetalle.TabIndex = 21;
             this.DgvPedidosDetalle.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvPedidosDetalle_CellContentClick);
             this.DgvPedidosDetalle.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvPedidosDetalle_CellValueChanged);
@@ -157,7 +157,7 @@
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(487, 399);
+            this.button5.Location = new System.Drawing.Point(562, 385);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(92, 32);
             this.button5.TabIndex = 20;
@@ -168,7 +168,7 @@
             // 
             this.LTotal.AutoSize = true;
             this.LTotal.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LTotal.Location = new System.Drawing.Point(483, 377);
+            this.LTotal.Location = new System.Drawing.Point(483, 363);
             this.LTotal.Name = "LTotal";
             this.LTotal.Size = new System.Drawing.Size(120, 19);
             this.LTotal.TabIndex = 17;
@@ -189,7 +189,7 @@
             // 
             this.TbFiltrar.Location = new System.Drawing.Point(10, 274);
             this.TbFiltrar.Name = "TbFiltrar";
-            this.TbFiltrar.Size = new System.Drawing.Size(221, 26);
+            this.TbFiltrar.Size = new System.Drawing.Size(148, 26);
             this.TbFiltrar.TabIndex = 16;
             // 
             // label7
@@ -198,17 +198,17 @@
             this.label7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(6, 252);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(135, 19);
+            this.label7.Size = new System.Drawing.Size(139, 19);
             this.label7.TabIndex = 15;
-            this.label7.Text = "Filtrar busqueda por:";
+            this.label7.Text = "Filtrar busqueda por: ";
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(398, 460);
+            this.groupBox1.Location = new System.Drawing.Point(398, 446);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(654, 47);
+            this.groupBox1.Size = new System.Drawing.Size(654, 61);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Observaciones";
@@ -219,10 +219,11 @@
             this.label10.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(6, 18);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(597, 19);
+            this.label10.Size = new System.Drawing.Size(597, 38);
             this.label10.TabIndex = 20;
             this.label10.Text = "Es importante cerrar el formulario al terminar de usarlo, para un mejor funcionam" +
-    "iento del sistema.";
+    "iento del sistema.\r\nSi desea ver todos los productos, pulse filtrar sin ningun t" +
+    "exto.";
             // 
             // GbCliente
             // 
