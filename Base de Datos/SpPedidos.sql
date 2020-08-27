@@ -11,7 +11,7 @@ go
 create procedure spuCantidadMax @IdProducto varchar(8)
 as
 begin
-	select TP.Maximo
+	select TP.Maximo, TP.Cantidad
 	from TProducto TP
 	where TP.IdProducto=@IdProducto
 end;
