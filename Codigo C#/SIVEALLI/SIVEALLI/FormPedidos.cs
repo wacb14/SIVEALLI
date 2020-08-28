@@ -75,7 +75,10 @@ namespace SIVEALLI
                             string id = DgvPedidosDetalle.Rows[k].Cells[0].Value.ToString();
                             string Cant = DgvPedidosDetalle.Rows[k].Cells[3].Value.ToString();
                             string precUni = DgvPedidosDetalle.Rows[k].Cells[2].Value.ToString();
-                            PedidoDetalle.Actualizar(new string[] { TbId.Text, id, Cant, precUni });
+                            if (PedidoDetalle.ExisteClavePrimaria(2,new string[] { TbId.Text,id }))
+                                PedidoDetalle.Actualizar(new string[] { TbId.Text, id, Cant, precUni });
+                            else
+                                PedidoDetalle.Insertar(new string[] { TbId.Text, id, Cant, precUni });
                         }
                     }
                     else
@@ -248,24 +251,38 @@ namespace SIVEALLI
                 //--Cargar los datos en data grid view
                 DataTable TablaPedidoDetalle = Pedido.TraerDatosPedidoDetalle(DgvPedidos.Rows[fila].Cells[0].Value.ToString());
                 DgvPedidosDetalle.Rows.Clear();
+                DejarEnCatalogoBlanco();
                 for (int k = 0; k < TablaPedidoDetalle.Rows.Count; k++)
                 {
                     string codProd = TablaPedidoDetalle.Rows[k][1].ToString();
                     string nombre = DetNombre(codProd);
                     string precio = TablaPedidoDetalle.Rows[k][3].ToString();
                     string cantidad = TablaPedidoDetalle.Rows[k][2].ToString();
-                    DgvPedidosDetalle.Rows.Add(codProd, nombre, precio, cantidad, (double.Parse(precio) * int.Parse(cantidad)).ToString(), "X", fila.ToString());
+                    DgvPedidosDetalle.Rows.Add(codProd, nombre.Split('#')[0], precio, cantidad, (double.Parse(precio) * int.Parse(cantidad)).ToString(), "X", nombre.Split('#')[1]);
                 }
+            }
+        }
+        public void DejarEnCatalogoBlanco()
+        {
+            for (int k = 0; k < DgvCatalogoProductos.Rows.Count; k++)
+            {
+                DgvCatalogoProductos.Rows[k].Cells[0].Value = false;
+                DgvCatalogoProductos.Rows[k].Cells[0].ReadOnly = false;
             }
         }
         public string DetNombre(string Cod)
         {
+            string nombre = "";
             for (int k = 0; k < DgvCatalogoProductos.Rows.Count; k++)
             {
                 if (DgvCatalogoProductos.Rows[k].Cells[1].Value.ToString().Trim() == Cod)
-                    return DgvCatalogoProductos.Rows[k].Cells[2].Value.ToString();
+                {
+                    DgvCatalogoProductos.Rows[k].Cells[0].Value = true;
+                    DgvCatalogoProductos.Rows[k].Cells[0].ReadOnly = true;
+                    return DgvCatalogoProductos.Rows[k].Cells[2].Value.ToString()+"#"+k.ToString();
+                }
             }
-            return "";
+            return nombre;
         }
 
     }
