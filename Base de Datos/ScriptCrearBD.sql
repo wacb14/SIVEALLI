@@ -198,11 +198,16 @@ go
 
 set dateformat dmy
 ---------- DATOS PRODUCTO ----------------------
-insert into TProducto values('PR000001','Portaminas Mars','Lapices y portaminas','Portaminas Mars Technico 780 HB con Clip','Staedtler',25.90,NULL,'ACTIVO', 0, 100, 10)
-insert into TProducto values('PR000002','Lápiz Grafito','Lapices y portaminas','Lápiz Grafito Escolar Fantasía','Artesco',0.90,NULL,'ACTIVO', 0, 100, 10)
-insert into TProducto values('PR000003','Diccionario Inglés - Español','Libros','Diccionario Tapa Dura Bilingüe Inglés - Español Plus','Norma',11.90,NULL,'ACTIVO', 0, 100, 10)
-insert into TProducto values('PR000004','Papel Bulky A4','Papel y sobres','Papel Bulky A4 x 500 Hojas','Gallo',12.40,NULL,'ACTIVO', 0, 100, 10)
-insert into TProducto values('PR000005','Papel Bond Premium A4','Papel y sobres','Papel Bond Premium A4 80 g Paquete x 500 Hojas','Stanford',10.90,NULL,'ACTIVO', 0, 100, 10)
+insert into TProducto(IdProducto,Nombre,Categoria,Descripcion,Marca,PrecioUnitario,Imagen,Estado,Cantidad,Maximo,Minimo)
+	select 'PR000001','Portaminas Mars','Lapices y portaminas','Portaminas Mars Technico 780 HB con Clip','Staedtler',25.90,*,'ACTIVO', 0, 100, 10 BulkColumn from OpenRowset(Bulk 'C:\Users\Lenovo\Desktop\Libreria\Portaminas Mars.jpg',Single_Blob)as Imagen
+insert into TProducto(IdProducto,Nombre,Categoria,Descripcion,Marca,PrecioUnitario,Imagen,Estado,Cantidad,Maximo,Minimo)
+	select 'PR000002','Lápiz Grafito','Lapices y portaminas','Lápiz Grafito Escolar Fantasía','Artesco',0.90,*,'ACTIVO', 0, 100, 10 BulkColumn from OpenRowset(Bulk 'C:\Users\Lenovo\Desktop\Libreria\Lapiz_Grafito.jpg',Single_Blob)as Imagen
+insert into TProducto(IdProducto,Nombre,Categoria,Descripcion,Marca,PrecioUnitario,Imagen,Estado,Cantidad,Maximo,Minimo)
+	select 'PR000003','Diccionario Inglés - Español','Libros','Diccionario Tapa Dura Bilingüe Inglés - Español Plus','Norma',11.90,*,'ACTIVO', 0, 100, 10 BulkColumn from OpenRowset(Bulk 'C:\Users\Lenovo\Desktop\Libreria\DiccionarioIngles.jpg',Single_Blob)as Imagen
+insert into TProducto(IdProducto,Nombre,Categoria,Descripcion,Marca,PrecioUnitario,Imagen,Estado,Cantidad,Maximo,Minimo)
+	select 'PR000004','Papel Bulky A4','Papel y sobres','Papel Bulky A4 x 500 Hojas','Gallo',12.40,*,'ACTIVO', 0, 100, 10 BulkColumn from OpenRowset(Bulk 'C:\Users\Lenovo\Desktop\Libreria\PapelBulky.jpg',Single_Blob)as Imagen
+insert into TProducto(IdProducto,Nombre,Categoria,Descripcion,Marca,PrecioUnitario,Imagen,Estado,Cantidad,Maximo,Minimo)
+	select 'PR000005','Papel Bond Premium A4','Papel y sobres','Papel Bond Premium A4 80 g Paquete x 500 Hojas','Stanford',10.90,*,'ACTIVO', 0, 100, 10BulkColumn from OpenRowset(Bulk 'C:\Users\Lenovo\Desktop\Libreria\PapelBond.jpg',Single_Blob)as Imagen
 
 --------- DATOS PROVEEDOR ----------------------
  insert into TProveedor values('PR001','Organizacion Book SAC','Calle Santa Rosa 456','963157845','distribudirasBook@gmail.com','ACTIVO')
