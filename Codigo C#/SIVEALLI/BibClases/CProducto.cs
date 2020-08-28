@@ -20,7 +20,7 @@ namespace BibClases
         {
             return new string[]
             {
-                "IdProducto", "Nombre", "Categoria", "Descripcion", "Marca", "PrecioUnitario", "Imagen", "Estado"
+                "IdProducto", "Nombre", "Categoria", "Descripcion", "Marca", "PrecioUnitario", "Imagen", "Estado","Cantidad", "Maximo","Minimo"
             };
         }
         public DataTable ListaGeneralSinImagen()
