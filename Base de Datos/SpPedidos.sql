@@ -33,6 +33,14 @@ begin
 end;
 go
 
+create procedure spuExisteClavePrimariaTPedidoDetalle @IdPedido varchar(8),@IdProducto varchar(8)
+as
+begin
+	select * from TPedidoDetalle
+	where IdPedido = @IdPedido and IdProducto=@IdProducto
+end;
+go
+
 create procedure spuExisteIdTPedido @IdPedido varchar(40)
 as
 begin
