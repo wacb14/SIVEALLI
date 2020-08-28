@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 
 namespace BibClases
 {
-    public class CPedido:CEntidad
+    public class CPedido : CEntidad
     {
         public CPedido() : base("TPedido")
         {
@@ -38,7 +38,28 @@ namespace BibClases
         //------------------------------------------------------------------------------------------
         public DataTable CantidadMaxProducto(string Id)
         {   //--Retornar un tabla con la lista completa de  libros
-            string CadenaConsulta = "spuCantidadMax '"+Id+"'";
+            string CadenaConsulta = "spuCantidadMax '" + Id + "'";
+            aConexion.EjecutarSelect(CadenaConsulta);
+            return aConexion.Datos.Tables[0];
+        }
+        //------------------------------------------------------------------------------------------
+        public DataTable MostrarTodo()
+        {   //--Retornar un tabla con la lista completa de  libros
+            string CadenaConsulta = "select * from TPedido";
+            aConexion.EjecutarSelect(CadenaConsulta);
+            return aConexion.Datos.Tables[0];
+        }
+        //------------------------------------------------------------------------------------------
+        public DataTable TraerDatosPedido(string id)
+        {   //--Retornar un tabla con la lista completa de  libros
+            string CadenaConsulta = "exec spuExisteId" + aNombreTabla + " '" + id + "'";
+            aConexion.EjecutarSelect(CadenaConsulta);
+            return aConexion.Datos.Tables[0];
+        }
+        //------------------------------------------------------------------------------------------
+        public DataTable TraerDatosPedidoDetalle(string id)
+        {   //--Retornar un tabla con la lista completa de  libros
+            string CadenaConsulta = "exec spuExisteId" + aNombreTabla + "Detalle '" + id + "'";
             aConexion.EjecutarSelect(CadenaConsulta);
             return aConexion.Datos.Tables[0];
         }

@@ -25,6 +25,30 @@ begin
 end;
 go
 
+create procedure spuExisteClavePrimariaTPedido @IdPedido varchar(8)
+as
+begin
+	select * from TPedido
+	where IdPedido = @IdPedido
+end;
+go
+
+create procedure spuExisteIdTPedido @IdPedido varchar(40)
+as
+begin
+	select * from TPedido
+	where IdPedido = @IdPedido
+end;
+go
+
+create procedure spuExisteIdTPedidoDetalle @IdPedido varchar(40)
+as
+begin
+	select * from TPedidoDetalle
+	where IdPedido = @IdPedido
+end;
+go
+
 --spuListaProveedores
 --spuCantidadMax 'PR000001'
 --spuListarCatalogoProductos

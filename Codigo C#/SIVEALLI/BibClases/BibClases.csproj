@@ -47,6 +47,7 @@
     <Compile Include="CEntidad.cs" />
     <Compile Include="CEntrada.cs" />
     <Compile Include="CPedido.cs" />
+    <Compile Include="CPedidoDetalle.cs" />
     <Compile Include="CProducto.cs" />
     <Compile Include="CProveedor.cs" />
     <Compile Include="CUsuario.cs" />
