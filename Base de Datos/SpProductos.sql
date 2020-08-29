@@ -9,7 +9,7 @@ go
 create procedure spuExisteClavePrimariaTProducto @IdProducto varchar(8)
 as
 begin
-	select IdProducto, Nombre, Categoria, Descripcion, Marca, PrecioUnitario, Estado, Cantidad, Minimo, Maximo
+	select *
 	from TProducto
 	where IdProducto = @IdProducto
 end;
