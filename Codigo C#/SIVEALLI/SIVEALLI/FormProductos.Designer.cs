@@ -495,7 +495,7 @@
             // 
             // OfdImagen
             // 
-            this.OfdImagen.Filter = "Archivos de imagenes|*.*";
+            this.OfdImagen.Filter = "Archivos de imagenes|*.jpg;*.png;*.jpeg;*.gif";
             // 
             // FormProductos
             // 
