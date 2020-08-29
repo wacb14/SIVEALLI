@@ -31,6 +31,43 @@ namespace SIVEALLI
             this.buttonNuevaEntrada.Click += new EventHandler(GenerarNuevoCodigoEntrada);
             this.buttonAniadir.Click += new EventHandler(AgregarProductoDetalle);
             this.buttonEditar.Click += new EventHandler(HabilitarEdicionDataGrid);
+            this.buttonEliminarDetalle.Click += new EventHandler(EliminarEntradaDetalle);
+            this.buttonListo.Click += new EventHandler(GuardarEntrada);
+        }
+
+        private void GuardarEntrada(object sender, EventArgs e)
+        {
+            Grabar();
+        }
+
+        public override string[] AsignarValoresAtributos()
+        {
+            return new string[] { textBoxCodigoEntrada.Text,
+                comboBoxCodigoProveedor.Text, "US001", 
+                dateTimePickerEntrada.Format.ToString()};
+        }
+        public override void MostrarDatos()
+        {
+            comboBoxCodigoProveedor.Text = aEntidad.ValorAtributo("IdProveedor");
+            dateTimePickerEntrada.Text = aEntidad.ValorAtributo("Fecha");
+        }
+
+
+        private void EliminarEntradaDetalle(object sender, EventArgs e)
+        {
+            try
+            {
+                //Averigüar la fila seleccionada
+                int fila = dataGridViewDetalleEntrada.CurrentCell.RowIndex;
+
+                //eliminar la fila 
+                dataGridViewDetalleEntrada.Rows.RemoveAt(fila);
+            }
+            catch (Exception)
+            {
+                //Mostrar mensaje de error
+                MessageBox.Show("Usuario ligado a operaciones", "ATENCION");
+            }
         }
 
         private void HabilitarEdicionDataGrid(object sender, EventArgs e)

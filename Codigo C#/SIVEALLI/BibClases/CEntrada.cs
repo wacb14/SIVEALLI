@@ -16,7 +16,7 @@ namespace BibClases
         {
             return new string[]
             {
-                "IdEntrada", "IdProveedor", "IdUusuario", "Fecha"
+                "IdEntrada", "IdProveedor", "IdUsuario", "Fecha"
             };
         }
     }
