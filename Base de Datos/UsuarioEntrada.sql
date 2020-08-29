@@ -15,3 +15,19 @@ begin
 	select IdProveedor, Nombre from TProveedores
 end;
 go
+
+
+create procedure spuListadoCodigoProductos
+as
+begin
+select IdProducto from TProducto
+end;
+go
+
+create procedure spuDatosProductoEntrada @IdProducto varchar(8)
+as
+begin
+select IdProducto, Nombre, Categoria, Marca, PrecioUnitario from TProducto
+where IdProducto = @IdProducto
+end;
+go
