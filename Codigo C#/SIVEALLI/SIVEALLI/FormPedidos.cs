@@ -20,6 +20,8 @@ namespace SIVEALLI
         //--datos de entrada
         DateTime aFecha;
         string aIdUsuario;
+        //--
+        DialogResult dr;
         public FormPedidos(string IdUsuario, DateTime Fecha)
         {
             InitializeComponent();
@@ -69,13 +71,15 @@ namespace SIVEALLI
                     if (Pedido.ExisteClavePrimaria(new string[] { TbId.Text }))
                     {//--Primero se agrega el elmento a la tabla TPedido
                         Pedido.Actualizar(new string[] { TbId.Text, CbProv.SelectedValue.ToString(), aIdUsuario, DtpFechaPago.Text, aFecha.ToString(), TbTermEntrega.Text });
+                        //--Se eliminan los productos del pedido
+                        PedidoDetalle.EliminarRegistros(TbId.Text);
                         //--Luego se guarda pedido detalle
                         for (int k = 0; k < DgvPedidosDetalle.Rows.Count; k++)
                         {
                             string id = DgvPedidosDetalle.Rows[k].Cells[0].Value.ToString();
                             string Cant = DgvPedidosDetalle.Rows[k].Cells[3].Value.ToString();
                             string precUni = DgvPedidosDetalle.Rows[k].Cells[2].Value.ToString();
-                            if (PedidoDetalle.ExisteClavePrimaria(2,new string[] { TbId.Text,id }))
+                            if (PedidoDetalle.ExisteClavePrimaria(2, new string[] { TbId.Text, id }))
                                 PedidoDetalle.Actualizar(new string[] { TbId.Text, id, Cant, precUni });
                             else
                                 PedidoDetalle.Insertar(new string[] { TbId.Text, id, Cant, precUni });
@@ -126,28 +130,44 @@ namespace SIVEALLI
             if (col == 0)
             {  //--Si se activa el check box, se agrega el producto
                 if (!Convert.ToBoolean(DgvCatalogoProductos.Rows[fila].Cells[0].Value))
-                {
-                    //DgvCatalogoProductos.Rows[fila].Cells[0].Value = true;
-                    string Id = DgvCatalogoProductos.Rows[fila].Cells[1].Value.ToString();
-                    string Nombre = DgvCatalogoProductos.Rows[fila].Cells[2].Value.ToString();
-                    string Precio = DgvCatalogoProductos.Rows[fila].Cells[5].Value.ToString();
-                    //--Abrir el form que pedira la cantidad del producto
-                    FormPedidosCantidad fc = new FormPedidosCantidad(DgvPedidosDetalle, DgvCatalogoProductos, Id, Nombre, Precio, fila, Añadiendo, LTotal);
-                    fc.StartPosition = FormStartPosition.CenterScreen;
-                    fc.Show();
-
-                    /*Añadiendo = true;
-                    DgvPedidosDetalle.Rows.Add(Id, Nombre, Precio, "1", Precio, "X",fila.ToString());
-                    Añadiendo = false;
-                    DgvCatalogoProductos.Rows[fila].Cells[0].ReadOnly = true;
-                    //--Calcular el total del importe
-                    double Total = double.Parse(LTotal.Text.Split('/')[1].ToString());
-                    double PrecioPro = double.Parse(Precio);
-                    LTotal.Text = LTotal.Text.Split('/')[0] + "/ " + (Total+PrecioPro).ToString();*/
+                {//--Ver el estado del producto
+                    string Estado = DgvCatalogoProductos.Rows[fila].Cells[6].Value.ToString();
+                    dr = DialogResult.None;
+                    if (Estado.Trim() == "ACTIVO")
+                        dr = MessageBox.Show("El producto no se encuentra ACTIVADO, ¿esta seguro de que desea agregarlo?", "CUIDADO", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    //--Si se presiono si, se agrega el producto
+                    if (dr == DialogResult.Yes || dr == DialogResult.None)
+                    {
+                        string Id = DgvCatalogoProductos.Rows[fila].Cells[1].Value.ToString();
+                        string Nombre = DgvCatalogoProductos.Rows[fila].Cells[2].Value.ToString();
+                        string Precio = DgvCatalogoProductos.Rows[fila].Cells[5].Value.ToString();
+                        //--Abrir el form que pedira la cantidad del producto
+                        FormPedidosCantidad fc = new FormPedidosCantidad(DgvPedidosDetalle, DgvCatalogoProductos, Id, Nombre, Precio, fila, Añadiendo, LTotal);
+                        fc.StartPosition = FormStartPosition.CenterScreen;
+                        fc.Show();
+                    }
                 }
             }
+            button1.PerformClick();
         }
-
+        /// <summary>
+        /// Evento que hace que se desactive el check box, cuando no se desea agregar un elemento al dgvDetalle
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DgvCatalogoProductos_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {//--Determinar la fila que cambío
+            int fila = e.RowIndex;
+            int col = e.ColumnIndex;
+            if (dr == DialogResult.No)
+            {
+                DgvCatalogoProductos.Rows[fila].Cells[0].Value = false;
+            }
+        }
+        //--Evento auxiliar, solo hace que se desencadene el evento de change de arriba
+        private void button1_Click(object sender, EventArgs e)
+        {
+        }
         private void DgvPedidosDetalle_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {//--Determinar la fila que cambío
             int fila = e.RowIndex;
@@ -279,11 +299,10 @@ namespace SIVEALLI
                 {
                     DgvCatalogoProductos.Rows[k].Cells[0].Value = true;
                     DgvCatalogoProductos.Rows[k].Cells[0].ReadOnly = true;
-                    return DgvCatalogoProductos.Rows[k].Cells[2].Value.ToString()+"#"+k.ToString();
+                    return DgvCatalogoProductos.Rows[k].Cells[2].Value.ToString() + "#" + k.ToString();
                 }
             }
             return nombre;
         }
-
     }
 }

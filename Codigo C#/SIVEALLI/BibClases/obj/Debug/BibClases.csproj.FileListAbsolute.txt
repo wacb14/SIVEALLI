@@ -27,3 +27,9 @@ C:\Users\Marcelo\source\repos\SIVEALLI\Codigo C#\SIVEALLI\BibClases\obj\Debug\Bi
 C:\Users\Marcelo\source\repos\SIVEALLI\Codigo C#\SIVEALLI\BibClases\obj\Debug\BibClases.csproj.CoreCompileInputs.cache
 C:\Users\Marcelo\source\repos\SIVEALLI\Codigo C#\SIVEALLI\BibClases\obj\Debug\BibClases.dll
 C:\Users\Marcelo\source\repos\SIVEALLI\Codigo C#\SIVEALLI\BibClases\obj\Debug\BibClases.pdb
+C:\Users\ASUS\source\repos\wacb14\SIVEALLI\Codigo C#\SIVEALLI\BibClases\bin\Debug\BibClases.dll
+C:\Users\ASUS\source\repos\wacb14\SIVEALLI\Codigo C#\SIVEALLI\BibClases\bin\Debug\BibClases.pdb
+C:\Users\ASUS\source\repos\wacb14\SIVEALLI\Codigo C#\SIVEALLI\BibClases\obj\Debug\BibClases.csprojAssemblyReference.cache
+C:\Users\ASUS\source\repos\wacb14\SIVEALLI\Codigo C#\SIVEALLI\BibClases\obj\Debug\BibClases.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\source\repos\wacb14\SIVEALLI\Codigo C#\SIVEALLI\BibClases\obj\Debug\BibClases.dll
+C:\Users\ASUS\source\repos\wacb14\SIVEALLI\Codigo C#\SIVEALLI\BibClases\obj\Debug\BibClases.pdb

@@ -77,11 +77,11 @@
     <Compile Include="FormPedidos.Designer.cs">
       <DependentUpon>FormPedidos.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormPedidosCanridad.cs">
+    <Compile Include="FormPedidosCantidad.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPedidosCanridad.Designer.cs">
-      <DependentUpon>FormPedidosCanridad.cs</DependentUpon>
+    <Compile Include="FormPedidosCantidad.Designer.cs">
+      <DependentUpon>FormPedidosCantidad.cs</DependentUpon>
     </Compile>
     <Compile Include="FormProductos.cs">
       <SubType>Form</SubType>
@@ -115,8 +115,8 @@
     <EmbeddedResource Include="FormPedidos.resx">
       <DependentUpon>FormPedidos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormPedidosCanridad.resx">
-      <DependentUpon>FormPedidosCanridad.cs</DependentUpon>
+    <EmbeddedResource Include="FormPedidosCantidad.resx">
+      <DependentUpon>FormPedidosCantidad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormProductos.resx">
       <DependentUpon>FormProductos.cs</DependentUpon>

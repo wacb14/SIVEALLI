@@ -1,13 +1,18 @@
-
+if exists (select * from sysobjects where name='spuListarCatalogoProductos') 
+	drop procedure spuListarCatalogoProductos
+go
 create procedure spuListarCatalogoProductos
 as
 begin
-	select Tp.IdProducto,TP.Nombre,TP.Categoria,TP.Marca,TP.PrecioUnitario as Precio 
+	select Tp.IdProducto,TP.Nombre,TP.Categoria,TP.Marca,TP.PrecioUnitario as Precio,TP.Estado 
 	from TProducto TP
 	where TP.Estado ='ACTIVO'
 end;
 go
 
+if exists (select * from sysobjects where name='spuCantidadMax') 
+	drop procedure spuCantidadMax
+go
 create procedure spuCantidadMax @IdProducto varchar(8)
 as
 begin
@@ -17,6 +22,9 @@ begin
 end;
 go
 
+if exists (select * from sysobjects where name='spuListaProveedores') 
+	drop procedure spuListaProveedores
+go
 create procedure spuListaProveedores 
 as 
 begin
@@ -25,6 +33,9 @@ begin
 end;
 go
 
+if exists (select * from sysobjects where name='spuExisteClavePrimariaTPedido') 
+	drop procedure spuExisteClavePrimariaTPedido
+go
 create procedure spuExisteClavePrimariaTPedido @IdPedido varchar(8)
 as
 begin
@@ -33,6 +44,9 @@ begin
 end;
 go
 
+if exists (select * from sysobjects where name='spuExisteClavePrimariaTPedidoDetalle') 
+	drop procedure spuExisteClavePrimariaTPedidoDetalle
+go
 create procedure spuExisteClavePrimariaTPedidoDetalle @IdPedido varchar(8),@IdProducto varchar(8)
 as
 begin
@@ -41,6 +55,9 @@ begin
 end;
 go
 
+if exists (select * from sysobjects where name='spuExisteIdTPedido') 
+	drop procedure spuExisteIdTPedido
+go
 create procedure spuExisteIdTPedido @IdPedido varchar(40)
 as
 begin
@@ -49,6 +66,9 @@ begin
 end;
 go
 
+if exists (select * from sysobjects where name='spuExisteIdTPedidoDetalle') 
+	drop procedure spuExisteIdTPedidoDetalle
+go
 create procedure spuExisteIdTPedidoDetalle @IdPedido varchar(40)
 as
 begin
@@ -56,6 +76,7 @@ begin
 	where IdPedido = @IdPedido
 end;
 go
+
 
 --spuListaProveedores
 --spuCantidadMax 'PR000001'

@@ -29,12 +29,7 @@
         private void InitializeComponent()
         {
             this.CbProveedores = new System.Windows.Forms.GroupBox();
-            this.GbHistotialPedidos = new System.Windows.Forms.GroupBox();
-            this.BtnCatalogo = new System.Windows.Forms.Button();
-            this.DgvPedidos = new System.Windows.Forms.DataGridView();
-            this.TbfiltrarHistorial = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.BtnFiltrarHistorial = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.BtnGuardar = new System.Windows.Forms.Button();
             this.DgvPedidosDetalle = new System.Windows.Forms.DataGridView();
             this.ColId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,6 +41,12 @@
             this.ColPos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button5 = new System.Windows.Forms.Button();
             this.LTotal = new System.Windows.Forms.Label();
+            this.GbHistotialPedidos = new System.Windows.Forms.GroupBox();
+            this.BtnCatalogo = new System.Windows.Forms.Button();
+            this.DgvPedidos = new System.Windows.Forms.DataGridView();
+            this.TbfiltrarHistorial = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.BtnFiltrarHistorial = new System.Windows.Forms.Button();
             this.BtnFiltrar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -64,9 +65,9 @@
             this.TbFiltrar = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.CbProveedores.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvPedidosDetalle)).BeginInit();
             this.GbHistotialPedidos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvPedidos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvPedidosDetalle)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.GbCliente.SuspendLayout();
             this.GbCatalodoProductos.SuspendLayout();
@@ -87,74 +88,15 @@
             this.CbProveedores.TabStop = false;
             this.CbProveedores.Text = "Detalles de pedido";
             // 
-            // GbHistotialPedidos
+            // button1
             // 
-            this.GbHistotialPedidos.Controls.Add(this.BtnCatalogo);
-            this.GbHistotialPedidos.Controls.Add(this.DgvPedidos);
-            this.GbHistotialPedidos.Controls.Add(this.TbfiltrarHistorial);
-            this.GbHistotialPedidos.Controls.Add(this.label5);
-            this.GbHistotialPedidos.Controls.Add(this.BtnFiltrarHistorial);
-            this.GbHistotialPedidos.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GbHistotialPedidos.Location = new System.Drawing.Point(12, 201);
-            this.GbHistotialPedidos.Name = "GbHistotialPedidos";
-            this.GbHistotialPedidos.Size = new System.Drawing.Size(380, 306);
-            this.GbHistotialPedidos.TabIndex = 24;
-            this.GbHistotialPedidos.TabStop = false;
-            this.GbHistotialPedidos.Text = "Historial de pedidos";
-            this.GbHistotialPedidos.Visible = false;
-            // 
-            // BtnCatalogo
-            // 
-            this.BtnCatalogo.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnCatalogo.Location = new System.Drawing.Point(282, 271);
-            this.BtnCatalogo.Name = "BtnCatalogo";
-            this.BtnCatalogo.Size = new System.Drawing.Size(92, 32);
-            this.BtnCatalogo.TabIndex = 23;
-            this.BtnCatalogo.Text = "Catalogo";
-            this.BtnCatalogo.UseVisualStyleBackColor = true;
-            this.BtnCatalogo.Click += new System.EventHandler(this.BtnCatalogo_Click);
-            // 
-            // DgvPedidos
-            // 
-            this.DgvPedidos.AllowUserToAddRows = false;
-            this.DgvPedidos.AllowUserToDeleteRows = false;
-            this.DgvPedidos.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.DgvPedidos.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.DgvPedidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvPedidos.Location = new System.Drawing.Point(6, 18);
-            this.DgvPedidos.Name = "DgvPedidos";
-            this.DgvPedidos.RowHeadersVisible = false;
-            this.DgvPedidos.Size = new System.Drawing.Size(368, 231);
-            this.DgvPedidos.TabIndex = 22;
-            this.DgvPedidos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvPedidos_CellContentClick);
-            // 
-            // TbfiltrarHistorial
-            // 
-            this.TbfiltrarHistorial.Location = new System.Drawing.Point(10, 274);
-            this.TbfiltrarHistorial.Name = "TbfiltrarHistorial";
-            this.TbfiltrarHistorial.Size = new System.Drawing.Size(148, 26);
-            this.TbfiltrarHistorial.TabIndex = 16;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(6, 252);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(139, 19);
-            this.label5.TabIndex = 15;
-            this.label5.Text = "Filtrar busqueda por: ";
-            // 
-            // BtnFiltrarHistorial
-            // 
-            this.BtnFiltrarHistorial.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnFiltrarHistorial.Location = new System.Drawing.Point(175, 271);
-            this.BtnFiltrarHistorial.Name = "BtnFiltrarHistorial";
-            this.BtnFiltrarHistorial.Size = new System.Drawing.Size(92, 32);
-            this.BtnFiltrarHistorial.TabIndex = 15;
-            this.BtnFiltrarHistorial.Text = "Filtrar";
-            this.BtnFiltrarHistorial.UseVisualStyleBackColor = true;
-            this.BtnFiltrarHistorial.Click += new System.EventHandler(this.BtnFiltrarHistorial_Click);
+            this.button1.Location = new System.Drawing.Point(1092, 219);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(92, 37);
+            this.button1.TabIndex = 22;
+            this.button1.Text = "CED";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // BtnGuardar
             // 
@@ -253,6 +195,75 @@
             this.LTotal.Size = new System.Drawing.Size(120, 19);
             this.LTotal.TabIndex = 17;
             this.LTotal.Text = "Importe total: s/ 0 ";
+            // 
+            // GbHistotialPedidos
+            // 
+            this.GbHistotialPedidos.Controls.Add(this.BtnCatalogo);
+            this.GbHistotialPedidos.Controls.Add(this.DgvPedidos);
+            this.GbHistotialPedidos.Controls.Add(this.TbfiltrarHistorial);
+            this.GbHistotialPedidos.Controls.Add(this.label5);
+            this.GbHistotialPedidos.Controls.Add(this.BtnFiltrarHistorial);
+            this.GbHistotialPedidos.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GbHistotialPedidos.Location = new System.Drawing.Point(12, 201);
+            this.GbHistotialPedidos.Name = "GbHistotialPedidos";
+            this.GbHistotialPedidos.Size = new System.Drawing.Size(380, 306);
+            this.GbHistotialPedidos.TabIndex = 24;
+            this.GbHistotialPedidos.TabStop = false;
+            this.GbHistotialPedidos.Text = "Historial de pedidos";
+            this.GbHistotialPedidos.Visible = false;
+            // 
+            // BtnCatalogo
+            // 
+            this.BtnCatalogo.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnCatalogo.Location = new System.Drawing.Point(282, 271);
+            this.BtnCatalogo.Name = "BtnCatalogo";
+            this.BtnCatalogo.Size = new System.Drawing.Size(92, 32);
+            this.BtnCatalogo.TabIndex = 23;
+            this.BtnCatalogo.Text = "Catalogo";
+            this.BtnCatalogo.UseVisualStyleBackColor = true;
+            this.BtnCatalogo.Click += new System.EventHandler(this.BtnCatalogo_Click);
+            // 
+            // DgvPedidos
+            // 
+            this.DgvPedidos.AllowUserToAddRows = false;
+            this.DgvPedidos.AllowUserToDeleteRows = false;
+            this.DgvPedidos.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.DgvPedidos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.DgvPedidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvPedidos.Location = new System.Drawing.Point(6, 18);
+            this.DgvPedidos.Name = "DgvPedidos";
+            this.DgvPedidos.RowHeadersVisible = false;
+            this.DgvPedidos.Size = new System.Drawing.Size(368, 231);
+            this.DgvPedidos.TabIndex = 22;
+            this.DgvPedidos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvPedidos_CellContentClick);
+            // 
+            // TbfiltrarHistorial
+            // 
+            this.TbfiltrarHistorial.Location = new System.Drawing.Point(10, 274);
+            this.TbfiltrarHistorial.Name = "TbfiltrarHistorial";
+            this.TbfiltrarHistorial.Size = new System.Drawing.Size(148, 26);
+            this.TbfiltrarHistorial.TabIndex = 16;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(6, 252);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(139, 19);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "Filtrar busqueda por: ";
+            // 
+            // BtnFiltrarHistorial
+            // 
+            this.BtnFiltrarHistorial.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnFiltrarHistorial.Location = new System.Drawing.Point(175, 271);
+            this.BtnFiltrarHistorial.Name = "BtnFiltrarHistorial";
+            this.BtnFiltrarHistorial.Size = new System.Drawing.Size(92, 32);
+            this.BtnFiltrarHistorial.TabIndex = 15;
+            this.BtnFiltrarHistorial.Text = "Filtrar";
+            this.BtnFiltrarHistorial.UseVisualStyleBackColor = true;
+            this.BtnFiltrarHistorial.Click += new System.EventHandler(this.BtnFiltrarHistorial_Click);
             // 
             // BtnFiltrar
             // 
@@ -416,6 +427,7 @@
             this.DgvCatalogoProductos.Size = new System.Drawing.Size(368, 231);
             this.DgvCatalogoProductos.TabIndex = 22;
             this.DgvCatalogoProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvCatalogoProductos_CellContentClick_1);
+            this.DgvCatalogoProductos.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvCatalogoProductos_CellValueChanged);
             // 
             // TbFiltrar
             // 
@@ -440,6 +452,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1070, 519);
             this.Controls.Add(this.GbHistotialPedidos);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.GbCatalodoProductos);
             this.Controls.Add(this.CbProveedores);
             this.Controls.Add(this.groupBox1);
@@ -450,10 +463,10 @@
             this.Text = "FormPedidos";
             this.CbProveedores.ResumeLayout(false);
             this.CbProveedores.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvPedidosDetalle)).EndInit();
             this.GbHistotialPedidos.ResumeLayout(false);
             this.GbHistotialPedidos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvPedidos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvPedidosDetalle)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.GbCliente.ResumeLayout(false);
@@ -502,5 +515,6 @@
         private System.Windows.Forms.TextBox TbFiltrar;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox TbTermEntrega;
+        private System.Windows.Forms.Button button1;
     }
 }
