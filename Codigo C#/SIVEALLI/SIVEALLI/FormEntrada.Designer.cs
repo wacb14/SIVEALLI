@@ -43,6 +43,13 @@
             this.groupBoxEntradaProducto = new System.Windows.Forms.GroupBox();
             this.comboBoxCodigoProducto = new System.Windows.Forms.ComboBox();
             this.dataGridViewDetalleEntrada = new System.Windows.Forms.DataGridView();
+            this.ColumnCodigoProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnPrecioUnitacio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonEditar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCantidad)).BeginInit();
             this.groupBoxDatosEntrada.SuspendLayout();
             this.groupBoxEntradaProducto.SuspendLayout();
@@ -193,13 +200,76 @@
             // 
             // dataGridViewDetalleEntrada
             // 
+            this.dataGridViewDetalleEntrada.AllowUserToAddRows = false;
+            this.dataGridViewDetalleEntrada.AllowUserToDeleteRows = false;
             this.dataGridViewDetalleEntrada.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridViewDetalleEntrada.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewDetalleEntrada.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewDetalleEntrada.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnCodigoProducto,
+            this.ColumnNombre,
+            this.ColumnCategoria,
+            this.ColumnMarca,
+            this.ColumnPrecioUnitacio,
+            this.ColumnCantidad});
             this.dataGridViewDetalleEntrada.Location = new System.Drawing.Point(12, 150);
             this.dataGridViewDetalleEntrada.Name = "dataGridViewDetalleEntrada";
-            this.dataGridViewDetalleEntrada.Size = new System.Drawing.Size(1046, 357);
+            this.dataGridViewDetalleEntrada.ReadOnly = true;
+            this.dataGridViewDetalleEntrada.Size = new System.Drawing.Size(939, 357);
             this.dataGridViewDetalleEntrada.TabIndex = 37;
+            // 
+            // ColumnCodigoProducto
+            // 
+            this.ColumnCodigoProducto.HeaderText = "Código";
+            this.ColumnCodigoProducto.Name = "ColumnCodigoProducto";
+            this.ColumnCodigoProducto.ReadOnly = true;
+            // 
+            // ColumnNombre
+            // 
+            this.ColumnNombre.HeaderText = "Nombre";
+            this.ColumnNombre.Name = "ColumnNombre";
+            this.ColumnNombre.ReadOnly = true;
+            this.ColumnNombre.Width = 200;
+            // 
+            // ColumnCategoria
+            // 
+            this.ColumnCategoria.HeaderText = "Categoría";
+            this.ColumnCategoria.Name = "ColumnCategoria";
+            this.ColumnCategoria.ReadOnly = true;
+            this.ColumnCategoria.Width = 200;
+            // 
+            // ColumnMarca
+            // 
+            this.ColumnMarca.HeaderText = "Marca";
+            this.ColumnMarca.Name = "ColumnMarca";
+            this.ColumnMarca.ReadOnly = true;
+            // 
+            // ColumnPrecioUnitacio
+            // 
+            this.ColumnPrecioUnitacio.HeaderText = "Precio Unitario";
+            this.ColumnPrecioUnitacio.Name = "ColumnPrecioUnitacio";
+            this.ColumnPrecioUnitacio.ReadOnly = true;
+            this.ColumnPrecioUnitacio.Width = 200;
+            // 
+            // ColumnCantidad
+            // 
+            this.ColumnCantidad.HeaderText = "Cantidad";
+            this.ColumnCantidad.Name = "ColumnCantidad";
+            this.ColumnCantidad.ReadOnly = true;
+            this.ColumnCantidad.Width = 80;
+            // 
+            // buttonEditar
+            // 
+            this.buttonEditar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonEditar.FlatAppearance.BorderSize = 0;
+            this.buttonEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonEditar.Image = ((System.Drawing.Image)(resources.GetObject("buttonEditar.Image")));
+            this.buttonEditar.Location = new System.Drawing.Point(958, 179);
+            this.buttonEditar.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonEditar.Name = "buttonEditar";
+            this.buttonEditar.Size = new System.Drawing.Size(68, 66);
+            this.buttonEditar.TabIndex = 38;
+            this.buttonEditar.UseVisualStyleBackColor = true;
             // 
             // FormEntrada
             // 
@@ -207,6 +277,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1070, 519);
+            this.Controls.Add(this.buttonEditar);
             this.Controls.Add(this.dataGridViewDetalleEntrada);
             this.Controls.Add(this.groupBoxEntradaProducto);
             this.Controls.Add(this.groupBoxDatosEntrada);
@@ -241,5 +312,12 @@
         private System.Windows.Forms.GroupBox groupBoxEntradaProducto;
         private System.Windows.Forms.DataGridView dataGridViewDetalleEntrada;
         private System.Windows.Forms.ComboBox comboBoxCodigoProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCodigoProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCategoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnMarca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPrecioUnitacio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCantidad;
+        protected System.Windows.Forms.Button buttonEditar;
     }
 }

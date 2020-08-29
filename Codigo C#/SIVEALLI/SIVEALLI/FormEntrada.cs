@@ -16,6 +16,7 @@ namespace SIVEALLI
     public partial class FormEntrada : FormPadre
     {
         CProveedor proveedor = new CProveedor();
+        CProducto producto = new CProducto();
 
         public FormEntrada()
         {
@@ -28,6 +29,72 @@ namespace SIVEALLI
         {
             this.Load += new EventHandler(LLenarDatosControles);
             this.buttonNuevaEntrada.Click += new EventHandler(GenerarNuevoCodigoEntrada);
+            this.buttonAniadir.Click += new EventHandler(AgregarProductoDetalle);
+            this.buttonEditar.Click += new EventHandler(HabilitarEdicionDataGrid);
+        }
+
+        private void HabilitarEdicionDataGrid(object sender, EventArgs e)
+        {
+            dataGridViewDetalleEntrada.ReadOnly = false;
+            dataGridViewDetalleEntrada.Columns[0].ReadOnly = true;
+            dataGridViewDetalleEntrada.Columns[1].ReadOnly = true;
+            dataGridViewDetalleEntrada.Columns[2].ReadOnly = true;
+            dataGridViewDetalleEntrada.Columns[3].ReadOnly = true;
+            dataGridViewDetalleEntrada.Columns[4].ReadOnly = true;
+        }
+
+        private void AgregarProductoDetalle(object sender, EventArgs e)
+        {
+            string codigoProducto = comboBoxCodigoProducto.Text;
+            int cantidad = (int) numericUpDownCantidad.Value;
+
+            //Validamos que se haya ingresado un codigo
+            if (codigoProducto.Equals("") || textBoxCodigoEntrada.Text.Equals("") || comboBoxCodigoProveedor.Text.Equals(""))
+            {
+                MessageBox.Show("Ingrese los datos de proveedor, nueva entrada y producto");
+                return;
+            }
+
+            //Validamos que el codigo no se haya ingresado antes
+            int numeroFilasDetalle = dataGridViewDetalleEntrada.Rows.Count;
+            int i = 0;
+            bool encontrado = false;
+            while(i < numeroFilasDetalle && !encontrado)
+            {
+                if (codigoProducto.Equals(dataGridViewDetalleEntrada.Rows[i].Cells[0].Value.ToString()))
+                    encontrado = true;
+                i++;
+            }
+
+            if (encontrado)
+            {
+                MessageBox.Show("El producto ya ha sido agregado a la lista de entrada");
+                return;
+            }
+
+
+            DataTable dt = producto.DatosProductoEntrada(codigoProducto);
+
+            string[] datos = new string[dt.Columns.Count + 1];
+
+            for (i = 0; i < dt.Columns.Count; i++)
+            {
+                datos[i] = dt.Rows[0][i].ToString();
+            }
+
+            datos[dt.Columns.Count] = cantidad+ "";
+
+            dataGridViewDetalleEntrada.Rows.Add(datos);
+
+            LimpiarFormularioNuevaEntradaDetalle();
+        }
+
+        private void LimpiarFormularioNuevaEntradaDetalle()
+        {
+            comboBoxCodigoProducto.SelectedIndex = -1;
+            numericUpDownCantidad.Value = 1;
+
+            comboBoxCodigoProducto.Focus();
         }
 
         private void GenerarNuevoCodigoEntrada(object sender, EventArgs e)
@@ -58,12 +125,10 @@ namespace SIVEALLI
 
         private void LlenarCodigoProductos()
         {
-            //comboBoxCodigoProducto.DataSource = proveedor.ListadoParaCombos();
-            //comboBoxCodigoProducto.DisplayMember = "Nombre";
-            //comboBoxCodigoProducto.ValueMember = "IdProveedor";
-            //comboBoxCodigoProducto.SelectedIndex = -1;
-
-            MessageBox.Show("esperando clase productos");
+            comboBoxCodigoProducto.DataSource = producto.ListadoCodigos();
+            comboBoxCodigoProducto.DisplayMember = "IdProducto";
+            comboBoxCodigoProducto.ValueMember = "IdProducto";
+            comboBoxCodigoProducto.SelectedIndex = -1;
         }
 
         private void LlenarDatosProveedores()

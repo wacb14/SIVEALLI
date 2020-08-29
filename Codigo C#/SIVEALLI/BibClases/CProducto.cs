@@ -35,6 +35,15 @@ namespace BibClases
             aConexion.EjecutarSelect(CadenaConsulta);
             return aConexion.Datos.Tables[0];
         }
+
+        public DataTable DatosProductoEntrada(string codigoProducto)
+        {
+            string CadenaConsulta = "exec spuDatosProductoEntrada '" + codigoProducto + "'";
+            //--Ejecutar la consulta
+            aConexion.EjecutarSelect(CadenaConsulta);
+            return aConexion.Datos.Tables[0];
+        }
+
         public int NumeroDeProductos()
         {
             string CadenaConsulta = "exec spuNumeroDeProductos";
@@ -118,6 +127,14 @@ namespace BibClases
             }
             //--Ejecutar la consulta para insertar el registro
             aConexion.EjecutarComando(CadenaActualizar);
+        }
+
+        public DataTable ListadoCodigos()
+        {
+            string CadenaConsulta = "exec spuListadoCodigoProductos";
+
+            aConexion.EjecutarSelect(CadenaConsulta);
+            return aConexion.Datos.Tables[0];
         }
     }
 }
