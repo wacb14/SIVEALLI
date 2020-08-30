@@ -42,19 +42,7 @@ namespace SIVEALLI
 
         private void AbandonarTextBoxCodigo(object sender, EventArgs e)
         {
-            //Recuperar atributos, el primer atributo es la clave
-            string[] Atributos = AsignarValoresAtributos();
-            //Verificar si existe clave primaria
-            if (aEntidad.ExisteClavePrimaria(1, Atributos))
-            {
-                MostrarDatos();
-                aEntidad.Nuevo = false;
-            }
-            else
-            {
-                //Registro nuevo, incializar atributos no clave
-                InicializarAtributosNoClave();
-            }
+            ProcesarClave();
         }
 
         private void CargarDatos(object sender, EventArgs e)
@@ -114,12 +102,8 @@ namespace SIVEALLI
                 return false;
         }
         // ========================= EVENTOS =======================
-        private void TxtCodLibro_Leave(object sender, EventArgs e)
-        {
-            ProcesarClave();
-        }
 
-        private void FrmLibro_Load_1(object sender, EventArgs e)
+        private void FormUsuario_Load_1(object sender, EventArgs e)
         {
             ListarRegistros();
         }

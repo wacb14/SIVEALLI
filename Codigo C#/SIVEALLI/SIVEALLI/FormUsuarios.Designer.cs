@@ -326,6 +326,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormUsuarios";
             this.Text = "Usuarios";
+            this.Load += new System.EventHandler(this.FormUsuario_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsuarios)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

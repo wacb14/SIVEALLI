@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using System.Windows.Forms;
 
 namespace BibClases
 {
@@ -58,6 +59,7 @@ namespace BibClases
                 else //dejar la consulta lista para el siguiente atributo
                     CadenaInsertar += "','";
             }
+            MessageBox.Show("Guardar: " + CadenaInsertar);
             //--Ejecutar la consulta para insertar el registro
             aConexion.EjecutarComando(CadenaInsertar);
             aNuevo = false;
@@ -79,6 +81,7 @@ namespace BibClases
                 else //dejar la consulta lista para el siguiente atributo
                     CadenaActualizar += "','";
             }
+            //MessageBox.Show("Actualizar: "+CadenaActualizar);
             //--Ejecutar la consulta para insertar el registro
             aConexion.EjecutarComando(CadenaActualizar);
         }

@@ -18,11 +18,17 @@ namespace SIVEALLI
         CProveedor proveedor = new CProveedor();
         CProducto producto = new CProducto();
 
-        public FormEntrada()
+        string codigoUsuario;
+        DateTime aFecha;
+
+        public FormEntrada(string usuario, DateTime fecha)
         {
             InitializeComponent();
             IniciarEntidad(new CEntrada());
             EventosYValidaciones();
+
+            this.codigoUsuario = usuario;
+            this.aFecha = fecha;
         }
 
         private void EventosYValidaciones()
@@ -37,21 +43,59 @@ namespace SIVEALLI
 
         private void GuardarEntrada(object sender, EventArgs e)
         {
-            Grabar();
+            Grabar(1);
+        }
+
+        public virtual void Grabar(int n)
+        {
+            try
+            {
+                if (EsRegistroValido())
+                {
+                    //Recuperar atributos, el primer atributo es la clave
+                    string[] Atributos = AsignarValoresAtributos();
+                    //Verificar si existe clave primaria
+                    if (aEntidad.ExisteClavePrimaria(n, Atributos))
+                    {
+                        aEntidad.Actualizar(Atributos);
+                    }
+                    else
+                    {
+                        aEntidad.Insertar(Atributos);
+                    }
+                    MessageBox.Show("Operacion realizada exitosamente", "Confirmacion");
+                    InicializarAtributos();
+
+                }
+                else
+                    MessageBox.Show("Debe completar el llenado del formulario", "ALERTA");
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString(), "Error al realizar la operacion");
+            }
+        }
+
+        private string DarFormatoFecha()
+        {
+            string dia = aFecha.Day.ToString();
+            string mes = aFecha.Month.ToString();
+            string anio = aFecha.Year.ToString();
+
+            return dia + "/" + mes + "/" + anio;
         }
 
         public override string[] AsignarValoresAtributos()
         {
             return new string[] { textBoxCodigoEntrada.Text,
-                comboBoxCodigoProveedor.Text, "US001", 
-                dateTimePickerEntrada.Format.ToString()};
+                comboBoxCodigoProveedor.SelectedValue.ToString(), codigoUsuario, 
+                DarFormatoFecha()};
         }
         public override void MostrarDatos()
         {
             comboBoxCodigoProveedor.Text = aEntidad.ValorAtributo("IdProveedor");
             dateTimePickerEntrada.Text = aEntidad.ValorAtributo("Fecha");
         }
-
 
         private void EliminarEntradaDetalle(object sender, EventArgs e)
         {
@@ -70,6 +114,11 @@ namespace SIVEALLI
             }
         }
 
+        /// <summary>
+        /// Habilita la modificación de los valores en la columna cantidad
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void HabilitarEdicionDataGrid(object sender, EventArgs e)
         {
             dataGridViewDetalleEntrada.ReadOnly = false;

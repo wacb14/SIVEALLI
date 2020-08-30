@@ -48,10 +48,11 @@
             // textBoxCodigoUsuario
             // 
             this.textBoxCodigoUsuario.Location = new System.Drawing.Point(75, 100);
-            this.textBoxCodigoUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxCodigoUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxCodigoUsuario.Name = "textBoxCodigoUsuario";
             this.textBoxCodigoUsuario.Size = new System.Drawing.Size(148, 26);
             this.textBoxCodigoUsuario.TabIndex = 1;
+            this.textBoxCodigoUsuario.Text = "US001";
             // 
             // buttonAceptar
             // 
@@ -63,7 +64,7 @@
             this.buttonAceptar.Margin = new System.Windows.Forms.Padding(4);
             this.buttonAceptar.Name = "buttonAceptar";
             this.buttonAceptar.Size = new System.Drawing.Size(68, 66);
-            this.buttonAceptar.TabIndex = 42;
+            this.buttonAceptar.TabIndex = 1;
             this.buttonAceptar.UseVisualStyleBackColor = true;
             // 
             // buttonCancelar
@@ -90,7 +91,7 @@
             this.Controls.Add(this.textBoxCodigoUsuario);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormLogin";
             this.Text = "Login";
             this.ResumeLayout(false);
