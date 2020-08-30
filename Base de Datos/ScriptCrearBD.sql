@@ -1,6 +1,6 @@
 /* Create DataBase */
 Create DATABASE DBAlmacen  -- Creates the Almacenes DataBase
-
+/*
 on
   (NAME = DBAlmacen,    -- Primary data file
   FILENAME = 'B:\DBAlmacen.mdf',
@@ -14,7 +14,7 @@ on
   FILEGROWTH = 1MB
   )
 go
-
+*/
 go
 /* Activar Base de datos: DBAlmacen */
 use DBAlmacen

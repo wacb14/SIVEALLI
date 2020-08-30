@@ -37,6 +37,7 @@
             this.buttonEntrada = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.ScHorizontal = new System.Windows.Forms.SplitContainer();
+            this.BtnReportes = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ScVertical)).BeginInit();
             this.ScVertical.Panel1.SuspendLayout();
             this.ScVertical.Panel2.SuspendLayout();
@@ -55,6 +56,7 @@
             // ScVertical.Panel1
             // 
             this.ScVertical.Panel1.BackColor = System.Drawing.Color.White;
+            this.ScVertical.Panel1.Controls.Add(this.BtnReportes);
             this.ScVertical.Panel1.Controls.Add(this.BtnPedidos);
             this.ScVertical.Panel1.Controls.Add(this.BtnClientes);
             this.ScVertical.Panel1.Controls.Add(this.buttonUsuarios);
@@ -155,6 +157,16 @@
             this.ScHorizontal.SplitterDistance = 119;
             this.ScHorizontal.TabIndex = 0;
             // 
+            // BtnReportes
+            // 
+            this.BtnReportes.Location = new System.Drawing.Point(12, 631);
+            this.BtnReportes.Name = "BtnReportes";
+            this.BtnReportes.Size = new System.Drawing.Size(148, 38);
+            this.BtnReportes.TabIndex = 0;
+            this.BtnReportes.Text = "Reportes";
+            this.BtnReportes.UseVisualStyleBackColor = true;
+            this.BtnReportes.Click += new System.EventHandler(this.BtnReportes_Click);
+            // 
             // FormSupervisor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -184,6 +196,7 @@
         private System.Windows.Forms.SplitContainer ScHorizontal;
         private System.Windows.Forms.Button BtnClientes;
         private System.Windows.Forms.Button BtnPedidos;
+        private System.Windows.Forms.Button BtnReportes;
     }
 }
 
