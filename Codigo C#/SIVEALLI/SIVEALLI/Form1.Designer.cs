@@ -30,6 +30,7 @@
         private void InitializeComponent()
         {
             this.ScVertical = new System.Windows.Forms.SplitContainer();
+            this.BtnReportes = new System.Windows.Forms.Button();
             this.BtnPedidos = new System.Windows.Forms.Button();
             this.BtnClientes = new System.Windows.Forms.Button();
             this.buttonUsuarios = new System.Windows.Forms.Button();
@@ -37,12 +38,14 @@
             this.buttonEntrada = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.ScHorizontal = new System.Windows.Forms.SplitContainer();
-            this.BtnReportes = new System.Windows.Forms.Button();
+            this.labelUsuario = new System.Windows.Forms.Label();
+            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.ScVertical)).BeginInit();
             this.ScVertical.Panel1.SuspendLayout();
             this.ScVertical.Panel2.SuspendLayout();
             this.ScVertical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ScHorizontal)).BeginInit();
+            this.ScHorizontal.Panel1.SuspendLayout();
             this.ScHorizontal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,6 +73,16 @@
             this.ScVertical.Size = new System.Drawing.Size(1264, 681);
             this.ScVertical.SplitterDistance = 174;
             this.ScVertical.TabIndex = 0;
+            // 
+            // BtnReportes
+            // 
+            this.BtnReportes.Location = new System.Drawing.Point(12, 631);
+            this.BtnReportes.Name = "BtnReportes";
+            this.BtnReportes.Size = new System.Drawing.Size(148, 38);
+            this.BtnReportes.TabIndex = 0;
+            this.BtnReportes.Text = "Reportes";
+            this.BtnReportes.UseVisualStyleBackColor = true;
+            this.BtnReportes.Click += new System.EventHandler(this.BtnReportes_Click);
             // 
             // BtnPedidos
             // 
@@ -148,6 +161,8 @@
             // ScHorizontal.Panel1
             // 
             this.ScHorizontal.Panel1.BackColor = System.Drawing.Color.White;
+            this.ScHorizontal.Panel1.Controls.Add(this.dtpFecha);
+            this.ScHorizontal.Panel1.Controls.Add(this.labelUsuario);
             // 
             // ScHorizontal.Panel2
             // 
@@ -157,15 +172,20 @@
             this.ScHorizontal.SplitterDistance = 119;
             this.ScHorizontal.TabIndex = 0;
             // 
-            // BtnReportes
+            // labelUsuario
             // 
-            this.BtnReportes.Location = new System.Drawing.Point(12, 631);
-            this.BtnReportes.Name = "BtnReportes";
-            this.BtnReportes.Size = new System.Drawing.Size(148, 38);
-            this.BtnReportes.TabIndex = 0;
-            this.BtnReportes.Text = "Reportes";
-            this.BtnReportes.UseVisualStyleBackColor = true;
-            this.BtnReportes.Click += new System.EventHandler(this.BtnReportes_Click);
+            this.labelUsuario.AutoSize = true;
+            this.labelUsuario.Location = new System.Drawing.Point(158, 30);
+            this.labelUsuario.Name = "labelUsuario";
+            this.labelUsuario.Size = new System.Drawing.Size(0, 19);
+            this.labelUsuario.TabIndex = 0;
+            // 
+            // dtpFecha
+            // 
+            this.dtpFecha.Location = new System.Drawing.Point(462, 35);
+            this.dtpFecha.Name = "dtpFecha";
+            this.dtpFecha.Size = new System.Drawing.Size(263, 26);
+            this.dtpFecha.TabIndex = 1;
             // 
             // FormSupervisor
             // 
@@ -180,6 +200,8 @@
             this.ScVertical.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ScVertical)).EndInit();
             this.ScVertical.ResumeLayout(false);
+            this.ScHorizontal.Panel1.ResumeLayout(false);
+            this.ScHorizontal.Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ScHorizontal)).EndInit();
             this.ScHorizontal.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -197,6 +219,8 @@
         private System.Windows.Forms.Button BtnClientes;
         private System.Windows.Forms.Button BtnPedidos;
         private System.Windows.Forms.Button BtnReportes;
+        private System.Windows.Forms.Label labelUsuario;
+        private System.Windows.Forms.DateTimePicker dtpFecha;
     }
 }
 

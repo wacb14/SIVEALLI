@@ -12,10 +12,12 @@ namespace SIVEALLI
 {
     public partial class FormSupervisor : Form
     {
-        public FormSupervisor()
+        public FormSupervisor(string codigoUsuario)
         {
             InitializeComponent();
             //MessageBox.Show(ScHorizontal.Panel2.Width.ToString() + "--" + ScHorizontal.Panel2.Height.ToString());
+
+            labelUsuario.Text = codigoUsuario;
         }
         protected void AbrirFormPanel(Form Ventana)
         {
