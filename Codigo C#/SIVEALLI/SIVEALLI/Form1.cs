@@ -61,7 +61,8 @@ namespace SIVEALLI
 
         private void BtnPedidos_Click(object sender, EventArgs e)
         {
-            FormPedidos fp = new FormPedidos("US001", new DateTime(2019, 12, 12));
+            //FormPedidos fp = new FormPedidos(labelUsuario.Text, dtpFecha.Value.ToString().Split(' ')[0]);
+            FormPedidos fp = new FormPedidos(labelUsuario.Text, "02/02/2020");
             fp.Show();
         }
 

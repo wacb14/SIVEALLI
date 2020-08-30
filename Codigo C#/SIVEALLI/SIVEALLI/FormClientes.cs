@@ -19,6 +19,17 @@ namespace SIVEALLI
         {
             InitializeComponent();
             CargarListaClientes();
+            CbNuevoPed.Checked = true;
+        }
+        //--Cargar el el id del pedido automaticamente
+        public void CargarIdCliente()
+        {
+            string IdMax = Cliente.IdMaximo().Rows[0][0].ToString();
+            int ValorId = int.Parse(IdMax.Substring(2));
+            IdMax = "CL";
+            for (int k = 0; k < 6 - ValorId.ToString().Length; k++)
+                IdMax += "0";
+            TbId.Text = IdMax + (ValorId + 1).ToString();
         }
         //--------------------------------------------------------------------------------------
         public void CargarDatos()
@@ -40,7 +51,6 @@ namespace SIVEALLI
             TbApellidos.Text = "";
             TbDireccion.Text = "";
             TbCorreo.Text = "";
-            TbId.Text = "";
             TbTelefono.Text = "";
         }
 
@@ -82,23 +92,83 @@ namespace SIVEALLI
 
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
+            CurrencyManager cm = (CurrencyManager)BindingContext[DgvClientes.DataSource];
+            cm.SuspendBinding();
             if (CbBuscar.Text.Trim() == "Nombres")
             {
-                DgvClientes.DataSource= Cliente.BuscarPorNombres(TbValorBusqueda.Text);
+                for (int k = 0; k < DgvClientes.Rows.Count; k++)
+                {
+                    if (!DgvClientes.Rows[k].Cells[1].Value.ToString().Contains(TbValorBusqueda.Text))
+                        DgvClientes.Rows[k].Visible = false;
+                    else
+                        DgvClientes.Rows[k].Visible = true;
+                }
                 //--Mostrar el numero de clientes
-                LbNroClientes.Text = LbNroClientes.Text.Split(':')[0] + ": " + DgvClientes.Rows.Count.ToString();
+                LbNroClientes.Text = LbNroClientes.Text.Split(':')[0] + ": " + ContarClientesVisibles().ToString();
             }
             else if (CbBuscar.Text.Trim() == "Apellidos")
             {
-                DgvClientes.DataSource = Cliente.BuscarPorApellidos(TbValorBusqueda.Text);
+                for (int k = 0; k < DgvClientes.Rows.Count; k++)
+                {
+                    if (!DgvClientes.Rows[k].Cells[2].Value.ToString().Contains(TbValorBusqueda.Text))
+                        DgvClientes.Rows[k].Visible = false;
+                    else
+                        DgvClientes.Rows[k].Visible = true;
+                }
                 //--Mostrar el numero de clientes
-                LbNroClientes.Text = LbNroClientes.Text.Split(':')[0] + ": " + DgvClientes.Rows.Count.ToString();
+                LbNroClientes.Text = LbNroClientes.Text.Split(':')[0] + ": " + ContarClientesVisibles().ToString();
             }
-            else 
+            else
             {
-                DgvClientes.DataSource = Cliente.BuscarPorDireccion(TbValorBusqueda.Text);
+                for (int k = 0; k < DgvClientes.Rows.Count; k++)
+                {
+                    if (!DgvClientes.Rows[k].Cells[0].Value.ToString().Contains(TbValorBusqueda.Text))
+                        DgvClientes.Rows[k].Visible = false;
+                    else
+                        DgvClientes.Rows[k].Visible = true;
+                }
                 //--Mostrar el numero de clientes
-                LbNroClientes.Text = LbNroClientes.Text.Split(':')[0] + ": " + DgvClientes.Rows.Count.ToString();
+                LbNroClientes.Text = LbNroClientes.Text.Split(':')[0] + ": " + ContarClientesVisibles().ToString();
+            }
+        }
+        public int ContarClientesVisibles()
+        {
+            int cont = 0;
+            for (int k = 0; k < DgvClientes.Rows.Count; k++)
+                if (DgvClientes.Rows[k].Visible)
+                    cont++;
+            return cont;
+        }
+        /// <summary>
+        /// Evento que cargar los datos de dgv en los componentes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DgvClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {//--Determinar la fila que cambío
+            int fila = e.RowIndex;
+            int col = e.ColumnIndex;
+            if (fila >= 0)
+            {
+                TbId.Text = DgvClientes.Rows[fila].Cells[0].Value.ToString();
+                TbNombres.Text = DgvClientes.Rows[fila].Cells[1].Value.ToString();
+                TbApellidos.Text = DgvClientes.Rows[fila].Cells[2].Value.ToString();
+                TbDireccion.Text = DgvClientes.Rows[fila].Cells[3].Value.ToString();
+                TbTelefono.Text = DgvClientes.Rows[fila].Cells[4].Value.ToString();
+                TbDireccion.Text = DgvClientes.Rows[fila].Cells[4].Value.ToString();
+
+                CbNuevoPed.Enabled = true;
+                CbNuevoPed.Checked = false;
+            }
+        }
+
+        private void CbNuevoPed_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CbNuevoPed.Checked)
+            {
+                CargarIdCliente();
+                DejarEnBlanco();
+                CbNuevoPed.Enabled = false;
             }
         }
     }

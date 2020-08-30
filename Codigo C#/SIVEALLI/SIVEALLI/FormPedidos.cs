@@ -18,17 +18,19 @@ namespace SIVEALLI
         CPedidoDetalle PedidoDetalle = new CPedidoDetalle();
         bool Añadiendo = true;
         //--datos de entrada
-        DateTime aFecha;
+        string aFecha;
         string aIdUsuario;
         //--
         DialogResult dr;
-        public FormPedidos(string IdUsuario, DateTime Fecha)
+        public FormPedidos(string IdUsuario, string Fecha)
         {
             InitializeComponent();
             aIdUsuario = IdUsuario;
             aFecha = Fecha;
             CargarCatalogoProductos();
             CargarCbProveedores();
+            //--Se carga el id del proximo pedido
+            CbNuevoPed.Checked = true;
         }
         //--------------------------------------------
         public void CargarCbProveedores()
@@ -37,6 +39,16 @@ namespace SIVEALLI
             CbProv.DisplayMember = "Nombre";
             CbProv.ValueMember = "IdProveedor";
             CbProv.SelectedIndex = 0;
+        }
+        //--Cargar el el id del pedido automaticamente
+        public void CargarIdPedido()
+        {
+            string IdMax = Pedido.IdMaximo().Rows[0][0].ToString();
+            int ValorId = int.Parse(IdMax.Substring(2));
+            IdMax = "PE";
+            for (int k = 0; k < 6 - ValorId.ToString().Length; k++)
+                IdMax += "0";
+            TbId.Text = IdMax+(ValorId + 1).ToString();
         }
         public void CargarHistorialPedidos()
         {
@@ -68,9 +80,10 @@ namespace SIVEALLI
             {//--Se valida que el pedido no exceda la cantidad maxima de los productos
                 if (ValidarCantidadMaxima())
                 {
+                    //MessageBox.Show("--"+DtpFechaPago.Text + "--" + aFecha+"--");
                     if (Pedido.ExisteClavePrimaria(new string[] { TbId.Text }))
                     {//--Primero se agrega el elmento a la tabla TPedido
-                        Pedido.Actualizar(new string[] { TbId.Text, CbProv.SelectedValue.ToString(), aIdUsuario, DtpFechaPago.Text, aFecha.ToString(), TbTermEntrega.Text });
+                        Pedido.Actualizar(new string[] { TbId.Text, CbProv.SelectedValue.ToString(), aIdUsuario, DtpFechaPago.Text, aFecha, TbTermEntrega.Text });
                         //--Se eliminan los productos del pedido
                         PedidoDetalle.EliminarRegistros(TbId.Text);
                         //--Luego se guarda pedido detalle
@@ -87,7 +100,7 @@ namespace SIVEALLI
                     }
                     else
                     {//--Primero se agrega el elmento a la tabla TPedido
-                        Pedido.Insertar(new string[] { TbId.Text, CbProv.SelectedValue.ToString(), aIdUsuario, DtpFechaPago.Text, aFecha.ToString(), TbTermEntrega.Text });
+                        Pedido.Insertar(new string[] { TbId.Text, CbProv.SelectedValue.ToString(), aIdUsuario, DtpFechaPago.Text, aFecha, TbTermEntrega.Text });
                         //--Luego se guarda pedido detalle
                         for (int k = 0; k < DgvPedidosDetalle.Rows.Count; k++)
                         {
@@ -133,7 +146,7 @@ namespace SIVEALLI
                 {//--Ver el estado del producto
                     string Estado = DgvCatalogoProductos.Rows[fila].Cells[6].Value.ToString();
                     dr = DialogResult.None;
-                    if (Estado.Trim() == "ACTIVO")
+                    if (Estado.Trim() != "ACTIVO")
                         dr = MessageBox.Show("El producto no se encuentra ACTIVADO, ¿esta seguro de que desea agregarlo?", "CUIDADO", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                     //--Si se presiono si, se agrega el producto
                     if (dr == DialogResult.Yes || dr == DialogResult.None)
@@ -262,11 +275,12 @@ namespace SIVEALLI
         {//--Determinar la fila que cambío
             int fila = e.RowIndex;
             int col = e.ColumnIndex;
-            if (col != -1)
+            if (fila >= 0)
             {
                 DataTable TablaPedido = Pedido.TraerDatosPedido(DgvPedidos.Rows[fila].Cells[0].Value.ToString());
                 TbId.Text = TablaPedido.Rows[0][0].ToString();
-                CbProv.Text = TablaPedido.Rows[0][1].ToString();
+                //CbProv.Text = TablaPedido.Rows[0][1].ToString();
+                CbProv.SelectedIndex = int.Parse(TablaPedido.Rows[0][1].ToString().Substring(2));
                 TbTermEntrega.Text = TablaPedido.Rows[0][5].ToString();
                 //--Cargar los datos en data grid view
                 DataTable TablaPedidoDetalle = Pedido.TraerDatosPedidoDetalle(DgvPedidos.Rows[fila].Cells[0].Value.ToString());
@@ -280,6 +294,9 @@ namespace SIVEALLI
                     string cantidad = TablaPedidoDetalle.Rows[k][2].ToString();
                     DgvPedidosDetalle.Rows.Add(codProd, nombre.Split('#')[0], precio, cantidad, (double.Parse(precio) * int.Parse(cantidad)).ToString(), "X", nombre.Split('#')[1]);
                 }
+                DeterminarImporteTotal();
+                CbNuevoPed.Checked = false;
+                CbNuevoPed.Enabled = true;
             }
         }
         public void DejarEnCatalogoBlanco()
@@ -303,6 +320,23 @@ namespace SIVEALLI
                 }
             }
             return nombre;
+        }
+        /// <summary>
+        /// Evento que se activa si se agregara un producto nuevo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CbNuevoPed_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CbNuevoPed.Checked)
+            {
+                CargarIdPedido();
+                DgvPedidosDetalle.Rows.Clear();
+                CbProv.SelectedIndex = 0;
+                TbTermEntrega.Text = "";
+                CbNuevoPed.Enabled = false;
+                DejarEnCatalogoBlanco();
+            }
         }
     }
 }

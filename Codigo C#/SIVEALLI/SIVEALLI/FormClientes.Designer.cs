@@ -53,6 +53,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.GbCliente = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.CbNuevoPed = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.DgvClientes)).BeginInit();
             this.GbClientes.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -66,7 +67,7 @@
             "Id",
             "Nombres",
             "Apellidos"});
-            this.CbBuscar.Location = new System.Drawing.Point(6, 356);
+            this.CbBuscar.Location = new System.Drawing.Point(6, 350);
             this.CbBuscar.Name = "CbBuscar";
             this.CbBuscar.Size = new System.Drawing.Size(141, 27);
             this.CbBuscar.TabIndex = 19;
@@ -75,7 +76,7 @@
             // 
             this.LbNroClientes.AutoSize = true;
             this.LbNroClientes.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LbNroClientes.Location = new System.Drawing.Point(444, 334);
+            this.LbNroClientes.Location = new System.Drawing.Point(444, 328);
             this.LbNroClientes.Name = "LbNroClientes";
             this.LbNroClientes.Size = new System.Drawing.Size(141, 19);
             this.LbNroClientes.TabIndex = 17;
@@ -83,7 +84,7 @@
             // 
             // BtnGuardar
             // 
-            this.BtnGuardar.Location = new System.Drawing.Point(10, 379);
+            this.BtnGuardar.Location = new System.Drawing.Point(10, 425);
             this.BtnGuardar.Name = "BtnGuardar";
             this.BtnGuardar.Size = new System.Drawing.Size(92, 37);
             this.BtnGuardar.TabIndex = 12;
@@ -117,7 +118,7 @@
             // 
             // TbValorBusqueda
             // 
-            this.TbValorBusqueda.Location = new System.Drawing.Point(6, 410);
+            this.TbValorBusqueda.Location = new System.Drawing.Point(6, 404);
             this.TbValorBusqueda.Name = "TbValorBusqueda";
             this.TbValorBusqueda.Size = new System.Drawing.Size(289, 26);
             this.TbValorBusqueda.TabIndex = 16;
@@ -134,6 +135,7 @@
             this.DgvClientes.ReadOnly = true;
             this.DgvClientes.Size = new System.Drawing.Size(648, 300);
             this.DgvClientes.TabIndex = 0;
+            this.DgvClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvClientes_CellContentClick);
             // 
             // label5
             // 
@@ -173,7 +175,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(2, 334);
+            this.label9.Location = new System.Drawing.Point(2, 328);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(127, 19);
             this.label9.TabIndex = 18;
@@ -183,7 +185,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(2, 388);
+            this.label7.Location = new System.Drawing.Point(2, 382);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(171, 19);
             this.label7.TabIndex = 15;
@@ -205,10 +207,11 @@
             this.label10.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(6, 18);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(597, 19);
+            this.label10.Size = new System.Drawing.Size(597, 38);
             this.label10.TabIndex = 20;
             this.label10.Text = "Es importante cerrar el formulario al terminar de usarlo, para un mejor funcionam" +
-    "iento del sistema.";
+    "iento del sistema.\r\nPara obetener todos los resultados, presione buscar sin ning" +
+    "un valor.";
             // 
             // TbNombres
             // 
@@ -220,7 +223,7 @@
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(448, 356);
+            this.button5.Location = new System.Drawing.Point(448, 350);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(92, 32);
             this.button5.TabIndex = 20;
@@ -240,7 +243,7 @@
             this.GbClientes.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GbClientes.Location = new System.Drawing.Point(398, 12);
             this.GbClientes.Name = "GbClientes";
-            this.GbClientes.Size = new System.Drawing.Size(660, 442);
+            this.GbClientes.Size = new System.Drawing.Size(660, 438);
             this.GbClientes.TabIndex = 5;
             this.GbClientes.TabStop = false;
             this.GbClientes.Text = "Lista de clientes";
@@ -248,7 +251,7 @@
             // BtnBuscar
             // 
             this.BtnBuscar.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnBuscar.Location = new System.Drawing.Point(301, 407);
+            this.BtnBuscar.Location = new System.Drawing.Point(301, 401);
             this.BtnBuscar.Name = "BtnBuscar";
             this.BtnBuscar.Size = new System.Drawing.Size(92, 32);
             this.BtnBuscar.TabIndex = 15;
@@ -268,6 +271,7 @@
             // 
             // TbId
             // 
+            this.TbId.Enabled = false;
             this.TbId.Location = new System.Drawing.Point(10, 44);
             this.TbId.Name = "TbId";
             this.TbId.Size = new System.Drawing.Size(92, 26);
@@ -278,15 +282,16 @@
             // 
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(398, 460);
+            this.groupBox1.Location = new System.Drawing.Point(398, 447);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(654, 47);
+            this.groupBox1.Size = new System.Drawing.Size(654, 60);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Observaciones";
             // 
             // GbCliente
             // 
+            this.GbCliente.Controls.Add(this.CbNuevoPed);
             this.GbCliente.Controls.Add(this.BtnGuardar);
             this.GbCliente.Controls.Add(this.TbCorreo);
             this.GbCliente.Controls.Add(this.label6);
@@ -317,6 +322,17 @@
             this.label1.Size = new System.Drawing.Size(64, 19);
             this.label1.TabIndex = 0;
             this.label1.Text = "Id cliente";
+            // 
+            // CbNuevoPed
+            // 
+            this.CbNuevoPed.AutoSize = true;
+            this.CbNuevoPed.Location = new System.Drawing.Point(130, 21);
+            this.CbNuevoPed.Name = "CbNuevoPed";
+            this.CbNuevoPed.Size = new System.Drawing.Size(115, 23);
+            this.CbNuevoPed.TabIndex = 25;
+            this.CbNuevoPed.Text = "Cliente Nuevo";
+            this.CbNuevoPed.UseVisualStyleBackColor = true;
+            this.CbNuevoPed.CheckedChanged += new System.EventHandler(this.CbNuevoPed_CheckedChanged);
             // 
             // FormClientes
             // 
@@ -369,5 +385,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox GbCliente;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox CbNuevoPed;
     }
 }

@@ -22,6 +22,13 @@ namespace BibClases
             };
         }
         //------------------------------------------------------------------------------------------
+        public DataTable IdMaximo()
+        {   //--Retornar un tabla con la lista completa de  libros
+            string CadenaConsulta = "select max(IdPedido) from TPedido";
+            aConexion.EjecutarSelect(CadenaConsulta);
+            return aConexion.Datos.Tables[0];
+        }
+        //------------------------------------------------------------------------------------------
         public DataTable CatalogoProductos()
         {   //--Retornar un tabla con la lista completa de  libros
             string CadenaConsulta = "spuListarCatalogoProductos";

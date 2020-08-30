@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.CbProveedores = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.BtnGuardar = new System.Windows.Forms.Button();
             this.DgvPedidosDetalle = new System.Windows.Forms.DataGridView();
             this.ColId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,6 +40,7 @@
             this.ColPos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button5 = new System.Windows.Forms.Button();
             this.LTotal = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.GbHistotialPedidos = new System.Windows.Forms.GroupBox();
             this.BtnCatalogo = new System.Windows.Forms.Button();
             this.DgvPedidos = new System.Windows.Forms.DataGridView();
@@ -64,6 +64,8 @@
             this.DgvCatalogoProductos = new System.Windows.Forms.DataGridView();
             this.TbFiltrar = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.BtnNuevo = new System.Windows.Forms.Button();
+            this.CbNuevoPed = new System.Windows.Forms.CheckBox();
             this.CbProveedores.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvPedidosDetalle)).BeginInit();
             this.GbHistotialPedidos.SuspendLayout();
@@ -87,16 +89,6 @@
             this.CbProveedores.TabIndex = 11;
             this.CbProveedores.TabStop = false;
             this.CbProveedores.Text = "Detalles de pedido";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(1092, 219);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(92, 37);
-            this.button1.TabIndex = 22;
-            this.button1.Text = "CED";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // BtnGuardar
             // 
@@ -195,6 +187,16 @@
             this.LTotal.Size = new System.Drawing.Size(120, 19);
             this.LTotal.TabIndex = 17;
             this.LTotal.Text = "Importe total: s/ 0 ";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1092, 219);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(92, 37);
+            this.button1.TabIndex = 22;
+            this.button1.Text = "CED";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // GbHistotialPedidos
             // 
@@ -301,6 +303,8 @@
             // 
             // GbCliente
             // 
+            this.GbCliente.Controls.Add(this.CbNuevoPed);
+            this.GbCliente.Controls.Add(this.BtnNuevo);
             this.GbCliente.Controls.Add(this.TbTermEntrega);
             this.GbCliente.Controls.Add(this.label3);
             this.GbCliente.Controls.Add(this.DtpFechaPago);
@@ -373,6 +377,7 @@
             // 
             // TbId
             // 
+            this.TbId.Enabled = false;
             this.TbId.Location = new System.Drawing.Point(9, 44);
             this.TbId.Name = "TbId";
             this.TbId.Size = new System.Drawing.Size(103, 26);
@@ -446,6 +451,26 @@
             this.label7.TabIndex = 15;
             this.label7.Text = "Filtrar busqueda por: ";
             // 
+            // BtnNuevo
+            // 
+            this.BtnNuevo.Location = new System.Drawing.Point(282, 93);
+            this.BtnNuevo.Name = "BtnNuevo";
+            this.BtnNuevo.Size = new System.Drawing.Size(58, 26);
+            this.BtnNuevo.TabIndex = 22;
+            this.BtnNuevo.Text = "Nuevo";
+            this.BtnNuevo.UseVisualStyleBackColor = true;
+            // 
+            // CbNuevoPed
+            // 
+            this.CbNuevoPed.AutoSize = true;
+            this.CbNuevoPed.Location = new System.Drawing.Point(125, 18);
+            this.CbNuevoPed.Name = "CbNuevoPed";
+            this.CbNuevoPed.Size = new System.Drawing.Size(116, 23);
+            this.CbNuevoPed.TabIndex = 24;
+            this.CbNuevoPed.Text = "Pedido Nuevo";
+            this.CbNuevoPed.UseVisualStyleBackColor = true;
+            this.CbNuevoPed.CheckedChanged += new System.EventHandler(this.CbNuevoPed_CheckedChanged);
+            // 
             // FormPedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -516,5 +541,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox TbTermEntrega;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.CheckBox CbNuevoPed;
+        private System.Windows.Forms.Button BtnNuevo;
     }
 }
