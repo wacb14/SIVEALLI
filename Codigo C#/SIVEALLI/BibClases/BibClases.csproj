@@ -46,6 +46,7 @@
     <Compile Include="CConexion.cs" />
     <Compile Include="CEntidad.cs" />
     <Compile Include="CEntrada.cs" />
+    <Compile Include="CEntradaDetalle.cs" />
     <Compile Include="CPedido.cs" />
     <Compile Include="CPedidoDetalle.cs" />
     <Compile Include="CProducto.cs" />

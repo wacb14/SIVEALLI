@@ -19,5 +19,12 @@ namespace BibClases
                 "IdEntrada", "IdProveedor", "IdUsuario", "Fecha"
             };
         }
+
+        public object ListadoParaCombos()
+        {
+            string CadenaConsulta = "exec spuListadoCodigoEntradas";
+            aConexion.EjecutarSelect(CadenaConsulta);
+            return aConexion.Datos.Tables[0];
+        }
     }
 }

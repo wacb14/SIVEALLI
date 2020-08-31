@@ -17,6 +17,8 @@ namespace SIVEALLI
     {
         CProveedor proveedor = new CProveedor();
         CProducto producto = new CProducto();
+        CEntrada entrada = new CEntrada();
+        CEntradaDetalle entDet = new CEntradaDetalle();
 
         string codigoUsuario;
         DateTime aFecha;
@@ -39,41 +41,53 @@ namespace SIVEALLI
             this.buttonEditar.Click += new EventHandler(HabilitarEdicionDataGrid);
             this.buttonEliminarDetalle.Click += new EventHandler(EliminarEntradaDetalle);
             this.buttonListo.Click += new EventHandler(GuardarEntrada);
+            this.cbCodigoEntrada.SelectedIndexChanged += new EventHandler(CargarDatosEntrada);
+        }
+
+        private void CargarDatosEntrada(object sender, EventArgs e)
+        {
+            if (cbCodigoEntrada.Text.Equals(""))
+            {
+                //MessageBox.Show("")
+            }
+            else
+                MessageBox.Show(cbCodigoEntrada.Text);
         }
 
         private void GuardarEntrada(object sender, EventArgs e)
         {
-            Grabar(1);
+            //Graba los datos generales de la entrada
+            Grabar();
+
+            //Guarda los datos de la tabla (dataGridView)
+            GuardarEntradaDetalle();
         }
 
-        public virtual void Grabar(int n)
+        private void GuardarEntradaDetalle()
         {
-            try
-            {
-                if (EsRegistroValido())
-                {
-                    //Recuperar atributos, el primer atributo es la clave
-                    string[] Atributos = AsignarValoresAtributos();
-                    //Verificar si existe clave primaria
-                    if (aEntidad.ExisteClavePrimaria(n, Atributos))
-                    {
-                        aEntidad.Actualizar(Atributos);
-                    }
-                    else
-                    {
-                        aEntidad.Insertar(Atributos);
-                    }
-                    MessageBox.Show("Operacion realizada exitosamente", "Confirmacion");
-                    InicializarAtributos();
+            string codEntrada = cbCodigoEntrada.Text;
+            string codProducto;
+            string cantidad;
 
-                }
-                else
-                    MessageBox.Show("Debe completar el llenado del formulario", "ALERTA");
-            }
-            catch (Exception e)
+            //eliminamos las antiguas entradas
+            entDet.EliminarRegistros(codEntrada);
+
+            for (int i=0; i < dataGridViewDetalleEntrada.Rows.Count; i++)
             {
-                MessageBox.Show(e.ToString(), "Error al realizar la operacion");
+                codProducto = dataGridViewDetalleEntrada.Rows[i].Cells[0].Value.ToString();
+                cantidad = dataGridViewDetalleEntrada.Rows[i].Cells[5].Value.ToString();
+                entDet.Insertar(new string[] { codEntrada, codProducto, cantidad });
             }
+        }
+
+        public override bool EsRegistroValido()
+        {
+            if (comboBoxCodigoProveedor.Text.Trim() != "" &&
+                cbCodigoEntrada.Text.Trim() != "" &&
+                dataGridViewDetalleEntrada.Rows.Count > 0)
+                return true;
+            else
+                return false;
         }
 
         private string DarFormatoFecha()
@@ -87,14 +101,13 @@ namespace SIVEALLI
 
         public override string[] AsignarValoresAtributos()
         {
-            return new string[] { textBoxCodigoEntrada.Text,
+            return new string[] { cbCodigoEntrada.Text,
                 comboBoxCodigoProveedor.SelectedValue.ToString(), codigoUsuario, 
                 DarFormatoFecha()};
         }
         public override void MostrarDatos()
         {
             comboBoxCodigoProveedor.Text = aEntidad.ValorAtributo("IdProveedor");
-            dateTimePickerEntrada.Text = aEntidad.ValorAtributo("Fecha");
         }
 
         private void EliminarEntradaDetalle(object sender, EventArgs e)
@@ -135,7 +148,7 @@ namespace SIVEALLI
             int cantidad = (int) numericUpDownCantidad.Value;
 
             //Validamos que se haya ingresado un codigo
-            if (codigoProducto.Equals("") || textBoxCodigoEntrada.Text.Equals("") || comboBoxCodigoProveedor.Text.Equals(""))
+            if (codigoProducto.Equals("") || cbCodigoEntrada.Text.Equals("") || comboBoxCodigoProveedor.Text.Equals(""))
             {
                 MessageBox.Show("Ingrese los datos de proveedor, nueva entrada y producto");
                 return;
@@ -187,18 +200,23 @@ namespace SIVEALLI
         {
             int cant = aEntidad.NumeroRegistros();
             string cantCeros = "";
-            if (cant < 10)
+            if (cant < 9)
                 cantCeros = "00000";
-            else if (cant < 100)
+            else if (cant < 99)
                 cantCeros = "0000";
-            else if (cant < 1000)
+            else if (cant < 999)
                 cantCeros = "000";
-            else if (cant < 10000)
+            else if (cant < 9999)
                 cantCeros = "00";
-            else if (cant < 100000)
+            else if (cant < 99999)
                 cantCeros = "0";
 
-            textBoxCodigoEntrada.Text = "EN" + cantCeros + (cant + 1);
+            cbCodigoEntrada.Text = "EN" + cantCeros + (cant + 1);
+
+            comboBoxCodigoProducto.SelectedIndex = -1;
+            comboBoxCodigoProveedor.SelectedIndex = -1;
+            numericUpDownCantidad.Value = 1;
+            dataGridViewDetalleEntrada.Rows.Clear();
 
             comboBoxCodigoProveedor.Focus();
         }
@@ -207,6 +225,15 @@ namespace SIVEALLI
         {
             LlenarDatosProveedores();
             LlenarCodigoProductos();
+            LlenarCodigoEntradas();
+        }
+
+        private void LlenarCodigoEntradas()
+        {
+            cbCodigoEntrada.DataSource = entrada.ListadoParaCombos();
+            cbCodigoEntrada.DisplayMember = "IdEntrada";
+            cbCodigoEntrada.ValueMember = "IdEntrada";
+            cbCodigoEntrada.SelectedIndex = -1;
         }
 
         private void LlenarCodigoProductos()

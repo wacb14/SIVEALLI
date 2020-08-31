@@ -197,9 +197,9 @@ namespace SIVEALLI
             InicializarAtributosNoClave();
             int cant = aEntidad.NumeroRegistros();
             string cantCeros = "";
-            if (cant < 10)
+            if (cant < 9)
                 cantCeros = "00";
-            else if (cant < 100)
+            else if (cant < 99)
                 cantCeros = "0";
 
             textBoxCodigo.Text = "US"+cantCeros+(cant+1);

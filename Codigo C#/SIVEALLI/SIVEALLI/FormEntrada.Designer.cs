@@ -30,9 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEntrada));
             this.label1 = new System.Windows.Forms.Label();
-            this.textBoxCodigoEntrada = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePickerEntrada = new System.Windows.Forms.DateTimePicker();
             this.comboBoxCodigoProveedor = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -43,15 +41,16 @@
             this.groupBoxEntradaProducto = new System.Windows.Forms.GroupBox();
             this.comboBoxCodigoProducto = new System.Windows.Forms.ComboBox();
             this.dataGridViewDetalleEntrada = new System.Windows.Forms.DataGridView();
-            this.buttonEditar = new System.Windows.Forms.Button();
-            this.buttonEliminarDetalle = new System.Windows.Forms.Button();
-            this.buttonListo = new System.Windows.Forms.Button();
             this.ColumnCodigoProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnPrecioUnitacio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonEditar = new System.Windows.Forms.Button();
+            this.buttonEliminarDetalle = new System.Windows.Forms.Button();
+            this.buttonListo = new System.Windows.Forms.Button();
+            this.cbCodigoEntrada = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCantidad)).BeginInit();
             this.groupBoxDatosEntrada.SuspendLayout();
             this.groupBoxEntradaProducto.SuspendLayout();
@@ -68,14 +67,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Código entrada";
             // 
-            // textBoxCodigoEntrada
-            // 
-            this.textBoxCodigoEntrada.Location = new System.Drawing.Point(152, 41);
-            this.textBoxCodigoEntrada.Margin = new System.Windows.Forms.Padding(4);
-            this.textBoxCodigoEntrada.Name = "textBoxCodigoEntrada";
-            this.textBoxCodigoEntrada.Size = new System.Drawing.Size(188, 26);
-            this.textBoxCodigoEntrada.TabIndex = 2;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -85,13 +76,6 @@
             this.label2.Size = new System.Drawing.Size(121, 19);
             this.label2.TabIndex = 2;
             this.label2.Text = "Código proveedor";
-            // 
-            // dateTimePickerEntrada
-            // 
-            this.dateTimePickerEntrada.Location = new System.Drawing.Point(792, 12);
-            this.dateTimePickerEntrada.Name = "dateTimePickerEntrada";
-            this.dateTimePickerEntrada.Size = new System.Drawing.Size(266, 26);
-            this.dateTimePickerEntrada.TabIndex = 6;
             // 
             // comboBoxCodigoProveedor
             // 
@@ -104,7 +88,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(19, 46);
+            this.label4.Location = new System.Drawing.Point(18, 38);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(113, 19);
@@ -114,7 +98,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(371, 46);
+            this.label5.Location = new System.Drawing.Point(370, 38);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(64, 19);
@@ -123,7 +107,7 @@
             // 
             // numericUpDownCantidad
             // 
-            this.numericUpDownCantidad.Location = new System.Drawing.Point(442, 42);
+            this.numericUpDownCantidad.Location = new System.Drawing.Point(441, 34);
             this.numericUpDownCantidad.Minimum = new decimal(new int[] {
             1,
             0,
@@ -144,7 +128,7 @@
             this.buttonAniadir.FlatAppearance.BorderSize = 0;
             this.buttonAniadir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAniadir.Image = ((System.Drawing.Image)(resources.GetObject("buttonAniadir.Image")));
-            this.buttonAniadir.Location = new System.Drawing.Point(521, 20);
+            this.buttonAniadir.Location = new System.Drawing.Point(520, 12);
             this.buttonAniadir.Margin = new System.Windows.Forms.Padding(4);
             this.buttonAniadir.Name = "buttonAniadir";
             this.buttonAniadir.Size = new System.Drawing.Size(68, 66);
@@ -166,9 +150,9 @@
             // 
             // groupBoxDatosEntrada
             // 
+            this.groupBoxDatosEntrada.Controls.Add(this.cbCodigoEntrada);
             this.groupBoxDatosEntrada.Controls.Add(this.buttonNuevaEntrada);
             this.groupBoxDatosEntrada.Controls.Add(this.label1);
-            this.groupBoxDatosEntrada.Controls.Add(this.textBoxCodigoEntrada);
             this.groupBoxDatosEntrada.Controls.Add(this.label2);
             this.groupBoxDatosEntrada.Controls.Add(this.comboBoxCodigoProveedor);
             this.groupBoxDatosEntrada.Location = new System.Drawing.Point(12, 12);
@@ -185,9 +169,9 @@
             this.groupBoxEntradaProducto.Controls.Add(this.buttonAniadir);
             this.groupBoxEntradaProducto.Controls.Add(this.label5);
             this.groupBoxEntradaProducto.Controls.Add(this.numericUpDownCantidad);
-            this.groupBoxEntradaProducto.Location = new System.Drawing.Point(453, 44);
+            this.groupBoxEntradaProducto.Location = new System.Drawing.Point(453, 12);
             this.groupBoxEntradaProducto.Name = "groupBoxEntradaProducto";
-            this.groupBoxEntradaProducto.Size = new System.Drawing.Size(605, 100);
+            this.groupBoxEntradaProducto.Size = new System.Drawing.Size(605, 84);
             this.groupBoxEntradaProducto.TabIndex = 36;
             this.groupBoxEntradaProducto.TabStop = false;
             this.groupBoxEntradaProducto.Text = "Datos de producto";
@@ -195,7 +179,7 @@
             // comboBoxCodigoProducto
             // 
             this.comboBoxCodigoProducto.FormattingEnabled = true;
-            this.comboBoxCodigoProducto.Location = new System.Drawing.Point(139, 42);
+            this.comboBoxCodigoProducto.Location = new System.Drawing.Point(138, 34);
             this.comboBoxCodigoProducto.Name = "comboBoxCodigoProducto";
             this.comboBoxCodigoProducto.Size = new System.Drawing.Size(188, 27);
             this.comboBoxCodigoProducto.TabIndex = 4;
@@ -219,45 +203,6 @@
             this.dataGridViewDetalleEntrada.ReadOnly = true;
             this.dataGridViewDetalleEntrada.Size = new System.Drawing.Size(970, 357);
             this.dataGridViewDetalleEntrada.TabIndex = 37;
-            // 
-            // buttonEditar
-            // 
-            this.buttonEditar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.buttonEditar.FlatAppearance.BorderSize = 0;
-            this.buttonEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonEditar.Image = ((System.Drawing.Image)(resources.GetObject("buttonEditar.Image")));
-            this.buttonEditar.Location = new System.Drawing.Point(989, 151);
-            this.buttonEditar.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonEditar.Name = "buttonEditar";
-            this.buttonEditar.Size = new System.Drawing.Size(68, 66);
-            this.buttonEditar.TabIndex = 38;
-            this.buttonEditar.UseVisualStyleBackColor = true;
-            // 
-            // buttonEliminarDetalle
-            // 
-            this.buttonEliminarDetalle.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.buttonEliminarDetalle.FlatAppearance.BorderSize = 0;
-            this.buttonEliminarDetalle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonEliminarDetalle.Image = ((System.Drawing.Image)(resources.GetObject("buttonEliminarDetalle.Image")));
-            this.buttonEliminarDetalle.Location = new System.Drawing.Point(990, 203);
-            this.buttonEliminarDetalle.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonEliminarDetalle.Name = "buttonEliminarDetalle";
-            this.buttonEliminarDetalle.Size = new System.Drawing.Size(68, 66);
-            this.buttonEliminarDetalle.TabIndex = 39;
-            this.buttonEliminarDetalle.UseVisualStyleBackColor = true;
-            // 
-            // buttonListo
-            // 
-            this.buttonListo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.buttonListo.FlatAppearance.BorderSize = 0;
-            this.buttonListo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonListo.Image = ((System.Drawing.Image)(resources.GetObject("buttonListo.Image")));
-            this.buttonListo.Location = new System.Drawing.Point(990, 440);
-            this.buttonListo.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonListo.Name = "buttonListo";
-            this.buttonListo.Size = new System.Drawing.Size(68, 66);
-            this.buttonListo.TabIndex = 41;
-            this.buttonListo.UseVisualStyleBackColor = true;
             // 
             // ColumnCodigoProducto
             // 
@@ -300,6 +245,53 @@
             this.ColumnCantidad.ReadOnly = true;
             this.ColumnCantidad.Width = 80;
             // 
+            // buttonEditar
+            // 
+            this.buttonEditar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonEditar.FlatAppearance.BorderSize = 0;
+            this.buttonEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonEditar.Image = ((System.Drawing.Image)(resources.GetObject("buttonEditar.Image")));
+            this.buttonEditar.Location = new System.Drawing.Point(989, 150);
+            this.buttonEditar.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonEditar.Name = "buttonEditar";
+            this.buttonEditar.Size = new System.Drawing.Size(68, 66);
+            this.buttonEditar.TabIndex = 38;
+            this.buttonEditar.UseVisualStyleBackColor = true;
+            // 
+            // buttonEliminarDetalle
+            // 
+            this.buttonEliminarDetalle.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonEliminarDetalle.FlatAppearance.BorderSize = 0;
+            this.buttonEliminarDetalle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonEliminarDetalle.Image = ((System.Drawing.Image)(resources.GetObject("buttonEliminarDetalle.Image")));
+            this.buttonEliminarDetalle.Location = new System.Drawing.Point(990, 203);
+            this.buttonEliminarDetalle.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonEliminarDetalle.Name = "buttonEliminarDetalle";
+            this.buttonEliminarDetalle.Size = new System.Drawing.Size(68, 66);
+            this.buttonEliminarDetalle.TabIndex = 39;
+            this.buttonEliminarDetalle.UseVisualStyleBackColor = true;
+            // 
+            // buttonListo
+            // 
+            this.buttonListo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonListo.FlatAppearance.BorderSize = 0;
+            this.buttonListo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonListo.Image = ((System.Drawing.Image)(resources.GetObject("buttonListo.Image")));
+            this.buttonListo.Location = new System.Drawing.Point(990, 440);
+            this.buttonListo.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonListo.Name = "buttonListo";
+            this.buttonListo.Size = new System.Drawing.Size(68, 66);
+            this.buttonListo.TabIndex = 41;
+            this.buttonListo.UseVisualStyleBackColor = true;
+            // 
+            // cbCodigoEntrada
+            // 
+            this.cbCodigoEntrada.FormattingEnabled = true;
+            this.cbCodigoEntrada.Location = new System.Drawing.Point(152, 41);
+            this.cbCodigoEntrada.Name = "cbCodigoEntrada";
+            this.cbCodigoEntrada.Size = new System.Drawing.Size(188, 27);
+            this.cbCodigoEntrada.TabIndex = 42;
+            // 
             // FormEntrada
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -312,7 +304,6 @@
             this.Controls.Add(this.dataGridViewDetalleEntrada);
             this.Controls.Add(this.groupBoxEntradaProducto);
             this.Controls.Add(this.groupBoxDatosEntrada);
-            this.Controls.Add(this.dateTimePickerEntrada);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormEntrada";
@@ -330,9 +321,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBoxCodigoEntrada;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dateTimePickerEntrada;
         private System.Windows.Forms.ComboBox comboBoxCodigoProveedor;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
@@ -352,5 +341,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnMarca;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPrecioUnitacio;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCantidad;
+        private System.Windows.Forms.ComboBox cbCodigoEntrada;
     }
 }
