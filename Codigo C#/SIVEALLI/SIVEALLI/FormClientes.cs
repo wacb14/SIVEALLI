@@ -92,8 +92,7 @@ namespace SIVEALLI
 
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
-            CurrencyManager cm = (CurrencyManager)BindingContext[DgvClientes.DataSource];
-            cm.SuspendBinding();
+            DgvClientes.CurrentCell = null;
             if (CbBuscar.Text.Trim() == "Nombres")
             {
                 for (int k = 0; k < DgvClientes.Rows.Count; k++)
@@ -155,7 +154,7 @@ namespace SIVEALLI
                 TbApellidos.Text = DgvClientes.Rows[fila].Cells[2].Value.ToString();
                 TbDireccion.Text = DgvClientes.Rows[fila].Cells[3].Value.ToString();
                 TbTelefono.Text = DgvClientes.Rows[fila].Cells[4].Value.ToString();
-                TbDireccion.Text = DgvClientes.Rows[fila].Cells[4].Value.ToString();
+                TbCorreo.Text = DgvClientes.Rows[fila].Cells[5].Value.ToString();
 
                 CbNuevoPed.Enabled = true;
                 CbNuevoPed.Checked = false;

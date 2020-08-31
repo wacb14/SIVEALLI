@@ -231,8 +231,9 @@ namespace SIVEALLI
         /// <param name="e"></param>
         private void BtnFiltrar_Click(object sender, EventArgs e)
         {
-            CurrencyManager cm = (CurrencyManager)BindingContext[DgvCatalogoProductos.DataSource];
-            cm.SuspendBinding();
+            //CurrencyManager cm = (CurrencyManager)BindingContext[DgvCatalogoProductos.DataSource];
+            //cm.SuspendBinding();
+            DgvCatalogoProductos.CurrentCell = null;
             for (int k = DgvCatalogoProductos.Rows.Count - 1; k >= 0; k--)
             {
                 if (DgvCatalogoProductos.Rows[k].Cells[2].Value.ToString().Contains(TbFiltrar.Text))
@@ -245,8 +246,7 @@ namespace SIVEALLI
         }
         private void BtnFiltrarHistorial_Click(object sender, EventArgs e)
         {
-            CurrencyManager cm = (CurrencyManager)BindingContext[DgvPedidos.DataSource];
-            cm.SuspendBinding();
+            DgvCatalogoProductos.CurrentCell = null;
             for (int k = DgvPedidos.Rows.Count - 1; k >= 0; k--)
             {
                 if (DgvPedidos.Rows[k].Cells[0].Value.ToString().Contains(TbfiltrarHistorial.Text))
