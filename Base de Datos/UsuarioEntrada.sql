@@ -36,3 +36,10 @@ begin
 	where IdEntrada = @IdEntrada 
 end;
 go
+
+create procedure spuListadoCodigoEntradas
+as
+begin
+select IdEntrada from TEntrada
+end;
+go
