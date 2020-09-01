@@ -12,12 +12,18 @@ namespace SIVEALLI
 {
     public partial class FormSupervisor : Form
     {
+
+        protected FormUsuarios formUsuarios;
+        protected FormEntrada formEntrada;
         public FormSupervisor(string codigoUsuario)
         {
             InitializeComponent();
             //MessageBox.Show(ScHorizontal.Panel2.Width.ToString() + "--" + ScHorizontal.Panel2.Height.ToString());
 
             labelUsuario.Text = codigoUsuario;
+
+            formUsuarios = new FormUsuarios();
+            formEntrada = new FormEntrada(codigoUsuario);
         }
         protected void AbrirFormPanel(Form Ventana)
         {
@@ -34,9 +40,10 @@ namespace SIVEALLI
 
         private void buttonUsuarios_Click(object sender, EventArgs e)
         {
-            FormUsuarios fu = new FormUsuarios();
-            fu.Show();
-            //AbrirFormPanel(fu);
+            //FormUsuarios fu = new FormUsuarios();
+            //fu.Show();
+            //formUsuarios.Show();
+            AbrirFormPanel(formUsuarios);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -55,8 +62,9 @@ namespace SIVEALLI
 
         private void buttonEntrada_Click(object sender, EventArgs e)
         {
-            FormEntrada fe = new FormEntrada(labelUsuario.Text, dtpFecha.Value);
-            fe.Show();
+            //FormEntrada fe = new FormEntrada(labelUsuario.Text);
+            //formEntrada.Show();
+            AbrirFormPanel(formEntrada);
         }
 
         private void BtnPedidos_Click(object sender, EventArgs e)

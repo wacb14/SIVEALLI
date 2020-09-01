@@ -38,6 +38,7 @@
             this.buttonAniadir = new System.Windows.Forms.Button();
             this.buttonNuevaEntrada = new System.Windows.Forms.Button();
             this.groupBoxDatosEntrada = new System.Windows.Forms.GroupBox();
+            this.cbCodigoEntrada = new System.Windows.Forms.ComboBox();
             this.groupBoxEntradaProducto = new System.Windows.Forms.GroupBox();
             this.comboBoxCodigoProducto = new System.Windows.Forms.ComboBox();
             this.dataGridViewDetalleEntrada = new System.Windows.Forms.DataGridView();
@@ -50,7 +51,9 @@
             this.buttonEditar = new System.Windows.Forms.Button();
             this.buttonEliminarDetalle = new System.Windows.Forms.Button();
             this.buttonListo = new System.Windows.Forms.Button();
-            this.cbCodigoEntrada = new System.Windows.Forms.ComboBox();
+            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
+            this.textBoxUsuario = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCantidad)).BeginInit();
             this.groupBoxDatosEntrada.SuspendLayout();
             this.groupBoxEntradaProducto.SuspendLayout();
@@ -162,6 +165,14 @@
             this.groupBoxDatosEntrada.TabStop = false;
             this.groupBoxDatosEntrada.Text = "Datos de documento de entrada";
             // 
+            // cbCodigoEntrada
+            // 
+            this.cbCodigoEntrada.FormattingEnabled = true;
+            this.cbCodigoEntrada.Location = new System.Drawing.Point(152, 41);
+            this.cbCodigoEntrada.Name = "cbCodigoEntrada";
+            this.cbCodigoEntrada.Size = new System.Drawing.Size(188, 27);
+            this.cbCodigoEntrada.TabIndex = 42;
+            // 
             // groupBoxEntradaProducto
             // 
             this.groupBoxEntradaProducto.Controls.Add(this.comboBoxCodigoProducto);
@@ -169,7 +180,7 @@
             this.groupBoxEntradaProducto.Controls.Add(this.buttonAniadir);
             this.groupBoxEntradaProducto.Controls.Add(this.label5);
             this.groupBoxEntradaProducto.Controls.Add(this.numericUpDownCantidad);
-            this.groupBoxEntradaProducto.Location = new System.Drawing.Point(453, 12);
+            this.groupBoxEntradaProducto.Location = new System.Drawing.Point(452, 60);
             this.groupBoxEntradaProducto.Name = "groupBoxEntradaProducto";
             this.groupBoxEntradaProducto.Size = new System.Drawing.Size(605, 84);
             this.groupBoxEntradaProducto.TabIndex = 36;
@@ -284,13 +295,31 @@
             this.buttonListo.TabIndex = 41;
             this.buttonListo.UseVisualStyleBackColor = true;
             // 
-            // cbCodigoEntrada
+            // dtpFecha
             // 
-            this.cbCodigoEntrada.FormattingEnabled = true;
-            this.cbCodigoEntrada.Location = new System.Drawing.Point(152, 41);
-            this.cbCodigoEntrada.Name = "cbCodigoEntrada";
-            this.cbCodigoEntrada.Size = new System.Drawing.Size(188, 27);
-            this.cbCodigoEntrada.TabIndex = 42;
+            this.dtpFecha.Enabled = false;
+            this.dtpFecha.Location = new System.Drawing.Point(789, 12);
+            this.dtpFecha.Name = "dtpFecha";
+            this.dtpFecha.Size = new System.Drawing.Size(269, 26);
+            this.dtpFecha.TabIndex = 42;
+            // 
+            // textBoxUsuario
+            // 
+            this.textBoxUsuario.Enabled = false;
+            this.textBoxUsuario.Location = new System.Drawing.Point(572, 12);
+            this.textBoxUsuario.Name = "textBoxUsuario";
+            this.textBoxUsuario.Size = new System.Drawing.Size(100, 26);
+            this.textBoxUsuario.TabIndex = 43;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(491, 15);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(74, 19);
+            this.label3.TabIndex = 44;
+            this.label3.Text = "Supervisor";
             // 
             // FormEntrada
             // 
@@ -298,6 +327,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1070, 519);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.textBoxUsuario);
+            this.Controls.Add(this.dtpFecha);
             this.Controls.Add(this.buttonListo);
             this.Controls.Add(this.buttonEliminarDetalle);
             this.Controls.Add(this.buttonEditar);
@@ -315,6 +347,7 @@
             this.groupBoxEntradaProducto.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDetalleEntrada)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -342,5 +375,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPrecioUnitacio;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCantidad;
         private System.Windows.Forms.ComboBox cbCodigoEntrada;
+        private System.Windows.Forms.DateTimePicker dtpFecha;
+        private System.Windows.Forms.TextBox textBoxUsuario;
+        private System.Windows.Forms.Label label3;
     }
 }

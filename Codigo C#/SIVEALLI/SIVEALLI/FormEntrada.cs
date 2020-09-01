@@ -21,16 +21,14 @@ namespace SIVEALLI
         CEntradaDetalle entDet = new CEntradaDetalle();
 
         string codigoUsuario;
-        DateTime aFecha;
 
-        public FormEntrada(string usuario, DateTime fecha)
+        public FormEntrada(string usuario)
         {
             InitializeComponent();
             IniciarEntidad(new CEntrada());
             EventosYValidaciones();
 
             this.codigoUsuario = usuario;
-            this.aFecha = fecha;
         }
 
         private void EventosYValidaciones()
@@ -41,17 +39,37 @@ namespace SIVEALLI
             this.buttonEditar.Click += new EventHandler(HabilitarEdicionDataGrid);
             this.buttonEliminarDetalle.Click += new EventHandler(EliminarEntradaDetalle);
             this.buttonListo.Click += new EventHandler(GuardarEntrada);
-            this.cbCodigoEntrada.SelectedIndexChanged += new EventHandler(CargarDatosEntrada);
+            this.cbCodigoEntrada.SelectionChangeCommitted += new EventHandler(CargarDatosEntrada);
         }
 
         private void CargarDatosEntrada(object sender, EventArgs e)
         {
-            if (cbCodigoEntrada.Text.Equals(""))
+            string codEntrada = cbCodigoEntrada.SelectedValue.ToString();
+
+            ProcesarClave();
+
+            CargarDatosEntradaDetalle();
+        }
+
+        private void CargarDatosEntradaDetalle()
+        {
+            dataGridViewDetalleEntrada.DataSource = null;
+            dataGridViewDetalleEntrada.Rows.Clear();
+            
+            DataTable detallesentrada = entDet.ListaGeneralCod(cbCodigoEntrada.SelectedValue.ToString());
+            for (int i = 0; i < detallesentrada.Rows.Count; i++) 
             {
-                //MessageBox.Show("")
+                DataTable dt = producto.DatosProductoEntrada(detallesentrada.Rows[i][1].ToString());
+                string[] datos = new string[dt.Columns.Count + 1];
+
+                for (int j = 0; j < dt.Columns.Count; j++)
+                {
+                    datos[j] = dt.Rows[0][j].ToString();
+                }
+                datos[dt.Columns.Count] = detallesentrada.Rows[i][2].ToString() + "";
+
+                dataGridViewDetalleEntrada.Rows.Add(datos);
             }
-            else
-                MessageBox.Show(cbCodigoEntrada.Text);
         }
 
         private void GuardarEntrada(object sender, EventArgs e)
@@ -90,24 +108,23 @@ namespace SIVEALLI
                 return false;
         }
 
-        private string DarFormatoFecha()
-        {
-            string dia = aFecha.Day.ToString();
-            string mes = aFecha.Month.ToString();
-            string anio = aFecha.Year.ToString();
-
-            return dia + "/" + mes + "/" + anio;
-        }
-
         public override string[] AsignarValoresAtributos()
         {
+            string proveedor = "";
+            if (comboBoxCodigoProveedor.SelectedValue == null)
+                proveedor = "";
+            else
+                proveedor = comboBoxCodigoProveedor.SelectedValue.ToString();
             return new string[] { cbCodigoEntrada.Text,
-                comboBoxCodigoProveedor.SelectedValue.ToString(), codigoUsuario, 
-                DarFormatoFecha()};
+                proveedor, textBoxUsuario.Text, 
+                dtpFecha.Value.Date.ToString()};
         }
+
         public override void MostrarDatos()
         {
-            comboBoxCodigoProveedor.Text = aEntidad.ValorAtributo("IdProveedor");
+            comboBoxCodigoProveedor.SelectedValue = aEntidad.ValorAtributo("IdProveedor");
+            textBoxUsuario.Text = aEntidad.ValorAtributo("IdUsuario");
+            dtpFecha.Value = Convert.ToDateTime(aEntidad.ValorAtributo("Fecha"));
         }
 
         private void EliminarEntradaDetalle(object sender, EventArgs e)
@@ -213,11 +230,12 @@ namespace SIVEALLI
 
             cbCodigoEntrada.Text = "EN" + cantCeros + (cant + 1);
 
-            comboBoxCodigoProducto.SelectedIndex = -1;
-            comboBoxCodigoProveedor.SelectedIndex = -1;
             numericUpDownCantidad.Value = 1;
+            dataGridViewDetalleEntrada.DataSource = null;
             dataGridViewDetalleEntrada.Rows.Clear();
-
+            textBoxUsuario.Text = codigoUsuario;
+            comboBoxCodigoProducto.SelectedIndex = -1;
+            comboBoxCodigoProveedor.Text = "";
             comboBoxCodigoProveedor.Focus();
         }
 
@@ -226,6 +244,8 @@ namespace SIVEALLI
             LlenarDatosProveedores();
             LlenarCodigoProductos();
             LlenarCodigoEntradas();
+
+            textBoxUsuario.Text = codigoUsuario;
         }
 
         private void LlenarCodigoEntradas()
