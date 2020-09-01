@@ -43,3 +43,11 @@ begin
 select IdEntrada from TEntrada
 end;
 go
+
+create procedure spuTEntradaDetalleListaCod @IdEntrada varchar(8)
+as
+begin
+select * from TEntradaDetalle
+where IdEntrada = @IdEntrada
+end;
+go
