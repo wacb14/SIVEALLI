@@ -51,6 +51,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
             this.GbCliente = new System.Windows.Forms.GroupBox();
+            this.CbNuevoPed = new System.Windows.Forms.CheckBox();
+            this.BtnNuevo = new System.Windows.Forms.Button();
             this.TbTermEntrega = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.DtpFechaPago = new System.Windows.Forms.DateTimePicker();
@@ -64,8 +66,6 @@
             this.DgvCatalogoProductos = new System.Windows.Forms.DataGridView();
             this.TbFiltrar = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.BtnNuevo = new System.Windows.Forms.Button();
-            this.CbNuevoPed = new System.Windows.Forms.CheckBox();
             this.CbProveedores.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvPedidosDetalle)).BeginInit();
             this.GbHistotialPedidos.SuspendLayout();
@@ -321,6 +321,26 @@
             this.GbCliente.TabStop = false;
             this.GbCliente.Text = "Datos del pedido";
             // 
+            // CbNuevoPed
+            // 
+            this.CbNuevoPed.AutoSize = true;
+            this.CbNuevoPed.Location = new System.Drawing.Point(125, 18);
+            this.CbNuevoPed.Name = "CbNuevoPed";
+            this.CbNuevoPed.Size = new System.Drawing.Size(116, 23);
+            this.CbNuevoPed.TabIndex = 24;
+            this.CbNuevoPed.Text = "Pedido Nuevo";
+            this.CbNuevoPed.UseVisualStyleBackColor = true;
+            this.CbNuevoPed.CheckedChanged += new System.EventHandler(this.CbNuevoPed_CheckedChanged);
+            // 
+            // BtnNuevo
+            // 
+            this.BtnNuevo.Location = new System.Drawing.Point(282, 93);
+            this.BtnNuevo.Name = "BtnNuevo";
+            this.BtnNuevo.Size = new System.Drawing.Size(58, 26);
+            this.BtnNuevo.TabIndex = 22;
+            this.BtnNuevo.Text = "Nuevo";
+            this.BtnNuevo.UseVisualStyleBackColor = true;
+            // 
             // TbTermEntrega
             // 
             this.TbTermEntrega.Location = new System.Drawing.Point(10, 146);
@@ -450,26 +470,6 @@
             this.label7.Size = new System.Drawing.Size(139, 19);
             this.label7.TabIndex = 15;
             this.label7.Text = "Filtrar busqueda por: ";
-            // 
-            // BtnNuevo
-            // 
-            this.BtnNuevo.Location = new System.Drawing.Point(282, 93);
-            this.BtnNuevo.Name = "BtnNuevo";
-            this.BtnNuevo.Size = new System.Drawing.Size(58, 26);
-            this.BtnNuevo.TabIndex = 22;
-            this.BtnNuevo.Text = "Nuevo";
-            this.BtnNuevo.UseVisualStyleBackColor = true;
-            // 
-            // CbNuevoPed
-            // 
-            this.CbNuevoPed.AutoSize = true;
-            this.CbNuevoPed.Location = new System.Drawing.Point(125, 18);
-            this.CbNuevoPed.Name = "CbNuevoPed";
-            this.CbNuevoPed.Size = new System.Drawing.Size(116, 23);
-            this.CbNuevoPed.TabIndex = 24;
-            this.CbNuevoPed.Text = "Pedido Nuevo";
-            this.CbNuevoPed.UseVisualStyleBackColor = true;
-            this.CbNuevoPed.CheckedChanged += new System.EventHandler(this.CbNuevoPed_CheckedChanged);
             // 
             // FormPedidos
             // 

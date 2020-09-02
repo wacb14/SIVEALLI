@@ -69,7 +69,6 @@ namespace SIVEALLI
         private void BtnProductos_Click(object sender, EventArgs e)
         {
             FormProductos Fp = new FormProductos();
-            //Fc.Show();
             AbrirFormPanel(Fp);
         }
 
@@ -77,6 +76,12 @@ namespace SIVEALLI
         {
             FrmReportes R = new FrmReportes();
             AbrirFormPanel(R);
+        }
+
+        private void BtnVentas_Click(object sender, EventArgs e)
+        {
+            FormVentas Fv = new FormVentas();
+            AbrirFormPanel(Fv);
         }
     }
 }
