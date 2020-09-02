@@ -12,22 +12,21 @@ namespace SIVEALLI
 {
     public partial class FormSupervisor : Form
     {
-
-        protected FormUsuarios formUsuarios;
-        protected FormEntrada formEntrada;
+        FormClientes fc;
+        FormPedidos fp;
+        FormUsuarios fu;
+        FormProveedores P;
+        FormProductos Fp;
+        FrmReportes R;
         public FormSupervisor(string codigoUsuario)
         {
             InitializeComponent();
             //MessageBox.Show(ScHorizontal.Panel2.Width.ToString() + "--" + ScHorizontal.Panel2.Height.ToString());
 
             labelUsuario.Text = codigoUsuario;
-
-            formUsuarios = new FormUsuarios();
-            formEntrada = new FormEntrada(codigoUsuario);
         }
         protected void AbrirFormPanel(Form Ventana)
         {
-            ScHorizontal.Panel2.Controls.Clear();
             Ventana.TopLevel = false;
             //--Se quitan los bordes
             Ventana.FormBorderStyle = FormBorderStyle.None;
@@ -37,54 +36,101 @@ namespace SIVEALLI
             ScHorizontal.Panel2.Tag = Ventana;
             Ventana.Show();//--Se inicia el form
         }
-
+        public void DeshabilitarVisible()
+        {
+            if (ScHorizontal.Panel2.Controls.Contains(fp))
+                fp.Visible = false;
+            if (ScHorizontal.Panel2.Controls.Contains(fc))
+                fc.Visible = false;
+            if (ScHorizontal.Panel2.Controls.Contains(fu))
+                fu.Visible = false;
+            if (ScHorizontal.Panel2.Controls.Contains(P))
+                P.Visible = false;
+            if (ScHorizontal.Panel2.Controls.Contains(Fp))
+                Fp.Visible = false;
+            if (ScHorizontal.Panel2.Controls.Contains(R))
+                R.Visible = false;
+        }
         private void buttonUsuarios_Click(object sender, EventArgs e)
         {
-            //FormUsuarios fu = new FormUsuarios();
-            //fu.Show();
-            //formUsuarios.Show();
-            AbrirFormPanel(formUsuarios);
+            DeshabilitarVisible();
+            if (ScHorizontal.Panel2.Controls.Contains(fu))
+                fu.Visible = true;
+            else
+            {
+                fu = new FormUsuarios();
+                AbrirFormPanel(fu);
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            FormProveedores P = new FormProveedores();
-            AbrirFormPanel(P);
+            DeshabilitarVisible();
+            if (ScHorizontal.Panel2.Controls.Contains(P))
+                P.Visible = true;
+            else
+            {
+                P = new FormProveedores();
+                AbrirFormPanel(P);
+            }
             //P.Show();
         }
 
         private void BtnClientes_Click(object sender, EventArgs e)
         {
-            FormClientes Fc = new FormClientes();
-            //Fc.Show();
-            AbrirFormPanel(Fc);
+            DeshabilitarVisible();
+            if (ScHorizontal.Panel2.Controls.Contains(fc))
+                fc.Visible = true;
+            else
+            {
+                fc = new FormClientes();
+                //Fc.Show();
+                AbrirFormPanel(fc);
+            }
         }
 
         private void buttonEntrada_Click(object sender, EventArgs e)
         {
-            //FormEntrada fe = new FormEntrada(labelUsuario.Text);
-            //formEntrada.Show();
-            AbrirFormPanel(formEntrada);
+            //FormEntrada fe = new FormEntrada(labelUsuario.Text, dtpFecha.Value);
+            //fe.Show();
         }
 
         private void BtnPedidos_Click(object sender, EventArgs e)
         {
+            DeshabilitarVisible();
             //FormPedidos fp = new FormPedidos(labelUsuario.Text, dtpFecha.Value.ToString().Split(' ')[0]);
-            FormPedidos fp = new FormPedidos(labelUsuario.Text, "02/02/2020");
-            fp.Show();
+            if (ScHorizontal.Panel2.Controls.Contains(fp))
+                fp.Visible = true;
+            else
+            {
+                fp = new FormPedidos(labelUsuario.Text, "02/02/2020");
+                AbrirFormPanel(fp);
+            }
         }
 
         private void BtnProductos_Click(object sender, EventArgs e)
         {
-            FormProductos Fp = new FormProductos();
-            //Fc.Show();
-            AbrirFormPanel(Fp);
+            DeshabilitarVisible();
+            if (ScHorizontal.Panel2.Controls.Contains(Fp))
+                Fp.Visible = true;
+            else
+            {
+                Fp = new FormProductos();
+                //Fc.Show();
+                AbrirFormPanel(Fp);
+            }
         }
 
         private void BtnReportes_Click(object sender, EventArgs e)
         {
-            FrmReportes R = new FrmReportes();
-            AbrirFormPanel(R);
+            DeshabilitarVisible();
+            if (ScHorizontal.Panel2.Controls.Contains(R))
+                R.Visible = true;
+            else
+            {
+                R = new FrmReportes();
+                AbrirFormPanel(R);
+            }
         }
     }
 }

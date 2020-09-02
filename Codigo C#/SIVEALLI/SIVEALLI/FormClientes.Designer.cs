@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormClientes));
             this.CbBuscar = new System.Windows.Forms.ComboBox();
             this.LbNroClientes = new System.Windows.Forms.Label();
             this.BtnGuardar = new System.Windows.Forms.Button();
@@ -52,12 +53,14 @@
             this.TbId = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.GbCliente = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.CbNuevoPed = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.PbCerrar = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.DgvClientes)).BeginInit();
             this.GbClientes.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.GbCliente.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PbCerrar)).BeginInit();
             this.SuspendLayout();
             // 
             // CbBuscar
@@ -67,7 +70,7 @@
             "Id",
             "Nombres",
             "Apellidos"});
-            this.CbBuscar.Location = new System.Drawing.Point(6, 350);
+            this.CbBuscar.Location = new System.Drawing.Point(10, 391);
             this.CbBuscar.Name = "CbBuscar";
             this.CbBuscar.Size = new System.Drawing.Size(141, 27);
             this.CbBuscar.TabIndex = 19;
@@ -76,7 +79,7 @@
             // 
             this.LbNroClientes.AutoSize = true;
             this.LbNroClientes.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LbNroClientes.Location = new System.Drawing.Point(444, 328);
+            this.LbNroClientes.Location = new System.Drawing.Point(448, 369);
             this.LbNroClientes.Name = "LbNroClientes";
             this.LbNroClientes.Size = new System.Drawing.Size(141, 19);
             this.LbNroClientes.TabIndex = 17;
@@ -84,7 +87,7 @@
             // 
             // BtnGuardar
             // 
-            this.BtnGuardar.Location = new System.Drawing.Point(10, 425);
+            this.BtnGuardar.Location = new System.Drawing.Point(10, 494);
             this.BtnGuardar.Name = "BtnGuardar";
             this.BtnGuardar.Size = new System.Drawing.Size(92, 37);
             this.BtnGuardar.TabIndex = 12;
@@ -118,7 +121,7 @@
             // 
             // TbValorBusqueda
             // 
-            this.TbValorBusqueda.Location = new System.Drawing.Point(6, 404);
+            this.TbValorBusqueda.Location = new System.Drawing.Point(10, 445);
             this.TbValorBusqueda.Name = "TbValorBusqueda";
             this.TbValorBusqueda.Size = new System.Drawing.Size(289, 26);
             this.TbValorBusqueda.TabIndex = 16;
@@ -130,10 +133,10 @@
             this.DgvClientes.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.DgvClientes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvClientes.Location = new System.Drawing.Point(6, 25);
+            this.DgvClientes.Location = new System.Drawing.Point(10, 21);
             this.DgvClientes.Name = "DgvClientes";
             this.DgvClientes.ReadOnly = true;
-            this.DgvClientes.Size = new System.Drawing.Size(648, 300);
+            this.DgvClientes.Size = new System.Drawing.Size(648, 345);
             this.DgvClientes.TabIndex = 0;
             this.DgvClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvClientes_CellContentClick);
             // 
@@ -175,7 +178,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(2, 328);
+            this.label9.Location = new System.Drawing.Point(6, 369);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(127, 19);
             this.label9.TabIndex = 18;
@@ -185,7 +188,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(2, 382);
+            this.label7.Location = new System.Drawing.Point(6, 423);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(171, 19);
             this.label7.TabIndex = 15;
@@ -223,7 +226,7 @@
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(448, 350);
+            this.button5.Location = new System.Drawing.Point(452, 391);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(92, 32);
             this.button5.TabIndex = 20;
@@ -243,7 +246,7 @@
             this.GbClientes.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GbClientes.Location = new System.Drawing.Point(398, 12);
             this.GbClientes.Name = "GbClientes";
-            this.GbClientes.Size = new System.Drawing.Size(660, 438);
+            this.GbClientes.Size = new System.Drawing.Size(660, 480);
             this.GbClientes.TabIndex = 5;
             this.GbClientes.TabStop = false;
             this.GbClientes.Text = "Lista de clientes";
@@ -251,7 +254,7 @@
             // BtnBuscar
             // 
             this.BtnBuscar.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnBuscar.Location = new System.Drawing.Point(301, 401);
+            this.BtnBuscar.Location = new System.Drawing.Point(305, 442);
             this.BtnBuscar.Name = "BtnBuscar";
             this.BtnBuscar.Size = new System.Drawing.Size(92, 32);
             this.BtnBuscar.TabIndex = 15;
@@ -282,9 +285,9 @@
             // 
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(398, 447);
+            this.groupBox1.Location = new System.Drawing.Point(398, 489);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(654, 60);
+            this.groupBox1.Size = new System.Drawing.Size(660, 60);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Observaciones";
@@ -308,20 +311,10 @@
             this.GbCliente.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GbCliente.Location = new System.Drawing.Point(12, 12);
             this.GbCliente.Name = "GbCliente";
-            this.GbCliente.Size = new System.Drawing.Size(380, 495);
+            this.GbCliente.Size = new System.Drawing.Size(380, 537);
             this.GbCliente.TabIndex = 4;
             this.GbCliente.TabStop = false;
             this.GbCliente.Text = "Datos del cliente";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 19);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Id cliente";
             // 
             // CbNuevoPed
             // 
@@ -334,12 +327,35 @@
             this.CbNuevoPed.UseVisualStyleBackColor = true;
             this.CbNuevoPed.CheckedChanged += new System.EventHandler(this.CbNuevoPed_CheckedChanged);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(6, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(64, 19);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Id cliente";
+            // 
+            // PbCerrar
+            // 
+            this.PbCerrar.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.PbCerrar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PbCerrar.BackgroundImage")));
+            this.PbCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PbCerrar.Location = new System.Drawing.Point(1060, 3);
+            this.PbCerrar.Name = "PbCerrar";
+            this.PbCerrar.Size = new System.Drawing.Size(25, 25);
+            this.PbCerrar.TabIndex = 7;
+            this.PbCerrar.TabStop = false;
+            this.PbCerrar.Click += new System.EventHandler(this.PbCerrar_Click);
+            // 
             // FormClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(1070, 519);
+            this.ClientSize = new System.Drawing.Size(1070, 555);
+            this.Controls.Add(this.PbCerrar);
             this.Controls.Add(this.GbClientes);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.GbCliente);
@@ -354,6 +370,7 @@
             this.groupBox1.PerformLayout();
             this.GbCliente.ResumeLayout(false);
             this.GbCliente.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PbCerrar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -386,5 +403,6 @@
         private System.Windows.Forms.GroupBox GbCliente;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox CbNuevoPed;
+        private System.Windows.Forms.PictureBox PbCerrar;
     }
 }

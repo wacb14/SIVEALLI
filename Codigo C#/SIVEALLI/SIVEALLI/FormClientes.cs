@@ -170,6 +170,11 @@ namespace SIVEALLI
                 CbNuevoPed.Enabled = false;
             }
         }
+
+        private void PbCerrar_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
 

@@ -338,5 +338,10 @@ namespace SIVEALLI
                 DejarEnCatalogoBlanco();
             }
         }
+
+        private void PbCerrar_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
