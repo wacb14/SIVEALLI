@@ -31,11 +31,32 @@ namespace SIVEALLI
 
         private void VerificarUsuario(object sender, EventArgs e)
         {
+            if (textBoxCodigoUsuario.Text.Length != 5)
+            {
+                MessageBox.Show("Ingrese un codigo valido");
+                return;
+            }
             //Verificar si existe clave primaria
             if (aUsuario.ExisteClavePrimaria(1, textBoxCodigoUsuario.Text))
             {
-                FormSupervisor fe = new FormSupervisor(textBoxCodigoUsuario.Text);
-                fe.Show();
+                string usuarioActivo = aUsuario.ValorAtributo("Estado");
+                
+                if (!usuarioActivo.Equals("ACTIVO"))
+                {
+                    MessageBox.Show("Usted no es un usuario activo.");
+                    return;
+                }
+                string tipoUsuario = aUsuario.ValorAtributo("Tipo");
+                if (tipoUsuario.Equals("SUPERVISOR"))
+                {
+                    FormSupervisor fu = new FormSupervisor(textBoxCodigoUsuario.Text);
+                    fu.Show();
+                }
+                else
+                {
+                    FormEmpleado fe = new FormEmpleado(textBoxCodigoUsuario.Text);
+                    fe.Show();
+                }
             }
             else
             {

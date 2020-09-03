@@ -92,6 +92,12 @@
     <Compile Include="FormDevoluciones.Designer.cs">
       <DependentUpon>FormDevoluciones.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEmpleado.Designer.cs">
+      <DependentUpon>FormEmpleado.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormEntrada.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -33,12 +33,14 @@
             this.textBoxCodigoUsuario = new System.Windows.Forms.TextBox();
             this.buttonAceptar = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(110, 205);
+            this.label1.Location = new System.Drawing.Point(78, 127);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(101, 19);
@@ -47,7 +49,7 @@
             // 
             // textBoxCodigoUsuario
             // 
-            this.textBoxCodigoUsuario.Location = new System.Drawing.Point(82, 228);
+            this.textBoxCodigoUsuario.Location = new System.Drawing.Point(82, 150);
             this.textBoxCodigoUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxCodigoUsuario.Name = "textBoxCodigoUsuario";
             this.textBoxCodigoUsuario.Size = new System.Drawing.Size(148, 26);
@@ -80,12 +82,32 @@
             this.buttonCancelar.TabIndex = 43;
             this.buttonCancelar.UseVisualStyleBackColor = true;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(82, 231);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(148, 26);
+            this.textBox1.TabIndex = 45;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(78, 208);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(78, 19);
+            this.label2.TabIndex = 44;
+            this.label2.Text = "Contraseña";
+            // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(319, 413);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonAceptar);
             this.Controls.Add(this.textBoxCodigoUsuario);
@@ -105,5 +127,7 @@
         private System.Windows.Forms.TextBox textBoxCodigoUsuario;
         protected System.Windows.Forms.Button buttonAceptar;
         protected System.Windows.Forms.Button buttonCancelar;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label2;
     }
 }
