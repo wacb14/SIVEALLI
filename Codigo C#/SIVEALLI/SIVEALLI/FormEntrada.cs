@@ -40,6 +40,24 @@ namespace SIVEALLI
             this.buttonEliminarDetalle.Click += new EventHandler(EliminarEntradaDetalle);
             this.buttonListo.Click += new EventHandler(GuardarEntrada);
             this.cbCodigoEntrada.SelectionChangeCommitted += new EventHandler(CargarDatosEntrada);
+            this.buttonLimpiar.Click += new EventHandler(LimpiarForm);
+        }
+
+        private void LimpiarForm(object sender, EventArgs e)
+        {
+            LimpiarDatosFormulario();
+        }
+
+        private void LimpiarDatosFormulario()
+        {
+            dtpFecha.Value = DateTime.Now;
+            numericUpDownCantidad.Value = 1;
+            dataGridViewDetalleEntrada.DataSource = null;
+            dataGridViewDetalleEntrada.Rows.Clear();
+            textBoxUsuario.Text = codigoUsuario;
+            comboBoxCodigoProducto.SelectedIndex = -1;
+            comboBoxCodigoProveedor.SelectedIndex = -1;
+            cbCodigoEntrada.Text = "";
         }
 
         private void CargarDatosEntrada(object sender, EventArgs e)
@@ -110,18 +128,22 @@ namespace SIVEALLI
 
         public override string[] AsignarValoresAtributos()
         {
+            /*
             string proveedor = "";
             if (comboBoxCodigoProveedor.SelectedValue == null)
                 proveedor = "";
             else
                 proveedor = comboBoxCodigoProveedor.SelectedValue.ToString();
-            return new string[] { cbCodigoEntrada.Text,
-                proveedor, textBoxUsuario.Text, 
-                dtpFecha.Value.Date.ToString()};
+            */
+            //MessageBox.Show(cbCodigoEntrada.SelectedValue.ToString());
+            return new string[] { cbCodigoEntrada.SelectedValue.ToString()/*,
+                proveedor, codigoUsuario, 
+                dtpFecha.Value.Date.ToString()*/};
         }
 
         public override void MostrarDatos()
         {
+            //MessageBox.Show(aEntidad.ValorAtributo("IdProveedor"));
             comboBoxCodigoProveedor.SelectedValue = aEntidad.ValorAtributo("IdProveedor");
             textBoxUsuario.Text = aEntidad.ValorAtributo("IdUsuario");
             dtpFecha.Value = Convert.ToDateTime(aEntidad.ValorAtributo("Fecha"));
@@ -215,6 +237,8 @@ namespace SIVEALLI
 
         private void GenerarNuevoCodigoEntrada(object sender, EventArgs e)
         {
+            LimpiarDatosFormulario();
+
             int cant = aEntidad.NumeroRegistros();
             string cantCeros = "";
             if (cant < 9)
@@ -230,12 +254,6 @@ namespace SIVEALLI
 
             cbCodigoEntrada.Text = "EN" + cantCeros + (cant + 1);
 
-            numericUpDownCantidad.Value = 1;
-            dataGridViewDetalleEntrada.DataSource = null;
-            dataGridViewDetalleEntrada.Rows.Clear();
-            textBoxUsuario.Text = codigoUsuario;
-            comboBoxCodigoProducto.SelectedIndex = -1;
-            comboBoxCodigoProveedor.Text = "";
             comboBoxCodigoProveedor.Focus();
         }
 

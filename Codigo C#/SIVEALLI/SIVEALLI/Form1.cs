@@ -91,8 +91,8 @@ namespace SIVEALLI
 
         private void buttonEntrada_Click(object sender, EventArgs e)
         {
-            //FormEntrada fe = new FormEntrada(labelUsuario.Text, dtpFecha.Value);
-            //fe.Show();
+            FormEntrada fe = new FormEntrada(labelUsuario.Text);
+            fe.Show();
         }
 
         private void BtnPedidos_Click(object sender, EventArgs e)

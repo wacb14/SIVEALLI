@@ -82,6 +82,7 @@ namespace SIVEALLI
             //Verificar si existe clave primaria
             if (aEntidad.ExisteClavePrimaria(Atributos))
             {
+                //MessageBox.Show("hola 1");
                 MostrarDatos();
                 aEntidad.Nuevo = false;
             }

@@ -102,6 +102,7 @@ namespace BibClases
             //--Formar la consulta
             string CadenaConsulta = "exec spuExisteClavePrimaria" + aNombreTabla + " '" + aValores[0] + "'";
             //--Ejecutar la consulta
+            //MessageBox.Show(CadenaConsulta);
             aConexion.EjecutarSelect(CadenaConsulta);
             //--Si existen registros en la tabla 0 del dataset, la clave primaria existe
             return (aConexion.Datos.Tables[0].Rows.Count > 0);

@@ -54,6 +54,7 @@
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.textBoxUsuario = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.buttonLimpiar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCantidad)).BeginInit();
             this.groupBoxDatosEntrada.SuspendLayout();
             this.groupBoxEntradaProducto.SuspendLayout();
@@ -321,12 +322,26 @@
             this.label3.TabIndex = 44;
             this.label3.Text = "Supervisor";
             // 
+            // buttonLimpiar
+            // 
+            this.buttonLimpiar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonLimpiar.FlatAppearance.BorderSize = 0;
+            this.buttonLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonLimpiar.Image = ((System.Drawing.Image)(resources.GetObject("buttonLimpiar.Image")));
+            this.buttonLimpiar.Location = new System.Drawing.Point(989, 366);
+            this.buttonLimpiar.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonLimpiar.Name = "buttonLimpiar";
+            this.buttonLimpiar.Size = new System.Drawing.Size(68, 66);
+            this.buttonLimpiar.TabIndex = 45;
+            this.buttonLimpiar.UseVisualStyleBackColor = true;
+            // 
             // FormEntrada
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1070, 519);
+            this.Controls.Add(this.buttonLimpiar);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBoxUsuario);
             this.Controls.Add(this.dtpFecha);
@@ -378,5 +393,6 @@
         private System.Windows.Forms.DateTimePicker dtpFecha;
         private System.Windows.Forms.TextBox textBoxUsuario;
         private System.Windows.Forms.Label label3;
+        protected System.Windows.Forms.Button buttonLimpiar;
     }
 }

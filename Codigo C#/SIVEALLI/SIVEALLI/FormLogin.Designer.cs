@@ -38,7 +38,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(103, 77);
+            this.label1.Location = new System.Drawing.Point(110, 205);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(101, 19);
@@ -47,7 +47,7 @@
             // 
             // textBoxCodigoUsuario
             // 
-            this.textBoxCodigoUsuario.Location = new System.Drawing.Point(75, 100);
+            this.textBoxCodigoUsuario.Location = new System.Drawing.Point(82, 228);
             this.textBoxCodigoUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxCodigoUsuario.Name = "textBoxCodigoUsuario";
             this.textBoxCodigoUsuario.Size = new System.Drawing.Size(148, 26);
