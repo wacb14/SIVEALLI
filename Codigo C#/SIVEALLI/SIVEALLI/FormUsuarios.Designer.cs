@@ -80,11 +80,11 @@
             this.dataGridViewUsuarios.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridViewUsuarios.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewUsuarios.Location = new System.Drawing.Point(339, 13);
+            this.dataGridViewUsuarios.Location = new System.Drawing.Point(307, 13);
             this.dataGridViewUsuarios.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewUsuarios.Name = "dataGridViewUsuarios";
             this.dataGridViewUsuarios.ReadOnly = true;
-            this.dataGridViewUsuarios.Size = new System.Drawing.Size(718, 419);
+            this.dataGridViewUsuarios.Size = new System.Drawing.Size(750, 419);
             this.dataGridViewUsuarios.TabIndex = 2;
             // 
             // textBoxNombres
@@ -92,7 +92,7 @@
             this.textBoxNombres.Location = new System.Drawing.Point(104, 121);
             this.textBoxNombres.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxNombres.Name = "textBoxNombres";
-            this.textBoxNombres.Size = new System.Drawing.Size(214, 26);
+            this.textBoxNombres.Size = new System.Drawing.Size(195, 26);
             this.textBoxNombres.TabIndex = 4;
             // 
             // label2
@@ -110,7 +110,7 @@
             this.textBoxApellidos.Location = new System.Drawing.Point(104, 159);
             this.textBoxApellidos.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxApellidos.Name = "textBoxApellidos";
-            this.textBoxApellidos.Size = new System.Drawing.Size(214, 26);
+            this.textBoxApellidos.Size = new System.Drawing.Size(195, 26);
             this.textBoxApellidos.TabIndex = 6;
             // 
             // label3
@@ -128,7 +128,7 @@
             this.textBoxDireccion.Location = new System.Drawing.Point(104, 197);
             this.textBoxDireccion.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxDireccion.Name = "textBoxDireccion";
-            this.textBoxDireccion.Size = new System.Drawing.Size(214, 26);
+            this.textBoxDireccion.Size = new System.Drawing.Size(195, 26);
             this.textBoxDireccion.TabIndex = 8;
             // 
             // label4
@@ -146,7 +146,7 @@
             this.textBoxTelefono.Location = new System.Drawing.Point(104, 235);
             this.textBoxTelefono.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxTelefono.Name = "textBoxTelefono";
-            this.textBoxTelefono.Size = new System.Drawing.Size(214, 26);
+            this.textBoxTelefono.Size = new System.Drawing.Size(195, 26);
             this.textBoxTelefono.TabIndex = 10;
             // 
             // label5
@@ -164,7 +164,7 @@
             this.textBoxCorreo.Location = new System.Drawing.Point(104, 273);
             this.textBoxCorreo.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxCorreo.Name = "textBoxCorreo";
-            this.textBoxCorreo.Size = new System.Drawing.Size(214, 26);
+            this.textBoxCorreo.Size = new System.Drawing.Size(195, 26);
             this.textBoxCorreo.TabIndex = 12;
             // 
             // label6
@@ -192,7 +192,7 @@
             this.textBoxContrasegna.Location = new System.Drawing.Point(104, 311);
             this.textBoxContrasegna.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxContrasegna.Name = "textBoxContrasegna";
-            this.textBoxContrasegna.Size = new System.Drawing.Size(214, 26);
+            this.textBoxContrasegna.Size = new System.Drawing.Size(195, 26);
             this.textBoxContrasegna.TabIndex = 14;
             // 
             // label9
@@ -262,7 +262,7 @@
             this.buttonNuevoUsuario.FlatAppearance.BorderSize = 0;
             this.buttonNuevoUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonNuevoUsuario.Image = ((System.Drawing.Image)(resources.GetObject("buttonNuevoUsuario.Image")));
-            this.buttonNuevoUsuario.Location = new System.Drawing.Point(250, 23);
+            this.buttonNuevoUsuario.Location = new System.Drawing.Point(178, 21);
             this.buttonNuevoUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.buttonNuevoUsuario.Name = "buttonNuevoUsuario";
             this.buttonNuevoUsuario.Size = new System.Drawing.Size(68, 66);
@@ -279,7 +279,7 @@
             "OTRO"});
             this.comboBoxEstado.Location = new System.Drawing.Point(104, 387);
             this.comboBoxEstado.Name = "comboBoxEstado";
-            this.comboBoxEstado.Size = new System.Drawing.Size(214, 27);
+            this.comboBoxEstado.Size = new System.Drawing.Size(195, 27);
             this.comboBoxEstado.TabIndex = 35;
             // 
             // comboBoxTipo
@@ -290,7 +290,7 @@
             "EMPLEADO"});
             this.comboBoxTipo.Location = new System.Drawing.Point(104, 349);
             this.comboBoxTipo.Name = "comboBoxTipo";
-            this.comboBoxTipo.Size = new System.Drawing.Size(214, 27);
+            this.comboBoxTipo.Size = new System.Drawing.Size(195, 27);
             this.comboBoxTipo.TabIndex = 36;
             // 
             // FormUsuarios

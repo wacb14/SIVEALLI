@@ -28,11 +28,35 @@ namespace SIVEALLI
             this.Load += new EventHandler(CargarDatos);
             textBoxCodigo.Leave += new EventHandler(AbandonarTextBoxCodigo);
             textBoxCodigo.TextChanged += new EventHandler(CambioCodigo);
+            this.dataGridViewUsuarios.CellClick += new DataGridViewCellEventHandler(MostrarDatosEnFormulario);
 
             //Validaciones
             textBoxNombres.KeyPress += new KeyPressEventHandler(Procesos.ValidarTextBoxSoloLetras);
             textBoxApellidos.KeyPress += new KeyPressEventHandler(Procesos.ValidarTextBoxSoloLetras);
             textBoxTelefono.KeyPress += new KeyPressEventHandler(Procesos.ValidarTextBoxSoloNumeros);
+        }
+
+        private void MostrarDatosEnFormulario(object sender, EventArgs e)
+        {
+            try
+            {
+                //Averigüar la fila seleccionada
+                int fila = dataGridViewUsuarios.CurrentCell.RowIndex;
+                textBoxCodigo.Text = dataGridViewUsuarios.Rows[fila].Cells[0].Value.ToString();
+                textBoxNombres.Text = dataGridViewUsuarios.Rows[fila].Cells[1].Value.ToString();
+                textBoxApellidos.Text = dataGridViewUsuarios.Rows[fila].Cells[2].Value.ToString();
+                textBoxDireccion.Text = dataGridViewUsuarios.Rows[fila].Cells[3].Value.ToString();
+                textBoxTelefono.Text = dataGridViewUsuarios.Rows[fila].Cells[4].Value.ToString();
+                textBoxCorreo.Text = dataGridViewUsuarios.Rows[fila].Cells[5].Value.ToString();
+                textBoxContrasegna.Text = dataGridViewUsuarios.Rows[fila].Cells[6].Value.ToString();
+                comboBoxTipo.Text = dataGridViewUsuarios.Rows[fila].Cells[7].Value.ToString();
+                comboBoxEstado.Text = dataGridViewUsuarios.Rows[fila].Cells[8].Value.ToString();
+                //aEntidad.Eliminar(aux);
+            }
+            catch (Exception)
+            {
+                //Mostrar mensaje de error
+            }
         }
 
         private void CambioCodigo(object sender, EventArgs e)
