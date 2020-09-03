@@ -132,5 +132,10 @@ namespace SIVEALLI
                 AbrirFormPanel(R);
             }
         }
+
+        private void BtnDevoluciones_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

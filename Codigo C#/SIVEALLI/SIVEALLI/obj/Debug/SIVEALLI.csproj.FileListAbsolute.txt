@@ -323,3 +323,4 @@ C:\Users\ASUS\source\repos\wacb14\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj\Debug
 C:\Users\ASUS\source\repos\wacb14\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj\Debug\SIVEALLI.FrmReportes.resources
 C:\Users\ASUS\source\repos\wacb14\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj\Debug\RdlCompile.cache
 C:\Users\ASUS\source\repos\wacb14\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj\Debug\RdlCompile.compiled
+C:\Users\ASUS\Source\Repos\wacb14\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj\Debug\SIVEALLI.FormDevoluciones.resources

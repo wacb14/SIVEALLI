@@ -38,8 +38,9 @@
             this.buttonEntrada = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.ScHorizontal = new System.Windows.Forms.SplitContainer();
-            this.labelUsuario = new System.Windows.Forms.Label();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
+            this.labelUsuario = new System.Windows.Forms.Label();
+            this.BtnDevoluciones = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ScVertical)).BeginInit();
             this.ScVertical.Panel1.SuspendLayout();
             this.ScVertical.Panel2.SuspendLayout();
@@ -59,6 +60,7 @@
             // ScVertical.Panel1
             // 
             this.ScVertical.Panel1.BackColor = System.Drawing.Color.White;
+            this.ScVertical.Panel1.Controls.Add(this.BtnDevoluciones);
             this.ScVertical.Panel1.Controls.Add(this.BtnReportes);
             this.ScVertical.Panel1.Controls.Add(this.BtnPedidos);
             this.ScVertical.Panel1.Controls.Add(this.BtnClientes);
@@ -172,6 +174,13 @@
             this.ScHorizontal.SplitterDistance = 119;
             this.ScHorizontal.TabIndex = 0;
             // 
+            // dtpFecha
+            // 
+            this.dtpFecha.Location = new System.Drawing.Point(462, 35);
+            this.dtpFecha.Name = "dtpFecha";
+            this.dtpFecha.Size = new System.Drawing.Size(263, 26);
+            this.dtpFecha.TabIndex = 1;
+            // 
             // labelUsuario
             // 
             this.labelUsuario.AutoSize = true;
@@ -180,12 +189,16 @@
             this.labelUsuario.Size = new System.Drawing.Size(0, 19);
             this.labelUsuario.TabIndex = 0;
             // 
-            // dtpFecha
+            // BtnDevoluciones
             // 
-            this.dtpFecha.Location = new System.Drawing.Point(462, 35);
-            this.dtpFecha.Name = "dtpFecha";
-            this.dtpFecha.Size = new System.Drawing.Size(263, 26);
-            this.dtpFecha.TabIndex = 1;
+            this.BtnDevoluciones.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnDevoluciones.Location = new System.Drawing.Point(12, 230);
+            this.BtnDevoluciones.Name = "BtnDevoluciones";
+            this.BtnDevoluciones.Size = new System.Drawing.Size(148, 34);
+            this.BtnDevoluciones.TabIndex = 7;
+            this.BtnDevoluciones.Text = "Devoluciones";
+            this.BtnDevoluciones.UseVisualStyleBackColor = true;
+            this.BtnDevoluciones.Click += new System.EventHandler(this.BtnDevoluciones_Click);
             // 
             // FormSupervisor
             // 
@@ -221,6 +234,7 @@
         private System.Windows.Forms.Button BtnReportes;
         private System.Windows.Forms.Label labelUsuario;
         private System.Windows.Forms.DateTimePicker dtpFecha;
+        private System.Windows.Forms.Button BtnDevoluciones;
     }
 }
 

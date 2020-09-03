@@ -175,7 +175,9 @@ go
 create table TDevolucion
 (
 	IdDevolucion TIdDevolucion,
+	IdUsuario	TIdUsuario NOT NULL,
 	IdVenta TIdVenta,
+	Razon varchar(100),
 	Fecha datetime,
 	primary key(IdDevolucion),
 	foreign key(IdVenta) references TVenta(IdVenta),
@@ -184,13 +186,11 @@ go
 create table TDevolucionDetalle
 (
 	IdDevolucion TIdDevolucion,
-	IdVenta TIdVenta,
 	IdProducto TIdProducto,
 	Cantidad int,
 	Estado varchar(12),
 	PrecioUnitario float,
 	primary key (IdDevolucion, IdProducto),
-	foreign key(IdVenta) references TVenta(IdVenta),
 	foreign key(IdDevolucion) references TDevolucion(IdDevolucion),
 	foreign key(IdProducto) references TProducto(IdProducto)
 )
@@ -244,7 +244,7 @@ insert into TVentaDetalle values ('VE000002','PR000003',1,11.90)
 insert into TVentaDetalle values ('VE000002','PR000005',9,10.90)
 --------- DATOS DEVOLUCION ----------------------
 insert into TDevolucion values ('DE000001','VE000001','20/08/2020')
-insert into TDevolucionDetalle values ('DE000001','VE000001','PR000001',1,'Nuevo',25.90)
+insert into TDevolucionDetalle values ('DE000001','PR000001',1,'NUEVO',25.90)
 
 insert into TDevolucion values ('DE000002','VE000002','20/08/2020')
-insert into TDevolucionDetalle values ('DE000002','VE000002','PR000005',6,'Desgastado',10.90)
+insert into TDevolucionDetalle values ('DE000002','PR000005',6,'DESGASTADO',10.90)

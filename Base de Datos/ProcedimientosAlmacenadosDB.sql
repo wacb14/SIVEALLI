@@ -941,6 +941,7 @@ go
 create procedure spu_TDevolucion_Insertar
 	@IdDevolucion varchar(8),
 	@IdVenta varchar(8),
+	@Razon varchar(100),
 	@Fecha datetime
 as
 begin  --verificacion de clave primaria
@@ -948,7 +949,7 @@ begin  --verificacion de clave primaria
 	begin
 		if exists (select * from TVenta where IdVenta = @IdVenta)
 		begin
-			insert into TDevolucion values (@IdDevolucion, @IdVenta, @Fecha)
+			insert into TDevolucion values (@IdDevolucion, @IdVenta,@Razon, @Fecha)
 			select codError = 0, mensaje = 'TDevolucion insertado correctamente'
 		end;
 		else
@@ -966,6 +967,7 @@ go
 create procedure spu_TDevolucion_Modificar
 	@IdDevolucion varchar(8),
 	@IdVenta varchar(8),
+	@Razon varchar(100),
 	@Fecha datetime
 as
 begin  --verificacion de clave primaria
@@ -974,7 +976,7 @@ begin  --verificacion de clave primaria
 		if exists (select * from TVenta where IdVenta = @IdVenta)
 		begin
 			update TDevolucion
-			set IdDevolucion = @IdDevolucion, IdVenta = @IdVenta, Fecha = @Fecha
+			set IdDevolucion = @IdDevolucion, IdVenta = @IdVenta,Razon=@Razon, Fecha = @Fecha
 			where IdDevolucion = @IdDevolucion and IdVenta= @IdVenta
 			select codError = 0, mensaje = 'TDevolucion actualizado correctamente'
 		end;
@@ -1026,30 +1028,24 @@ go
 
 create procedure spu_TDevolucionDetalle_Insertar
 	@IdDevolucion varchar(8),
-	@IdVenta varchar(8),
 	@IdProducto varchar(8),
 	@Cantidad int,
 	@Estado varchar(12),
 	@PrecioUnitario float
 as
 begin  --verificacion de clave primaria
-	if not exists (select * from TDevolucionDetalle where IdDevolucion = @IdDevolucion and IdVenta= @IdVenta and IdProducto= @IdProducto)
+	if not exists (select * from TDevolucionDetalle where IdDevolucion = @IdDevolucion and IdProducto= @IdProducto)
 	begin
 		if exists (select * from TDevolucion where IdDevolucion = @IdDevolucion)
 		begin
-			if exists (select * from TVenta where IdVenta = @IdVenta)
-			begin
 				if exists (select * from TProducto where IdProducto = @IdProducto)
 				begin
-					insert into TDevolucionDetalle values (@IdDevolucion, @IdVenta, @IdProducto, @Cantidad, @Estado, @PrecioUnitario)
+					insert into TDevolucionDetalle values (@IdDevolucion, @IdProducto, @Cantidad, @Estado, @PrecioUnitario)
 					select codError = 0, mensaje = 'TDevolucionDetalle insertado correctamente'
 				end;
 				else
 					select codError = 1, mensaje = 'El objeto IdProducto no existe'
 			end;
-			else
-				select codError = 1, mensaje = 'El objeto IdVenta no existe'
-		end;
 		else
 			select codError = 1, mensaje = 'El objeto IdDevolucion no existe'
 	end;
@@ -1064,32 +1060,26 @@ go
 
 create procedure spu_TDevolucionDetalle_Modificar
 	@IdDevolucion varchar(8),
-	@IdVenta varchar(8),
 	@IdProducto varchar(8),
 	@Cantidad int,
 	@Estado varchar(12),
 	@PrecioUnitario float
 as
 begin  --verificacion de clave primaria
-	if exists (select * from TDevolucionDetalle where IdDevolucion = @IdDevolucion and IdVenta= @IdVenta and IdProducto= @IdProducto)
+	if exists (select * from TDevolucionDetalle where IdDevolucion = @IdDevolucion and IdProducto= @IdProducto)
 	begin
 		if exists (select * from TDevolucion where IdDevolucion = @IdDevolucion)
 		begin
-			if exists (select * from TVenta where IdVenta = @IdVenta)
-			begin
 				if exists (select * from TProducto where IdProducto = @IdProducto)
 				begin
 					update TDevolucionDetalle
-					set IdDevolucion = @IdDevolucion, IdVenta = @IdVenta, IdProducto = @IdProducto, Cantidad = @Cantidad, Estado = @Estado, PrecioUnitario = @PrecioUnitario
-					where IdDevolucion = @IdDevolucion and IdVenta= @IdVenta and IdProducto= @IdProducto
+					set IdDevolucion = @IdDevolucion, IdProducto = @IdProducto, Cantidad = @Cantidad, Estado = @Estado, PrecioUnitario = @PrecioUnitario
+					where IdDevolucion = @IdDevolucion and IdProducto= @IdProducto
 					select codError = 0, mensaje = 'TDevolucionDetalle actualizado correctamente'
 				end;
 				else
 					select codError = 1, mensaje = 'El objeto IdProducto no existe'
 			end;
-			else
-				select codError = 1, mensaje = 'El objeto IdVenta no existe'
-		end;
 		else
 			select codError = 1, mensaje = 'El objeto IdDevolucion no existe'
 	end;
@@ -1104,14 +1094,13 @@ go
 
 create procedure spu_TDevolucionDetalle_Eliminar
 	@IdDevolucion varchar(8),
-	@IdVenta varchar(8),
 	@IdProducto varchar(8)
 as
 begin  --verificacion de clave primaria
-	if exists (select * from TDevolucionDetalle where IdDevolucion = @IdDevolucion and IdVenta= @IdVenta and IdProducto= @IdProducto)
+	if exists (select * from TDevolucionDetalle where IdDevolucion = @IdDevolucion and IdProducto= @IdProducto)
 	begin
 		delete from TDevolucionDetalle
-		where IdDevolucion = @IdDevolucion and IdVenta= @IdVenta and IdProducto= @IdProducto
+		where IdDevolucion = @IdDevolucion and IdProducto= @IdProducto
 	end;
 	else
 		select codError = 1, mensaje = 'El objeto TDevolucionDetalle no existe'

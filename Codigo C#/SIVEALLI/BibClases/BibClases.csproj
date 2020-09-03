@@ -44,6 +44,8 @@
   <ItemGroup>
     <Compile Include="CCliente.cs" />
     <Compile Include="CConexion.cs" />
+    <Compile Include="CDevolucion.cs" />
+    <Compile Include="CDevolucionDetalle.cs" />
     <Compile Include="CEntidad.cs" />
     <Compile Include="CEntrada.cs" />
     <Compile Include="CEntradaDetalle.cs" />
