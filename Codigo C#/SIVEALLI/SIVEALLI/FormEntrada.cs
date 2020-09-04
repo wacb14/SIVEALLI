@@ -128,17 +128,28 @@ namespace SIVEALLI
 
         public override string[] AsignarValoresAtributos()
         {
-            /*
+            
             string proveedor = "";
             if (comboBoxCodigoProveedor.SelectedValue == null)
                 proveedor = "";
             else
                 proveedor = comboBoxCodigoProveedor.SelectedValue.ToString();
-            */
+
+            //validamos texto combo box entrada con el valor elegido
+            //esto debido a que las operaciones de cargar entrada y nueva entrada
+            //toman diferentes valores
+            string codigoEntrada = "";
+            if (cbCodigoEntrada.Text.Equals(""))
+            {
+                codigoEntrada = cbCodigoEntrada.SelectedValue.ToString();
+            }
+            else
+                codigoEntrada = cbCodigoEntrada.Text;
+            
             //MessageBox.Show(cbCodigoEntrada.SelectedValue.ToString());
-            return new string[] { cbCodigoEntrada.SelectedValue.ToString()/*,
+            return new string[] { codigoEntrada,
                 proveedor, codigoUsuario, 
-                dtpFecha.Value.Date.ToString()*/};
+                dtpFecha.Value.Date.ToString()};
         }
 
         public override void MostrarDatos()
