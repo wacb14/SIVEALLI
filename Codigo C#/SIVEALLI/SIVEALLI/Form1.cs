@@ -18,6 +18,7 @@ namespace SIVEALLI
         FormProveedores P;
         FormProductos Fp;
         FrmReportes R;
+        FormDevoluciones fd;
         public FormSupervisor(string codigoUsuario)
         {
             InitializeComponent();
@@ -50,6 +51,8 @@ namespace SIVEALLI
                 Fp.Visible = false;
             if (ScHorizontal.Panel2.Controls.Contains(R))
                 R.Visible = false;
+            if (ScHorizontal.Panel2.Controls.Contains(fd))
+                fd.Visible = false;
         }
         private void buttonUsuarios_Click(object sender, EventArgs e)
         {
@@ -135,7 +138,14 @@ namespace SIVEALLI
 
         private void BtnDevoluciones_Click(object sender, EventArgs e)
         {
-
+            DeshabilitarVisible();
+            if (ScHorizontal.Panel2.Controls.Contains(fd))
+                fd.Visible = true;
+            else
+            {
+                fd= new FormDevoluciones(labelUsuario.Text, "02/02/2020");
+                AbrirFormPanel(fd);
+            }
         }
     }
 }

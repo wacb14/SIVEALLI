@@ -34,5 +34,19 @@ namespace BibClases
             aConexion.EjecutarSelect(CadenaConsulta);
             return aConexion.Datos.Tables[0];
         }
+        //------------------------------------------------------------------------------------------
+        public DataTable MostrarVentas()
+        {   //--Retornar un tabla con la lista completa de  libros
+            string CadenaConsulta = "spuTraerHistorialVentas";
+            aConexion.EjecutarSelect(CadenaConsulta);
+            return aConexion.Datos.Tables[0];
+        }
+        //------------------------------------------------------------------------------------------
+        public DataTable MostrarDatosVentas(string IdVenta)
+        {   //--Retornar un tabla con la lista completa de  libros
+            string CadenaConsulta = "spuDatosVenta '"+IdVenta+"'";
+            aConexion.EjecutarSelect(CadenaConsulta);
+            return aConexion.Datos.Tables[0];
+        }
     }
 }

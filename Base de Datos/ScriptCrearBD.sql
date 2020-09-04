@@ -243,8 +243,8 @@ insert into TVentaDetalle values ('VE000002','PR000001',2,25.90)
 insert into TVentaDetalle values ('VE000002','PR000003',1,11.90)
 insert into TVentaDetalle values ('VE000002','PR000005',9,10.90)
 --------- DATOS DEVOLUCION ----------------------
-insert into TDevolucion values ('DE000001','VE000001','20/08/2020')
+insert into TDevolucion values ('DE000001','US001','VE000001','No me gusto, no hacia plin plin plon','20/08/2020')
 insert into TDevolucionDetalle values ('DE000001','PR000001',1,'NUEVO',25.90)
 
-insert into TDevolucion values ('DE000002','VE000002','20/08/2020')
+insert into TDevolucion values ('DE000002','US002','VE000002','No se podia ver el abismo en el','20/08/2020')
 insert into TDevolucionDetalle values ('DE000002','PR000005',6,'DESGASTADO',10.90)

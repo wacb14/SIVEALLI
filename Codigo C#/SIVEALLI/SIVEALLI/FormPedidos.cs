@@ -43,7 +43,11 @@ namespace SIVEALLI
         //--Cargar el el id del pedido automaticamente
         public void CargarIdPedido()
         {
-            string IdMax = Pedido.IdMaximo().Rows[0][0].ToString();
+            string IdMax;
+            if (Pedido.IdMaximo().Rows.Count != 0)
+                IdMax = Pedido.IdMaximo().Rows[0][0].ToString();
+            else
+                IdMax = "PE000000";
             int ValorId = int.Parse(IdMax.Substring(2));
             IdMax = "PE";
             for (int k = 0; k < 6 - ValorId.ToString().Length; k++)

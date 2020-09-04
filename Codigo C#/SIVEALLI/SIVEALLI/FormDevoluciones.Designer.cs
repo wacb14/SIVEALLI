@@ -41,38 +41,38 @@
             this.label1 = new System.Windows.Forms.Label();
             this.PbCerrar = new System.Windows.Forms.PictureBox();
             this.GbCliente = new System.Windows.Forms.GroupBox();
-            this.CbProveedores = new System.Windows.Forms.GroupBox();
-            this.BtnGuardar = new System.Windows.Forms.Button();
-            this.DgvDevolucionDetalle = new System.Windows.Forms.DataGridView();
-            this.button5 = new System.Windows.Forms.Button();
-            this.LTotal = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.GbVentas = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.TbIdVenta = new System.Windows.Forms.TextBox();
-            this.ColBorrar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.ColId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColSubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CbProveedores = new System.Windows.Forms.GroupBox();
             this.GbHistorialDevo = new System.Windows.Forms.GroupBox();
             this.BtnVentas = new System.Windows.Forms.Button();
             this.DgvDevoluciones = new System.Windows.Forms.DataGridView();
             this.TbBuscar = new System.Windows.Forms.TextBox();
             this.BtnBuscarDevoluciones = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
+            this.BtnGuardar = new System.Windows.Forms.Button();
+            this.DgvDevolucionDetalle = new System.Windows.Forms.DataGridView();
+            this.ColBorrar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.ColId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColSubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button5 = new System.Windows.Forms.Button();
+            this.LTotal = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.GbVentas = new System.Windows.Forms.GroupBox();
             this.BtnDevoluciones = new System.Windows.Forms.Button();
             this.BtnBuscarVentas = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DgvVentas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbCerrar)).BeginInit();
             this.GbCliente.SuspendLayout();
             this.CbProveedores.SuspendLayout();
+            this.GbHistorialDevo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvDevoluciones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgvDevolucionDetalle)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.GbVentas.SuspendLayout();
-            this.GbHistorialDevo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvDevoluciones)).BeginInit();
             this.SuspendLayout();
             // 
             // label10
@@ -99,10 +99,11 @@
             this.DgvVentas.RowHeadersVisible = false;
             this.DgvVentas.Size = new System.Drawing.Size(368, 226);
             this.DgvVentas.TabIndex = 22;
+            this.DgvVentas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvVentas_CellContentClick);
             // 
             // TbfiltrarVentas
             // 
-            this.TbfiltrarVentas.Location = new System.Drawing.Point(7, 269);
+            this.TbfiltrarVentas.Location = new System.Drawing.Point(10, 267);
             this.TbfiltrarVentas.Name = "TbfiltrarVentas";
             this.TbfiltrarVentas.Size = new System.Drawing.Size(148, 26);
             this.TbfiltrarVentas.TabIndex = 16;
@@ -111,7 +112,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(3, 247);
+            this.label5.Location = new System.Drawing.Point(6, 245);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(138, 19);
             this.label5.TabIndex = 15;
@@ -185,6 +186,7 @@
             this.PbCerrar.Size = new System.Drawing.Size(25, 25);
             this.PbCerrar.TabIndex = 33;
             this.PbCerrar.TabStop = false;
+            this.PbCerrar.Click += new System.EventHandler(this.PbCerrar_Click);
             // 
             // GbCliente
             // 
@@ -203,9 +205,16 @@
             this.GbCliente.TabStop = false;
             this.GbCliente.Text = "Datos de la devolución";
             // 
+            // TbIdVenta
+            // 
+            this.TbIdVenta.Location = new System.Drawing.Point(9, 95);
+            this.TbIdVenta.Name = "TbIdVenta";
+            this.TbIdVenta.Size = new System.Drawing.Size(149, 26);
+            this.TbIdVenta.TabIndex = 25;
+            this.TbIdVenta.Leave += new System.EventHandler(this.TbIdVenta_Leave);
+            // 
             // CbProveedores
             // 
-            this.CbProveedores.Controls.Add(this.GbHistorialDevo);
             this.CbProveedores.Controls.Add(this.BtnGuardar);
             this.CbProveedores.Controls.Add(this.DgvDevolucionDetalle);
             this.CbProveedores.Controls.Add(this.button5);
@@ -217,6 +226,74 @@
             this.CbProveedores.TabIndex = 28;
             this.CbProveedores.TabStop = false;
             this.CbProveedores.Text = "Detalles de la venta";
+            // 
+            // GbHistorialDevo
+            // 
+            this.GbHistorialDevo.Controls.Add(this.BtnVentas);
+            this.GbHistorialDevo.Controls.Add(this.DgvDevoluciones);
+            this.GbHistorialDevo.Controls.Add(this.TbBuscar);
+            this.GbHistorialDevo.Controls.Add(this.BtnBuscarDevoluciones);
+            this.GbHistorialDevo.Controls.Add(this.label7);
+            this.GbHistorialDevo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GbHistorialDevo.Location = new System.Drawing.Point(12, 248);
+            this.GbHistorialDevo.Name = "GbHistorialDevo";
+            this.GbHistorialDevo.Size = new System.Drawing.Size(380, 302);
+            this.GbHistorialDevo.TabIndex = 34;
+            this.GbHistorialDevo.TabStop = false;
+            this.GbHistorialDevo.Text = "Historial de devoluciones";
+            this.GbHistorialDevo.Visible = false;
+            // 
+            // BtnVentas
+            // 
+            this.BtnVentas.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnVentas.Location = new System.Drawing.Point(282, 264);
+            this.BtnVentas.Name = "BtnVentas";
+            this.BtnVentas.Size = new System.Drawing.Size(92, 32);
+            this.BtnVentas.TabIndex = 23;
+            this.BtnVentas.Text = "Ventas";
+            this.BtnVentas.UseVisualStyleBackColor = true;
+            this.BtnVentas.Click += new System.EventHandler(this.BtnVentas_Click);
+            // 
+            // DgvDevoluciones
+            // 
+            this.DgvDevoluciones.AllowUserToAddRows = false;
+            this.DgvDevoluciones.AllowUserToDeleteRows = false;
+            this.DgvDevoluciones.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.DgvDevoluciones.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.DgvDevoluciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvDevoluciones.Location = new System.Drawing.Point(6, 18);
+            this.DgvDevoluciones.Name = "DgvDevoluciones";
+            this.DgvDevoluciones.RowHeadersVisible = false;
+            this.DgvDevoluciones.Size = new System.Drawing.Size(368, 226);
+            this.DgvDevoluciones.TabIndex = 22;
+            this.DgvDevoluciones.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvDevoluciones_CellContentClick);
+            // 
+            // TbBuscar
+            // 
+            this.TbBuscar.Location = new System.Drawing.Point(10, 267);
+            this.TbBuscar.Name = "TbBuscar";
+            this.TbBuscar.Size = new System.Drawing.Size(148, 26);
+            this.TbBuscar.TabIndex = 16;
+            // 
+            // BtnBuscarDevoluciones
+            // 
+            this.BtnBuscarDevoluciones.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnBuscarDevoluciones.Location = new System.Drawing.Point(175, 263);
+            this.BtnBuscarDevoluciones.Name = "BtnBuscarDevoluciones";
+            this.BtnBuscarDevoluciones.Size = new System.Drawing.Size(92, 32);
+            this.BtnBuscarDevoluciones.TabIndex = 15;
+            this.BtnBuscarDevoluciones.Text = "Buscar";
+            this.BtnBuscarDevoluciones.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(6, 245);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(196, 19);
+            this.label7.TabIndex = 15;
+            this.label7.Text = "Buscar fecha de la devolucion: ";
             // 
             // BtnGuardar
             // 
@@ -246,6 +323,46 @@
             this.DgvDevolucionDetalle.RowHeadersVisible = false;
             this.DgvDevolucionDetalle.Size = new System.Drawing.Size(648, 389);
             this.DgvDevolucionDetalle.TabIndex = 21;
+            // 
+            // ColBorrar
+            // 
+            this.ColBorrar.HeaderText = "";
+            this.ColBorrar.Name = "ColBorrar";
+            this.ColBorrar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ColBorrar.Width = 40;
+            // 
+            // ColId
+            // 
+            this.ColId.HeaderText = "Id producto";
+            this.ColId.Name = "ColId";
+            this.ColId.ReadOnly = true;
+            this.ColId.Width = 105;
+            // 
+            // ColNombre
+            // 
+            this.ColNombre.HeaderText = "Nombre";
+            this.ColNombre.Name = "ColNombre";
+            this.ColNombre.ReadOnly = true;
+            this.ColNombre.Width = 200;
+            // 
+            // ColPrecio
+            // 
+            this.ColPrecio.HeaderText = "Precio Uni.";
+            this.ColPrecio.Name = "ColPrecio";
+            this.ColPrecio.ReadOnly = true;
+            this.ColPrecio.Width = 120;
+            // 
+            // ColCantidad
+            // 
+            this.ColCantidad.HeaderText = "Cantidad";
+            this.ColCantidad.Name = "ColCantidad";
+            this.ColCantidad.Width = 80;
+            // 
+            // ColSubTotal
+            // 
+            this.ColSubTotal.HeaderText = "Sub. Total";
+            this.ColSubTotal.Name = "ColSubTotal";
+            this.ColSubTotal.ReadOnly = true;
             // 
             // button5
             // 
@@ -292,7 +409,27 @@
             this.GbVentas.TabIndex = 31;
             this.GbVentas.TabStop = false;
             this.GbVentas.Text = "Historial de ventas";
-            this.GbVentas.Visible = false;
+            // 
+            // BtnDevoluciones
+            // 
+            this.BtnDevoluciones.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnDevoluciones.Location = new System.Drawing.Point(276, 264);
+            this.BtnDevoluciones.Name = "BtnDevoluciones";
+            this.BtnDevoluciones.Size = new System.Drawing.Size(101, 32);
+            this.BtnDevoluciones.TabIndex = 25;
+            this.BtnDevoluciones.Text = "Devoluciones";
+            this.BtnDevoluciones.UseVisualStyleBackColor = true;
+            this.BtnDevoluciones.Click += new System.EventHandler(this.BtnDevoluciones_Click);
+            // 
+            // BtnBuscarVentas
+            // 
+            this.BtnBuscarVentas.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnBuscarVentas.Location = new System.Drawing.Point(178, 263);
+            this.BtnBuscarVentas.Name = "BtnBuscarVentas";
+            this.BtnBuscarVentas.Size = new System.Drawing.Size(92, 32);
+            this.BtnBuscarVentas.TabIndex = 24;
+            this.BtnBuscarVentas.Text = "Buscar";
+            this.BtnBuscarVentas.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
@@ -303,143 +440,12 @@
             this.button1.Text = "CED";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // TbIdVenta
-            // 
-            this.TbIdVenta.Location = new System.Drawing.Point(9, 95);
-            this.TbIdVenta.Name = "TbIdVenta";
-            this.TbIdVenta.Size = new System.Drawing.Size(149, 26);
-            this.TbIdVenta.TabIndex = 25;
-            // 
-            // ColBorrar
-            // 
-            this.ColBorrar.HeaderText = "";
-            this.ColBorrar.Name = "ColBorrar";
-            this.ColBorrar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ColBorrar.Width = 40;
-            // 
-            // ColId
-            // 
-            this.ColId.HeaderText = "Id producto";
-            this.ColId.Name = "ColId";
-            this.ColId.ReadOnly = true;
-            this.ColId.Width = 105;
-            // 
-            // ColNombre
-            // 
-            this.ColNombre.HeaderText = "Nombre";
-            this.ColNombre.Name = "ColNombre";
-            this.ColNombre.ReadOnly = true;
-            this.ColNombre.Width = 200;
-            // 
-            // ColPrecio
-            // 
-            this.ColPrecio.HeaderText = "Precio Uni.";
-            this.ColPrecio.Name = "ColPrecio";
-            this.ColPrecio.ReadOnly = true;
-            this.ColPrecio.Width = 120;
-            // 
-            // ColCantidad
-            // 
-            this.ColCantidad.HeaderText = "Cantidad";
-            this.ColCantidad.Name = "ColCantidad";
-            this.ColCantidad.Width = 80;
-            // 
-            // ColSubTotal
-            // 
-            this.ColSubTotal.HeaderText = "Sub. Total";
-            this.ColSubTotal.Name = "ColSubTotal";
-            this.ColSubTotal.ReadOnly = true;
-            // 
-            // GbHistorialDevo
-            // 
-            this.GbHistorialDevo.Controls.Add(this.BtnVentas);
-            this.GbHistorialDevo.Controls.Add(this.DgvDevoluciones);
-            this.GbHistorialDevo.Controls.Add(this.TbBuscar);
-            this.GbHistorialDevo.Controls.Add(this.BtnBuscarDevoluciones);
-            this.GbHistorialDevo.Controls.Add(this.label7);
-            this.GbHistorialDevo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GbHistorialDevo.Location = new System.Drawing.Point(100, 95);
-            this.GbHistorialDevo.Name = "GbHistorialDevo";
-            this.GbHistorialDevo.Size = new System.Drawing.Size(380, 295);
-            this.GbHistorialDevo.TabIndex = 34;
-            this.GbHistorialDevo.TabStop = false;
-            this.GbHistorialDevo.Text = "Historial de devoluciones";
-            // 
-            // BtnVentas
-            // 
-            this.BtnVentas.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnVentas.Location = new System.Drawing.Point(281, 258);
-            this.BtnVentas.Name = "BtnVentas";
-            this.BtnVentas.Size = new System.Drawing.Size(92, 32);
-            this.BtnVentas.TabIndex = 23;
-            this.BtnVentas.Text = "Ventas";
-            this.BtnVentas.UseVisualStyleBackColor = true;
-            // 
-            // DgvDevoluciones
-            // 
-            this.DgvDevoluciones.AllowUserToAddRows = false;
-            this.DgvDevoluciones.AllowUserToDeleteRows = false;
-            this.DgvDevoluciones.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.DgvDevoluciones.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.DgvDevoluciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvDevoluciones.Location = new System.Drawing.Point(6, 18);
-            this.DgvDevoluciones.Name = "DgvDevoluciones";
-            this.DgvDevoluciones.RowHeadersVisible = false;
-            this.DgvDevoluciones.Size = new System.Drawing.Size(368, 218);
-            this.DgvDevoluciones.TabIndex = 22;
-            // 
-            // TbBuscar
-            // 
-            this.TbBuscar.Location = new System.Drawing.Point(9, 261);
-            this.TbBuscar.Name = "TbBuscar";
-            this.TbBuscar.Size = new System.Drawing.Size(148, 26);
-            this.TbBuscar.TabIndex = 16;
-            // 
-            // BtnBuscarDevoluciones
-            // 
-            this.BtnBuscarDevoluciones.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnBuscarDevoluciones.Location = new System.Drawing.Point(174, 257);
-            this.BtnBuscarDevoluciones.Name = "BtnBuscarDevoluciones";
-            this.BtnBuscarDevoluciones.Size = new System.Drawing.Size(92, 32);
-            this.BtnBuscarDevoluciones.TabIndex = 15;
-            this.BtnBuscarDevoluciones.Text = "Buscar";
-            this.BtnBuscarDevoluciones.UseVisualStyleBackColor = true;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(5, 239);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(196, 19);
-            this.label7.TabIndex = 15;
-            this.label7.Text = "Buscar fecha de la devolucion: ";
-            // 
-            // BtnDevoluciones
-            // 
-            this.BtnDevoluciones.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnDevoluciones.Location = new System.Drawing.Point(273, 266);
-            this.BtnDevoluciones.Name = "BtnDevoluciones";
-            this.BtnDevoluciones.Size = new System.Drawing.Size(101, 32);
-            this.BtnDevoluciones.TabIndex = 25;
-            this.BtnDevoluciones.Text = "Devoluciones";
-            this.BtnDevoluciones.UseVisualStyleBackColor = true;
-            // 
-            // BtnBuscarVentas
-            // 
-            this.BtnBuscarVentas.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnBuscarVentas.Location = new System.Drawing.Point(175, 265);
-            this.BtnBuscarVentas.Name = "BtnBuscarVentas";
-            this.BtnBuscarVentas.Size = new System.Drawing.Size(92, 32);
-            this.BtnBuscarVentas.TabIndex = 24;
-            this.BtnBuscarVentas.Text = "Buscar";
-            this.BtnBuscarVentas.UseVisualStyleBackColor = true;
-            // 
             // FormDevoluciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1070, 555);
+            this.Controls.Add(this.GbHistorialDevo);
             this.Controls.Add(this.PbCerrar);
             this.Controls.Add(this.GbCliente);
             this.Controls.Add(this.CbProveedores);
@@ -447,7 +453,7 @@
             this.Controls.Add(this.GbVentas);
             this.Controls.Add(this.button1);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormDevoluciones";
             this.Text = "FormDevoluciones";
             ((System.ComponentModel.ISupportInitialize)(this.DgvVentas)).EndInit();
@@ -456,14 +462,14 @@
             this.GbCliente.PerformLayout();
             this.CbProveedores.ResumeLayout(false);
             this.CbProveedores.PerformLayout();
+            this.GbHistorialDevo.ResumeLayout(false);
+            this.GbHistorialDevo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvDevoluciones)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgvDevolucionDetalle)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.GbVentas.ResumeLayout(false);
             this.GbVentas.PerformLayout();
-            this.GbHistorialDevo.ResumeLayout(false);
-            this.GbHistorialDevo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvDevoluciones)).EndInit();
             this.ResumeLayout(false);
 
         }
