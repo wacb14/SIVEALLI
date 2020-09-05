@@ -105,13 +105,8 @@ namespace SIVEALLI
         {
             DataTable Tabla= Devolucion.MostrarDatosVentas(TbIdVenta.Text);
             for (int k = 0; k < Tabla.Rows.Count; k++)
-            {
-                DataGridViewComboBoxCell Estado = new DataGridViewComboBoxCell();//?
-                Estado.Items.Add("Nuevo");
-                Estado.Items.Add("Defectuoso");
-                Estado.Items.Add("Roto");
-                DgvDevolucionDetalle.Rows.Add(false, Tabla.Rows[k][0].ToString(), Tabla.Rows[k][1].ToString(), Estado, Tabla.Rows[k][2].ToString(), Tabla.Rows[k][3].ToString(), Tabla.Rows[k][4].ToString());
-            }
+                DgvDevolucionDetalle.Rows.Add(false, Tabla.Rows[k][0].ToString(), Tabla.Rows[k][1].ToString(), "", Tabla.Rows[k][2].ToString(), Tabla.Rows[k][3].ToString(), Tabla.Rows[k][4].ToString());
+            
             DeterminarImporteTotal();        
         }
         //--Calcular el importe total a devolver
@@ -120,7 +115,7 @@ namespace SIVEALLI
             double Total = 0;
             for (int k = 0; k < DgvDevolucionDetalle.Rows.Count; k++)
             {
-                Total += double.Parse(DgvDevolucionDetalle.Rows[k].Cells[5].Value.ToString());
+                Total += double.Parse(DgvDevolucionDetalle.Rows[k].Cells[6].Value.ToString());
             }
             //--Cololcar el total 
             LTotal.Text = LTotal.Text.Split('/')[0] + "/ " + Total.ToString();

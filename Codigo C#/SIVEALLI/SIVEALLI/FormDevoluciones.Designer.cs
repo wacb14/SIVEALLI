@@ -495,6 +495,10 @@
             // ColEstado
             // 
             this.ColEstado.HeaderText = "Estado";
+            this.ColEstado.Items.AddRange(new object[] {
+            "Nuevo",
+            "Defectuoso",
+            "Roto"});
             this.ColEstado.Name = "ColEstado";
             // 
             // ColPrecio
