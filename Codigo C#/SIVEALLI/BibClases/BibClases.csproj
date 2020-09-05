@@ -54,6 +54,8 @@
     <Compile Include="CProducto.cs" />
     <Compile Include="CProveedor.cs" />
     <Compile Include="CUsuario.cs" />
+    <Compile Include="CVenta.cs" />
+    <Compile Include="CVentaDetalle.cs" />
     <Compile Include="Procesos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

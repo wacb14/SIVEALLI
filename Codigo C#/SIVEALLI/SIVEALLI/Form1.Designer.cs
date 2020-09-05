@@ -30,6 +30,7 @@
         private void InitializeComponent()
         {
             this.ScVertical = new System.Windows.Forms.SplitContainer();
+            this.BtnDevoluciones = new System.Windows.Forms.Button();
             this.BtnReportes = new System.Windows.Forms.Button();
             this.BtnPedidos = new System.Windows.Forms.Button();
             this.BtnClientes = new System.Windows.Forms.Button();
@@ -40,7 +41,7 @@
             this.ScHorizontal = new System.Windows.Forms.SplitContainer();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.labelUsuario = new System.Windows.Forms.Label();
-            this.BtnDevoluciones = new System.Windows.Forms.Button();
+            this.BtnVentas = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ScVertical)).BeginInit();
             this.ScVertical.Panel1.SuspendLayout();
             this.ScVertical.Panel2.SuspendLayout();
@@ -60,6 +61,7 @@
             // ScVertical.Panel1
             // 
             this.ScVertical.Panel1.BackColor = System.Drawing.Color.White;
+            this.ScVertical.Panel1.Controls.Add(this.BtnVentas);
             this.ScVertical.Panel1.Controls.Add(this.BtnDevoluciones);
             this.ScVertical.Panel1.Controls.Add(this.BtnReportes);
             this.ScVertical.Panel1.Controls.Add(this.BtnPedidos);
@@ -76,6 +78,17 @@
             this.ScVertical.SplitterDistance = 174;
             this.ScVertical.TabIndex = 0;
             // 
+            // BtnDevoluciones
+            // 
+            this.BtnDevoluciones.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnDevoluciones.Location = new System.Drawing.Point(12, 269);
+            this.BtnDevoluciones.Name = "BtnDevoluciones";
+            this.BtnDevoluciones.Size = new System.Drawing.Size(148, 34);
+            this.BtnDevoluciones.TabIndex = 7;
+            this.BtnDevoluciones.Text = "Devoluciones";
+            this.BtnDevoluciones.UseVisualStyleBackColor = true;
+            this.BtnDevoluciones.Click += new System.EventHandler(this.BtnDevoluciones_Click);
+            // 
             // BtnReportes
             // 
             this.BtnReportes.Location = new System.Drawing.Point(12, 631);
@@ -89,7 +102,7 @@
             // BtnPedidos
             // 
             this.BtnPedidos.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnPedidos.Location = new System.Drawing.Point(12, 190);
+            this.BtnPedidos.Location = new System.Drawing.Point(12, 229);
             this.BtnPedidos.Name = "BtnPedidos";
             this.BtnPedidos.Size = new System.Drawing.Size(148, 34);
             this.BtnPedidos.TabIndex = 6;
@@ -189,16 +202,16 @@
             this.labelUsuario.Size = new System.Drawing.Size(0, 19);
             this.labelUsuario.TabIndex = 0;
             // 
-            // BtnDevoluciones
+            // BtnVentas
             // 
-            this.BtnDevoluciones.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnDevoluciones.Location = new System.Drawing.Point(12, 230);
-            this.BtnDevoluciones.Name = "BtnDevoluciones";
-            this.BtnDevoluciones.Size = new System.Drawing.Size(148, 34);
-            this.BtnDevoluciones.TabIndex = 7;
-            this.BtnDevoluciones.Text = "Devoluciones";
-            this.BtnDevoluciones.UseVisualStyleBackColor = true;
-            this.BtnDevoluciones.Click += new System.EventHandler(this.BtnDevoluciones_Click);
+            this.BtnVentas.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnVentas.Location = new System.Drawing.Point(12, 189);
+            this.BtnVentas.Name = "BtnVentas";
+            this.BtnVentas.Size = new System.Drawing.Size(148, 34);
+            this.BtnVentas.TabIndex = 8;
+            this.BtnVentas.Text = "Ventas";
+            this.BtnVentas.UseVisualStyleBackColor = true;
+            this.BtnVentas.Click += new System.EventHandler(this.BtnVentas_Click);
             // 
             // FormSupervisor
             // 
@@ -235,6 +248,7 @@
         private System.Windows.Forms.Label labelUsuario;
         private System.Windows.Forms.DateTimePicker dtpFecha;
         private System.Windows.Forms.Button BtnDevoluciones;
+        private System.Windows.Forms.Button BtnVentas;
     }
 }
 

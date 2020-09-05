@@ -332,7 +332,7 @@
             this.CbNuevoPed.Text = "Pedido Nuevo";
             this.CbNuevoPed.UseVisualStyleBackColor = true;
             this.CbNuevoPed.CheckedChanged += new System.EventHandler(this.CbNuevoPed_CheckedChanged);
-            // 
+            //
             // TbTermEntrega
             // 
             this.TbTermEntrega.Location = new System.Drawing.Point(10, 146);
@@ -462,7 +462,7 @@
             this.label7.Size = new System.Drawing.Size(139, 19);
             this.label7.TabIndex = 15;
             this.label7.Text = "Filtrar busqueda por: ";
-            // 
+            //
             // PbCerrar
             // 
             this.PbCerrar.BackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -475,7 +475,7 @@
             this.PbCerrar.TabIndex = 26;
             this.PbCerrar.TabStop = false;
             this.PbCerrar.Click += new System.EventHandler(this.PbCerrar_Click);
-            // 
+            //
             // FormPedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);

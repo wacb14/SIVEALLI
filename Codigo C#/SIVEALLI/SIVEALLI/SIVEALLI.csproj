@@ -146,6 +146,18 @@
     <Compile Include="FormUsuarios.Designer.cs">
       <DependentUpon>FormUsuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormVentas.Designer.cs">
+      <DependentUpon>FormVentas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormVentasCantidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormVentasCantidad.Designer.cs">
+      <DependentUpon>FormVentasCantidad.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMostrarReporteClientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -218,9 +230,6 @@
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormPedidos.resx">
-      <DependentUpon>FormPedidos.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormPedidosCantidad.resx">
       <DependentUpon>FormPedidosCantidad.cs</DependentUpon>
     </EmbeddedResource>
@@ -232,6 +241,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormUsuarios.resx">
       <DependentUpon>FormUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormVentas.resx">
+      <DependentUpon>FormVentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormVentasCantidad.resx">
+      <DependentUpon>FormVentasCantidad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMostrarReporteClientes.resx">
       <DependentUpon>FrmMostrarReporteClientes.cs</DependentUpon>

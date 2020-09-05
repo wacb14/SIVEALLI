@@ -4,9 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.IO;
 
 namespace BibClases
 {
@@ -25,6 +22,12 @@ namespace BibClases
         public DataTable ListaGeneralSinImagen()
         {   //--Retornar un tabla con la lista completa de  libros
             string CadenaConsulta = "exec spuListarProductosSinImagen";
+            aConexion.EjecutarSelect(CadenaConsulta);
+            return aConexion.Datos.Tables[0];
+        }
+        public DataTable ListaProductosActivos()
+        {   //--Retornar un tabla con la lista completa de  libros
+            string CadenaConsulta = "exec spuListarProductosActivos";
             aConexion.EjecutarSelect(CadenaConsulta);
             return aConexion.Datos.Tables[0];
         }

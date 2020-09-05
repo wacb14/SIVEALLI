@@ -143,9 +143,14 @@ namespace SIVEALLI
                 fd.Visible = true;
             else
             {
-                fd= new FormDevoluciones(labelUsuario.Text, "02/02/2020");
+                fd = new FormDevoluciones(labelUsuario.Text, "02/02/2020");
                 AbrirFormPanel(fd);
             }
+        }
+        private void BtnVentas_Click(object sender, EventArgs e)
+        {
+            FormVentas Fv = new FormVentas();
+            AbrirFormPanel(Fv);
         }
     }
 }
