@@ -15,8 +15,10 @@ namespace SIVEALLI
     {
 
         protected CUsuario aUsuario = new CUsuario();
-        public FormUsuarios()
+        protected string codigoUsuario;
+        public FormUsuarios(string usuario)
         {
+            codigoUsuario = usuario;
             InitializeComponent();
             IniciarEntidad(new CUsuario());
 
@@ -29,11 +31,35 @@ namespace SIVEALLI
             textBoxCodigo.Leave += new EventHandler(AbandonarTextBoxCodigo);
             textBoxCodigo.TextChanged += new EventHandler(CambioCodigo);
             this.dataGridViewUsuarios.CellClick += new DataGridViewCellEventHandler(MostrarDatosEnFormulario);
+            this.btnRestaurarContra.Click += new EventHandler(RestaurarContraseña);
+            this.btnCambioContra.Click += new EventHandler(CambiarContraseña);
 
             //Validaciones
             textBoxNombres.KeyPress += new KeyPressEventHandler(Procesos.ValidarTextBoxSoloLetras);
             textBoxApellidos.KeyPress += new KeyPressEventHandler(Procesos.ValidarTextBoxSoloLetras);
             textBoxTelefono.KeyPress += new KeyPressEventHandler(Procesos.ValidarTextBoxSoloNumeros);
+        }
+
+        private void CambiarContraseña(object sender, EventArgs e)
+        {
+            FormCambioContrasegna fu = new FormCambioContrasegna(codigoUsuario);
+            fu.Show();
+        }
+
+        private void RestaurarContraseña(object sender, EventArgs e)
+        {
+            if (textBoxCodigo.Text.Equals(""))
+            {
+                MessageBox.Show("Seleccione un codigo");
+                return;
+            }
+
+            DialogResult result = MessageBox.Show("Esta operación guardará al usuario que la realizó y la fecha. ¿Desea continuar?", "", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                aUsuario.RestaurarContrasegna(textBoxCodigo.Text);
+                MessageBox.Show("Nueva contraseña (igual a la identificación): " + textBoxCodigo.Text);
+            }
         }
 
         private void MostrarDatosEnFormulario(object sender, EventArgs e)
@@ -45,12 +71,11 @@ namespace SIVEALLI
                 textBoxCodigo.Text = dataGridViewUsuarios.Rows[fila].Cells[0].Value.ToString();
                 textBoxNombres.Text = dataGridViewUsuarios.Rows[fila].Cells[1].Value.ToString();
                 textBoxApellidos.Text = dataGridViewUsuarios.Rows[fila].Cells[2].Value.ToString();
-                textBoxDireccion.Text = dataGridViewUsuarios.Rows[fila].Cells[3].Value.ToString();
-                textBoxTelefono.Text = dataGridViewUsuarios.Rows[fila].Cells[4].Value.ToString();
-                textBoxCorreo.Text = dataGridViewUsuarios.Rows[fila].Cells[5].Value.ToString();
-                textBoxContrasegna.Text = dataGridViewUsuarios.Rows[fila].Cells[6].Value.ToString();
-                comboBoxTipo.Text = dataGridViewUsuarios.Rows[fila].Cells[7].Value.ToString();
-                comboBoxEstado.Text = dataGridViewUsuarios.Rows[fila].Cells[8].Value.ToString();
+                textBoxDireccion.Text = dataGridViewUsuarios.Rows[fila].Cells[7].Value.ToString();
+                textBoxTelefono.Text = dataGridViewUsuarios.Rows[fila].Cells[3].Value.ToString();
+                textBoxCorreo.Text = dataGridViewUsuarios.Rows[fila].Cells[4].Value.ToString();
+                comboBoxTipo.Text = dataGridViewUsuarios.Rows[fila].Cells[6].Value.ToString();
+                comboBoxEstado.Text = dataGridViewUsuarios.Rows[fila].Cells[5].Value.ToString();
                 //aEntidad.Eliminar(aux);
             }
             catch (Exception)
@@ -71,7 +96,7 @@ namespace SIVEALLI
 
         private void CargarDatos(object sender, EventArgs e)
         {
-            dataGridViewUsuarios.DataSource = aEntidad.ListaGeneral();
+            dataGridViewUsuarios.DataSource = aUsuario.ListaUsuarios();
         }
 
         public override string[] AsignarValoresAtributos()
@@ -79,7 +104,6 @@ namespace SIVEALLI
             return new string[] { textBoxCodigo.Text,
                 textBoxNombres.Text, textBoxApellidos.Text,
                 textBoxDireccion.Text, textBoxTelefono.Text,
-                textBoxCorreo.Text, textBoxContrasegna.Text, 
                 comboBoxTipo.Text, comboBoxEstado.Text};
         }
         public override void MostrarDatos()
@@ -90,7 +114,6 @@ namespace SIVEALLI
             textBoxDireccion.Text = aEntidad.ValorAtributo("Direccion");
             textBoxTelefono.Text = aEntidad.ValorAtributo("Telefono");
             textBoxCorreo.Text = aEntidad.ValorAtributo("Correo");
-            textBoxContrasegna.Text = aEntidad.ValorAtributo("Contraseña");
             comboBoxTipo.Text = aEntidad.ValorAtributo("Tipo");
             comboBoxEstado.Text = aEntidad.ValorAtributo("Estado");
         }
@@ -106,7 +129,6 @@ namespace SIVEALLI
             textBoxDireccion.Text = "";
             textBoxTelefono.Text = "";
             textBoxCorreo.Text = "";
-            textBoxContrasegna.Text = "";
             comboBoxEstado.Text = "";
             comboBoxTipo.Text = "";
         }
@@ -119,8 +141,7 @@ namespace SIVEALLI
             if (textBoxCodigo.Text.Trim() != "" && 
                 textBoxApellidos.Text.Trim() != "" &&
                 textBoxNombres.Text.Trim() != "" &&
-                comboBoxTipo.Text.Trim() != "" &&
-                textBoxContrasegna.Text.Trim() != "")
+                comboBoxTipo.Text.Trim() != "" )
                 return true;
             else
                 return false;
@@ -145,15 +166,17 @@ namespace SIVEALLI
                     dataGridViewUsuarios.Rows[fila].Cells[0].Value.ToString(),
                 dataGridViewUsuarios.Rows[fila].Cells[1].Value.ToString(),
                 dataGridViewUsuarios.Rows[fila].Cells[2].Value.ToString(),
+                dataGridViewUsuarios.Rows[fila].Cells[7].Value.ToString(),
                 dataGridViewUsuarios.Rows[fila].Cells[3].Value.ToString(),
                 dataGridViewUsuarios.Rows[fila].Cells[4].Value.ToString(),
-                dataGridViewUsuarios.Rows[fila].Cells[5].Value.ToString(),
                 dataGridViewUsuarios.Rows[fila].Cells[6].Value.ToString(),
-                dataGridViewUsuarios.Rows[fila].Cells[7].Value.ToString(),
-                "RETIRADO"};
-                aEntidad.Actualizar(atributos);
+                "RETIRADO"
+                };
+                aUsuario.ActualizarNoContraseña(atributos);
                 //aEntidad.Eliminar(aux);
-                dataGridViewUsuarios.DataSource = aEntidad.ListaGeneral();
+                dataGridViewUsuarios.DataSource = aUsuario.ListaUsuarios();
+
+                InicializarAtributos();
 
                 MessageBox.Show("Se ha cambiado el estado del usuario " + dataGridViewUsuarios.Rows[fila].Cells[1].Value.ToString());
             }

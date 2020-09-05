@@ -43,15 +43,16 @@
             this.textBoxCorreo = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBoxContrasegna = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.BtnGuardar = new System.Windows.Forms.Button();
             this.BtnLimpiar = new System.Windows.Forms.Button();
             this.buttonEliminar = new System.Windows.Forms.Button();
             this.buttonNuevoUsuario = new System.Windows.Forms.Button();
             this.comboBoxEstado = new System.Windows.Forms.ComboBox();
             this.comboBoxTipo = new System.Windows.Forms.ComboBox();
+            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
+            this.btnCambioContra = new System.Windows.Forms.Button();
+            this.btnRestaurarContra = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsuarios)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,16 +81,16 @@
             this.dataGridViewUsuarios.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridViewUsuarios.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewUsuarios.Location = new System.Drawing.Point(307, 13);
+            this.dataGridViewUsuarios.Location = new System.Drawing.Point(318, 47);
             this.dataGridViewUsuarios.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewUsuarios.Name = "dataGridViewUsuarios";
             this.dataGridViewUsuarios.ReadOnly = true;
-            this.dataGridViewUsuarios.Size = new System.Drawing.Size(750, 419);
+            this.dataGridViewUsuarios.Size = new System.Drawing.Size(739, 385);
             this.dataGridViewUsuarios.TabIndex = 2;
             // 
             // textBoxNombres
             // 
-            this.textBoxNombres.Location = new System.Drawing.Point(104, 121);
+            this.textBoxNombres.Location = new System.Drawing.Point(104, 109);
             this.textBoxNombres.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxNombres.Name = "textBoxNombres";
             this.textBoxNombres.Size = new System.Drawing.Size(195, 26);
@@ -98,7 +99,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 124);
+            this.label2.Location = new System.Drawing.Point(18, 112);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(66, 19);
@@ -107,7 +108,7 @@
             // 
             // textBoxApellidos
             // 
-            this.textBoxApellidos.Location = new System.Drawing.Point(104, 159);
+            this.textBoxApellidos.Location = new System.Drawing.Point(104, 147);
             this.textBoxApellidos.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxApellidos.Name = "textBoxApellidos";
             this.textBoxApellidos.Size = new System.Drawing.Size(195, 26);
@@ -116,7 +117,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(18, 162);
+            this.label3.Location = new System.Drawing.Point(18, 150);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 19);
@@ -125,7 +126,7 @@
             // 
             // textBoxDireccion
             // 
-            this.textBoxDireccion.Location = new System.Drawing.Point(104, 197);
+            this.textBoxDireccion.Location = new System.Drawing.Point(104, 185);
             this.textBoxDireccion.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxDireccion.Name = "textBoxDireccion";
             this.textBoxDireccion.Size = new System.Drawing.Size(195, 26);
@@ -134,7 +135,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(18, 200);
+            this.label4.Location = new System.Drawing.Point(18, 188);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(67, 19);
@@ -143,7 +144,7 @@
             // 
             // textBoxTelefono
             // 
-            this.textBoxTelefono.Location = new System.Drawing.Point(104, 235);
+            this.textBoxTelefono.Location = new System.Drawing.Point(104, 223);
             this.textBoxTelefono.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxTelefono.Name = "textBoxTelefono";
             this.textBoxTelefono.Size = new System.Drawing.Size(195, 26);
@@ -152,7 +153,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(18, 238);
+            this.label5.Location = new System.Drawing.Point(18, 226);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(61, 19);
@@ -161,7 +162,7 @@
             // 
             // textBoxCorreo
             // 
-            this.textBoxCorreo.Location = new System.Drawing.Point(104, 273);
+            this.textBoxCorreo.Location = new System.Drawing.Point(104, 261);
             this.textBoxCorreo.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxCorreo.Name = "textBoxCorreo";
             this.textBoxCorreo.Size = new System.Drawing.Size(195, 26);
@@ -170,7 +171,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(18, 276);
+            this.label6.Location = new System.Drawing.Point(18, 264);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 19);
@@ -180,40 +181,22 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(18, 390);
+            this.label8.Location = new System.Drawing.Point(19, 335);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(51, 19);
             this.label8.TabIndex = 15;
             this.label8.Text = "Estado";
             // 
-            // textBoxContrasegna
-            // 
-            this.textBoxContrasegna.Location = new System.Drawing.Point(104, 311);
-            this.textBoxContrasegna.Margin = new System.Windows.Forms.Padding(4);
-            this.textBoxContrasegna.Name = "textBoxContrasegna";
-            this.textBoxContrasegna.Size = new System.Drawing.Size(195, 26);
-            this.textBoxContrasegna.TabIndex = 14;
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(18, 352);
+            this.label9.Location = new System.Drawing.Point(19, 297);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(36, 19);
             this.label9.TabIndex = 13;
             this.label9.Text = "Tipo";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(18, 314);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(78, 19);
-            this.label7.TabIndex = 17;
-            this.label7.Text = "Contraseña";
             // 
             // BtnGuardar
             // 
@@ -277,7 +260,7 @@
             "ACTIVO",
             "RETIRADO",
             "OTRO"});
-            this.comboBoxEstado.Location = new System.Drawing.Point(104, 387);
+            this.comboBoxEstado.Location = new System.Drawing.Point(105, 332);
             this.comboBoxEstado.Name = "comboBoxEstado";
             this.comboBoxEstado.Size = new System.Drawing.Size(195, 27);
             this.comboBoxEstado.TabIndex = 35;
@@ -288,10 +271,35 @@
             this.comboBoxTipo.Items.AddRange(new object[] {
             "SUPERVISOR",
             "EMPLEADO"});
-            this.comboBoxTipo.Location = new System.Drawing.Point(104, 349);
+            this.comboBoxTipo.Location = new System.Drawing.Point(105, 294);
             this.comboBoxTipo.Name = "comboBoxTipo";
             this.comboBoxTipo.Size = new System.Drawing.Size(195, 27);
             this.comboBoxTipo.TabIndex = 36;
+            // 
+            // dtpFecha
+            // 
+            this.dtpFecha.Location = new System.Drawing.Point(783, 12);
+            this.dtpFecha.Name = "dtpFecha";
+            this.dtpFecha.Size = new System.Drawing.Size(275, 26);
+            this.dtpFecha.TabIndex = 37;
+            // 
+            // btnCambioContra
+            // 
+            this.btnCambioContra.Location = new System.Drawing.Point(595, 7);
+            this.btnCambioContra.Name = "btnCambioContra";
+            this.btnCambioContra.Size = new System.Drawing.Size(182, 33);
+            this.btnCambioContra.TabIndex = 38;
+            this.btnCambioContra.Text = "Cambiar mi contraseña";
+            this.btnCambioContra.UseVisualStyleBackColor = true;
+            // 
+            // btnRestaurarContra
+            // 
+            this.btnRestaurarContra.Location = new System.Drawing.Point(17, 377);
+            this.btnRestaurarContra.Name = "btnRestaurarContra";
+            this.btnRestaurarContra.Size = new System.Drawing.Size(283, 56);
+            this.btnRestaurarContra.TabIndex = 39;
+            this.btnRestaurarContra.Text = "Restaurar contraseña de usuario seleccionado";
+            this.btnRestaurarContra.UseVisualStyleBackColor = true;
             // 
             // FormUsuarios
             // 
@@ -299,15 +307,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1070, 519);
+            this.Controls.Add(this.btnRestaurarContra);
+            this.Controls.Add(this.btnCambioContra);
+            this.Controls.Add(this.dtpFecha);
             this.Controls.Add(this.comboBoxTipo);
             this.Controls.Add(this.comboBoxEstado);
             this.Controls.Add(this.buttonNuevoUsuario);
             this.Controls.Add(this.buttonEliminar);
             this.Controls.Add(this.BtnLimpiar);
             this.Controls.Add(this.BtnGuardar);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.textBoxContrasegna);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.textBoxCorreo);
             this.Controls.Add(this.label6);
@@ -349,14 +358,15 @@
         private System.Windows.Forms.TextBox textBoxCorreo;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBoxContrasegna;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label7;
         public System.Windows.Forms.Button BtnGuardar;
         protected System.Windows.Forms.Button BtnLimpiar;
         private System.Windows.Forms.Button buttonEliminar;
         public System.Windows.Forms.Button buttonNuevoUsuario;
         private System.Windows.Forms.ComboBox comboBoxEstado;
         private System.Windows.Forms.ComboBox comboBoxTipo;
+        private System.Windows.Forms.DateTimePicker dtpFecha;
+        private System.Windows.Forms.Button btnCambioContra;
+        private System.Windows.Forms.Button btnRestaurarContra;
     }
 }

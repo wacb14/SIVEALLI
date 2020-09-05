@@ -61,7 +61,7 @@ namespace SIVEALLI
                 fu.Visible = true;
             else
             {
-                fu = new FormUsuarios();
+                fu = new FormUsuarios(labelUsuario.Text);
                 AbrirFormPanel(fu);
             }
         }
