@@ -40,3 +40,7 @@ go
 alter table TNegocio
 add Fecha date not null;
 go
+
+alter table TNegocio
+add primary key (IdModificacion);
+go
