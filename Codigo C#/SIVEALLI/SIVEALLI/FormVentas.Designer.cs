@@ -30,20 +30,10 @@
         {
             this.TbcVentas = new System.Windows.Forms.TabControl();
             this.TbpVentaNueva = new System.Windows.Forms.TabPage();
-            this.GbDetalleVenta = new System.Windows.Forms.GroupBox();
+            this.GbRegistrarVenta = new System.Windows.Forms.GroupBox();
             this.BtnNuevaVenta = new System.Windows.Forms.Button();
-            this.BtnImprimir = new System.Windows.Forms.Button();
-            this.BtnVaciarDetalles = new System.Windows.Forms.Button();
+            this.BtnImprimirComprobante = new System.Windows.Forms.Button();
             this.BtnRegistrarVenta = new System.Windows.Forms.Button();
-            this.LblTotal = new System.Windows.Forms.Label();
-            this.Lbl5 = new System.Windows.Forms.Label();
-            this.DgvVentaDetalle = new System.Windows.Forms.DataGridView();
-            this.colIdProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPrecioUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colBtnBorrar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.GbDatosVenta = new System.Windows.Forms.GroupBox();
             this.TxtValorBusqueda = new System.Windows.Forms.TextBox();
             this.Lbl10 = new System.Windows.Forms.Label();
@@ -51,34 +41,58 @@
             this.BtnBuscar = new System.Windows.Forms.Button();
             this.CboBuscarPor = new System.Windows.Forms.ComboBox();
             this.DgvCatalogoBusqueda = new System.Windows.Forms.DataGridView();
+            this.colBtnAgregar1 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.colIdProducto1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNombre1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMarca1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCategoria1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrecioUnitario1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCantidad1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDescripcion1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BtnNuevoCliente = new System.Windows.Forms.Button();
             this.TxtIdCliente = new System.Windows.Forms.TextBox();
             this.Lbl2 = new System.Windows.Forms.Label();
             this.TxtIdVenta = new System.Windows.Forms.TextBox();
             this.Lbl1 = new System.Windows.Forms.Label();
+            this.GbDetalleVenta = new System.Windows.Forms.GroupBox();
+            this.BtnVaciarDetalles = new System.Windows.Forms.Button();
+            this.LblSubtotal = new System.Windows.Forms.Label();
+            this.Lbl5 = new System.Windows.Forms.Label();
+            this.DgvVentaDetalle = new System.Windows.Forms.DataGridView();
+            this.colBtnBorrar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.colIdProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrecioUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TbpHistorialVentas = new System.Windows.Forms.TabPage();
             this.GbDetallesVenta = new System.Windows.Forms.GroupBox();
             this.DgvDetallesVenta2 = new System.Windows.Forms.DataGridView();
-            this.colIdProducto2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNombre2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPrecioUnitario2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCantidad2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSubtotal2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colBtnBorrar2 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.BtnImprimir2 = new System.Windows.Forms.Button();
+            this.BtnImprimirComprobante2 = new System.Windows.Forms.Button();
             this.GbListaVentas = new System.Windows.Forms.GroupBox();
             this.TxtValorBusqueda2 = new System.Windows.Forms.TextBox();
             this.Lbl7 = new System.Windows.Forms.Label();
             this.Lbl6 = new System.Windows.Forms.Label();
             this.BtnBuscar2 = new System.Windows.Forms.Button();
-            this.CboBucarPor2 = new System.Windows.Forms.ComboBox();
+            this.CboBuscarPor2 = new System.Windows.Forms.ComboBox();
             this.DgvListaVentas = new System.Windows.Forms.DataGridView();
+            this.Lbl8 = new System.Windows.Forms.Label();
+            this.LblImpuesto = new System.Windows.Forms.Label();
+            this.LblSubtotalSinImpuesto = new System.Windows.Forms.Label();
+            this.Lbl11 = new System.Windows.Forms.Label();
+            this.Lbl12 = new System.Windows.Forms.Label();
+            this.LblDescuento = new System.Windows.Forms.Label();
+            this.Lbl13 = new System.Windows.Forms.Label();
+            this.LblTotal = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.TbcVentas.SuspendLayout();
             this.TbpVentaNueva.SuspendLayout();
-            this.GbDetalleVenta.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvVentaDetalle)).BeginInit();
+            this.GbRegistrarVenta.SuspendLayout();
             this.GbDatosVenta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvCatalogoBusqueda)).BeginInit();
+            this.GbDetalleVenta.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvVentaDetalle)).BeginInit();
             this.TbpHistorialVentas.SuspendLayout();
             this.GbDetallesVenta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvDetallesVenta2)).BeginInit();
@@ -99,8 +113,9 @@
             // 
             // TbpVentaNueva
             // 
-            this.TbpVentaNueva.Controls.Add(this.GbDetalleVenta);
+            this.TbpVentaNueva.Controls.Add(this.GbRegistrarVenta);
             this.TbpVentaNueva.Controls.Add(this.GbDatosVenta);
+            this.TbpVentaNueva.Controls.Add(this.GbDetalleVenta);
             this.TbpVentaNueva.Location = new System.Drawing.Point(4, 28);
             this.TbpVentaNueva.Name = "TbpVentaNueva";
             this.TbpVentaNueva.Padding = new System.Windows.Forms.Padding(3);
@@ -109,46 +124,278 @@
             this.TbpVentaNueva.Text = "Nueva Venta";
             this.TbpVentaNueva.UseVisualStyleBackColor = true;
             // 
-            // GbDetalleVenta
+            // GbRegistrarVenta
             // 
-            this.GbDetalleVenta.Controls.Add(this.BtnNuevaVenta);
-            this.GbDetalleVenta.Controls.Add(this.BtnImprimir);
-            this.GbDetalleVenta.Controls.Add(this.BtnVaciarDetalles);
-            this.GbDetalleVenta.Controls.Add(this.BtnRegistrarVenta);
-            this.GbDetalleVenta.Controls.Add(this.LblTotal);
-            this.GbDetalleVenta.Controls.Add(this.Lbl5);
-            this.GbDetalleVenta.Controls.Add(this.DgvVentaDetalle);
-            this.GbDetalleVenta.Location = new System.Drawing.Point(471, 3);
-            this.GbDetalleVenta.Name = "GbDetalleVenta";
-            this.GbDetalleVenta.Size = new System.Drawing.Size(590, 480);
-            this.GbDetalleVenta.TabIndex = 1;
-            this.GbDetalleVenta.TabStop = false;
-            this.GbDetalleVenta.Text = "Detalles de Venta";
+            this.GbRegistrarVenta.Controls.Add(this.label2);
+            this.GbRegistrarVenta.Controls.Add(this.label1);
+            this.GbRegistrarVenta.Controls.Add(this.Lbl13);
+            this.GbRegistrarVenta.Controls.Add(this.LblTotal);
+            this.GbRegistrarVenta.Controls.Add(this.Lbl12);
+            this.GbRegistrarVenta.Controls.Add(this.LblDescuento);
+            this.GbRegistrarVenta.Controls.Add(this.LblSubtotalSinImpuesto);
+            this.GbRegistrarVenta.Controls.Add(this.Lbl11);
+            this.GbRegistrarVenta.Controls.Add(this.LblImpuesto);
+            this.GbRegistrarVenta.Controls.Add(this.Lbl8);
+            this.GbRegistrarVenta.Controls.Add(this.BtnNuevaVenta);
+            this.GbRegistrarVenta.Controls.Add(this.LblSubtotal);
+            this.GbRegistrarVenta.Controls.Add(this.BtnImprimirComprobante);
+            this.GbRegistrarVenta.Controls.Add(this.Lbl5);
+            this.GbRegistrarVenta.Controls.Add(this.BtnRegistrarVenta);
+            this.GbRegistrarVenta.Location = new System.Drawing.Point(595, 248);
+            this.GbRegistrarVenta.Name = "GbRegistrarVenta";
+            this.GbRegistrarVenta.Size = new System.Drawing.Size(466, 235);
+            this.GbRegistrarVenta.TabIndex = 28;
+            this.GbRegistrarVenta.TabStop = false;
+            this.GbRegistrarVenta.Text = "Registrar Venta";
             // 
             // BtnNuevaVenta
             // 
             this.BtnNuevaVenta.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnNuevaVenta.Location = new System.Drawing.Point(94, 435);
+            this.BtnNuevaVenta.Location = new System.Drawing.Point(328, 154);
             this.BtnNuevaVenta.Name = "BtnNuevaVenta";
             this.BtnNuevaVenta.Size = new System.Drawing.Size(109, 26);
             this.BtnNuevaVenta.TabIndex = 26;
             this.BtnNuevaVenta.Text = "Nueva Venta";
             this.BtnNuevaVenta.UseVisualStyleBackColor = true;
+            this.BtnNuevaVenta.Click += new System.EventHandler(this.BtnNuevaVenta_Click);
             // 
-            // BtnImprimir
+            // BtnImprimirComprobante
             // 
-            this.BtnImprimir.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnImprimir.Location = new System.Drawing.Point(407, 435);
-            this.BtnImprimir.Name = "BtnImprimir";
-            this.BtnImprimir.Size = new System.Drawing.Size(92, 26);
-            this.BtnImprimir.TabIndex = 27;
-            this.BtnImprimir.Text = "Imprimir";
-            this.BtnImprimir.UseVisualStyleBackColor = true;
+            this.BtnImprimirComprobante.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnImprimirComprobante.Location = new System.Drawing.Point(296, 106);
+            this.BtnImprimirComprobante.Name = "BtnImprimirComprobante";
+            this.BtnImprimirComprobante.Size = new System.Drawing.Size(161, 26);
+            this.BtnImprimirComprobante.TabIndex = 27;
+            this.BtnImprimirComprobante.Text = "Imprimir Comprobante";
+            this.BtnImprimirComprobante.UseVisualStyleBackColor = true;
+            this.BtnImprimirComprobante.Click += new System.EventHandler(this.BtnImprimir_Click);
+            // 
+            // BtnRegistrarVenta
+            // 
+            this.BtnRegistrarVenta.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnRegistrarVenta.Location = new System.Drawing.Point(327, 58);
+            this.BtnRegistrarVenta.Name = "BtnRegistrarVenta";
+            this.BtnRegistrarVenta.Size = new System.Drawing.Size(110, 26);
+            this.BtnRegistrarVenta.TabIndex = 25;
+            this.BtnRegistrarVenta.Text = "Registrar Venta";
+            this.BtnRegistrarVenta.UseVisualStyleBackColor = true;
+            this.BtnRegistrarVenta.Click += new System.EventHandler(this.BtnRegistrarVenta_Click);
+            // 
+            // GbDatosVenta
+            // 
+            this.GbDatosVenta.Controls.Add(this.TxtValorBusqueda);
+            this.GbDatosVenta.Controls.Add(this.Lbl10);
+            this.GbDatosVenta.Controls.Add(this.Lbl9);
+            this.GbDatosVenta.Controls.Add(this.BtnBuscar);
+            this.GbDatosVenta.Controls.Add(this.CboBuscarPor);
+            this.GbDatosVenta.Controls.Add(this.DgvCatalogoBusqueda);
+            this.GbDatosVenta.Controls.Add(this.BtnNuevoCliente);
+            this.GbDatosVenta.Controls.Add(this.TxtIdCliente);
+            this.GbDatosVenta.Controls.Add(this.Lbl2);
+            this.GbDatosVenta.Controls.Add(this.TxtIdVenta);
+            this.GbDatosVenta.Controls.Add(this.Lbl1);
+            this.GbDatosVenta.Location = new System.Drawing.Point(3, 3);
+            this.GbDatosVenta.Name = "GbDatosVenta";
+            this.GbDatosVenta.Size = new System.Drawing.Size(1058, 244);
+            this.GbDatosVenta.TabIndex = 0;
+            this.GbDatosVenta.TabStop = false;
+            this.GbDatosVenta.Text = "Datos de Venta";
+            // 
+            // TxtValorBusqueda
+            // 
+            this.TxtValorBusqueda.Location = new System.Drawing.Point(22, 201);
+            this.TxtValorBusqueda.Name = "TxtValorBusqueda";
+            this.TxtValorBusqueda.Size = new System.Drawing.Size(219, 26);
+            this.TxtValorBusqueda.TabIndex = 21;
+            // 
+            // Lbl10
+            // 
+            this.Lbl10.AutoSize = true;
+            this.Lbl10.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl10.Location = new System.Drawing.Point(18, 179);
+            this.Lbl10.Name = "Lbl10";
+            this.Lbl10.Size = new System.Drawing.Size(171, 19);
+            this.Lbl10.TabIndex = 20;
+            this.Lbl10.Text = "Ingrese valor de búsqueda:";
+            // 
+            // Lbl9
+            // 
+            this.Lbl9.AutoSize = true;
+            this.Lbl9.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl9.Location = new System.Drawing.Point(18, 127);
+            this.Lbl9.Name = "Lbl9";
+            this.Lbl9.Size = new System.Drawing.Size(151, 19);
+            this.Lbl9.TabIndex = 22;
+            this.Lbl9.Text = "Ingresar productos por:";
+            // 
+            // BtnBuscar
+            // 
+            this.BtnBuscar.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnBuscar.Location = new System.Drawing.Point(279, 175);
+            this.BtnBuscar.Name = "BtnBuscar";
+            this.BtnBuscar.Size = new System.Drawing.Size(92, 26);
+            this.BtnBuscar.TabIndex = 23;
+            this.BtnBuscar.Text = "Buscar";
+            this.BtnBuscar.UseVisualStyleBackColor = true;
+            this.BtnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
+            // 
+            // CboBuscarPor
+            // 
+            this.CboBuscarPor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CboBuscarPor.FormattingEnabled = true;
+            this.CboBuscarPor.ItemHeight = 19;
+            this.CboBuscarPor.Items.AddRange(new object[] {
+            "ID Producto",
+            "Nombre",
+            "Categoria",
+            "Marca"});
+            this.CboBuscarPor.Location = new System.Drawing.Point(22, 149);
+            this.CboBuscarPor.Name = "CboBuscarPor";
+            this.CboBuscarPor.Size = new System.Drawing.Size(219, 27);
+            this.CboBuscarPor.TabIndex = 24;
+            // 
+            // DgvCatalogoBusqueda
+            // 
+            this.DgvCatalogoBusqueda.AllowUserToAddRows = false;
+            this.DgvCatalogoBusqueda.AllowUserToDeleteRows = false;
+            this.DgvCatalogoBusqueda.AllowUserToResizeRows = false;
+            this.DgvCatalogoBusqueda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvCatalogoBusqueda.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colBtnAgregar1,
+            this.colIdProducto1,
+            this.colNombre1,
+            this.colMarca1,
+            this.colCategoria1,
+            this.colPrecioUnitario1,
+            this.colCantidad1,
+            this.colDescripcion1});
+            this.DgvCatalogoBusqueda.Location = new System.Drawing.Point(400, 17);
+            this.DgvCatalogoBusqueda.Name = "DgvCatalogoBusqueda";
+            this.DgvCatalogoBusqueda.ReadOnly = true;
+            this.DgvCatalogoBusqueda.RowHeadersVisible = false;
+            this.DgvCatalogoBusqueda.Size = new System.Drawing.Size(627, 210);
+            this.DgvCatalogoBusqueda.TabIndex = 2;
+            this.DgvCatalogoBusqueda.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvCatalogoBusqueda_CellClick);
+            // 
+            // colBtnAgregar1
+            // 
+            this.colBtnAgregar1.HeaderText = "+";
+            this.colBtnAgregar1.Name = "colBtnAgregar1";
+            this.colBtnAgregar1.ReadOnly = true;
+            this.colBtnAgregar1.Text = "+";
+            this.colBtnAgregar1.Width = 24;
+            // 
+            // colIdProducto1
+            // 
+            this.colIdProducto1.HeaderText = "IdProducto";
+            this.colIdProducto1.Name = "colIdProducto1";
+            this.colIdProducto1.ReadOnly = true;
+            this.colIdProducto1.Width = 103;
+            // 
+            // colNombre1
+            // 
+            this.colNombre1.HeaderText = "Nombre";
+            this.colNombre1.Name = "colNombre1";
+            this.colNombre1.ReadOnly = true;
+            this.colNombre1.Width = 85;
+            // 
+            // colMarca1
+            // 
+            this.colMarca1.HeaderText = "Marca";
+            this.colMarca1.Name = "colMarca1";
+            this.colMarca1.ReadOnly = true;
+            this.colMarca1.Width = 74;
+            // 
+            // colCategoria1
+            // 
+            this.colCategoria1.HeaderText = "Categoria";
+            this.colCategoria1.Name = "colCategoria1";
+            this.colCategoria1.ReadOnly = true;
+            this.colCategoria1.Width = 93;
+            // 
+            // colPrecioUnitario1
+            // 
+            this.colPrecioUnitario1.HeaderText = "Precio U";
+            this.colPrecioUnitario1.Name = "colPrecioUnitario1";
+            this.colPrecioUnitario1.ReadOnly = true;
+            this.colPrecioUnitario1.Width = 88;
+            // 
+            // colCantidad1
+            // 
+            this.colCantidad1.HeaderText = "Cantidad";
+            this.colCantidad1.Name = "colCantidad1";
+            this.colCantidad1.ReadOnly = true;
+            this.colCantidad1.Width = 89;
+            // 
+            // colDescripcion1
+            // 
+            this.colDescripcion1.HeaderText = "Descripcion";
+            this.colDescripcion1.Name = "colDescripcion1";
+            this.colDescripcion1.ReadOnly = true;
+            this.colDescripcion1.Width = 106;
+            // 
+            // BtnNuevoCliente
+            // 
+            this.BtnNuevoCliente.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnNuevoCliente.Location = new System.Drawing.Point(272, 98);
+            this.BtnNuevoCliente.Name = "BtnNuevoCliente";
+            this.BtnNuevoCliente.Size = new System.Drawing.Size(109, 26);
+            this.BtnNuevoCliente.TabIndex = 1;
+            this.BtnNuevoCliente.Text = "Nuevo Cliente";
+            this.BtnNuevoCliente.UseVisualStyleBackColor = true;
+            this.BtnNuevoCliente.Click += new System.EventHandler(this.BtnNuevoCliente_Click);
+            // 
+            // TxtIdCliente
+            // 
+            this.TxtIdCliente.Location = new System.Drawing.Point(22, 98);
+            this.TxtIdCliente.Name = "TxtIdCliente";
+            this.TxtIdCliente.Size = new System.Drawing.Size(192, 26);
+            this.TxtIdCliente.TabIndex = 7;
+            this.TxtIdCliente.Leave += new System.EventHandler(this.TxtIdCliente_Leave);
+            // 
+            // Lbl2
+            // 
+            this.Lbl2.AutoSize = true;
+            this.Lbl2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl2.Location = new System.Drawing.Point(18, 76);
+            this.Lbl2.Name = "Lbl2";
+            this.Lbl2.Size = new System.Drawing.Size(68, 19);
+            this.Lbl2.TabIndex = 6;
+            this.Lbl2.Text = "Id Cliente";
+            // 
+            // TxtIdVenta
+            // 
+            this.TxtIdVenta.Enabled = false;
+            this.TxtIdVenta.Location = new System.Drawing.Point(22, 47);
+            this.TxtIdVenta.Name = "TxtIdVenta";
+            this.TxtIdVenta.Size = new System.Drawing.Size(192, 26);
+            this.TxtIdVenta.TabIndex = 3;
+            // 
+            // Lbl1
+            // 
+            this.Lbl1.AutoSize = true;
+            this.Lbl1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl1.Location = new System.Drawing.Point(18, 25);
+            this.Lbl1.Name = "Lbl1";
+            this.Lbl1.Size = new System.Drawing.Size(60, 19);
+            this.Lbl1.TabIndex = 2;
+            this.Lbl1.Text = "Id Venta";
+            // 
+            // GbDetalleVenta
+            // 
+            this.GbDetalleVenta.Controls.Add(this.BtnVaciarDetalles);
+            this.GbDetalleVenta.Controls.Add(this.DgvVentaDetalle);
+            this.GbDetalleVenta.Location = new System.Drawing.Point(5, 248);
+            this.GbDetalleVenta.Name = "GbDetalleVenta";
+            this.GbDetalleVenta.Size = new System.Drawing.Size(580, 235);
+            this.GbDetalleVenta.TabIndex = 1;
+            this.GbDetalleVenta.TabStop = false;
+            this.GbDetalleVenta.Text = "Detalles de Venta";
             // 
             // BtnVaciarDetalles
             // 
             this.BtnVaciarDetalles.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnVaciarDetalles.Location = new System.Drawing.Point(45, 381);
+            this.BtnVaciarDetalles.Location = new System.Drawing.Point(220, 207);
             this.BtnVaciarDetalles.Name = "BtnVaciarDetalles";
             this.BtnVaciarDetalles.Size = new System.Drawing.Size(133, 26);
             this.BtnVaciarDetalles.TabIndex = 26;
@@ -156,55 +403,51 @@
             this.BtnVaciarDetalles.UseVisualStyleBackColor = true;
             this.BtnVaciarDetalles.Click += new System.EventHandler(this.BtnVaciarDetalles_Click);
             // 
-            // BtnRegistrarVenta
+            // LblSubtotal
             // 
-            this.BtnRegistrarVenta.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnRegistrarVenta.Location = new System.Drawing.Point(249, 435);
-            this.BtnRegistrarVenta.Name = "BtnRegistrarVenta";
-            this.BtnRegistrarVenta.Size = new System.Drawing.Size(110, 26);
-            this.BtnRegistrarVenta.TabIndex = 25;
-            this.BtnRegistrarVenta.Text = "Registrar Venta";
-            this.BtnRegistrarVenta.UseVisualStyleBackColor = true;
-            // 
-            // LblTotal
-            // 
-            this.LblTotal.AutoSize = true;
-            this.LblTotal.Location = new System.Drawing.Point(482, 385);
-            this.LblTotal.Name = "LblTotal";
-            this.LblTotal.Size = new System.Drawing.Size(17, 19);
-            this.LblTotal.TabIndex = 3;
-            this.LblTotal.Text = "0";
+            this.LblSubtotal.AutoSize = true;
+            this.LblSubtotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LblSubtotal.Location = new System.Drawing.Point(192, 107);
+            this.LblSubtotal.Name = "LblSubtotal";
+            this.LblSubtotal.Size = new System.Drawing.Size(19, 21);
+            this.LblSubtotal.TabIndex = 3;
+            this.LblSubtotal.Text = "0";
             // 
             // Lbl5
             // 
             this.Lbl5.AutoSize = true;
-            this.Lbl5.Location = new System.Drawing.Point(432, 385);
+            this.Lbl5.Location = new System.Drawing.Point(28, 41);
             this.Lbl5.Name = "Lbl5";
-            this.Lbl5.Size = new System.Drawing.Size(50, 19);
+            this.Lbl5.Size = new System.Drawing.Size(158, 19);
             this.Lbl5.TabIndex = 2;
-            this.Lbl5.Text = "Total : ";
+            this.Lbl5.Text = "Subtotal (sin impuesto) : ";
             // 
             // DgvVentaDetalle
             // 
             this.DgvVentaDetalle.AllowUserToAddRows = false;
             this.DgvVentaDetalle.AllowUserToDeleteRows = false;
-            this.DgvVentaDetalle.AllowUserToResizeColumns = false;
             this.DgvVentaDetalle.AllowUserToResizeRows = false;
-            this.DgvVentaDetalle.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DgvVentaDetalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvVentaDetalle.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colBtnBorrar,
             this.colIdProducto,
             this.colNombre,
             this.colPrecioUnitario,
             this.colCantidad,
-            this.colSubtotal,
-            this.colBtnBorrar});
-            this.DgvVentaDetalle.Location = new System.Drawing.Point(9, 32);
+            this.colSubtotal});
+            this.DgvVentaDetalle.Location = new System.Drawing.Point(31, 20);
             this.DgvVentaDetalle.Name = "DgvVentaDetalle";
-            this.DgvVentaDetalle.ReadOnly = true;
             this.DgvVentaDetalle.RowHeadersVisible = false;
-            this.DgvVentaDetalle.Size = new System.Drawing.Size(573, 342);
+            this.DgvVentaDetalle.Size = new System.Drawing.Size(520, 183);
             this.DgvVentaDetalle.TabIndex = 1;
+            this.DgvVentaDetalle.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvVentaDetalle_CellClick);
+            // 
+            // colBtnBorrar
+            // 
+            this.colBtnBorrar.Frozen = true;
+            this.colBtnBorrar.HeaderText = "X";
+            this.colBtnBorrar.Name = "colBtnBorrar";
+            this.colBtnBorrar.Width = 30;
             // 
             // colIdProducto
             // 
@@ -235,8 +478,6 @@
             this.colCantidad.Frozen = true;
             this.colCantidad.HeaderText = "Cantidad";
             this.colCantidad.Name = "colCantidad";
-            this.colCantidad.ReadOnly = true;
-            this.colCantidad.Width = 89;
             // 
             // colSubtotal
             // 
@@ -245,146 +486,6 @@
             this.colSubtotal.Name = "colSubtotal";
             this.colSubtotal.ReadOnly = true;
             this.colSubtotal.Width = 84;
-            // 
-            // colBtnBorrar
-            // 
-            this.colBtnBorrar.Frozen = true;
-            this.colBtnBorrar.HeaderText = "";
-            this.colBtnBorrar.Name = "colBtnBorrar";
-            this.colBtnBorrar.ReadOnly = true;
-            this.colBtnBorrar.Width = 5;
-            // 
-            // GbDatosVenta
-            // 
-            this.GbDatosVenta.Controls.Add(this.TxtValorBusqueda);
-            this.GbDatosVenta.Controls.Add(this.Lbl10);
-            this.GbDatosVenta.Controls.Add(this.Lbl9);
-            this.GbDatosVenta.Controls.Add(this.BtnBuscar);
-            this.GbDatosVenta.Controls.Add(this.CboBuscarPor);
-            this.GbDatosVenta.Controls.Add(this.DgvCatalogoBusqueda);
-            this.GbDatosVenta.Controls.Add(this.BtnNuevoCliente);
-            this.GbDatosVenta.Controls.Add(this.TxtIdCliente);
-            this.GbDatosVenta.Controls.Add(this.Lbl2);
-            this.GbDatosVenta.Controls.Add(this.TxtIdVenta);
-            this.GbDatosVenta.Controls.Add(this.Lbl1);
-            this.GbDatosVenta.Location = new System.Drawing.Point(3, 3);
-            this.GbDatosVenta.Name = "GbDatosVenta";
-            this.GbDatosVenta.Size = new System.Drawing.Size(462, 480);
-            this.GbDatosVenta.TabIndex = 0;
-            this.GbDatosVenta.TabStop = false;
-            this.GbDatosVenta.Text = "Datos de Venta";
-            // 
-            // TxtValorBusqueda
-            // 
-            this.TxtValorBusqueda.Location = new System.Drawing.Point(48, 207);
-            this.TxtValorBusqueda.Name = "TxtValorBusqueda";
-            this.TxtValorBusqueda.Size = new System.Drawing.Size(219, 26);
-            this.TxtValorBusqueda.TabIndex = 21;
-            // 
-            // Lbl10
-            // 
-            this.Lbl10.AutoSize = true;
-            this.Lbl10.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl10.Location = new System.Drawing.Point(44, 185);
-            this.Lbl10.Name = "Lbl10";
-            this.Lbl10.Size = new System.Drawing.Size(171, 19);
-            this.Lbl10.TabIndex = 20;
-            this.Lbl10.Text = "Ingrese valor de búsqueda:";
-            // 
-            // Lbl9
-            // 
-            this.Lbl9.AutoSize = true;
-            this.Lbl9.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl9.Location = new System.Drawing.Point(44, 133);
-            this.Lbl9.Name = "Lbl9";
-            this.Lbl9.Size = new System.Drawing.Size(151, 19);
-            this.Lbl9.TabIndex = 22;
-            this.Lbl9.Text = "Ingresar productos por:";
-            // 
-            // BtnBuscar
-            // 
-            this.BtnBuscar.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnBuscar.Location = new System.Drawing.Point(307, 207);
-            this.BtnBuscar.Name = "BtnBuscar";
-            this.BtnBuscar.Size = new System.Drawing.Size(92, 26);
-            this.BtnBuscar.TabIndex = 23;
-            this.BtnBuscar.Text = "Buscar";
-            this.BtnBuscar.UseVisualStyleBackColor = true;
-            this.BtnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
-            // 
-            // CboBuscarPor
-            // 
-            this.CboBuscarPor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CboBuscarPor.FormattingEnabled = true;
-            this.CboBuscarPor.ItemHeight = 19;
-            this.CboBuscarPor.Items.AddRange(new object[] {
-            "ID Producto",
-            "Nombre",
-            "Categoria",
-            "Marca"});
-            this.CboBuscarPor.Location = new System.Drawing.Point(48, 155);
-            this.CboBuscarPor.Name = "CboBuscarPor";
-            this.CboBuscarPor.Size = new System.Drawing.Size(219, 27);
-            this.CboBuscarPor.TabIndex = 24;
-            // 
-            // DgvCatalogoBusqueda
-            // 
-            this.DgvCatalogoBusqueda.AllowUserToAddRows = false;
-            this.DgvCatalogoBusqueda.AllowUserToDeleteRows = false;
-            this.DgvCatalogoBusqueda.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.DgvCatalogoBusqueda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvCatalogoBusqueda.Location = new System.Drawing.Point(6, 252);
-            this.DgvCatalogoBusqueda.Name = "DgvCatalogoBusqueda";
-            this.DgvCatalogoBusqueda.ReadOnly = true;
-            this.DgvCatalogoBusqueda.Size = new System.Drawing.Size(450, 209);
-            this.DgvCatalogoBusqueda.TabIndex = 2;
-            // 
-            // BtnNuevoCliente
-            // 
-            this.BtnNuevoCliente.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnNuevoCliente.Location = new System.Drawing.Point(298, 104);
-            this.BtnNuevoCliente.Name = "BtnNuevoCliente";
-            this.BtnNuevoCliente.Size = new System.Drawing.Size(109, 26);
-            this.BtnNuevoCliente.TabIndex = 1;
-            this.BtnNuevoCliente.Text = "Nuevo Cliente";
-            this.BtnNuevoCliente.UseVisualStyleBackColor = true;
-            this.BtnNuevoCliente.Click += new System.EventHandler(this.BtnNuevoCliente_Click);
-            // 
-            // TxtIdCliente
-            // 
-            this.TxtIdCliente.Location = new System.Drawing.Point(48, 104);
-            this.TxtIdCliente.Name = "TxtIdCliente";
-            this.TxtIdCliente.Size = new System.Drawing.Size(192, 26);
-            this.TxtIdCliente.TabIndex = 7;
-            this.TxtIdCliente.Leave += new System.EventHandler(this.TxtIdCliente_Leave);
-            // 
-            // Lbl2
-            // 
-            this.Lbl2.AutoSize = true;
-            this.Lbl2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl2.Location = new System.Drawing.Point(44, 82);
-            this.Lbl2.Name = "Lbl2";
-            this.Lbl2.Size = new System.Drawing.Size(68, 19);
-            this.Lbl2.TabIndex = 6;
-            this.Lbl2.Text = "Id Cliente";
-            // 
-            // TxtIdVenta
-            // 
-            this.TxtIdVenta.Enabled = false;
-            this.TxtIdVenta.Location = new System.Drawing.Point(48, 53);
-            this.TxtIdVenta.Name = "TxtIdVenta";
-            this.TxtIdVenta.Size = new System.Drawing.Size(192, 26);
-            this.TxtIdVenta.TabIndex = 3;
-            // 
-            // Lbl1
-            // 
-            this.Lbl1.AutoSize = true;
-            this.Lbl1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl1.Location = new System.Drawing.Point(44, 31);
-            this.Lbl1.Name = "Lbl1";
-            this.Lbl1.Size = new System.Drawing.Size(60, 19);
-            this.Lbl1.TabIndex = 2;
-            this.Lbl1.Text = "Id Venta";
             // 
             // TbpHistorialVentas
             // 
@@ -401,7 +502,7 @@
             // GbDetallesVenta
             // 
             this.GbDetallesVenta.Controls.Add(this.DgvDetallesVenta2);
-            this.GbDetallesVenta.Controls.Add(this.BtnImprimir2);
+            this.GbDetallesVenta.Controls.Add(this.BtnImprimirComprobante2);
             this.GbDetallesVenta.Location = new System.Drawing.Point(506, 44);
             this.GbDetallesVenta.Name = "GbDetallesVenta";
             this.GbDetallesVenta.Size = new System.Drawing.Size(554, 403);
@@ -417,13 +518,6 @@
             this.DgvDetallesVenta2.AllowUserToResizeRows = false;
             this.DgvDetallesVenta2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DgvDetallesVenta2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvDetallesVenta2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colIdProducto2,
-            this.colNombre2,
-            this.colPrecioUnitario2,
-            this.colCantidad2,
-            this.colSubtotal2,
-            this.colBtnBorrar2});
             this.DgvDetallesVenta2.Location = new System.Drawing.Point(9, 25);
             this.DgvDetallesVenta2.Name = "DgvDetallesVenta2";
             this.DgvDetallesVenta2.ReadOnly = true;
@@ -431,63 +525,15 @@
             this.DgvDetallesVenta2.Size = new System.Drawing.Size(534, 315);
             this.DgvDetallesVenta2.TabIndex = 29;
             // 
-            // colIdProducto2
+            // BtnImprimirComprobante2
             // 
-            this.colIdProducto2.Frozen = true;
-            this.colIdProducto2.HeaderText = "IdProducto";
-            this.colIdProducto2.Name = "colIdProducto2";
-            this.colIdProducto2.ReadOnly = true;
-            this.colIdProducto2.Width = 103;
-            // 
-            // colNombre2
-            // 
-            this.colNombre2.Frozen = true;
-            this.colNombre2.HeaderText = "Nombre";
-            this.colNombre2.Name = "colNombre2";
-            this.colNombre2.ReadOnly = true;
-            this.colNombre2.Width = 85;
-            // 
-            // colPrecioUnitario2
-            // 
-            this.colPrecioUnitario2.Frozen = true;
-            this.colPrecioUnitario2.HeaderText = "Precio Unitario";
-            this.colPrecioUnitario2.Name = "colPrecioUnitario2";
-            this.colPrecioUnitario2.ReadOnly = true;
-            this.colPrecioUnitario2.Width = 125;
-            // 
-            // colCantidad2
-            // 
-            this.colCantidad2.Frozen = true;
-            this.colCantidad2.HeaderText = "Cantidad";
-            this.colCantidad2.Name = "colCantidad2";
-            this.colCantidad2.ReadOnly = true;
-            this.colCantidad2.Width = 89;
-            // 
-            // colSubtotal2
-            // 
-            this.colSubtotal2.Frozen = true;
-            this.colSubtotal2.HeaderText = "Subtotal";
-            this.colSubtotal2.Name = "colSubtotal2";
-            this.colSubtotal2.ReadOnly = true;
-            this.colSubtotal2.Width = 84;
-            // 
-            // colBtnBorrar2
-            // 
-            this.colBtnBorrar2.Frozen = true;
-            this.colBtnBorrar2.HeaderText = "";
-            this.colBtnBorrar2.Name = "colBtnBorrar2";
-            this.colBtnBorrar2.ReadOnly = true;
-            this.colBtnBorrar2.Width = 5;
-            // 
-            // BtnImprimir2
-            // 
-            this.BtnImprimir2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnImprimir2.Location = new System.Drawing.Point(225, 359);
-            this.BtnImprimir2.Name = "BtnImprimir2";
-            this.BtnImprimir2.Size = new System.Drawing.Size(92, 26);
-            this.BtnImprimir2.TabIndex = 28;
-            this.BtnImprimir2.Text = "Imprimir";
-            this.BtnImprimir2.UseVisualStyleBackColor = true;
+            this.BtnImprimirComprobante2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnImprimirComprobante2.Location = new System.Drawing.Point(201, 359);
+            this.BtnImprimirComprobante2.Name = "BtnImprimirComprobante2";
+            this.BtnImprimirComprobante2.Size = new System.Drawing.Size(160, 26);
+            this.BtnImprimirComprobante2.TabIndex = 28;
+            this.BtnImprimirComprobante2.Text = "Imprimir Comprobante";
+            this.BtnImprimirComprobante2.UseVisualStyleBackColor = true;
             // 
             // GbListaVentas
             // 
@@ -495,7 +541,7 @@
             this.GbListaVentas.Controls.Add(this.Lbl7);
             this.GbListaVentas.Controls.Add(this.Lbl6);
             this.GbListaVentas.Controls.Add(this.BtnBuscar2);
-            this.GbListaVentas.Controls.Add(this.CboBucarPor2);
+            this.GbListaVentas.Controls.Add(this.CboBuscarPor2);
             this.GbListaVentas.Controls.Add(this.DgvListaVentas);
             this.GbListaVentas.Location = new System.Drawing.Point(3, 44);
             this.GbListaVentas.Name = "GbListaVentas";
@@ -540,20 +586,22 @@
             this.BtnBuscar2.TabIndex = 28;
             this.BtnBuscar2.Text = "Buscar";
             this.BtnBuscar2.UseVisualStyleBackColor = true;
+            this.BtnBuscar2.Click += new System.EventHandler(this.BtnBuscar2_Click);
             // 
-            // CboBucarPor2
+            // CboBuscarPor2
             // 
-            this.CboBucarPor2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CboBucarPor2.FormattingEnabled = true;
-            this.CboBucarPor2.ItemHeight = 19;
-            this.CboBucarPor2.Items.AddRange(new object[] {
+            this.CboBuscarPor2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CboBuscarPor2.FormattingEnabled = true;
+            this.CboBuscarPor2.ItemHeight = 19;
+            this.CboBuscarPor2.Items.AddRange(new object[] {
             "ID Venta",
             "ID Usuario",
-            "ID Cliente"});
-            this.CboBucarPor2.Location = new System.Drawing.Point(84, 58);
-            this.CboBucarPor2.Name = "CboBucarPor2";
-            this.CboBucarPor2.Size = new System.Drawing.Size(219, 27);
-            this.CboBucarPor2.TabIndex = 29;
+            "ID Cliente",
+            "Fecha (DD/MM/AAAA)"});
+            this.CboBuscarPor2.Location = new System.Drawing.Point(84, 58);
+            this.CboBuscarPor2.Name = "CboBuscarPor2";
+            this.CboBuscarPor2.Size = new System.Drawing.Size(219, 27);
+            this.CboBuscarPor2.TabIndex = 29;
             // 
             // DgvListaVentas
             // 
@@ -561,13 +609,108 @@
             this.DgvListaVentas.AllowUserToDeleteRows = false;
             this.DgvListaVentas.AllowUserToResizeColumns = false;
             this.DgvListaVentas.AllowUserToResizeRows = false;
-            this.DgvListaVentas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DgvListaVentas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DgvListaVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvListaVentas.Location = new System.Drawing.Point(5, 164);
             this.DgvListaVentas.Name = "DgvListaVentas";
             this.DgvListaVentas.ReadOnly = true;
             this.DgvListaVentas.Size = new System.Drawing.Size(485, 221);
             this.DgvListaVentas.TabIndex = 2;
+            this.DgvListaVentas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListaVentas_CellClick);
+            // 
+            // Lbl8
+            // 
+            this.Lbl8.AutoSize = true;
+            this.Lbl8.Location = new System.Drawing.Point(28, 75);
+            this.Lbl8.Name = "Lbl8";
+            this.Lbl8.Size = new System.Drawing.Size(99, 19);
+            this.Lbl8.TabIndex = 28;
+            this.Lbl8.Text = "Impuesto (%) :";
+            // 
+            // LblImpuesto
+            // 
+            this.LblImpuesto.AutoSize = true;
+            this.LblImpuesto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LblImpuesto.Location = new System.Drawing.Point(192, 73);
+            this.LblImpuesto.Name = "LblImpuesto";
+            this.LblImpuesto.Size = new System.Drawing.Size(19, 21);
+            this.LblImpuesto.TabIndex = 29;
+            this.LblImpuesto.Text = "0";
+            // 
+            // LblSubtotalSinImpuesto
+            // 
+            this.LblSubtotalSinImpuesto.AutoSize = true;
+            this.LblSubtotalSinImpuesto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LblSubtotalSinImpuesto.Location = new System.Drawing.Point(192, 39);
+            this.LblSubtotalSinImpuesto.Name = "LblSubtotalSinImpuesto";
+            this.LblSubtotalSinImpuesto.Size = new System.Drawing.Size(19, 21);
+            this.LblSubtotalSinImpuesto.TabIndex = 31;
+            this.LblSubtotalSinImpuesto.Text = "0";
+            // 
+            // Lbl11
+            // 
+            this.Lbl11.AutoSize = true;
+            this.Lbl11.Location = new System.Drawing.Point(28, 110);
+            this.Lbl11.Name = "Lbl11";
+            this.Lbl11.Size = new System.Drawing.Size(66, 19);
+            this.Lbl11.TabIndex = 30;
+            this.Lbl11.Text = "Subtotal :";
+            // 
+            // Lbl12
+            // 
+            this.Lbl12.AutoSize = true;
+            this.Lbl12.Location = new System.Drawing.Point(28, 140);
+            this.Lbl12.Name = "Lbl12";
+            this.Lbl12.Size = new System.Drawing.Size(107, 19);
+            this.Lbl12.TabIndex = 33;
+            this.Lbl12.Text = "Descuento (%) :";
+            // 
+            // LblDescuento
+            // 
+            this.LblDescuento.AutoSize = true;
+            this.LblDescuento.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LblDescuento.Location = new System.Drawing.Point(192, 140);
+            this.LblDescuento.Name = "LblDescuento";
+            this.LblDescuento.Size = new System.Drawing.Size(19, 21);
+            this.LblDescuento.TabIndex = 32;
+            this.LblDescuento.Text = "0";
+            // 
+            // Lbl13
+            // 
+            this.Lbl13.AutoSize = true;
+            this.Lbl13.Location = new System.Drawing.Point(28, 191);
+            this.Lbl13.Name = "Lbl13";
+            this.Lbl13.Size = new System.Drawing.Size(46, 19);
+            this.Lbl13.TabIndex = 35;
+            this.Lbl13.Text = "Total :";
+            // 
+            // LblTotal
+            // 
+            this.LblTotal.AutoSize = true;
+            this.LblTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LblTotal.Location = new System.Drawing.Point(192, 191);
+            this.LblTotal.Name = "LblTotal";
+            this.LblTotal.Size = new System.Drawing.Size(19, 21);
+            this.LblTotal.TabIndex = 34;
+            this.LblTotal.Text = "0";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(20, 168);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(237, 19);
+            this.label1.TabIndex = 36;
+            this.label1.Text = "--------------------------------------";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(177, 140);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(15, 19);
+            this.label2.TabIndex = 37;
+            this.label2.Text = "-";
             // 
             // FormVentas
             // 
@@ -579,12 +722,13 @@
             this.Text = "Ventas";
             this.TbcVentas.ResumeLayout(false);
             this.TbpVentaNueva.ResumeLayout(false);
-            this.GbDetalleVenta.ResumeLayout(false);
-            this.GbDetalleVenta.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvVentaDetalle)).EndInit();
+            this.GbRegistrarVenta.ResumeLayout(false);
+            this.GbRegistrarVenta.PerformLayout();
             this.GbDatosVenta.ResumeLayout(false);
             this.GbDatosVenta.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvCatalogoBusqueda)).EndInit();
+            this.GbDetalleVenta.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DgvVentaDetalle)).EndInit();
             this.TbpHistorialVentas.ResumeLayout(false);
             this.GbDetallesVenta.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DgvDetallesVenta2)).EndInit();
@@ -609,20 +753,14 @@
         private System.Windows.Forms.Label Lbl2;
         private System.Windows.Forms.Button BtnNuevoCliente;
         private System.Windows.Forms.DataGridView DgvCatalogoBusqueda;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colIdProducto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPrecioUnitario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSubtotal;
-        private System.Windows.Forms.DataGridViewButtonColumn colBtnBorrar;
-        private System.Windows.Forms.Label LblTotal;
+        private System.Windows.Forms.Label LblSubtotal;
         private System.Windows.Forms.Label Lbl5;
         private System.Windows.Forms.TextBox TxtValorBusqueda;
         private System.Windows.Forms.Label Lbl10;
         private System.Windows.Forms.Label Lbl9;
         private System.Windows.Forms.Button BtnBuscar;
         private System.Windows.Forms.ComboBox CboBuscarPor;
-        private System.Windows.Forms.Button BtnImprimir;
+        private System.Windows.Forms.Button BtnImprimirComprobante;
         private System.Windows.Forms.Button BtnVaciarDetalles;
         private System.Windows.Forms.Button BtnRegistrarVenta;
         private System.Windows.Forms.Button BtnNuevaVenta;
@@ -633,14 +771,33 @@
         private System.Windows.Forms.Label Lbl7;
         private System.Windows.Forms.Label Lbl6;
         private System.Windows.Forms.Button BtnBuscar2;
-        private System.Windows.Forms.ComboBox CboBucarPor2;
-        private System.Windows.Forms.Button BtnImprimir2;
+        private System.Windows.Forms.ComboBox CboBuscarPor2;
+        private System.Windows.Forms.Button BtnImprimirComprobante2;
         private System.Windows.Forms.DataGridView DgvDetallesVenta2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colIdProducto2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNombre2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPrecioUnitario2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCantidad2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSubtotal2;
-        private System.Windows.Forms.DataGridViewButtonColumn colBtnBorrar2;
+        private System.Windows.Forms.GroupBox GbRegistrarVenta;
+        private System.Windows.Forms.DataGridViewButtonColumn colBtnAgregar1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colIdProducto1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNombre1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMarca1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCategoria1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPrecioUnitario1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCantidad1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDescripcion1;
+        private System.Windows.Forms.DataGridViewButtonColumn colBtnBorrar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colIdProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPrecioUnitario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSubtotal;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label Lbl13;
+        private System.Windows.Forms.Label LblTotal;
+        private System.Windows.Forms.Label Lbl12;
+        private System.Windows.Forms.Label LblDescuento;
+        private System.Windows.Forms.Label LblSubtotalSinImpuesto;
+        private System.Windows.Forms.Label Lbl11;
+        private System.Windows.Forms.Label LblImpuesto;
+        private System.Windows.Forms.Label Lbl8;
+        private System.Windows.Forms.Label label2;
     }
 }

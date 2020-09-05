@@ -76,3 +76,11 @@ begin
 		FROM TProducto
 end;
 go
+create procedure spuListarProductosActivos
+as
+begin
+	select IdProducto, Nombre, Categoria, Descripcion, Marca, PrecioUnitario, Cantidad, Minimo, Maximo
+	from TProducto
+	where Estado='ACTIVO'
+end;
+go

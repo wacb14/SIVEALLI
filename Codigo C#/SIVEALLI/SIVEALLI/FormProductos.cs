@@ -235,25 +235,25 @@ namespace SIVEALLI
             switch (CboBuscarPor.Text.Trim())
             {
                 case "ID Producto":
-                    DgvProductos.DataSource = Producto.BuscarPorAtributo(TxtValorBusqueda.Text, "IdProducto");
+                    DgvProductos.DataSource = Producto.BuscarPorAtributo(TxtValorBusqueda.Text.Trim(), "IdProducto");
                     break;
                 case "Nombre":
-                    DgvProductos.DataSource = Producto.BuscarPorAtributo(TxtValorBusqueda.Text, "Nombre");
+                    DgvProductos.DataSource = Producto.BuscarPorAtributo(TxtValorBusqueda.Text.Trim(), "Nombre");
                     break;
                 case "Categoria":
-                    DgvProductos.DataSource = Producto.BuscarPorAtributo(TxtValorBusqueda.Text, "Categoria");
+                    DgvProductos.DataSource = Producto.BuscarPorAtributo(TxtValorBusqueda.Text.Trim(), "Categoria");
                     break;
                 case "Marca":
-                    DgvProductos.DataSource = Producto.BuscarPorAtributo(TxtValorBusqueda.Text, "Marca");
+                    DgvProductos.DataSource = Producto.BuscarPorAtributo(TxtValorBusqueda.Text.Trim(), "Marca");
                     break;
                 case "Precio Unitario":
-                    DgvProductos.DataSource = Producto.BuscarPorAtributo(TxtValorBusqueda.Text, "PrecioUnitario");
+                    DgvProductos.DataSource = Producto.BuscarPorAtributo(TxtValorBusqueda.Text.Trim(), "PrecioUnitario");
                     break;
                 case "Estado":
-                    DgvProductos.DataSource = Producto.BuscarPorAtributo(TxtValorBusqueda.Text, "Estado");
+                    DgvProductos.DataSource = Producto.BuscarPorAtributo(TxtValorBusqueda.Text.Trim(), "Estado");
                     break;
             }
-            //-- Mostrar el numero de prodcutos disponibles
+            //-- Mostrar el numero de productos disponibles
             LblTotalProductos.Text = DgvProductos.Rows.Count.ToString();
         }
         /// <summary>
