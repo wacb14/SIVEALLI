@@ -21,7 +21,6 @@ begin
 end;
 go
 
-
 create procedure spuCodigoNombreProveedor
 as
 begin

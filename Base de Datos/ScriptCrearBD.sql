@@ -1,6 +1,5 @@
 /* Create DataBase */
 Create DATABASE DBAlmacen  -- Creates the Almacenes DataBase
-/*
 on
   (NAME = DBAlmacen,    -- Primary data file
   FILENAME = 'B:\DBAlmacen.mdf',
@@ -14,39 +13,27 @@ on
   FILEGROWTH = 1MB
   )
 go
-*/
-go
 /* Activar Base de datos: DBAlmacen */
 use DBAlmacen
 go
-
 CREATE TYPE TIdProducto FROM varchar(8) NOT NULL ;
 go
-
 CREATE TYPE TIdProveedor FROM varchar(5) NOT NULL;
 go
-
 CREATE TYPE TIdUsuario FROM varchar(5) NOT NULL ;
 go
-
 CREATE TYPE TIdCliente FROM varchar(8) ;
 go
-
 CREATE TYPE TIdPedido FROM varchar(8) NOT NULL ;
 go
-
 CREATE TYPE TIdEntrada FROM varchar(8) NOT NULL ;
 go
-
 CREATE TYPE TIdVenta FROM varchar(8) ;
 go
-
 CREATE TYPE TIdDevolucion FROM varchar(8) ;
 go
 
-
 /* Crear las tablas */
-
 create table TProducto(
   IdProducto   TIdProducto NOT NULL,
   Nombre		varchar(40) NOT NULL,
@@ -62,7 +49,6 @@ create table TProducto(
   PRIMARY KEY (IdProducto)
  )
  go
- /*Imagen		varbinary(MAX) NOT NULL,*/
 
 create table TProveedor(
   IdProveedor  TIdProveedor NOT NULL,
@@ -155,6 +141,9 @@ create table TVenta
 	IdUsuario	TIdUsuario NOT NULL,
 	IdCliente	TIdCliente,
 	Fecha datetime,
+	IGV float,
+	MontoSuperarDescuento float,
+	PorcentajeDescuento float,
 	primary key(IdVenta),
 	foreign key(IdUsuario) references TUsuario(IdUsuario),
 	foreign key(IdCliente) references TCliente(IdCliente)
@@ -196,6 +185,22 @@ create table TDevolucionDetalle
 )
 go
 
+create table TNegocio
+(
+	IdModificacion int identity(0,1) not null,
+	Nombre varchar(25),
+	Duegno varchar(40),
+	RUC varchar(11),
+	Telefono varchar(11),
+	Correo varchar(30),
+	Direccion varchar(35),
+	IGV float,
+	MontoSuperarDescuento float,
+	PorcentajeDescuento float,
+	Fecha date,
+	primary key (IdModificacion)
+)
+
 set dateformat dmy
 ---------- DATOS PRODUCTO ----------------------
 insert into TProducto values('PR000001','Portaminas Mars','Lapices y portaminas','Portaminas Mars Technico 780 HB con Clip','Staedtler',25.90,'Portaminas Mars.jpg','ACTIVO', 0, 100, 10)
@@ -234,11 +239,11 @@ insert into TEntradaDetalle values ('EN000001','PR000001',8)
 insert into TEntradaDetalle values ('EN000001','PR000002',15)
 insert into TEntradaDetalle values ('EN000001','PR000003',23)
 --------- DATOS VENTA ----------------------
-insert into TVenta values ('VE000001','US006','CL000002','20/08/2020')
+insert into TVenta values ('VE000001','US006','CL000002','20/08/2020',18,2000,1)
 insert into TVentaDetalle values ('VE000001','PR000001',2,25.90)
 insert into TVentaDetalle values ('VE000001','PR000003',1,11.90)
 
-insert into TVenta values ('VE000002','US006','CL000005','20/08/2020')
+insert into TVenta values ('VE000002','US006','CL000005','20/08/2020',18,2000,1)
 insert into TVentaDetalle values ('VE000002','PR000001',2,25.90)
 insert into TVentaDetalle values ('VE000002','PR000003',1,11.90)
 insert into TVentaDetalle values ('VE000002','PR000005',9,10.90)
@@ -248,3 +253,5 @@ insert into TDevolucionDetalle values ('DE000001','PR000001',1,'NUEVO',25.90)
 
 insert into TDevolucion values ('DE000002','US002','VE000002','No se podia ver el abismo en el','20/08/2020')
 insert into TDevolucionDetalle values ('DE000002','PR000005',6,'DESGASTADO',10.90)
+--------- DATOS NEGOCIO --------------------------
+insert into TNegocio values ('LIBRERIA LAS VERGONIAS', 'Marcelo Choque Navarro','12345678910','987654321', 'ACM1PT@unsaac.edu.pe','Los vergales 123',18,2000,2,'05/09/2020')

@@ -20,5 +20,3 @@ begin
 	where IdVenta=@IdVenta
 end;
 go
---spuDatosVenta 'VE000001'
-select max(IdDevolucion) from TDevolucion

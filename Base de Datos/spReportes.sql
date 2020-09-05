@@ -1,4 +1,3 @@
-
 -- Para ventas
 --------------- Mostrador
 if exists (select * from sysobjects where name='spuReporteVentasPorFecha') 
@@ -181,7 +180,7 @@ go
 -------------------------------------------------------------------------------------------------------
 
 
-exec spuReporteVentasPorFecha '2020/07/20','2020/08/20'
+/*exec spuReporteVentasPorFecha '2020/07/20','2020/08/20'
 exec spuReporteDevolucionesPorFecha '2020/07/20','2020/08/20'
 exec spuReporteEntradasPorFecha '2020/07/20','2020/08/20'
 exec spuReportePedidosPorFecha '2020/07/20','2020/08/20'
@@ -193,7 +192,7 @@ exec spuNumeroDePedidos
 exec spu_TUsuario_Listar
 exec spu_TProveedor_Listar
 exec spu_TCliente_Listar
-exec spuListarProductosSinImagen
+exec spuListarProductosSinImagen*/
 /* CON NOMBES
 -- Para ventas
 if exists (select * from sysobjects where name='spuReporteVentasPorFecha') 
