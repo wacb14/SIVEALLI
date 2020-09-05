@@ -45,12 +45,6 @@
             this.CbProveedores = new System.Windows.Forms.GroupBox();
             this.BtnGuardar = new System.Windows.Forms.Button();
             this.DgvDevolucionDetalle = new System.Windows.Forms.DataGridView();
-            this.ColBorrar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.ColId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColSubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button5 = new System.Windows.Forms.Button();
             this.LTotal = new System.Windows.Forms.Label();
             this.GbHistorialDevo = new System.Windows.Forms.GroupBox();
@@ -70,6 +64,13 @@
             this.LblImpuesto = new System.Windows.Forms.Label();
             this.Lbl8 = new System.Windows.Forms.Label();
             this.Lbl5 = new System.Windows.Forms.Label();
+            this.ColBorrar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.ColId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColEstado = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.ColPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColSubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DgvVentas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbCerrar)).BeginInit();
             this.GbCliente.SuspendLayout();
@@ -259,54 +260,15 @@
             this.ColBorrar,
             this.ColId,
             this.ColNombre,
+            this.ColEstado,
             this.ColPrecio,
             this.ColCantidad,
             this.ColSubTotal});
             this.DgvDevolucionDetalle.Location = new System.Drawing.Point(6, 22);
             this.DgvDevolucionDetalle.Name = "DgvDevolucionDetalle";
             this.DgvDevolucionDetalle.RowHeadersVisible = false;
-            this.DgvDevolucionDetalle.Size = new System.Drawing.Size(648, 308);
+            this.DgvDevolucionDetalle.Size = new System.Drawing.Size(648, 302);
             this.DgvDevolucionDetalle.TabIndex = 21;
-            // 
-            // ColBorrar
-            // 
-            this.ColBorrar.HeaderText = "";
-            this.ColBorrar.Name = "ColBorrar";
-            this.ColBorrar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ColBorrar.Width = 40;
-            // 
-            // ColId
-            // 
-            this.ColId.HeaderText = "Id producto";
-            this.ColId.Name = "ColId";
-            this.ColId.ReadOnly = true;
-            this.ColId.Width = 105;
-            // 
-            // ColNombre
-            // 
-            this.ColNombre.HeaderText = "Nombre";
-            this.ColNombre.Name = "ColNombre";
-            this.ColNombre.ReadOnly = true;
-            this.ColNombre.Width = 200;
-            // 
-            // ColPrecio
-            // 
-            this.ColPrecio.HeaderText = "Precio Uni.";
-            this.ColPrecio.Name = "ColPrecio";
-            this.ColPrecio.ReadOnly = true;
-            this.ColPrecio.Width = 120;
-            // 
-            // ColCantidad
-            // 
-            this.ColCantidad.HeaderText = "Cantidad";
-            this.ColCantidad.Name = "ColCantidad";
-            this.ColCantidad.Width = 80;
-            // 
-            // ColSubTotal
-            // 
-            this.ColSubTotal.HeaderText = "Sub. Total";
-            this.ColSubTotal.Name = "ColSubTotal";
-            this.ColSubTotal.ReadOnly = true;
             // 
             // button5
             // 
@@ -509,6 +471,52 @@
             this.Lbl5.TabIndex = 38;
             this.Lbl5.Text = "Subtotal (sin impuesto) : ";
             // 
+            // ColBorrar
+            // 
+            this.ColBorrar.HeaderText = "";
+            this.ColBorrar.Name = "ColBorrar";
+            this.ColBorrar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ColBorrar.Width = 40;
+            // 
+            // ColId
+            // 
+            this.ColId.HeaderText = "Id producto";
+            this.ColId.Name = "ColId";
+            this.ColId.ReadOnly = true;
+            this.ColId.Width = 108;
+            // 
+            // ColNombre
+            // 
+            this.ColNombre.HeaderText = "Nombre";
+            this.ColNombre.Name = "ColNombre";
+            this.ColNombre.ReadOnly = true;
+            this.ColNombre.Width = 150;
+            // 
+            // ColEstado
+            // 
+            this.ColEstado.HeaderText = "Estado";
+            this.ColEstado.Name = "ColEstado";
+            // 
+            // ColPrecio
+            // 
+            this.ColPrecio.HeaderText = "Precio ";
+            this.ColPrecio.Name = "ColPrecio";
+            this.ColPrecio.ReadOnly = true;
+            this.ColPrecio.Width = 90;
+            // 
+            // ColCantidad
+            // 
+            this.ColCantidad.HeaderText = "Cantidad";
+            this.ColCantidad.Name = "ColCantidad";
+            this.ColCantidad.Width = 90;
+            // 
+            // ColSubTotal
+            // 
+            this.ColSubTotal.HeaderText = "Total";
+            this.ColSubTotal.Name = "ColSubTotal";
+            this.ColSubTotal.ReadOnly = true;
+            this.ColSubTotal.Width = 68;
+            // 
             // FormDevoluciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -566,12 +574,6 @@
         private System.Windows.Forms.GroupBox GbVentas;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox TbIdVenta;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn ColBorrar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColNombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColPrecio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColCantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColSubTotal;
         private System.Windows.Forms.GroupBox GbHistorialDevo;
         private System.Windows.Forms.Button BtnVentas;
         private System.Windows.Forms.DataGridView DgvDevoluciones;
@@ -586,5 +588,12 @@
         private System.Windows.Forms.Label LblImpuesto;
         private System.Windows.Forms.Label Lbl8;
         private System.Windows.Forms.Label Lbl5;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn ColBorrar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColNombre;
+        private System.Windows.Forms.DataGridViewComboBoxColumn ColEstado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColPrecio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColCantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColSubTotal;
     }
 }

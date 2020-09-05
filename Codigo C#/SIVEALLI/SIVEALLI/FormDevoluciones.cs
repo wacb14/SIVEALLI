@@ -104,8 +104,14 @@ namespace SIVEALLI
         public void CargarDetallesVenta()
         {
             DataTable Tabla= Devolucion.MostrarDatosVentas(TbIdVenta.Text);
-            for(int k=0;k<Tabla.Rows.Count;k++)
-                DgvDevolucionDetalle.Rows.Add(false,Tabla.Rows[k][0].ToString(),Tabla.Rows[k][1].ToString(), Tabla.Rows[k][2].ToString(), Tabla.Rows[k][3].ToString(), Tabla.Rows[k][4].ToString());
+            for (int k = 0; k < Tabla.Rows.Count; k++)
+            {
+                DataGridViewComboBoxCell Estado = new DataGridViewComboBoxCell();//?
+                Estado.Items.Add("Nuevo");
+                Estado.Items.Add("Defectuoso");
+                Estado.Items.Add("Roto");
+                DgvDevolucionDetalle.Rows.Add(false, Tabla.Rows[k][0].ToString(), Tabla.Rows[k][1].ToString(), Estado, Tabla.Rows[k][2].ToString(), Tabla.Rows[k][3].ToString(), Tabla.Rows[k][4].ToString());
+            }
             DeterminarImporteTotal();        
         }
         //--Calcular el importe total a devolver
