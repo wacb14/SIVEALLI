@@ -1,3 +1,88 @@
+-------------------------------------------------------------------------------------------------------------- TNegocio
+-------------------------------------------------------------------------------------------------------------- 
+------------------------------------------------------------------------------------------------------Insertar
+if exists (select * from sysobjects where name='spu_TNegocio_Insertar') 
+	drop procedure spu_TNegocio_Insertar
+go
+
+create procedure spu_TNegocio_Insertar
+	@Nombre varchar(25),
+	@Duegno varchar(40),
+	@RUC varchar(11),
+	@Telefono varchar(11),
+	@Correo varchar(30),
+	@Direccion varchar(35),
+	@IGV float,
+	@MontoDescuento float,
+	@Fecha date
+as
+begin  --verificacion de clave primaria
+
+		insert into TNegocio values (@Nombre, @Duegno, @RUC, @Telefono, @Correo, @Direccion, @IGV, @MontoDescuento, @Fecha)
+		select codError = 0, mensaje = 'TNegocio insertado correctamente'
+
+end;
+go
+-----------------------------------------------------------------------------------------------------Modificar
+if exists (select * from sysobjects where name='spu_TNegocio_Modificar') 
+	drop procedure spu_TNegocio_Modificar
+go
+
+create procedure spu_TNegocio_Modificar
+	@Nombre varchar(25),
+	@Duegno varchar(40),
+	@RUC varchar(11),
+	@Telefono varchar(11),
+	@Correo varchar(30),
+	@Direccion varchar(35),
+	@IGV float,
+	@MontoDescuento float,
+	@IdModificacion int,
+	@Fecha date
+as
+begin  --verificacion de clave primaria
+	if exists (select * from TNegocio where IdModificacion = @IdModificacion)
+	begin
+		update TNegocio
+		set Nombre = @Nombre, Duegno = @Duegno, RUC = @RUC, Telefono = @Telefono, Correo = @Correo, Direccion = @Direccion, IGV = @IGV, MontoDescuento = @MontoDescuento, Fecha = @Fecha
+		where IdModificacion = @IdModificacion
+		select codError = 0, mensaje = 'TNegocio actualizado correctamente'
+	end;
+	else
+		select codError = 1, mensaje = 'El objeto TNegocio no existe'
+end;
+go
+------------------------------------------------------------------------------------------------------Eliminar
+if exists (select * from sysobjects where name='spu_TNegocio_Eliminar') 
+	drop procedure spu_TNegocio_Eliminar
+go
+
+create procedure spu_TNegocio_Eliminar
+	@IdModificacion int
+as
+begin  --verificacion de clave primaria
+	if exists (select * from TNegocio where IdModificacion = @IdModificacion)
+	begin
+		delete from TNegocio
+		where IdModificacion = @IdModificacion
+	end;
+	else
+		select codError = 1, mensaje = 'El objeto TNegocio no existe'
+end;
+go
+
+--------------------------------------------------------------------------------------------------------Listar
+if exists (select * from sysobjects where name='spu_TNegocio_Listar') 
+	drop procedure spu_TNegocio_Listar
+go
+
+create procedure spu_TNegocio_Listar
+as
+begin
+	select * from TNegocio
+end;
+go
+
 -------------------------------------------------------------------------------------------------------------- TProducto
 -------------------------------------------------------------------------------------------------------------- 
 ------------------------------------------------------------------------------------------------------Insertar
@@ -835,7 +920,9 @@ create procedure spu_TVenta_Insertar
 	@IdVenta varchar(8),
 	@IdUsuario varchar(5),
 	@IdCliente varchar(8),
-	@Fecha datetime
+	@Fecha datetime,
+	@Descuento bit,
+	@IGV float
 as
 begin  --verificacion de clave primaria
 	if not exists (select * from TVenta where IdVenta = @IdVenta and IdUsuario= @IdUsuario and IdCliente= @IdCliente)
@@ -844,7 +931,7 @@ begin  --verificacion de clave primaria
 		begin
 			if exists (select * from TCliente where IdCliente = @IdCliente)
 			begin
-				insert into TVenta values (@IdVenta, @IdUsuario, @IdCliente, @Fecha)
+				insert into TVenta values (@IdVenta, @IdUsuario, @IdCliente, @Fecha, @Descuento, @IGV)
 				select codError = 0, mensaje = 'TVenta insertado correctamente'
 			end;
 			else
@@ -866,7 +953,9 @@ create procedure spu_TVenta_Modificar
 	@IdVenta varchar(8),
 	@IdUsuario varchar(5),
 	@IdCliente varchar(8),
-	@Fecha datetime
+	@Fecha datetime,
+	@Descuento bit,
+	@IGV float
 as
 begin  --verificacion de clave primaria
 	if exists (select * from TVenta where IdVenta = @IdVenta and IdUsuario= @IdUsuario and IdCliente= @IdCliente)
@@ -876,7 +965,7 @@ begin  --verificacion de clave primaria
 			if exists (select * from TCliente where IdCliente = @IdCliente)
 			begin
 				update TVenta
-				set IdVenta = @IdVenta, IdUsuario = @IdUsuario, IdCliente = @IdCliente, Fecha = @Fecha
+				set IdVenta = @IdVenta, IdUsuario = @IdUsuario, IdCliente = @IdCliente, Fecha = @Fecha, Descuento = @Descuento, IGV = @IGV
 				where IdVenta = @IdVenta and IdUsuario= @IdUsuario and IdCliente= @IdCliente
 				select codError = 0, mensaje = 'TVenta actualizado correctamente'
 			end;
