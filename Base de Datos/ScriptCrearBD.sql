@@ -141,6 +141,7 @@ create table TVenta
 	IdUsuario	TIdUsuario NOT NULL,
 	IdCliente	TIdCliente,
 	Fecha datetime,
+	Descuento bit,
 	IGV float,
 	MontoSuperarDescuento float,
 	PorcentajeDescuento float,
