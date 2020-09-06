@@ -837,7 +837,9 @@ create procedure spu_TVenta_Insertar
 	@IdCliente varchar(8),
 	@Fecha datetime,
 	@Descuento bit,
-	@IGV float
+	@IGV float,
+	@MontoSuperarDescuento float,
+	@PorcentajeDescuento float
 as
 begin  --verificacion de clave primaria
 	if not exists (select * from TVenta where IdVenta = @IdVenta and IdUsuario= @IdUsuario and IdCliente= @IdCliente)
@@ -846,7 +848,7 @@ begin  --verificacion de clave primaria
 		begin
 			if exists (select * from TCliente where IdCliente = @IdCliente)
 			begin
-				insert into TVenta values (@IdVenta, @IdUsuario, @IdCliente, @Fecha, @Descuento, @IGV)
+				insert into TVenta values (@IdVenta, @IdUsuario, @IdCliente, @Fecha, @Descuento, @IGV, @MontoSuperarDescuento, @PorcentajeDescuento)
 				select codError = 0, mensaje = 'TVenta insertado correctamente'
 			end;
 			else
@@ -870,7 +872,9 @@ create procedure spu_TVenta_Modificar
 	@IdCliente varchar(8),
 	@Fecha datetime,
 	@Descuento bit,
-	@IGV float
+	@IGV float,
+	@MontoSuperarDescuento float,
+	@PorcentajeDescuento float
 as
 begin  --verificacion de clave primaria
 	if exists (select * from TVenta where IdVenta = @IdVenta and IdUsuario= @IdUsuario and IdCliente= @IdCliente)
@@ -880,7 +884,7 @@ begin  --verificacion de clave primaria
 			if exists (select * from TCliente where IdCliente = @IdCliente)
 			begin
 				update TVenta
-				set IdVenta = @IdVenta, IdUsuario = @IdUsuario, IdCliente = @IdCliente, Fecha = @Fecha, Descuento = @Descuento, IGV = @IGV
+				set IdVenta = @IdVenta, IdUsuario = @IdUsuario, IdCliente = @IdCliente, Fecha = @Fecha, Descuento = @Descuento, IGV = @IGV, MontoSuperarDescuento = @MontoSuperarDescuento, PorcentajeDescuento = @PorcentajeDescuento
 				where IdVenta = @IdVenta and IdUsuario= @IdUsuario and IdCliente= @IdCliente
 				select codError = 0, mensaje = 'TVenta actualizado correctamente'
 			end;
