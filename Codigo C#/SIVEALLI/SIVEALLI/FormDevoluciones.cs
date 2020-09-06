@@ -51,6 +51,9 @@ namespace SIVEALLI
         public void CargarVentas()
         {
             DgvVentas.DataSource = Devolucion.MostrarVentas();
+            DgvVentas.Columns[5].Visible = false;
+            DgvVentas.Columns[6].Visible = false;
+            DgvVentas.Columns[7].Visible = false;
         }
         /// <summary>
         /// evento del check box que indica si se trata o no de una nueva devolucion
@@ -89,14 +92,25 @@ namespace SIVEALLI
             TbIdVenta.Text = DgvVentas.Rows[fila].Cells[0].Value.ToString();
             DgvDevolucionDetalle.Rows.Clear();
             CargarDetallesVenta();
+            //--Se cargan los datos del descuento
+            DeterminarImporteTotal();
+            LblImpuesto.Text = DgvVentas.Rows[fila].Cells[6].Value.ToString();
+            if (Convert.ToBoolean(DgvVentas.Rows[fila].Cells[5].Value))
+                LblDescuento.Text = DgvVentas.Rows[fila].Cells[7].Value.ToString();
+            else
+                LblDescuento.Text = "0";
+            //--Calcular el importe total que se pago
+            double st = double.Parse(LblSubTotal.Text);
+            LblTotalPagar.Text = (st+ (st*int.Parse(LblImpuesto.Text)/100)-(st*(int.Parse(LblDescuento.Text))/100)).ToString();
         }/// <summary>
-        /// Evento que hace que se carguen los datos de las anteriores devoluiconea
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+         /// Evento que hace que se carguen los datos de las anteriores devoluiconea
+         /// </summary>
+         /// <param name="sender"></param>
+         /// <param name="e"></param>
         private void DgvDevoluciones_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
+        {//--Determinar la fila que cambío
+            int fila = e.RowIndex;
+            int col = e.ColumnIndex;
         }
         /// <summary>
         /// Modulo que hace que se carguen los detalles de la venta
@@ -105,12 +119,22 @@ namespace SIVEALLI
         {
             DataTable Tabla= Devolucion.MostrarDatosVentas(TbIdVenta.Text);
             for (int k = 0; k < Tabla.Rows.Count; k++)
-                DgvDevolucionDetalle.Rows.Add(false, Tabla.Rows[k][0].ToString(), Tabla.Rows[k][1].ToString(), "", Tabla.Rows[k][2].ToString(), Tabla.Rows[k][3].ToString(), Tabla.Rows[k][4].ToString());
+                DgvDevolucionDetalle.Rows.Add(false, Tabla.Rows[k][0].ToString(), Tabla.Rows[k][1].ToString(), "", Tabla.Rows[k][2].ToString(), Tabla.Rows[k][3].ToString(), Tabla.Rows[k][4].ToString(),"0");
             
-            DeterminarImporteTotal();        
+        }
+        //--Calcular el importe total 
+        public void DeterminarImporteTotal()
+        {
+            double Total = 0;
+            for (int k = 0; k < DgvDevolucionDetalle.Rows.Count; k++)
+            {
+                Total += double.Parse(DgvDevolucionDetalle.Rows[k].Cells[6].Value.ToString());
+            }
+            //--Cololcar el total 
+            LblSubTotal.Text = Total.ToString();
         }
         //--Calcular el importe total a devolver
-        public void DeterminarImporteTotal()
+        public void DeterminarImporteTotalDevolver()
         {
             double Total = 0;
             for (int k = 0; k < DgvDevolucionDetalle.Rows.Count; k++)
@@ -137,6 +161,60 @@ namespace SIVEALLI
         {
             Close();
         }
+        /// <summary>
+        /// Evento que hace que registrara los datos de decolucion
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DgvDevolucionDetalle_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {//--Determinar la fila que cambío
+            int fila = e.RowIndex;
+            int col = e.ColumnIndex;
+            if (col == 0)
+            {
+                //MessageBox.Show(DgvDevolucionDetalle.Rows[fila].Cells[0].Value.ToString());
+                //--Si se activa el check box, se agrega el producto
+                if (!Convert.ToBoolean(DgvDevolucionDetalle.Rows[fila].Cells[0].Value))
+                {
+                    //--Se cambian los datos de la cantidad y dantidad a devolver
+                    int cantMax = int.Parse(DgvDevolucionDetalle.Rows[fila].Cells[5].Value.ToString());
+                    string Cant = DgvDevolucionDetalle.Rows[fila].Cells[5].Value.ToString();
+                    string SubT = DgvDevolucionDetalle.Rows[fila].Cells[6].Value.ToString();
+                    DgvDevolucionDetalle.Rows[fila].Cells[7].Value = Cant + "-" + SubT;
+                    FormDevolucionCantidad fdc = new FormDevolucionCantidad(DgvDevolucionDetalle, fila, cantMax);
+                    fdc.StartPosition = FormStartPosition.CenterScreen;
+                    fdc.Show();
+                    DgvDevolucionDetalle.Rows[fila].Cells[5].ReadOnly = false;
+                }
+                else
+                {
+                    DgvDevolucionDetalle.Rows[fila].Cells[5].ReadOnly = true;
+                    string VaAux= DgvDevolucionDetalle.Rows[fila].Cells[7].Value.ToString();
+                    DgvDevolucionDetalle.Rows[fila].Cells[5].Value = VaAux.Split('-')[0];
+                    DgvDevolucionDetalle.Rows[fila].Cells[6].Value = VaAux.Split('-')[1];
+                }
+                BtnCED.PerformClick();
+            }
+        }
+        public void CalcularSub(int fila)
+        {
+            string PreciUni = DgvDevolucionDetalle.Rows[fila].Cells[4].Value.ToString();
+            string Cant = DgvDevolucionDetalle.Rows[fila].Cells[5].Value.ToString();
+            double SubTot = double.Parse(PreciUni) * double.Parse(Cant);
+            DgvDevolucionDetalle.Rows[fila].Cells[6].Value = (SubTot).ToString();
+            //--Calcular el importe total a devolver
+            double Total = (SubTot+SubTot*int.Parse(LblImpuesto.Text)/100-SubTot*int.Parse(LblDescuento.Text)/100)+ double.Parse(LTotal.Text.Split('/')[1]);
+            LTotal.Text = LTotal.Text.Split('/')[0] + "/ " + Total.ToString();
+        }
 
+        private void DgvDevolucionDetalle_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {//--Determinar la fila que cambío
+            int fila = e.RowIndex;
+            int col = e.ColumnIndex;
+            if (col == 5 && fila>=0)
+            {
+                CalcularSub(fila);
+            }
+        }
     }
 }
