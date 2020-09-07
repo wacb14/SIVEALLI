@@ -30,19 +30,26 @@ namespace SIVEALLI
         /// </summary>
         public void CargarDatosProducto()
         {
-            if (Producto.ExisteClavePrimaria(new string[] { TxtIdProducto.Text }))
+            try
             {
-                TxtIdProducto.Text = Producto.ValorAtributo("IdProducto");
-                TxtNombre.Text = Producto.ValorAtributo("Nombre");
-                TxtCategoria.Text = Producto.ValorAtributo("Categoria");
-                TxtDescripcion.Text = Producto.ValorAtributo("Descripcion");
-                TxtMarca.Text = Producto.ValorAtributo("Marca");
-                TxtPrecioUnitario.Text = Producto.ValorAtributo("PrecioUnitario");
-                CboEstado.Text = Producto.ValorAtributo("Estado");
-                NudMinimo.Value = decimal.Parse(Producto.ValorAtributo("Minimo"));
-                NudMaximo.Value = decimal.Parse(Producto.ValorAtributo("Maximo"));
-                PctBImagen.Load(RutaCarpetaImagenes +"\\"+ Producto.ValorAtributo("Imagen"));
-                OfdImagen.FileName = "";
+                if (Producto.ExisteClavePrimaria(new string[] { TxtIdProducto.Text }))
+                {
+                    TxtIdProducto.Text = Producto.ValorAtributo("IdProducto");
+                    TxtNombre.Text = Producto.ValorAtributo("Nombre");
+                    TxtCategoria.Text = Producto.ValorAtributo("Categoria");
+                    TxtDescripcion.Text = Producto.ValorAtributo("Descripcion");
+                    TxtMarca.Text = Producto.ValorAtributo("Marca");
+                    TxtPrecioUnitario.Text = Producto.ValorAtributo("PrecioUnitario");
+                    CboEstado.Text = Producto.ValorAtributo("Estado");
+                    NudMinimo.Value = decimal.Parse(Producto.ValorAtributo("Minimo"));
+                    NudMaximo.Value = decimal.Parse(Producto.ValorAtributo("Maximo"));
+                    PctBImagen.Load(RutaCarpetaImagenes + "\\" + Producto.ValorAtributo("Imagen"));
+                    OfdImagen.FileName = "";
+                }
+            }
+            catch(Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
             }
         }
         /// <summary>

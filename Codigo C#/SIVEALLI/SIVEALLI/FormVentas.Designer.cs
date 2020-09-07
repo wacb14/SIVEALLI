@@ -31,8 +31,17 @@
             this.TbcVentas = new System.Windows.Forms.TabControl();
             this.TbpVentaNueva = new System.Windows.Forms.TabPage();
             this.GbRegistrarVenta = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.Lbl13 = new System.Windows.Forms.Label();
+            this.LblTotal = new System.Windows.Forms.Label();
+            this.Lbl12 = new System.Windows.Forms.Label();
+            this.LblDescuento = new System.Windows.Forms.Label();
+            this.LblSubtotal = new System.Windows.Forms.Label();
+            this.LblImpuesto = new System.Windows.Forms.Label();
+            this.Lbl8 = new System.Windows.Forms.Label();
             this.BtnNuevaVenta = new System.Windows.Forms.Button();
             this.BtnImprimirComprobante = new System.Windows.Forms.Button();
+            this.Lbl5 = new System.Windows.Forms.Label();
             this.BtnRegistrarVenta = new System.Windows.Forms.Button();
             this.GbDatosVenta = new System.Windows.Forms.GroupBox();
             this.TxtValorBusqueda = new System.Windows.Forms.TextBox();
@@ -56,8 +65,6 @@
             this.Lbl1 = new System.Windows.Forms.Label();
             this.GbDetalleVenta = new System.Windows.Forms.GroupBox();
             this.BtnVaciarDetalles = new System.Windows.Forms.Button();
-            this.LblSubtotal = new System.Windows.Forms.Label();
-            this.Lbl5 = new System.Windows.Forms.Label();
             this.DgvVentaDetalle = new System.Windows.Forms.DataGridView();
             this.colBtnBorrar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.colIdProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -76,16 +83,6 @@
             this.BtnBuscar2 = new System.Windows.Forms.Button();
             this.CboBuscarPor2 = new System.Windows.Forms.ComboBox();
             this.DgvListaVentas = new System.Windows.Forms.DataGridView();
-            this.Lbl8 = new System.Windows.Forms.Label();
-            this.LblImpuesto = new System.Windows.Forms.Label();
-            this.LblSubtotalSinImpuesto = new System.Windows.Forms.Label();
-            this.Lbl11 = new System.Windows.Forms.Label();
-            this.Lbl12 = new System.Windows.Forms.Label();
-            this.LblDescuento = new System.Windows.Forms.Label();
-            this.Lbl13 = new System.Windows.Forms.Label();
-            this.LblTotal = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.TbcVentas.SuspendLayout();
             this.TbpVentaNueva.SuspendLayout();
             this.GbRegistrarVenta.SuspendLayout();
@@ -126,27 +123,100 @@
             // 
             // GbRegistrarVenta
             // 
-            this.GbRegistrarVenta.Controls.Add(this.label2);
             this.GbRegistrarVenta.Controls.Add(this.label1);
             this.GbRegistrarVenta.Controls.Add(this.Lbl13);
             this.GbRegistrarVenta.Controls.Add(this.LblTotal);
             this.GbRegistrarVenta.Controls.Add(this.Lbl12);
             this.GbRegistrarVenta.Controls.Add(this.LblDescuento);
-            this.GbRegistrarVenta.Controls.Add(this.LblSubtotalSinImpuesto);
-            this.GbRegistrarVenta.Controls.Add(this.Lbl11);
+            this.GbRegistrarVenta.Controls.Add(this.LblSubtotal);
             this.GbRegistrarVenta.Controls.Add(this.LblImpuesto);
             this.GbRegistrarVenta.Controls.Add(this.Lbl8);
             this.GbRegistrarVenta.Controls.Add(this.BtnNuevaVenta);
-            this.GbRegistrarVenta.Controls.Add(this.LblSubtotal);
             this.GbRegistrarVenta.Controls.Add(this.BtnImprimirComprobante);
             this.GbRegistrarVenta.Controls.Add(this.Lbl5);
             this.GbRegistrarVenta.Controls.Add(this.BtnRegistrarVenta);
-            this.GbRegistrarVenta.Location = new System.Drawing.Point(595, 248);
+            this.GbRegistrarVenta.Location = new System.Drawing.Point(591, 248);
             this.GbRegistrarVenta.Name = "GbRegistrarVenta";
-            this.GbRegistrarVenta.Size = new System.Drawing.Size(466, 235);
+            this.GbRegistrarVenta.Size = new System.Drawing.Size(470, 235);
             this.GbRegistrarVenta.TabIndex = 28;
             this.GbRegistrarVenta.TabStop = false;
             this.GbRegistrarVenta.Text = "Registrar Venta";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(20, 156);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(237, 19);
+            this.label1.TabIndex = 36;
+            this.label1.Text = "--------------------------------------";
+            // 
+            // Lbl13
+            // 
+            this.Lbl13.AutoSize = true;
+            this.Lbl13.Location = new System.Drawing.Point(28, 179);
+            this.Lbl13.Name = "Lbl13";
+            this.Lbl13.Size = new System.Drawing.Size(46, 19);
+            this.Lbl13.TabIndex = 35;
+            this.Lbl13.Text = "Total :";
+            // 
+            // LblTotal
+            // 
+            this.LblTotal.AutoSize = true;
+            this.LblTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LblTotal.Location = new System.Drawing.Point(192, 179);
+            this.LblTotal.Name = "LblTotal";
+            this.LblTotal.Size = new System.Drawing.Size(19, 21);
+            this.LblTotal.TabIndex = 34;
+            this.LblTotal.Text = "0";
+            // 
+            // Lbl12
+            // 
+            this.Lbl12.AutoSize = true;
+            this.Lbl12.Location = new System.Drawing.Point(28, 96);
+            this.Lbl12.Name = "Lbl12";
+            this.Lbl12.Size = new System.Drawing.Size(107, 19);
+            this.Lbl12.TabIndex = 33;
+            this.Lbl12.Text = "Descuento (%) :";
+            // 
+            // LblDescuento
+            // 
+            this.LblDescuento.AutoSize = true;
+            this.LblDescuento.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LblDescuento.Location = new System.Drawing.Point(192, 96);
+            this.LblDescuento.Name = "LblDescuento";
+            this.LblDescuento.Size = new System.Drawing.Size(25, 21);
+            this.LblDescuento.TabIndex = 32;
+            this.LblDescuento.Text = "-0";
+            // 
+            // LblSubtotal
+            // 
+            this.LblSubtotal.AutoSize = true;
+            this.LblSubtotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LblSubtotal.Location = new System.Drawing.Point(192, 60);
+            this.LblSubtotal.Name = "LblSubtotal";
+            this.LblSubtotal.Size = new System.Drawing.Size(19, 21);
+            this.LblSubtotal.TabIndex = 31;
+            this.LblSubtotal.Text = "0";
+            // 
+            // LblImpuesto
+            // 
+            this.LblImpuesto.AutoSize = true;
+            this.LblImpuesto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LblImpuesto.Location = new System.Drawing.Point(192, 131);
+            this.LblImpuesto.Name = "LblImpuesto";
+            this.LblImpuesto.Size = new System.Drawing.Size(19, 21);
+            this.LblImpuesto.TabIndex = 29;
+            this.LblImpuesto.Text = "0";
+            // 
+            // Lbl8
+            // 
+            this.Lbl8.AutoSize = true;
+            this.Lbl8.Location = new System.Drawing.Point(28, 131);
+            this.Lbl8.Name = "Lbl8";
+            this.Lbl8.Size = new System.Drawing.Size(99, 19);
+            this.Lbl8.TabIndex = 28;
+            this.Lbl8.Text = "Impuesto (%) :";
             // 
             // BtnNuevaVenta
             // 
@@ -169,6 +239,15 @@
             this.BtnImprimirComprobante.Text = "Imprimir Comprobante";
             this.BtnImprimirComprobante.UseVisualStyleBackColor = true;
             this.BtnImprimirComprobante.Click += new System.EventHandler(this.BtnImprimir_Click);
+            // 
+            // Lbl5
+            // 
+            this.Lbl5.AutoSize = true;
+            this.Lbl5.Location = new System.Drawing.Point(28, 60);
+            this.Lbl5.Name = "Lbl5";
+            this.Lbl5.Size = new System.Drawing.Size(66, 19);
+            this.Lbl5.TabIndex = 2;
+            this.Lbl5.Text = "Subtotal :";
             // 
             // BtnRegistrarVenta
             // 
@@ -403,25 +482,6 @@
             this.BtnVaciarDetalles.UseVisualStyleBackColor = true;
             this.BtnVaciarDetalles.Click += new System.EventHandler(this.BtnVaciarDetalles_Click);
             // 
-            // LblSubtotal
-            // 
-            this.LblSubtotal.AutoSize = true;
-            this.LblSubtotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.LblSubtotal.Location = new System.Drawing.Point(192, 107);
-            this.LblSubtotal.Name = "LblSubtotal";
-            this.LblSubtotal.Size = new System.Drawing.Size(19, 21);
-            this.LblSubtotal.TabIndex = 3;
-            this.LblSubtotal.Text = "0";
-            // 
-            // Lbl5
-            // 
-            this.Lbl5.AutoSize = true;
-            this.Lbl5.Location = new System.Drawing.Point(28, 41);
-            this.Lbl5.Name = "Lbl5";
-            this.Lbl5.Size = new System.Drawing.Size(158, 19);
-            this.Lbl5.TabIndex = 2;
-            this.Lbl5.Text = "Subtotal (sin impuesto) : ";
-            // 
             // DgvVentaDetalle
             // 
             this.DgvVentaDetalle.AllowUserToAddRows = false;
@@ -618,100 +678,6 @@
             this.DgvListaVentas.TabIndex = 2;
             this.DgvListaVentas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListaVentas_CellClick);
             // 
-            // Lbl8
-            // 
-            this.Lbl8.AutoSize = true;
-            this.Lbl8.Location = new System.Drawing.Point(28, 75);
-            this.Lbl8.Name = "Lbl8";
-            this.Lbl8.Size = new System.Drawing.Size(99, 19);
-            this.Lbl8.TabIndex = 28;
-            this.Lbl8.Text = "Impuesto (%) :";
-            // 
-            // LblImpuesto
-            // 
-            this.LblImpuesto.AutoSize = true;
-            this.LblImpuesto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.LblImpuesto.Location = new System.Drawing.Point(192, 73);
-            this.LblImpuesto.Name = "LblImpuesto";
-            this.LblImpuesto.Size = new System.Drawing.Size(19, 21);
-            this.LblImpuesto.TabIndex = 29;
-            this.LblImpuesto.Text = "0";
-            // 
-            // LblSubtotalSinImpuesto
-            // 
-            this.LblSubtotalSinImpuesto.AutoSize = true;
-            this.LblSubtotalSinImpuesto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.LblSubtotalSinImpuesto.Location = new System.Drawing.Point(192, 39);
-            this.LblSubtotalSinImpuesto.Name = "LblSubtotalSinImpuesto";
-            this.LblSubtotalSinImpuesto.Size = new System.Drawing.Size(19, 21);
-            this.LblSubtotalSinImpuesto.TabIndex = 31;
-            this.LblSubtotalSinImpuesto.Text = "0";
-            // 
-            // Lbl11
-            // 
-            this.Lbl11.AutoSize = true;
-            this.Lbl11.Location = new System.Drawing.Point(28, 110);
-            this.Lbl11.Name = "Lbl11";
-            this.Lbl11.Size = new System.Drawing.Size(66, 19);
-            this.Lbl11.TabIndex = 30;
-            this.Lbl11.Text = "Subtotal :";
-            // 
-            // Lbl12
-            // 
-            this.Lbl12.AutoSize = true;
-            this.Lbl12.Location = new System.Drawing.Point(28, 140);
-            this.Lbl12.Name = "Lbl12";
-            this.Lbl12.Size = new System.Drawing.Size(107, 19);
-            this.Lbl12.TabIndex = 33;
-            this.Lbl12.Text = "Descuento (%) :";
-            // 
-            // LblDescuento
-            // 
-            this.LblDescuento.AutoSize = true;
-            this.LblDescuento.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.LblDescuento.Location = new System.Drawing.Point(192, 140);
-            this.LblDescuento.Name = "LblDescuento";
-            this.LblDescuento.Size = new System.Drawing.Size(19, 21);
-            this.LblDescuento.TabIndex = 32;
-            this.LblDescuento.Text = "0";
-            // 
-            // Lbl13
-            // 
-            this.Lbl13.AutoSize = true;
-            this.Lbl13.Location = new System.Drawing.Point(28, 191);
-            this.Lbl13.Name = "Lbl13";
-            this.Lbl13.Size = new System.Drawing.Size(46, 19);
-            this.Lbl13.TabIndex = 35;
-            this.Lbl13.Text = "Total :";
-            // 
-            // LblTotal
-            // 
-            this.LblTotal.AutoSize = true;
-            this.LblTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.LblTotal.Location = new System.Drawing.Point(192, 191);
-            this.LblTotal.Name = "LblTotal";
-            this.LblTotal.Size = new System.Drawing.Size(19, 21);
-            this.LblTotal.TabIndex = 34;
-            this.LblTotal.Text = "0";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 168);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(237, 19);
-            this.label1.TabIndex = 36;
-            this.label1.Text = "--------------------------------------";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(177, 140);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(15, 19);
-            this.label2.TabIndex = 37;
-            this.label2.Text = "-";
-            // 
             // FormVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -753,7 +719,6 @@
         private System.Windows.Forms.Label Lbl2;
         private System.Windows.Forms.Button BtnNuevoCliente;
         private System.Windows.Forms.DataGridView DgvCatalogoBusqueda;
-        private System.Windows.Forms.Label LblSubtotal;
         private System.Windows.Forms.Label Lbl5;
         private System.Windows.Forms.TextBox TxtValorBusqueda;
         private System.Windows.Forms.Label Lbl10;
@@ -794,10 +759,8 @@
         private System.Windows.Forms.Label LblTotal;
         private System.Windows.Forms.Label Lbl12;
         private System.Windows.Forms.Label LblDescuento;
-        private System.Windows.Forms.Label LblSubtotalSinImpuesto;
-        private System.Windows.Forms.Label Lbl11;
+        private System.Windows.Forms.Label LblSubtotal;
         private System.Windows.Forms.Label LblImpuesto;
         private System.Windows.Forms.Label Lbl8;
-        private System.Windows.Forms.Label label2;
     }
 }

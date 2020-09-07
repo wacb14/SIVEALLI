@@ -24,7 +24,7 @@ go
 create procedure spuCodigoNombreProveedor
 as
 begin
-	select IdProveedor, Nombre from TProveedores
+	select IdProveedor, Nombre from TProveedor
 end;
 go
 

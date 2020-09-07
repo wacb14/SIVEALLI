@@ -41,7 +41,7 @@ begin
 	select TDevolucion.IdDevolucion, TDevolucion.IdVenta,TDevolucionDetalle.IdProducto,TProducto.Nombre ,
 	 TDevolucionDetalle.Cantidad,TDevolucionDetalle.Estado,TDevolucionDetalle.PrecioUnitario ,TDevolucion.Fecha
 	from TDevolucionDetalle 
-		inner join TDevolucion on TDevolucion.IdVenta=TDevolucionDetalle.IdVenta 
+		inner join TDevolucion on TDevolucion.IdDevolucion=TDevolucionDetalle.IdDevolucion
 		inner join TProducto on TDevolucionDetalle.IdProducto=TProducto.IdProducto
 	where TDevolucion.Fecha between @Fecha and @Fecha2
 end;
