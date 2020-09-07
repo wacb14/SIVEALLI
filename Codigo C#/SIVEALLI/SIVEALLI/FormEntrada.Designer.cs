@@ -83,6 +83,7 @@
             // 
             // comboBoxCodigoProveedor
             // 
+            this.comboBoxCodigoProveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCodigoProveedor.FormattingEnabled = true;
             this.comboBoxCodigoProveedor.Location = new System.Drawing.Point(152, 75);
             this.comboBoxCodigoProveedor.Name = "comboBoxCodigoProveedor";
@@ -168,7 +169,10 @@
             // 
             // cbCodigoEntrada
             // 
+            this.cbCodigoEntrada.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCodigoEntrada.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cbCodigoEntrada.FormattingEnabled = true;
+            this.cbCodigoEntrada.IntegralHeight = false;
             this.cbCodigoEntrada.Location = new System.Drawing.Point(152, 41);
             this.cbCodigoEntrada.Name = "cbCodigoEntrada";
             this.cbCodigoEntrada.Size = new System.Drawing.Size(188, 27);
@@ -190,6 +194,7 @@
             // 
             // comboBoxCodigoProducto
             // 
+            this.comboBoxCodigoProducto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCodigoProducto.FormattingEnabled = true;
             this.comboBoxCodigoProducto.Location = new System.Drawing.Point(138, 34);
             this.comboBoxCodigoProducto.Name = "comboBoxCodigoProducto";

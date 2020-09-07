@@ -28,6 +28,7 @@ namespace SIVEALLI
             IniciarEntidad(new CEntrada());
             EventosYValidaciones();
 
+            //vScrollBar1 = cbCodigoEntrada.scro Template.FindName("DropDownScrollViewer", cbCodigoEntrada) as ScrollViewer;
             this.codigoUsuario = usuario;
         }
 

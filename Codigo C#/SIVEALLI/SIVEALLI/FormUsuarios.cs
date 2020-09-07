@@ -113,9 +113,21 @@ namespace SIVEALLI
 
         public override string[] AsignarValoresAtributos()
         {
+            string contraseña = "";
+            //recuperamos contraseña
+            if (aUsuario.ExisteClavePrimaria(textBoxCodigo.Text))
+            {
+                contraseña = aUsuario.ObtenerContrasegna(textBoxCodigo.Text);
+            }
+            else
+            {
+                contraseña = textBoxCodigo.Text;
+            }
+
             return new string[] { textBoxCodigo.Text,
                 textBoxNombres.Text, textBoxApellidos.Text,
                 textBoxDireccion.Text, textBoxTelefono.Text,
+                textBoxCorreo.Text, contraseña,
                 comboBoxTipo.Text, comboBoxEstado.Text};
         }
         public override void MostrarDatos()

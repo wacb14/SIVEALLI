@@ -45,7 +45,7 @@ namespace BibClases
                 else //dejar la consulta lista para el siguiente atributo
                     CadenaModificar += "','";
             }
-            MessageBox.Show("CadenaModificar: " + CadenaModificar);
+            //MessageBox.Show("CadenaModificar: " + CadenaModificar);
             //--Ejecutar la consulta para insertar el registro
             aConexion.EjecutarComando(CadenaModificar);
         }
@@ -77,7 +77,7 @@ namespace BibClases
             //return aConexion.Datos.Tables[0];
             //DataTable dt = Registro(codigoUsuario);
 
-            MessageBox.Show("CadenaModificar: " + Cadena);
+            //MessageBox.Show("CadenaModificar: " + Cadena);
             //--Ejecutar la consulta para insertar el registro
             return aConexion.Datos.Tables[0].Rows[0][0].ToString();
         }
