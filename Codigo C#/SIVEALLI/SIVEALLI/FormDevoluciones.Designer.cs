@@ -260,7 +260,7 @@
             // 
             this.LblDescuento.AutoSize = true;
             this.LblDescuento.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.LblDescuento.Location = new System.Drawing.Point(170, 381);
+            this.LblDescuento.Location = new System.Drawing.Point(207, 383);
             this.LblDescuento.Name = "LblDescuento";
             this.LblDescuento.Size = new System.Drawing.Size(19, 21);
             this.LblDescuento.TabIndex = 44;
@@ -270,7 +270,7 @@
             // 
             this.LblSubTotal.AutoSize = true;
             this.LblSubTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.LblSubTotal.Location = new System.Drawing.Point(170, 322);
+            this.LblSubTotal.Location = new System.Drawing.Point(207, 324);
             this.LblSubTotal.Name = "LblSubTotal";
             this.LblSubTotal.Size = new System.Drawing.Size(19, 21);
             this.LblSubTotal.TabIndex = 43;
@@ -280,7 +280,7 @@
             // 
             this.LblImpuesto.AutoSize = true;
             this.LblImpuesto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.LblImpuesto.Location = new System.Drawing.Point(170, 350);
+            this.LblImpuesto.Location = new System.Drawing.Point(207, 352);
             this.LblImpuesto.Name = "LblImpuesto";
             this.LblImpuesto.Size = new System.Drawing.Size(19, 21);
             this.LblImpuesto.TabIndex = 41;
@@ -486,15 +486,15 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(6, 411);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(122, 19);
+            this.label3.Size = new System.Drawing.Size(187, 19);
             this.label3.TabIndex = 47;
-            this.label3.Text = "Total pagado (%) :";
+            this.label3.Text = "Total pagado en la venta (s/) :";
             // 
             // LblTotalPagar
             // 
             this.LblTotalPagar.AutoSize = true;
             this.LblTotalPagar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.LblTotalPagar.Location = new System.Drawing.Point(170, 411);
+            this.LblTotalPagar.Location = new System.Drawing.Point(207, 413);
             this.LblTotalPagar.Name = "LblTotalPagar";
             this.LblTotalPagar.Size = new System.Drawing.Size(19, 21);
             this.LblTotalPagar.TabIndex = 46;
@@ -565,6 +565,7 @@
             this.BtnCED.TabIndex = 48;
             this.BtnCED.Text = "CED";
             this.BtnCED.UseVisualStyleBackColor = true;
+            this.BtnCED.Visible = false;
             // 
             // FormDevoluciones
             // 

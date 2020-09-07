@@ -16,6 +16,8 @@ namespace SIVEALLI
         /*ATRIBUTOS*/
         CDevolucion Devolucion = new CDevolucion();
         CDevolucionDetalle DevolucionDetalle=new CDevolucionDetalle();
+        //--Datos Detalle
+        bool AgregandoRegistros = false;
         //--datos de entrada
         string aFecha;
         string aIdUsuario;
@@ -90,6 +92,7 @@ namespace SIVEALLI
             int fila = e.RowIndex;
             int col = e.ColumnIndex;
             TbIdVenta.Text = DgvVentas.Rows[fila].Cells[0].Value.ToString();
+            TbRazon.Text = "";
             DgvDevolucionDetalle.Rows.Clear();
             CargarDetallesVenta();
             //--Se cargan los datos del descuento
@@ -111,6 +114,55 @@ namespace SIVEALLI
         {//--Determinar la fila que cambío
             int fila = e.RowIndex;
             int col = e.ColumnIndex;
+            TbId.Text = DgvDevoluciones.Rows[fila].Cells[0].Value.ToString();
+            TbIdVenta.Text= DgvDevoluciones.Rows[fila].Cells[2].Value.ToString();
+            TbRazon.Text = DgvDevoluciones.Rows[fila].Cells[3].Value.ToString();
+            //--Se cargan los datos del descuento
+            LblSubTotal.Text= Devolucion.TraerSubTotalVenta(TbIdVenta.Text);
+            int filaVenta = DetFila(TbIdVenta.Text);
+            LblImpuesto.Text = DgvVentas.Rows[filaVenta].Cells[6].Value.ToString();
+            if (Convert.ToBoolean(DgvVentas.Rows[filaVenta].Cells[5].Value))
+                LblDescuento.Text = DgvVentas.Rows[filaVenta].Cells[7].Value.ToString();
+            else
+                LblDescuento.Text = "0";
+            //--Calcular el importe total que se pago
+            double st = double.Parse(LblSubTotal.Text);
+            LblTotalPagar.Text = (st + (st * int.Parse(LblImpuesto.Text) / 100) - (st * (int.Parse(LblDescuento.Text)) / 100)).ToString();
+            //--Cargar los datos en data grid view
+            DataTable TablaDevolucionDetalle = Devolucion.TraerDatosDevolucionDetalle(TbId.Text);
+            DgvDevolucionDetalle.Rows.Clear();
+            LTotal.Text = LTotal.Text.Split('/')[0] + "/ " + "0";
+            for (int k = 0; k < TablaDevolucionDetalle.Rows.Count; k++)
+            {
+                string codProd = TablaDevolucionDetalle.Rows[k][1].ToString();
+                string nombre = DetNombre(codProd);
+                string precio = TablaDevolucionDetalle.Rows[k][4].ToString();
+                string cantidad = TablaDevolucionDetalle.Rows[k][2].ToString();
+                string Estado = TablaDevolucionDetalle.Rows[k][3].ToString();
+                DgvDevolucionDetalle.Rows.Add(true,codProd, nombre,"",precio, cantidad, (double.Parse(precio) * int.Parse(cantidad)).ToString());
+                //--Calcular el importe devuelto
+                CalcularSub(k);
+            }
+
+            CbNuevoDev.Checked = false;
+            CbNuevoDev.Enabled = true;
+        }
+        public string DetNombre(string IdPro)
+        {
+            DataTable Tab= Devolucion.TraerDatosProducto(IdPro);
+            return Tab.Rows[0][1].ToString();
+        }
+        public int DetFila(string Cod)
+        {
+            int fila = -1;
+            for (int k = 0; k < DgvVentas.Rows.Count; k++)
+            {
+                if (DgvVentas.Rows[k].Cells[0].Value.ToString().Trim() == Cod)
+                {
+                    return k;
+                }
+            }
+            return fila;
         }
         /// <summary>
         /// Modulo que hace que se carguen los detalles de la venta
@@ -133,26 +185,17 @@ namespace SIVEALLI
             //--Cololcar el total 
             LblSubTotal.Text = Total.ToString();
         }
-        //--Calcular el importe total a devolver
-        public void DeterminarImporteTotalDevolver()
-        {
-            double Total = 0;
-            for (int k = 0; k < DgvDevolucionDetalle.Rows.Count; k++)
-            {
-                Total += double.Parse(DgvDevolucionDetalle.Rows[k].Cells[6].Value.ToString());
-            }
-            //--Cololcar el total 
-            LTotal.Text = LTotal.Text.Split('/')[0] + "/ " + Total.ToString();
-        }
         private void BtnDevoluciones_Click(object sender, EventArgs e)
         {
+            CargarHistorialDevoluciones();
             GbHistorialDevo.Visible = true;
             GbVentas.Visible = false;
         }
 
         private void BtnVentas_Click(object sender, EventArgs e)
         {
-            CargarHistorialDevoluciones();
+            LTotal.Text = LTotal.Text.Split('/')[0] + "/ " + "0";
+            CargarVentas();
             GbVentas.Visible = true;
             GbHistorialDevo.Visible = false;
         }
