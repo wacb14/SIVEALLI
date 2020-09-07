@@ -104,7 +104,8 @@ namespace SIVEALLI
                 LblDescuento.Text = "0";
             //--Calcular el importe total que se pago
             double st = double.Parse(LblSubTotal.Text);
-            LblTotalPagar.Text = (st+ (st*int.Parse(LblImpuesto.Text)/100)-(st*(int.Parse(LblDescuento.Text))/100)).ToString();
+            double stD = st - (st * (int.Parse(LblDescuento.Text)) / 100);
+            LblTotalPagar.Text = (stD + (st * int.Parse(LblImpuesto.Text) / 100)).ToString();
         }/// <summary>
          /// Evento que hace que se carguen los datos de las anteriores devoluiconea
          /// </summary>
@@ -127,7 +128,8 @@ namespace SIVEALLI
                 LblDescuento.Text = "0";
             //--Calcular el importe total que se pago
             double st = double.Parse(LblSubTotal.Text);
-            LblTotalPagar.Text = (st + (st * int.Parse(LblImpuesto.Text) / 100) - (st * (int.Parse(LblDescuento.Text)) / 100)).ToString();
+            double stD = st - (st * (int.Parse(LblDescuento.Text)) / 100);
+            LblTotalPagar.Text = (stD + (st * int.Parse(LblImpuesto.Text) / 100)).ToString();
             //--Cargar los datos en data grid view
             DataTable TablaDevolucionDetalle = Devolucion.TraerDatosDevolucionDetalle(TbId.Text);
             DgvDevolucionDetalle.Rows.Clear();
@@ -246,7 +248,8 @@ namespace SIVEALLI
             double SubTot = double.Parse(PreciUni) * double.Parse(Cant);
             DgvDevolucionDetalle.Rows[fila].Cells[6].Value = (SubTot).ToString();
             //--Calcular el importe total a devolver
-            double Total = (SubTot+SubTot*int.Parse(LblImpuesto.Text)/100-SubTot*int.Parse(LblDescuento.Text)/100)+ double.Parse(LTotal.Text.Split('/')[1]);
+            double SubTotalDes = SubTot - SubTot * int.Parse(LblDescuento.Text) / 100;
+            double Total = (SubTotalDes+SubTot*int.Parse(LblImpuesto.Text)/100)+ double.Parse(LTotal.Text.Split('/')[1]);
             LTotal.Text = LTotal.Text.Split('/')[0] + "/ " + Total.ToString();
         }
 
