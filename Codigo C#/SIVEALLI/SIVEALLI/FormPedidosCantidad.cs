@@ -36,15 +36,16 @@ namespace SIVEALLI
         private void BtnAceptar_Click(object sender, EventArgs e)
         {
             int Cantidad = int.Parse(NudCantidad.Value.ToString());
-            double PrecioPro = double.Parse(PreciProd) * Cantidad;
+            double precioMasDescuento = double.Parse(PreciProd) - double.Parse(PreciProd) / 5;
+            double subTotal = (precioMasDescuento)* Cantidad;
 
             Añadiendo = true;
-            DgvPedidosDetalle.Rows.Add(IdProducto, NombreProd, PreciProd, Cantidad, (PrecioPro).ToString(), "X", aFila.ToString());
+            DgvPedidosDetalle.Rows.Add(IdProducto, NombreProd, precioMasDescuento, Cantidad, (subTotal).ToString(), "X", aFila.ToString());
             Añadiendo = false;
             DgvCatalogoProductos.Rows[aFila].Cells[0].ReadOnly = true;
             //--Calcular el total del importe
             double Total = double.Parse(LTotal.Text.Split('/')[1].ToString());
-            LTotal.Text = LTotal.Text.Split('/')[0] + "/ " + (Total + PrecioPro).ToString();
+            LTotal.Text = LTotal.Text.Split('/')[0] + "/ " + (Total + subTotal).ToString();
             this.Close();
         }
     }

@@ -76,8 +76,3 @@ begin
 	where IdPedido = @IdPedido
 end;
 go
-
-
---spuListaProveedores
---spuCantidadMax 'PR000001'
---spuListarCatalogoProductos

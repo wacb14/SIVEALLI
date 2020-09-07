@@ -48,5 +48,33 @@ namespace BibClases
             aConexion.EjecutarSelect(CadenaConsulta);
             return aConexion.Datos.Tables[0];
         }
+        //------------------------------------------------------------------------------------------
+        public DataTable TraerDatosDevolucion(string id)
+        {   //--Retornar un tabla con la lista completa de  libros
+            string CadenaConsulta = "exec spuExisteId" + aNombreTabla + " '" + id + "'";
+            aConexion.EjecutarSelect(CadenaConsulta);
+            return aConexion.Datos.Tables[0];
+        }
+        //------------------------------------------------------------------------------------------
+        public DataTable TraerDatosDevolucionDetalle(string id)
+        {   //--Retornar un tabla con la lista completa de  libros
+            string CadenaConsulta = "exec spuExisteId" + aNombreTabla + "Detalle '" + id + "'";
+            aConexion.EjecutarSelect(CadenaConsulta);
+            return aConexion.Datos.Tables[0];
+        }
+        //------------------------------------------------------------------------------------------
+        public DataTable TraerDatosProducto(string id)
+        {   //--Retornar un tabla con la lista completa de  libros
+            string CadenaConsulta = "select * from TProducto where IdProducto = '" + id + "'";
+            aConexion.EjecutarSelect(CadenaConsulta);
+            return aConexion.Datos.Tables[0];
+        }
+        //------------------------------------------------------------------------------------------
+        public string TraerSubTotalVenta(string id)
+        {   //--Retornar un tabla con la lista completa de  libros
+            string CadenaConsulta = "select sum(PrecioUnitario*Cantidad) as Total from TVentaDetalle where IdVenta='"+id+"' group by IdVenta";
+            aConexion.EjecutarSelect(CadenaConsulta);
+            return aConexion.Datos.Tables[0].Rows[0][0].ToString();
+        }
     }
 }

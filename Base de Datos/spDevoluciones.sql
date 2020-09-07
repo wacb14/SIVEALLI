@@ -4,7 +4,7 @@ go
 create procedure spuTraerHistorialVentas
 as
 begin
-	select tv.IdVenta,tv.IdUsuario,tv.IdCliente,(tc.Nombres +' '+ tc.Apellidos) as 'Nombres',tv.Fecha
+	select tv.IdVenta,tv.IdUsuario,tv.IdCliente,(tc.Nombres +' '+ tc.Apellidos) as 'Nombres',tv.Fecha,tv.Descuento,tv.IGV,tv.PorcentajeDescuento
 	from TVenta tv inner join TCliente tc on tv.IdCliente=tc.IdCliente
 end;
 go
@@ -20,5 +20,25 @@ begin
 	where IdVenta=@IdVenta
 end;
 go
---spuDatosVenta 'VE000001'
-select max(IdDevolucion) from TDevolucion
+----------------------------------------------------------------------------------------------------------
+if exists (select * from sysobjects where name='spuExisteIdTDevolucion') 
+	drop procedure spuExisteIdTDevolucion
+go
+create procedure spuExisteIdTDevolucion @IdDevolucion varchar(40)
+as
+begin
+	select * from TDevolucion
+	where IdDevolucion = @IdDevolucion
+end;
+go
+----------------------------------------------------------------------------------
+if exists (select * from sysobjects where name='spuExisteIdTDevolucionDetalle') 
+	drop procedure spuExisteIdTDevolucionDetalle
+go
+create procedure spuExisteIdTDevolucionDetalle @IdDevolucion varchar(40)
+as
+begin
+	select * from TDevolucionDetalle
+	where IdDevolucion = @IdDevolucion
+end;
+go
