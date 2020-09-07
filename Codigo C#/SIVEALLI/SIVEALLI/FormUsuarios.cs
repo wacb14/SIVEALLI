@@ -32,12 +32,21 @@ namespace SIVEALLI
             textBoxCodigo.TextChanged += new EventHandler(CambioCodigo);
             this.dataGridViewUsuarios.CellClick += new DataGridViewCellEventHandler(MostrarDatosEnFormulario);
             this.btnRestaurarContra.Click += new EventHandler(RestaurarContraseña);
+            this.btnRestMiCont.Click += new EventHandler(RestaurarMiContraseña);
             this.btnCambioContra.Click += new EventHandler(CambiarContraseña);
 
             //Validaciones
             textBoxNombres.KeyPress += new KeyPressEventHandler(Procesos.ValidarTextBoxSoloLetras);
             textBoxApellidos.KeyPress += new KeyPressEventHandler(Procesos.ValidarTextBoxSoloLetras);
             textBoxTelefono.KeyPress += new KeyPressEventHandler(Procesos.ValidarTextBoxSoloNumeros);
+        }
+
+        private void RestaurarMiContraseña(object sender, EventArgs e)
+        {
+
+            aUsuario.RestaurarContrasegna(codigoUsuario);
+            MessageBox.Show("Nueva contraseña (igual a la identificación): " + codigoUsuario);
+
         }
 
         private void CambiarContraseña(object sender, EventArgs e)
@@ -94,9 +103,12 @@ namespace SIVEALLI
             ProcesarClave();
         }
 
+
         private void CargarDatos(object sender, EventArgs e)
         {
+            textBoxCodigo.Text = codigoUsuario;
             dataGridViewUsuarios.DataSource = aUsuario.ListaUsuarios();
+            ProcesarClave();
         }
 
         public override string[] AsignarValoresAtributos()

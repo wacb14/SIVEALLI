@@ -53,6 +53,7 @@
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.btnCambioContra = new System.Windows.Forms.Button();
             this.btnRestaurarContra = new System.Windows.Forms.Button();
+            this.btnRestMiCont = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsuarios)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,6 +86,7 @@
             this.dataGridViewUsuarios.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewUsuarios.Name = "dataGridViewUsuarios";
             this.dataGridViewUsuarios.ReadOnly = true;
+            this.dataGridViewUsuarios.RowHeadersVisible = false;
             this.dataGridViewUsuarios.Size = new System.Drawing.Size(739, 385);
             this.dataGridViewUsuarios.TabIndex = 2;
             // 
@@ -301,12 +303,22 @@
             this.btnRestaurarContra.Text = "Restaurar contraseña de usuario seleccionado";
             this.btnRestaurarContra.UseVisualStyleBackColor = true;
             // 
+            // btnRestMiCont
+            // 
+            this.btnRestMiCont.Location = new System.Drawing.Point(415, 7);
+            this.btnRestMiCont.Name = "btnRestMiCont";
+            this.btnRestMiCont.Size = new System.Drawing.Size(174, 33);
+            this.btnRestMiCont.TabIndex = 40;
+            this.btnRestMiCont.Text = "Restaurar mi contraseña";
+            this.btnRestMiCont.UseVisualStyleBackColor = true;
+            // 
             // FormUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1070, 519);
+            this.Controls.Add(this.btnRestMiCont);
             this.Controls.Add(this.btnRestaurarContra);
             this.Controls.Add(this.btnCambioContra);
             this.Controls.Add(this.dtpFecha);
@@ -368,5 +380,6 @@
         private System.Windows.Forms.DateTimePicker dtpFecha;
         private System.Windows.Forms.Button btnCambioContra;
         private System.Windows.Forms.Button btnRestaurarContra;
+        private System.Windows.Forms.Button btnRestMiCont;
     }
 }

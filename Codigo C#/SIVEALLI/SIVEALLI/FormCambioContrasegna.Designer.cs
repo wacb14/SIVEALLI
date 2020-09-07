@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCambioContrasegna));
             this.lblUsuario = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -69,7 +70,7 @@
             // tbActual
             // 
             this.tbActual.Location = new System.Drawing.Point(231, 62);
-            this.tbActual.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbActual.Margin = new System.Windows.Forms.Padding(4);
             this.tbActual.Name = "tbActual";
             this.tbActual.Size = new System.Drawing.Size(148, 26);
             this.tbActual.TabIndex = 3;
@@ -77,45 +78,53 @@
             // tbNueva
             // 
             this.tbNueva.Location = new System.Drawing.Point(231, 96);
-            this.tbNueva.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbNueva.Margin = new System.Windows.Forms.Padding(4);
             this.tbNueva.Name = "tbNueva";
             this.tbNueva.Size = new System.Drawing.Size(148, 26);
             this.tbNueva.TabIndex = 4;
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(117, 150);
+            this.btnCancelar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCancelar.FlatAppearance.BorderSize = 0;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
+            this.btnCancelar.Location = new System.Drawing.Point(231, 130);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 30);
-            this.btnCancelar.TabIndex = 5;
-            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(68, 66);
+            this.btnCancelar.TabIndex = 45;
             this.btnCancelar.UseVisualStyleBackColor = true;
             // 
             // btnCambiar
             // 
-            this.btnCambiar.Location = new System.Drawing.Point(216, 149);
+            this.btnCambiar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCambiar.FlatAppearance.BorderSize = 0;
+            this.btnCambiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCambiar.Image = ((System.Drawing.Image)(resources.GetObject("btnCambiar.Image")));
+            this.btnCambiar.Location = new System.Drawing.Point(311, 130);
+            this.btnCambiar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCambiar.Name = "btnCambiar";
-            this.btnCambiar.Size = new System.Drawing.Size(75, 31);
-            this.btnCambiar.TabIndex = 6;
-            this.btnCambiar.Text = "Cambiar";
+            this.btnCambiar.Size = new System.Drawing.Size(68, 66);
+            this.btnCambiar.TabIndex = 44;
             this.btnCambiar.UseVisualStyleBackColor = true;
             // 
             // FormCambioContrasegna
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(421, 212);
-            this.Controls.Add(this.btnCambiar);
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ClientSize = new System.Drawing.Size(421, 227);
             this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnCambiar);
             this.Controls.Add(this.tbNueva);
             this.Controls.Add(this.tbActual);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblUsuario);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormCambioContrasegna";
-            this.Text = "FormCambioContrasegna";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -128,7 +137,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbActual;
         private System.Windows.Forms.TextBox tbNueva;
-        private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnCambiar;
+        protected System.Windows.Forms.Button btnCancelar;
+        protected System.Windows.Forms.Button btnCambiar;
     }
 }

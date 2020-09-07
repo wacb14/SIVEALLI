@@ -41,6 +41,25 @@ namespace SIVEALLI
             this.buttonListo.Click += new EventHandler(GuardarEntrada);
             this.cbCodigoEntrada.SelectionChangeCommitted += new EventHandler(CargarDatosEntrada);
             this.buttonLimpiar.Click += new EventHandler(LimpiarForm);
+
+            this.comboBoxCodigoProducto.DropDown += new EventHandler(CargarDatosProductos);
+            this.comboBoxCodigoProveedor.DropDown += new EventHandler(CargarDatosProveedores);
+            this.cbCodigoEntrada.DropDown += new EventHandler(CargarCodigosEntrada);
+        }
+
+        private void CargarCodigosEntrada(object sender, EventArgs e)
+        {
+            LlenarCodigoEntradas();
+        }
+
+        private void CargarDatosProveedores(object sender, EventArgs e)
+        {
+            LlenarDatosProveedores();
+        }
+
+        private void CargarDatosProductos(object sender, EventArgs e)
+        {
+            LlenarCodigoProductos();
         }
 
         private void LimpiarForm(object sender, EventArgs e)
@@ -270,9 +289,9 @@ namespace SIVEALLI
 
         private void LLenarDatosControles(object sender, EventArgs e)
         {
-            LlenarDatosProveedores();
-            LlenarCodigoProductos();
-            LlenarCodigoEntradas();
+            //LlenarDatosProveedores();
+            //LlenarCodigoProductos();
+            //LlenarCodigoEntradas();
 
             textBoxUsuario.Text = codigoUsuario;
         }

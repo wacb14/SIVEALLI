@@ -276,7 +276,7 @@
             this.buttonEliminarDetalle.FlatAppearance.BorderSize = 0;
             this.buttonEliminarDetalle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonEliminarDetalle.Image = ((System.Drawing.Image)(resources.GetObject("buttonEliminarDetalle.Image")));
-            this.buttonEliminarDetalle.Location = new System.Drawing.Point(990, 203);
+            this.buttonEliminarDetalle.Location = new System.Drawing.Point(989, 224);
             this.buttonEliminarDetalle.Margin = new System.Windows.Forms.Padding(4);
             this.buttonEliminarDetalle.Name = "buttonEliminarDetalle";
             this.buttonEliminarDetalle.Size = new System.Drawing.Size(68, 66);
@@ -307,7 +307,7 @@
             // textBoxUsuario
             // 
             this.textBoxUsuario.Enabled = false;
-            this.textBoxUsuario.Location = new System.Drawing.Point(572, 12);
+            this.textBoxUsuario.Location = new System.Drawing.Point(535, 12);
             this.textBoxUsuario.Name = "textBoxUsuario";
             this.textBoxUsuario.Size = new System.Drawing.Size(100, 26);
             this.textBoxUsuario.TabIndex = 43;
@@ -315,7 +315,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(491, 15);
+            this.label3.Location = new System.Drawing.Point(454, 15);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(74, 19);
