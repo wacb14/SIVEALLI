@@ -240,11 +240,11 @@ insert into TEntradaDetalle values ('EN000001','PR000001',8)
 insert into TEntradaDetalle values ('EN000001','PR000002',15)
 insert into TEntradaDetalle values ('EN000001','PR000003',23)
 --------- DATOS VENTA ----------------------
-insert into TVenta values ('VE000001','US006','CL000002','20/08/2020',18,2000,1)
+insert into TVenta values ('VE000001','US006','CL000002','20/08/2020',1,18,2000,1)
 insert into TVentaDetalle values ('VE000001','PR000001',2,25.90)
 insert into TVentaDetalle values ('VE000001','PR000003',1,11.90)
 
-insert into TVenta values ('VE000002','US006','CL000005','20/08/2020',18,2000,1)
+insert into TVenta values ('VE000002','US006','CL000005','20/08/2020',1,18,2000,1)
 insert into TVentaDetalle values ('VE000002','PR000001',2,25.90)
 insert into TVentaDetalle values ('VE000002','PR000003',1,11.90)
 insert into TVentaDetalle values ('VE000002','PR000005',9,10.90)

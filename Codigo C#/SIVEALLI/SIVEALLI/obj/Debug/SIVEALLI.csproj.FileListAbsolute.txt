@@ -180,3 +180,4 @@ C:\Users\ASUS\source\repos\wacb14\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj\Debug
 C:\Users\ASUS\source\repos\wacb14\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj\Debug\SIVEALLI.exe
 C:\Users\ASUS\source\repos\wacb14\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj\Debug\SIVEALLI.pdb
 C:\Users\ASUS\source\repos\wacb14\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj\Debug\SIVEALLI.FormPedidos.resources
+B:\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj\Debug\SIVEALLI.FormPedidos.resources

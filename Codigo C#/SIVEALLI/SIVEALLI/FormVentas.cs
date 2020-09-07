@@ -19,9 +19,14 @@ namespace SIVEALLI
         CCliente Cliente = new CCliente();
         CVentaDetalle VentasDetalle = new CVentaDetalle();
         CProducto Producto = new CProducto();
-        public FormVentas()
+        CNegocio Negocio = new CNegocio();
+        string aUsuario;
+        string aFecha;
+        public FormVentas(string Usuario, string Fecha)
         {
             InitializeComponent();
+            aUsuario = Usuario;
+            aFecha = Fecha;
             TxtIdVenta.Text = GenerarIdVenta();
             CboBuscarPor.SelectedIndex = 0;
         }
@@ -54,7 +59,6 @@ namespace SIVEALLI
             string Minusculas = Cadena.ToLower();
             // Convertimos la cadena en solo mayusculas
             string Mayusculas = Cadena.ToUpper();
-
             if (Cadena.Contains(Palabra))
                 return true;
             else
@@ -84,29 +88,29 @@ namespace SIVEALLI
         }
         private void CalcularTotal()
         {
-            float Impuesto = 18;
-            float Descuento = 3;
-            float CantidadSuperada = 10;
-            Lbl8.Text = "Impuesto (" + Impuesto + "%) :";
-            Lbl12.Text = "Descuento (" + Descuento + "%) :";
-            float Total = 0;
-            for (int i = 0; i < DgvVentaDetalle.Rows.Count; i++)
-            {
-                Total += float.Parse(DgvVentaDetalle.Rows[i].Cells["colSubtotal"].Value.ToString());
-            }
-            LblSubtotalSinImpuesto.Text = Math.Round(Total,2).ToString();
-            LblImpuesto.Text = Math.Round((Total * (Impuesto / 100)),2).ToString();
-            float Subtotal = (Total * (Impuesto / 100)) + Total;
-            LblSubtotal.Text = Math.Round(Subtotal,2).ToString();
-            float Dcto = 0;
-            if (Subtotal > CantidadSuperada)
-            {
-                Dcto = (Descuento / 100) * Subtotal;
-                LblDescuento.Text = Math.Round(Dcto,2).ToString();
+            if (Negocio.ExisteClavePrimaria(new string[] { "1" })){
+                float Impuesto = float.Parse(Negocio.ValorAtributo("IGV")); // En porcentaje (ejem 18.5%)
+                float Descuento = float.Parse(Negocio.ValorAtributo("PorcentajeDescuento")); ; // En porcentaje
+                float CantidadSuperada = float.Parse(Negocio.ValorAtributo("MontoSuperarDescuento"));
+                Lbl8.Text = "Impuesto (" + Impuesto + "%) :";
+                Lbl12.Text = "Descuento (" + Descuento + "%) :";
+                float Subtotal = 0;
+                for (int i = 0; i < DgvVentaDetalle.Rows.Count; i++)
+                    Subtotal += float.Parse(DgvVentaDetalle.Rows[i].Cells["colSubtotal"].Value.ToString());
+                Subtotal = (float)Math.Round(Subtotal, 2);
+                LblSubtotal.Text = Subtotal.ToString();
+                float Dcto = 0;
+                if (Subtotal > CantidadSuperada)
+                    Dcto = (float)Math.Round((Descuento / 100) * Subtotal, 2);
+                LblDescuento.Text = "-" + Dcto.ToString();
+                float SubtotalConDscto = Subtotal - Dcto;
+                float CantidadImpuesto = (float)Math.Round((SubtotalConDscto * (Impuesto / 100)), 2);
+                LblImpuesto.Text = CantidadImpuesto.ToString();
+                float Total = SubtotalConDscto + CantidadImpuesto;
+                LblTotal.Text = Total.ToString();
             }
             else
-                LblDescuento.Text = "0".ToString();
-            LblTotal.Text = Math.Round((Subtotal - Dcto),2).ToString();
+                MessageBox.Show("Faltan definir los parametros del negocio");
         }
         private void LimpiarFormulario()
         {
@@ -117,6 +121,24 @@ namespace SIVEALLI
             DgvCatalogoBusqueda.Rows.Clear();
             DgvVentaDetalle.Rows.Clear();
             CalcularTotal();
+        }
+        private void GuardarDatosVenta()
+        {
+            // Guardamos los datos generales de la venta
+            string IGV=Negocio.ValorAtributo("IGV");
+            string MontoSuperar = Negocio.ValorAtributo("MontoSuperarDescuento");
+            string PorcentajeDescuento = Negocio.ValorAtributo("PorcentajeDescuento");
+            string HuboDcto = float.Parse(LblSubtotal.Text)> float.Parse(MontoSuperar)?"1":"0";
+            Ventas.Insertar(new string[] { TxtIdVenta.Text, aUsuario, TxtIdCliente.Text, aFecha, HuboDcto, IGV, MontoSuperar, PorcentajeDescuento });
+
+            // Guardamos los detalles de la venta
+            for (int i = 0; i < DgvVentaDetalle.Rows.Count; i++)
+            {
+                string IdProducto = DgvVentaDetalle.Rows[i].Cells["colIdProducto"].Value.ToString();
+                string Cantidad = DgvVentaDetalle.Rows[i].Cells["colCantidad"].Value.ToString();
+                string PrecioUnitario = DgvVentaDetalle.Rows[i].Cells["colPrecioUnitario"].Value.ToString();
+                VentasDetalle.Insertar(new string[] { TxtIdVenta.Text, IdProducto, Cantidad, PrecioUnitario });
+            }
         }
         //------------------------ Eventos -------------------------
 
@@ -187,12 +209,44 @@ namespace SIVEALLI
 
         private void BtnImprimir_Click(object sender, EventArgs e)
         {
+            if (!Ventas.ExisteClavePrimaria(new string[] { TxtIdVenta.Text })) // Validamos si ya existe una venta registrada con el mismo codigo
+                MessageBox.Show("Por favor registre la venta antes de continuar con la impresión del comprobante", "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            else
+            {
+                MessageBox.Show("Imprimiendo....");
+            }
 
         }
 
         private void BtnRegistrarVenta_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                if (Ventas.ExisteClavePrimaria(new string[] { TxtIdVenta.Text })) // Validamos si ya existe una venta registrada con el mismo codigo
+                    MessageBox.Show("Ya existe una venta registrada con este código.\n Si desea realizar una nueva venta presiones el boton Nueva Venta", "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                {
+                    if (!Cliente.ExisteClavePrimaria(new string[] { TxtIdCliente.Text })) // Validamos que el cliente exista en la base de datos
+                    {
+                        MessageBox.Show("El ID de cliente ingresado no existe, para continuar registre al cliente primero", "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        IngresoClienteObligatorio();
+                    }
+                    else
+                    {
+                        if (DgvVentaDetalle.Rows.Count < 1) // Validamos que al menos existe un producto en los detalles
+                            MessageBox.Show("Seleccione al menos un producto para continuar con el registro de la venta", "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        else
+                        {
+                            GuardarDatosVenta();
+                            MessageBox.Show("Los datos de la venta se han registrado correctamente", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
+                    }
+                }
+            }
+            catch(Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+            }
         }
         
         private void DgvCatalogoBusqueda_CellClick(object sender, DataGridViewCellEventArgs e)

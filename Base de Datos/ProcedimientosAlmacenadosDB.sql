@@ -831,7 +831,7 @@ if exists (select * from sysobjects where name='spu_TVenta_Insertar')
 	drop procedure spu_TVenta_Insertar
 go
 
-create procedure spu_TVenta_Insertar
+create procedurespu_TVenta_Insertar
 	@IdVenta varchar(8),
 	@IdUsuario varchar(5),
 	@IdCliente varchar(8),
