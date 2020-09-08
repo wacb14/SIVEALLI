@@ -20,5 +20,11 @@ namespace BibClases
                 "IdDevolucion", "IdProducto", "Cantidad", "Estado","PrecioUnitario"
             };
         }
+        //------------------------------------------------------------------------------------------
+        public void EliminarRegistros(string id)
+        {   //--Retornar un tabla con la lista completa de  libros
+            string CadenaConsulta = "delete from TDevolucionDetalle where IdDevolucion='" + id + "'";
+            aConexion.EjecutarSelect(CadenaConsulta);
+        }
     }
 }

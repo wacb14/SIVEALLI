@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDevoluciones));
             this.label10 = new System.Windows.Forms.Label();
             this.DgvVentas = new System.Windows.Forms.DataGridView();
-            this.TbfiltrarVentas = new System.Windows.Forms.TextBox();
+            this.TbBuscarVentas = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.CbNuevoDev = new System.Windows.Forms.CheckBox();
             this.TbRazon = new System.Windows.Forms.TextBox();
@@ -67,7 +67,7 @@
             this.GbHistorialDevo = new System.Windows.Forms.GroupBox();
             this.BtnVentas = new System.Windows.Forms.Button();
             this.DgvDevoluciones = new System.Windows.Forms.DataGridView();
-            this.TbBuscar = new System.Windows.Forms.TextBox();
+            this.TbBuscarDevol = new System.Windows.Forms.TextBox();
             this.BtnBuscarDevoluciones = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -75,6 +75,8 @@
             this.BtnDevoluciones = new System.Windows.Forms.Button();
             this.BtnBuscarVentas = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.DtpFechaDevo = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.DgvVentas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbCerrar)).BeginInit();
             this.GbCliente.SuspendLayout();
@@ -112,12 +114,12 @@
             this.DgvVentas.TabIndex = 22;
             this.DgvVentas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvVentas_CellContentClick);
             // 
-            // TbfiltrarVentas
+            // TbBuscarVentas
             // 
-            this.TbfiltrarVentas.Location = new System.Drawing.Point(10, 267);
-            this.TbfiltrarVentas.Name = "TbfiltrarVentas";
-            this.TbfiltrarVentas.Size = new System.Drawing.Size(148, 26);
-            this.TbfiltrarVentas.TabIndex = 16;
+            this.TbBuscarVentas.Location = new System.Drawing.Point(10, 267);
+            this.TbBuscarVentas.Name = "TbBuscarVentas";
+            this.TbBuscarVentas.Size = new System.Drawing.Size(148, 26);
+            this.TbBuscarVentas.TabIndex = 16;
             // 
             // label5
             // 
@@ -201,6 +203,8 @@
             // 
             // GbCliente
             // 
+            this.GbCliente.Controls.Add(this.label6);
+            this.GbCliente.Controls.Add(this.DtpFechaDevo);
             this.GbCliente.Controls.Add(this.TbIdVenta);
             this.GbCliente.Controls.Add(this.CbNuevoDev);
             this.GbCliente.Controls.Add(this.TbRazon);
@@ -340,6 +344,7 @@
             this.BtnGuardar.TabIndex = 12;
             this.BtnGuardar.Text = "Guardar";
             this.BtnGuardar.UseVisualStyleBackColor = true;
+            this.BtnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
             // 
             // DgvDevolucionDetalle
             // 
@@ -446,7 +451,7 @@
             // 
             this.GbHistorialDevo.Controls.Add(this.BtnVentas);
             this.GbHistorialDevo.Controls.Add(this.DgvDevoluciones);
-            this.GbHistorialDevo.Controls.Add(this.TbBuscar);
+            this.GbHistorialDevo.Controls.Add(this.TbBuscarDevol);
             this.GbHistorialDevo.Controls.Add(this.BtnBuscarDevoluciones);
             this.GbHistorialDevo.Controls.Add(this.label7);
             this.GbHistorialDevo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -483,12 +488,12 @@
             this.DgvDevoluciones.TabIndex = 22;
             this.DgvDevoluciones.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvDevoluciones_CellContentClick);
             // 
-            // TbBuscar
+            // TbBuscarDevol
             // 
-            this.TbBuscar.Location = new System.Drawing.Point(10, 267);
-            this.TbBuscar.Name = "TbBuscar";
-            this.TbBuscar.Size = new System.Drawing.Size(148, 26);
-            this.TbBuscar.TabIndex = 16;
+            this.TbBuscarDevol.Location = new System.Drawing.Point(10, 267);
+            this.TbBuscarDevol.Name = "TbBuscarDevol";
+            this.TbBuscarDevol.Size = new System.Drawing.Size(148, 26);
+            this.TbBuscarDevol.TabIndex = 16;
             // 
             // BtnBuscarDevoluciones
             // 
@@ -499,6 +504,7 @@
             this.BtnBuscarDevoluciones.TabIndex = 15;
             this.BtnBuscarDevoluciones.Text = "Buscar";
             this.BtnBuscarDevoluciones.UseVisualStyleBackColor = true;
+            this.BtnBuscarDevoluciones.Click += new System.EventHandler(this.BtnBuscarDevoluciones_Click);
             // 
             // label7
             // 
@@ -526,7 +532,7 @@
             this.GbVentas.Controls.Add(this.BtnDevoluciones);
             this.GbVentas.Controls.Add(this.DgvVentas);
             this.GbVentas.Controls.Add(this.BtnBuscarVentas);
-            this.GbVentas.Controls.Add(this.TbfiltrarVentas);
+            this.GbVentas.Controls.Add(this.TbBuscarVentas);
             this.GbVentas.Controls.Add(this.label5);
             this.GbVentas.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GbVentas.Location = new System.Drawing.Point(12, 248);
@@ -556,6 +562,7 @@
             this.BtnBuscarVentas.TabIndex = 24;
             this.BtnBuscarVentas.Text = "Buscar";
             this.BtnBuscarVentas.UseVisualStyleBackColor = true;
+            this.BtnBuscarVentas.Click += new System.EventHandler(this.BtnBuscarVentas_Click);
             // 
             // button1
             // 
@@ -565,6 +572,26 @@
             this.button1.TabIndex = 30;
             this.button1.Text = "CED";
             this.button1.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(226, 73);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(148, 19);
+            this.label6.TabIndex = 27;
+            this.label6.Text = "Fecha de la devolución";
+            // 
+            // DtpFechaDevo
+            // 
+            this.DtpFechaDevo.Enabled = false;
+            this.DtpFechaDevo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtpFechaDevo.Location = new System.Drawing.Point(230, 92);
+            this.DtpFechaDevo.Name = "DtpFechaDevo";
+            this.DtpFechaDevo.Size = new System.Drawing.Size(110, 26);
+            this.DtpFechaDevo.TabIndex = 26;
+            this.DtpFechaDevo.Value = new System.DateTime(2000, 1, 1, 19, 27, 0, 0);
             // 
             // FormDevoluciones
             // 
@@ -604,7 +631,7 @@
 
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DataGridView DgvVentas;
-        private System.Windows.Forms.TextBox TbfiltrarVentas;
+        private System.Windows.Forms.TextBox TbBuscarVentas;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.CheckBox CbNuevoDev;
         private System.Windows.Forms.TextBox TbRazon;
@@ -626,7 +653,7 @@
         private System.Windows.Forms.GroupBox GbHistorialDevo;
         private System.Windows.Forms.Button BtnVentas;
         private System.Windows.Forms.DataGridView DgvDevoluciones;
-        private System.Windows.Forms.TextBox TbBuscar;
+        private System.Windows.Forms.TextBox TbBuscarDevol;
         private System.Windows.Forms.Button BtnBuscarDevoluciones;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button BtnDevoluciones;
@@ -648,5 +675,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColSubTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColCantidadDev;
         private System.Windows.Forms.Button BtnCED;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DateTimePicker DtpFechaDevo;
     }
 }

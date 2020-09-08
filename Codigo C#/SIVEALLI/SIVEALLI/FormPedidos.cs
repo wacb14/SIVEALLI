@@ -250,7 +250,7 @@ namespace SIVEALLI
         }
         private void BtnFiltrarHistorial_Click(object sender, EventArgs e)
         {
-            DgvCatalogoProductos.CurrentCell = null;
+            DgvPedidos.CurrentCell = null;
             for (int k = DgvPedidos.Rows.Count - 1; k >= 0; k--)
             {
                 if (DgvPedidos.Rows[k].Cells[0].Value.ToString().Contains(TbfiltrarHistorial.Text))

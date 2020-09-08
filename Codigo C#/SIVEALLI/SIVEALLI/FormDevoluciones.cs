@@ -19,7 +19,7 @@ namespace SIVEALLI
         //--datos de entrada
         string aFecha;
         string aIdUsuario;
-        public FormDevoluciones(string Fecha,string idUsuario)
+        public FormDevoluciones(string idUsuario, string Fecha)
         {
             InitializeComponent();
             aFecha = Fecha;
@@ -134,6 +134,7 @@ namespace SIVEALLI
             TbId.Text = DgvDevoluciones.Rows[fila].Cells[0].Value.ToString();
             TbIdVenta.Text = DgvDevoluciones.Rows[fila].Cells[2].Value.ToString();
             TbRazon.Text = DgvDevoluciones.Rows[fila].Cells[3].Value.ToString();
+            DtpFechaDevo.Text = DgvDevoluciones.Rows[fila].Cells[4].Value.ToString();
             //--Se cargan los datos del descuento
             LblSubTotal.Text = Devolucion.TraerSubTotalVenta(TbIdVenta.Text);
             int filaVenta = DetFila(TbIdVenta.Text);
@@ -306,6 +307,84 @@ namespace SIVEALLI
             if (col == 5 && fila>=0)
             {
                 CalcularSub();
+            }
+        }
+
+        private void BtnGuardar_Click(object sender, EventArgs e)
+        {
+            if (TbId.Text.Trim() != "" && TbIdVenta.Text.Trim() != "" && TbRazon.Text.Trim() != "")
+            {
+                //MessageBox.Show("--"+DtpFechaPago.Text + "--" + aFecha+"--");
+                if (Devolucion.ExisteClavePrimaria(new string[] { TbId.Text }))
+                {//--Primero se agrega el elmento a la tabla TPedido
+                    Devolucion.Actualizar(new string[] { TbId.Text, aIdUsuario, TbIdVenta.Text, TbRazon.Text, aFecha });
+                    //--Se eliminan los productos del pedido
+                    DevolucionDetalle.EliminarRegistros(TbId.Text);
+                    //--Luego se guarda pedido detalle
+                    for (int k = 0; k < DgvDevolucionDetalle.Rows.Count; k++)
+                    {
+                        if (DgvDevolucionDetalle.Rows[k].Cells[7].Value.ToString().Split('-')[1].Trim() == "1")
+                        {
+                            string id = DgvDevolucionDetalle.Rows[k].Cells[1].Value.ToString();
+                            string Cant = DgvDevolucionDetalle.Rows[k].Cells[5].Value.ToString();
+                            string Estado = DgvDevolucionDetalle.Rows[k].Cells[3].Value.ToString();
+                            string precUni = DgvDevolucionDetalle.Rows[k].Cells[4].Value.ToString();
+                            if (DevolucionDetalle.ExisteClavePrimaria(2, new string[] { TbId.Text, id }))
+                                DevolucionDetalle.Actualizar(new string[] { TbId.Text, id, Cant, Estado, precUni });
+                            else
+                                DevolucionDetalle.Insertar(new string[] { TbId.Text, id, Cant, Estado, precUni });
+                        }
+                    }
+                }
+                else
+                {//--Primero se agrega el elmento a la tabla TPedido
+                    Devolucion.Insertar(new string[] { TbId.Text, aIdUsuario, TbIdVenta.Text, TbRazon.Text, aFecha });
+                    //--Luego se guarda pedido detalle
+                    for (int k = 0; k < DgvDevolucionDetalle.Rows.Count; k++)
+                    {
+                        if (DgvDevolucionDetalle.Rows[k].Cells[7].Value.ToString().Split('-')[1].Trim() == "1")
+                        {
+                            string id = DgvDevolucionDetalle.Rows[k].Cells[1].Value.ToString();
+                            string Cant = DgvDevolucionDetalle.Rows[k].Cells[5].Value.ToString();
+                            string Estado = DgvDevolucionDetalle.Rows[k].Cells[3].Value.ToString();
+                            string precUni = DgvDevolucionDetalle.Rows[k].Cells[4].Value.ToString();
+                            DevolucionDetalle.Insertar(new string[] { TbId.Text, id, Cant, Estado, precUni });
+                        }
+                    }
+                }
+                MessageBox.Show("Los datos se guardaron exitosamente", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
+            }
+            else MessageBox.Show("Todos los campos deben tener algun valor", "CUIDADO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void BtnBuscarDevoluciones_Click(object sender, EventArgs e)
+        {
+            DgvDevoluciones.CurrentCell = null;
+            for (int k = DgvDevoluciones.Rows.Count - 1; k >= 0; k--)
+            {
+                if (DgvDevoluciones.Rows[k].Cells[0].Value.ToString().Contains(TbBuscarDevol.Text))
+                    DgvDevoluciones.Rows[k].Visible = true;
+                else
+                {
+                    DgvDevoluciones.Rows[k].Visible = false;
+                }
+            }
+        }
+
+        private void BtnBuscarVentas_Click(object sender, EventArgs e)
+        {
+            //CurrencyManager cm = (CurrencyManager)BindingContext[DgvCatalogoProductos.DataSource];
+            //cm.SuspendBinding();
+            DgvVentas.CurrentCell = null;
+            for (int k = DgvVentas.Rows.Count - 1; k >= 0; k--)
+            {
+                if (DgvVentas.Rows[k].Cells[0].Value.ToString().Contains(TbBuscarVentas.Text))
+                    DgvVentas.Rows[k].Visible = true;
+                else
+                {
+                    DgvVentas.Rows[k].Visible = false;
+                }
             }
         }
     }

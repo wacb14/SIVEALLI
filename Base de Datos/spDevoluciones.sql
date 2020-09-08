@@ -53,7 +53,7 @@ begin
 	declare @IdVenta varchar(8)
 	select td.IdDevolucion,tdd.IdProducto,tdd.Cantidad,tdd.Estado,tdd.PrecioUnitario,td.IdVenta 
 		into #TabTemp
-		from TDevolucion td inner join TDevolucionDetalle tdd on td.IdDevolucion=tdd.IdDevolucion
+		from TDevolucion td left outer join TDevolucionDetalle tdd on td.IdDevolucion=tdd.IdDevolucion
 		where td.IdDevolucion=@IdDevolucion
 	select @IdVenta=IdVenta from #TabTemp
 	select tt.IdDevolucion,tvd.IdProducto,case when tt.Estado is NULL then tvd.Cantidad else tt.Cantidad end as 'Cantidad',tt.Estado,tvd.PrecioUnitario,tvd.Cantidad as Cant
@@ -61,8 +61,25 @@ begin
 		where tvd.IdVenta=@IdVenta
 end;
 go
-
-select * from TDevolucion where IdVenta='VE000000'
-select * from TDevolucionDetalle where IdDevolucion='DE000001'
-select * from TVentaDetalle where IdVenta='VE000001'
-spuExisteIdTDevolucionDetalle2 'DE000002'
+-----------------------------------------------------------------------------------------------------
+if exists (select * from sysobjects where name='spuExisteClavePrimariaTDevolucion') 
+	drop procedure spuExisteClavePrimariaTDevolucion
+go
+create procedure spuExisteClavePrimariaTDevolucion @IdDevolucion varchar(8)
+as
+begin
+	select * from TDevolucion
+	where IdDevolucion=@IdDevolucion
+end;
+go
+------------------------------------------------------------------------------------------------
+if exists (select * from sysobjects where name='spuExisteClavePrimariaTDevolucionDetalle') 
+	drop procedure spuExisteClavePrimariaTDevolucionDetalle
+go
+create procedure spuExisteClavePrimariaTDevolucionDetalle @IdDevolucion varchar(8),@IdProducto varchar(8)
+as
+begin
+	select * from TDevolucionDetalle
+	where IdDevolucion = @IdDevolucion and IdProducto=@IdProducto
+end;
+go

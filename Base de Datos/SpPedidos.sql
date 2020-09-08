@@ -58,7 +58,7 @@ go
 if exists (select * from sysobjects where name='spuExisteIdTPedido') 
 	drop procedure spuExisteIdTPedido
 go
-create procedure spuExisteIdTPedido @IdPedido varchar(40)
+create procedure spuExisteIdTPedido @IdPedido varchar(8)
 as
 begin
 	select * from TPedido
@@ -69,7 +69,7 @@ go
 if exists (select * from sysobjects where name='spuExisteIdTPedidoDetalle') 
 	drop procedure spuExisteIdTPedidoDetalle
 go
-create procedure spuExisteIdTPedidoDetalle @IdPedido varchar(40)
+create procedure spuExisteIdTPedidoDetalle @IdPedido varchar(8)
 as
 begin
 	select * from TPedidoDetalle
