@@ -81,5 +81,28 @@ namespace BibClases
             //--Ejecutar la consulta para insertar el registro
             return aConexion.Datos.Tables[0].Rows[0][0].ToString();
         }
+
+        /*public override void Insertar(params string[] Atributos)
+        {
+            aNuevo = true;
+            aValores = Atributos;
+            //--Formar cadena de insercion 
+            string CadenaInsertar = "exec agregarUsuario '";
+            for (int k = 0; k < aValores.Length; k++)
+            {   //--Incluir los atributos en la consulta
+                CadenaInsertar += aValores[k];
+                if (k == aValores.Length - 1)
+                    //--Se concatena el ultimo atributo, Terminar la consulta
+                    CadenaInsertar += "'";
+                else //dejar la consulta lista para el siguiente atributo
+                    CadenaInsertar += "','";
+            }
+
+            MessageBox.Show("Guardar sobreescrito: " + CadenaInsertar);
+            //--Ejecutar la consulta para insertar el registro
+            aConexion.EjecutarComando(CadenaInsertar);
+            aNuevo = false;
+        }
+        */
     }
 }

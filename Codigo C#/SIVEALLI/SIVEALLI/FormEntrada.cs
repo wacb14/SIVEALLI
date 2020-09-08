@@ -28,7 +28,6 @@ namespace SIVEALLI
             IniciarEntidad(new CEntrada());
             EventosYValidaciones();
 
-            //vScrollBar1 = cbCodigoEntrada.scro Template.FindName("DropDownScrollViewer", cbCodigoEntrada) as ScrollViewer;
             this.codigoUsuario = usuario;
         }
 
@@ -174,6 +173,7 @@ namespace SIVEALLI
 
         public override void MostrarDatos()
         {
+
             //MessageBox.Show(aEntidad.ValorAtributo("IdProveedor"));
             comboBoxCodigoProveedor.SelectedValue = aEntidad.ValorAtributo("IdProveedor");
             textBoxUsuario.Text = aEntidad.ValorAtributo("IdUsuario");
@@ -290,9 +290,9 @@ namespace SIVEALLI
 
         private void LLenarDatosControles(object sender, EventArgs e)
         {
-            //LlenarDatosProveedores();
-            //LlenarCodigoProductos();
-            //LlenarCodigoEntradas();
+            LlenarDatosProveedores();
+            LlenarCodigoProductos();
+            LlenarCodigoEntradas();
 
             textBoxUsuario.Text = codigoUsuario;
         }

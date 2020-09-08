@@ -116,11 +116,23 @@
     <Compile Include="FormEntrada.Designer.cs">
       <DependentUpon>FormEntrada.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormInicioSistema.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInicioSistema.Designer.cs">
+      <DependentUpon>FormInicioSistema.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNegocio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNegocio.Designer.cs">
+      <DependentUpon>FormNegocio.cs</DependentUpon>
     </Compile>
     <Compile Include="FormPadre.cs">
       <SubType>Form</SubType>
@@ -244,6 +256,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormEntrada.resx">
       <DependentUpon>FormEntrada.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInicioSistema.resx">
+      <DependentUpon>FormInicioSistema.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>

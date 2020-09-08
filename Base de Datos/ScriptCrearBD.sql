@@ -69,9 +69,10 @@ create table TProveedor(
 	Direccion		varchar(35),
 	Telefono		varchar(12),
 	Correo			varchar(40),
-	Contraseña		varchar(12),
+	Contraseña		binary(64),
 	Tipo		varchar(10) check (Tipo in ('EMPLEADO', 'SUPERVISOR')),
 	Estado          varchar(10) check (Estado in ('RETIRADO','ACTIVO','OTRO')),
+	Salt UNIQUEIDENTIFIER,
 	PRIMARY KEY (IdUsuario)
  )
  go
@@ -217,12 +218,6 @@ insert into TProducto values('PR000005','Papel Bond Premium A4','Papel y sobres'
  insert into TProveedor values('PR004','Distribuciones Mark SA','Jiron San Sebastian 125','930656879','Mark@gmail.com','ACTIVO')
  insert into TProveedor values('PR005','Papeleria Rolf','Urb. Mariscal Gamarra','984409063','Rolf@gmail.com','ACTIVO')
 --------- DATOS USUARIOS ----------------------
-insert into TUsuario values('US001','Carlos','Carreta','Me la pelas','936686352','Mudos@15asoc.com','huevos1','SUPERVISOR','ACTIVO')
-insert into TUsuario values('US002','Quispe','Huchija Luigi','Me la pelas','936686352','GAaaa@15asoc.com','huevos1','SUPERVISOR','ACTIVO')
-insert into TUsuario values('US003','Dolores','Waywa','Me la pelas','936686352','Solores@15asoc.com','huevos1','EMPLEADO','ACTIVO')
-insert into TUsuario values('US004','Carlos','Carreta','Me la pelas','936686352','Mudos@15asoc.com','huevos1','EMPLEADO','ACTIVO')
-insert into TUsuario values('US005','Quispe','Huchija Luigi','Me la pelas','936686352','GAaaa@15asoc.com','huevos1','EMPLEADO','ACTIVO')
-insert into TUsuario values('US006','Dolores','Waywa','Me la pelas','936686352','Solores@15asoc.com','huevos1','EMPLEADO','ACTIVO')
 --------- DATOS CLIENTE ----------------------
 insert into TCliente values('CL000001','Jose','Carreta','El valle de la felicidad','936683452','Jose@15asoc.com')
 insert into TCliente values('CL000002','Marco','Sudado Pinto','Que te importa','936456352','GAaaa@15asoc.com')

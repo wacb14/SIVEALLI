@@ -225,14 +225,14 @@ namespace SIVEALLI
                 n = 2;
             }
             */
-            Grabar(1);
+            Grabar();
         }
 
         /// <summary>
         /// Guarda un registro en BD
         /// </summary>
         /// <param name="n"></param>
-        public virtual void Grabar(int n)
+        public virtual void Grabar()
         {
             try
             {
@@ -241,7 +241,7 @@ namespace SIVEALLI
                     //Recuperar atributos, el primer atributo es la clave
                     string[] Atributos = AsignarValoresAtributos();
                     //Verificar si existe clave primaria
-                    if (aEntidad.ExisteClavePrimaria(n, Atributos))
+                    if (aEntidad.ExisteClavePrimaria(Atributos))
                     {
                         aEntidad.Actualizar(Atributos);
                     }
@@ -251,7 +251,7 @@ namespace SIVEALLI
                     }
                     MessageBox.Show("Operacion realizada exitosamente", "Confirmacion");
                     InicializarAtributos();
-                    ListarRegistros();
+                    dataGridViewUsuarios.DataSource = aUsuario.ListaUsuarios();
                 }
                 else
                     MessageBox.Show("Debe completar el llenado del formulario", "ALERTA");

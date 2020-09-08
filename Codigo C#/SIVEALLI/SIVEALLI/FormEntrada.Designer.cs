@@ -83,7 +83,6 @@
             // 
             // comboBoxCodigoProveedor
             // 
-            this.comboBoxCodigoProveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCodigoProveedor.FormattingEnabled = true;
             this.comboBoxCodigoProveedor.Location = new System.Drawing.Point(152, 75);
             this.comboBoxCodigoProveedor.Name = "comboBoxCodigoProveedor";
@@ -169,8 +168,6 @@
             // 
             // cbCodigoEntrada
             // 
-            this.cbCodigoEntrada.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCodigoEntrada.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cbCodigoEntrada.FormattingEnabled = true;
             this.cbCodigoEntrada.IntegralHeight = false;
             this.cbCodigoEntrada.Location = new System.Drawing.Point(152, 41);
