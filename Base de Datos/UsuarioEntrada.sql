@@ -21,7 +21,7 @@ begin
 end;
 go
 
-create procedure spuCodigoNombreProveedor
+create procedure spuCodigoNombreProveedores
 as
 begin
 	select IdProveedor, Nombre from TProveedor
