@@ -207,11 +207,11 @@
             this.BtnGuardar.FlatAppearance.BorderSize = 0;
             this.BtnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("BtnGuardar.Image")));
-            this.BtnGuardar.Location = new System.Drawing.Point(250, 440);
+            this.BtnGuardar.Location = new System.Drawing.Point(242, 366);
             this.BtnGuardar.Margin = new System.Windows.Forms.Padding(4);
             this.BtnGuardar.Name = "BtnGuardar";
             this.BtnGuardar.Size = new System.Drawing.Size(68, 66);
-            this.BtnGuardar.TabIndex = 31;
+            this.BtnGuardar.TabIndex = 15;
             this.BtnGuardar.UseVisualStyleBackColor = true;
             this.BtnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
             // 
@@ -221,11 +221,11 @@
             this.BtnLimpiar.FlatAppearance.BorderSize = 0;
             this.BtnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnLimpiar.Image = ((System.Drawing.Image)(resources.GetObject("BtnLimpiar.Image")));
-            this.BtnLimpiar.Location = new System.Drawing.Point(17, 440);
+            this.BtnLimpiar.Location = new System.Drawing.Point(178, 366);
             this.BtnLimpiar.Margin = new System.Windows.Forms.Padding(4);
             this.BtnLimpiar.Name = "BtnLimpiar";
             this.BtnLimpiar.Size = new System.Drawing.Size(68, 66);
-            this.BtnLimpiar.TabIndex = 32;
+            this.BtnLimpiar.TabIndex = 16;
             this.BtnLimpiar.UseVisualStyleBackColor = true;
             this.BtnLimpiar.Click += new System.EventHandler(this.BtnLimpiar_Click);
             // 
@@ -238,7 +238,7 @@
             this.buttonEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.buttonEliminar.Name = "buttonEliminar";
             this.buttonEliminar.Size = new System.Drawing.Size(68, 66);
-            this.buttonEliminar.TabIndex = 33;
+            this.buttonEliminar.TabIndex = 20;
             this.buttonEliminar.UseVisualStyleBackColor = true;
             this.buttonEliminar.Click += new System.EventHandler(this.buttonEliminar_Click);
             // 
@@ -266,7 +266,7 @@
             this.comboBoxEstado.Location = new System.Drawing.Point(105, 332);
             this.comboBoxEstado.Name = "comboBoxEstado";
             this.comboBoxEstado.Size = new System.Drawing.Size(195, 27);
-            this.comboBoxEstado.TabIndex = 35;
+            this.comboBoxEstado.TabIndex = 14;
             // 
             // comboBoxTipo
             // 
@@ -277,7 +277,7 @@
             this.comboBoxTipo.Location = new System.Drawing.Point(105, 294);
             this.comboBoxTipo.Name = "comboBoxTipo";
             this.comboBoxTipo.Size = new System.Drawing.Size(195, 27);
-            this.comboBoxTipo.TabIndex = 36;
+            this.comboBoxTipo.TabIndex = 13;
             // 
             // dtpFecha
             // 
@@ -291,16 +291,16 @@
             this.btnCambioContra.Location = new System.Drawing.Point(595, 7);
             this.btnCambioContra.Name = "btnCambioContra";
             this.btnCambioContra.Size = new System.Drawing.Size(182, 33);
-            this.btnCambioContra.TabIndex = 38;
+            this.btnCambioContra.TabIndex = 19;
             this.btnCambioContra.Text = "Cambiar mi contraseña";
             this.btnCambioContra.UseVisualStyleBackColor = true;
             // 
             // btnRestaurarContra
             // 
-            this.btnRestaurarContra.Location = new System.Drawing.Point(17, 377);
+            this.btnRestaurarContra.Location = new System.Drawing.Point(17, 451);
             this.btnRestaurarContra.Name = "btnRestaurarContra";
             this.btnRestaurarContra.Size = new System.Drawing.Size(283, 56);
-            this.btnRestaurarContra.TabIndex = 39;
+            this.btnRestaurarContra.TabIndex = 17;
             this.btnRestaurarContra.Text = "Restaurar contraseña de usuario seleccionado";
             this.btnRestaurarContra.UseVisualStyleBackColor = true;
             // 
@@ -309,7 +309,7 @@
             this.btnRestMiCont.Location = new System.Drawing.Point(415, 7);
             this.btnRestMiCont.Name = "btnRestMiCont";
             this.btnRestMiCont.Size = new System.Drawing.Size(174, 33);
-            this.btnRestMiCont.TabIndex = 40;
+            this.btnRestMiCont.TabIndex = 18;
             this.btnRestMiCont.Text = "Restaurar mi contraseña";
             this.btnRestMiCont.UseVisualStyleBackColor = true;
             // 

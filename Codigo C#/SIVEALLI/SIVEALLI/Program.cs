@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BibClases;
 
 namespace SIVEALLI
 {
@@ -16,7 +17,19 @@ namespace SIVEALLI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormLogin());
+
+            CNegocio negocio = new CNegocio();
+
+            if(negocio.NumeroRegistros() >= 1)
+            {
+                Application.Run(new FormLogin());
+            }
+            else
+            {
+                Application.Run(new FormInicioSistema());
+            }
+
+            
         }
     }
 }

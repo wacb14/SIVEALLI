@@ -187,3 +187,4 @@ C:\Users\ASUS\source\repos\wacb14\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj\Debug
 C:\Users\ASUS\source\repos\wacb14\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj\Debug\SIVEALLI.exe
 C:\Users\ASUS\source\repos\wacb14\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj\Debug\SIVEALLI.pdb
 C:\Users\Marcelo\source\repos\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj\Debug\SIVEALLI.FormInicioSistema.resources
+C:\Users\Marcelo\source\repos\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj\Debug\SIVEALLI.FormNegocio.resources

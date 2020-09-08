@@ -30,6 +30,7 @@
         private void InitializeComponent()
         {
             this.ScVertical = new System.Windows.Forms.SplitContainer();
+            this.btnNegocio = new System.Windows.Forms.Button();
             this.BtnVentas = new System.Windows.Forms.Button();
             this.BtnDevoluciones = new System.Windows.Forms.Button();
             this.BtnReportes = new System.Windows.Forms.Button();
@@ -42,7 +43,6 @@
             this.ScHorizontal = new System.Windows.Forms.SplitContainer();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.labelUsuario = new System.Windows.Forms.Label();
-            this.btnNegocio = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ScVertical)).BeginInit();
             this.ScVertical.Panel1.SuspendLayout();
             this.ScVertical.Panel2.SuspendLayout();
@@ -79,6 +79,17 @@
             this.ScVertical.Size = new System.Drawing.Size(1264, 681);
             this.ScVertical.SplitterDistance = 174;
             this.ScVertical.TabIndex = 0;
+            // 
+            // btnNegocio
+            // 
+            this.btnNegocio.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNegocio.Location = new System.Drawing.Point(12, 349);
+            this.btnNegocio.Name = "btnNegocio";
+            this.btnNegocio.Size = new System.Drawing.Size(148, 34);
+            this.btnNegocio.TabIndex = 9;
+            this.btnNegocio.Text = "Datos negocio";
+            this.btnNegocio.UseVisualStyleBackColor = true;
+            this.btnNegocio.Click += new System.EventHandler(this.btnNegocio_Click);
             // 
             // BtnVentas
             // 
@@ -214,16 +225,6 @@
             this.labelUsuario.Name = "labelUsuario";
             this.labelUsuario.Size = new System.Drawing.Size(0, 19);
             this.labelUsuario.TabIndex = 0;
-            // 
-            // btnNegocio
-            // 
-            this.btnNegocio.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNegocio.Location = new System.Drawing.Point(12, 349);
-            this.btnNegocio.Name = "btnNegocio";
-            this.btnNegocio.Size = new System.Drawing.Size(148, 34);
-            this.btnNegocio.TabIndex = 9;
-            this.btnNegocio.Text = "Datos negocio";
-            this.btnNegocio.UseVisualStyleBackColor = true;
             // 
             // FormSupervisor
             // 

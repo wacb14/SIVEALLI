@@ -20,6 +20,7 @@ namespace SIVEALLI
         FrmReportes R;
         FormDevoluciones fd;
         FormVentas fv;
+        FormNegocio fn;
         public FormSupervisor(string codigoUsuario)
         {
             InitializeComponent();
@@ -160,6 +161,18 @@ namespace SIVEALLI
                 fv = new FormVentas(labelUsuario.Text, dtpFecha.Value.ToString("yyyy-MM-dd"));
                 AbrirFormPanel(fv);
             } 
+        }
+
+        private void btnNegocio_Click(object sender, EventArgs e)
+        {
+            DeshabilitarVisible();
+            if (ScHorizontal.Panel2.Controls.Contains(fn))
+                fn.Visible = true;
+            else
+            {
+                fn = new FormNegocio();
+                AbrirFormPanel(fn);
+            }
         }
     }
 }
