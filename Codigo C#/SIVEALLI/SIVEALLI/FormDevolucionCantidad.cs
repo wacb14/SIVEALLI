@@ -27,6 +27,7 @@ namespace SIVEALLI
         {
             if (aCantMax >= NudCantidad.Value)
             {
+                DgvDevolucionsDetalle.Rows[afila].Cells[5].Value = "0";
                 DgvDevolucionsDetalle.Rows[afila].Cells[5].Value = NudCantidad.Value.ToString();
                 Close();
             }
