@@ -131,3 +131,10 @@ begin
 end;
 go
 
+create procedure spuExisteClavePrimariaTNegocio @Id int
+as
+begin
+select * from TNegocio
+where IdModificacion = 0
+end;
+go
