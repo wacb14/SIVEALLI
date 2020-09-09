@@ -44,9 +44,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.BtnGuardar = new System.Windows.Forms.Button();
-            this.BtnLimpiar = new System.Windows.Forms.Button();
-            this.buttonEliminar = new System.Windows.Forms.Button();
             this.buttonNuevoUsuario = new System.Windows.Forms.Button();
             this.comboBoxEstado = new System.Windows.Forms.ComboBox();
             this.comboBoxTipo = new System.Windows.Forms.ComboBox();
@@ -54,6 +51,9 @@
             this.btnCambioContra = new System.Windows.Forms.Button();
             this.btnRestaurarContra = new System.Windows.Forms.Button();
             this.btnRestMiCont = new System.Windows.Forms.Button();
+            this.buttonEliminar = new System.Windows.Forms.Button();
+            this.BtnLimpiar = new System.Windows.Forms.Button();
+            this.BtnGuardar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsuarios)).BeginInit();
             this.SuspendLayout();
             // 
@@ -88,7 +88,7 @@
             this.dataGridViewUsuarios.Name = "dataGridViewUsuarios";
             this.dataGridViewUsuarios.ReadOnly = true;
             this.dataGridViewUsuarios.RowHeadersVisible = false;
-            this.dataGridViewUsuarios.Size = new System.Drawing.Size(739, 385);
+            this.dataGridViewUsuarios.Size = new System.Drawing.Size(739, 415);
             this.dataGridViewUsuarios.TabIndex = 2;
             // 
             // textBoxNombres
@@ -201,47 +201,6 @@
             this.label9.TabIndex = 13;
             this.label9.Text = "Tipo";
             // 
-            // BtnGuardar
-            // 
-            this.BtnGuardar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.BtnGuardar.FlatAppearance.BorderSize = 0;
-            this.BtnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("BtnGuardar.Image")));
-            this.BtnGuardar.Location = new System.Drawing.Point(242, 366);
-            this.BtnGuardar.Margin = new System.Windows.Forms.Padding(4);
-            this.BtnGuardar.Name = "BtnGuardar";
-            this.BtnGuardar.Size = new System.Drawing.Size(68, 66);
-            this.BtnGuardar.TabIndex = 15;
-            this.BtnGuardar.UseVisualStyleBackColor = true;
-            this.BtnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
-            // 
-            // BtnLimpiar
-            // 
-            this.BtnLimpiar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.BtnLimpiar.FlatAppearance.BorderSize = 0;
-            this.BtnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnLimpiar.Image = ((System.Drawing.Image)(resources.GetObject("BtnLimpiar.Image")));
-            this.BtnLimpiar.Location = new System.Drawing.Point(178, 366);
-            this.BtnLimpiar.Margin = new System.Windows.Forms.Padding(4);
-            this.BtnLimpiar.Name = "BtnLimpiar";
-            this.BtnLimpiar.Size = new System.Drawing.Size(68, 66);
-            this.BtnLimpiar.TabIndex = 16;
-            this.BtnLimpiar.UseVisualStyleBackColor = true;
-            this.BtnLimpiar.Click += new System.EventHandler(this.BtnLimpiar_Click);
-            // 
-            // buttonEliminar
-            // 
-            this.buttonEliminar.FlatAppearance.BorderSize = 0;
-            this.buttonEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonEliminar.Image = ((System.Drawing.Image)(resources.GetObject("buttonEliminar.Image")));
-            this.buttonEliminar.Location = new System.Drawing.Point(989, 440);
-            this.buttonEliminar.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonEliminar.Name = "buttonEliminar";
-            this.buttonEliminar.Size = new System.Drawing.Size(68, 66);
-            this.buttonEliminar.TabIndex = 20;
-            this.buttonEliminar.UseVisualStyleBackColor = true;
-            this.buttonEliminar.Click += new System.EventHandler(this.buttonEliminar_Click);
-            // 
             // buttonNuevoUsuario
             // 
             this.buttonNuevoUsuario.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -313,12 +272,42 @@
             this.btnRestMiCont.Text = "Restaurar mi contraseña";
             this.btnRestMiCont.UseVisualStyleBackColor = true;
             // 
+            // buttonEliminar
+            // 
+            this.buttonEliminar.Location = new System.Drawing.Point(918, 478);
+            this.buttonEliminar.Name = "buttonEliminar";
+            this.buttonEliminar.Size = new System.Drawing.Size(140, 29);
+            this.buttonEliminar.TabIndex = 38;
+            this.buttonEliminar.Text = "Desactivar usuario";
+            this.buttonEliminar.UseVisualStyleBackColor = true;
+            // 
+            // BtnLimpiar
+            // 
+            this.BtnLimpiar.Location = new System.Drawing.Point(772, 478);
+            this.BtnLimpiar.Name = "BtnLimpiar";
+            this.BtnLimpiar.Size = new System.Drawing.Size(140, 29);
+            this.BtnLimpiar.TabIndex = 39;
+            this.BtnLimpiar.Text = "Limpiar formulario";
+            this.BtnLimpiar.UseVisualStyleBackColor = true;
+            // 
+            // BtnGuardar
+            // 
+            this.BtnGuardar.Location = new System.Drawing.Point(160, 365);
+            this.BtnGuardar.Name = "BtnGuardar";
+            this.BtnGuardar.Size = new System.Drawing.Size(140, 29);
+            this.BtnGuardar.TabIndex = 40;
+            this.BtnGuardar.Text = "Guardar datos";
+            this.BtnGuardar.UseVisualStyleBackColor = true;
+            // 
             // FormUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1070, 519);
+            this.Controls.Add(this.BtnGuardar);
+            this.Controls.Add(this.BtnLimpiar);
+            this.Controls.Add(this.buttonEliminar);
             this.Controls.Add(this.btnRestMiCont);
             this.Controls.Add(this.btnRestaurarContra);
             this.Controls.Add(this.btnCambioContra);
@@ -326,9 +315,6 @@
             this.Controls.Add(this.comboBoxTipo);
             this.Controls.Add(this.comboBoxEstado);
             this.Controls.Add(this.buttonNuevoUsuario);
-            this.Controls.Add(this.buttonEliminar);
-            this.Controls.Add(this.BtnLimpiar);
-            this.Controls.Add(this.BtnGuardar);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.textBoxCorreo);
@@ -372,9 +358,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        public System.Windows.Forms.Button BtnGuardar;
-        protected System.Windows.Forms.Button BtnLimpiar;
-        private System.Windows.Forms.Button buttonEliminar;
         public System.Windows.Forms.Button buttonNuevoUsuario;
         private System.Windows.Forms.ComboBox comboBoxEstado;
         private System.Windows.Forms.ComboBox comboBoxTipo;
@@ -382,5 +365,8 @@
         private System.Windows.Forms.Button btnCambioContra;
         private System.Windows.Forms.Button btnRestaurarContra;
         private System.Windows.Forms.Button btnRestMiCont;
+        private System.Windows.Forms.Button buttonEliminar;
+        private System.Windows.Forms.Button BtnLimpiar;
+        private System.Windows.Forms.Button BtnGuardar;
     }
 }

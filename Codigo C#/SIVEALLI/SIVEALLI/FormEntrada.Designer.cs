@@ -42,6 +42,9 @@
             this.groupBoxEntradaProducto = new System.Windows.Forms.GroupBox();
             this.comboBoxCodigoProducto = new System.Windows.Forms.ComboBox();
             this.dataGridViewDetalleEntrada = new System.Windows.Forms.DataGridView();
+            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
+            this.textBoxUsuario = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.ColumnCodigoProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,11 +53,8 @@
             this.ColumnCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonEditar = new System.Windows.Forms.Button();
             this.buttonEliminarDetalle = new System.Windows.Forms.Button();
-            this.buttonListo = new System.Windows.Forms.Button();
-            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
-            this.textBoxUsuario = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.buttonLimpiar = new System.Windows.Forms.Button();
+            this.buttonListo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCantidad)).BeginInit();
             this.groupBoxDatosEntrada.SuspendLayout();
             this.groupBoxEntradaProducto.SuspendLayout();
@@ -215,14 +215,41 @@
             this.dataGridViewDetalleEntrada.Location = new System.Drawing.Point(12, 150);
             this.dataGridViewDetalleEntrada.Name = "dataGridViewDetalleEntrada";
             this.dataGridViewDetalleEntrada.ReadOnly = true;
-            this.dataGridViewDetalleEntrada.Size = new System.Drawing.Size(970, 357);
+            this.dataGridViewDetalleEntrada.Size = new System.Drawing.Size(874, 357);
             this.dataGridViewDetalleEntrada.TabIndex = 37;
+            // 
+            // dtpFecha
+            // 
+            this.dtpFecha.Enabled = false;
+            this.dtpFecha.Location = new System.Drawing.Point(777, 12);
+            this.dtpFecha.Name = "dtpFecha";
+            this.dtpFecha.Size = new System.Drawing.Size(281, 26);
+            this.dtpFecha.TabIndex = 42;
+            // 
+            // textBoxUsuario
+            // 
+            this.textBoxUsuario.Enabled = false;
+            this.textBoxUsuario.Location = new System.Drawing.Point(535, 12);
+            this.textBoxUsuario.Name = "textBoxUsuario";
+            this.textBoxUsuario.Size = new System.Drawing.Size(100, 26);
+            this.textBoxUsuario.TabIndex = 43;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(454, 15);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(74, 19);
+            this.label3.TabIndex = 44;
+            this.label3.Text = "Supervisor";
             // 
             // ColumnCodigoProducto
             // 
             this.ColumnCodigoProducto.HeaderText = "Código";
             this.ColumnCodigoProducto.Name = "ColumnCodigoProducto";
             this.ColumnCodigoProducto.ReadOnly = true;
+            this.ColumnCodigoProducto.Width = 70;
             // 
             // ColumnNombre
             // 
@@ -250,92 +277,50 @@
             this.ColumnPrecioUnitacio.HeaderText = "Precio Unitario";
             this.ColumnPrecioUnitacio.Name = "ColumnPrecioUnitacio";
             this.ColumnPrecioUnitacio.ReadOnly = true;
-            this.ColumnPrecioUnitacio.Width = 200;
+            this.ColumnPrecioUnitacio.Width = 130;
             // 
             // ColumnCantidad
             // 
             this.ColumnCantidad.HeaderText = "Cantidad";
             this.ColumnCantidad.Name = "ColumnCantidad";
             this.ColumnCantidad.ReadOnly = true;
-            this.ColumnCantidad.Width = 80;
+            this.ColumnCantidad.Width = 75;
             // 
             // buttonEditar
             // 
-            this.buttonEditar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.buttonEditar.FlatAppearance.BorderSize = 0;
-            this.buttonEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonEditar.Image = ((System.Drawing.Image)(resources.GetObject("buttonEditar.Image")));
-            this.buttonEditar.Location = new System.Drawing.Point(989, 150);
-            this.buttonEditar.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonEditar.Location = new System.Drawing.Point(906, 178);
             this.buttonEditar.Name = "buttonEditar";
-            this.buttonEditar.Size = new System.Drawing.Size(68, 66);
-            this.buttonEditar.TabIndex = 38;
+            this.buttonEditar.Size = new System.Drawing.Size(152, 33);
+            this.buttonEditar.TabIndex = 46;
+            this.buttonEditar.Text = "Editar Cantidad";
             this.buttonEditar.UseVisualStyleBackColor = true;
             // 
             // buttonEliminarDetalle
             // 
-            this.buttonEliminarDetalle.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.buttonEliminarDetalle.FlatAppearance.BorderSize = 0;
-            this.buttonEliminarDetalle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonEliminarDetalle.Image = ((System.Drawing.Image)(resources.GetObject("buttonEliminarDetalle.Image")));
-            this.buttonEliminarDetalle.Location = new System.Drawing.Point(989, 224);
-            this.buttonEliminarDetalle.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonEliminarDetalle.Location = new System.Drawing.Point(906, 217);
             this.buttonEliminarDetalle.Name = "buttonEliminarDetalle";
-            this.buttonEliminarDetalle.Size = new System.Drawing.Size(68, 66);
-            this.buttonEliminarDetalle.TabIndex = 39;
+            this.buttonEliminarDetalle.Size = new System.Drawing.Size(152, 33);
+            this.buttonEliminarDetalle.TabIndex = 47;
+            this.buttonEliminarDetalle.Text = "Borrar linea";
             this.buttonEliminarDetalle.UseVisualStyleBackColor = true;
-            // 
-            // buttonListo
-            // 
-            this.buttonListo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.buttonListo.FlatAppearance.BorderSize = 0;
-            this.buttonListo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonListo.Image = ((System.Drawing.Image)(resources.GetObject("buttonListo.Image")));
-            this.buttonListo.Location = new System.Drawing.Point(990, 440);
-            this.buttonListo.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonListo.Name = "buttonListo";
-            this.buttonListo.Size = new System.Drawing.Size(68, 66);
-            this.buttonListo.TabIndex = 41;
-            this.buttonListo.UseVisualStyleBackColor = true;
-            // 
-            // dtpFecha
-            // 
-            this.dtpFecha.Enabled = false;
-            this.dtpFecha.Location = new System.Drawing.Point(789, 12);
-            this.dtpFecha.Name = "dtpFecha";
-            this.dtpFecha.Size = new System.Drawing.Size(269, 26);
-            this.dtpFecha.TabIndex = 42;
-            // 
-            // textBoxUsuario
-            // 
-            this.textBoxUsuario.Enabled = false;
-            this.textBoxUsuario.Location = new System.Drawing.Point(535, 12);
-            this.textBoxUsuario.Name = "textBoxUsuario";
-            this.textBoxUsuario.Size = new System.Drawing.Size(100, 26);
-            this.textBoxUsuario.TabIndex = 43;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(454, 15);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 19);
-            this.label3.TabIndex = 44;
-            this.label3.Text = "Supervisor";
             // 
             // buttonLimpiar
             // 
-            this.buttonLimpiar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.buttonLimpiar.FlatAppearance.BorderSize = 0;
-            this.buttonLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonLimpiar.Image = ((System.Drawing.Image)(resources.GetObject("buttonLimpiar.Image")));
-            this.buttonLimpiar.Location = new System.Drawing.Point(989, 366);
-            this.buttonLimpiar.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonLimpiar.Location = new System.Drawing.Point(910, 435);
             this.buttonLimpiar.Name = "buttonLimpiar";
-            this.buttonLimpiar.Size = new System.Drawing.Size(68, 66);
-            this.buttonLimpiar.TabIndex = 45;
+            this.buttonLimpiar.Size = new System.Drawing.Size(152, 33);
+            this.buttonLimpiar.TabIndex = 48;
+            this.buttonLimpiar.Text = "Limpiar datos";
             this.buttonLimpiar.UseVisualStyleBackColor = true;
+            // 
+            // buttonListo
+            // 
+            this.buttonListo.Location = new System.Drawing.Point(910, 474);
+            this.buttonListo.Name = "buttonListo";
+            this.buttonListo.Size = new System.Drawing.Size(152, 33);
+            this.buttonListo.TabIndex = 49;
+            this.buttonListo.Text = "Guardar entrada";
+            this.buttonListo.UseVisualStyleBackColor = true;
             // 
             // FormEntrada
             // 
@@ -343,13 +328,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1070, 519);
+            this.Controls.Add(this.buttonListo);
             this.Controls.Add(this.buttonLimpiar);
+            this.Controls.Add(this.buttonEliminarDetalle);
+            this.Controls.Add(this.buttonEditar);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBoxUsuario);
             this.Controls.Add(this.dtpFecha);
-            this.Controls.Add(this.buttonListo);
-            this.Controls.Add(this.buttonEliminarDetalle);
-            this.Controls.Add(this.buttonEditar);
             this.Controls.Add(this.dataGridViewDetalleEntrada);
             this.Controls.Add(this.groupBoxEntradaProducto);
             this.Controls.Add(this.groupBoxDatosEntrada);
@@ -382,19 +367,19 @@
         private System.Windows.Forms.GroupBox groupBoxEntradaProducto;
         private System.Windows.Forms.DataGridView dataGridViewDetalleEntrada;
         private System.Windows.Forms.ComboBox comboBoxCodigoProducto;
-        protected System.Windows.Forms.Button buttonEditar;
-        protected System.Windows.Forms.Button buttonEliminarDetalle;
-        protected System.Windows.Forms.Button buttonListo;
+        private System.Windows.Forms.ComboBox cbCodigoEntrada;
+        private System.Windows.Forms.DateTimePicker dtpFecha;
+        private System.Windows.Forms.TextBox textBoxUsuario;
+        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCodigoProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCategoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnMarca;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPrecioUnitacio;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCantidad;
-        private System.Windows.Forms.ComboBox cbCodigoEntrada;
-        private System.Windows.Forms.DateTimePicker dtpFecha;
-        private System.Windows.Forms.TextBox textBoxUsuario;
-        private System.Windows.Forms.Label label3;
-        protected System.Windows.Forms.Button buttonLimpiar;
+        private System.Windows.Forms.Button buttonEditar;
+        private System.Windows.Forms.Button buttonEliminarDetalle;
+        private System.Windows.Forms.Button buttonLimpiar;
+        private System.Windows.Forms.Button buttonListo;
     }
 }
