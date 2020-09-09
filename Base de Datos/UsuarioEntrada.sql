@@ -54,13 +54,10 @@ go
 create procedure ListaUsuariosSinContragna
 as
 begin
-select IdUsuario, 
-Nombres, 
-Apellidos, 
-Telefono, 
-Correo, 
-Estado, Tipo, Direccion from TUsuario
+select IdUsuario, Nombres, Apellidos, Telefono, Correo, Estado, Tipo, Direccion 
+	from TUsuario
 end;
+go
 
 create procedure spu_TUsuario_Modificar_SinContrsegna
 	@IdUsuario varchar(5),
@@ -82,7 +79,7 @@ begin  --verificacion de clave primaria
 	end;
 	else
 		select codError = 1, mensaje = 'El objeto TUsuario no existe'
-end;
+	end;
 go
 
 
@@ -98,7 +95,7 @@ begin
 	end;
 	else
 		select codError = 1, mensaje = 'El objeto TUsuario no existe'
-end;
+	end;
 go
 
 create procedure ObtenerContrasegna @IdUsuario varchar(5)
@@ -131,10 +128,3 @@ begin
 end;
 go
 
-create procedure spuExisteClavePrimariaTNegocio @Id int
-as
-begin
-select * from TNegocio
-where IdModificacion = 0
-end;
-go
