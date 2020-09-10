@@ -41,6 +41,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.PbCerrar = new System.Windows.Forms.PictureBox();
             this.GbCliente = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.DtpFechaDevo = new System.Windows.Forms.DateTimePicker();
             this.TbIdVenta = new System.Windows.Forms.TextBox();
             this.CbProveedores = new System.Windows.Forms.GroupBox();
             this.BtnCED = new System.Windows.Forms.Button();
@@ -75,8 +77,8 @@
             this.BtnDevoluciones = new System.Windows.Forms.Button();
             this.BtnBuscarVentas = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.DtpFechaDevo = new System.Windows.Forms.DateTimePicker();
+            this.BtnLimpiar = new System.Windows.Forms.Button();
+            this.BtnNuevo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DgvVentas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbCerrar)).BeginInit();
             this.GbCliente.SuspendLayout();
@@ -220,6 +222,26 @@
             this.GbCliente.TabStop = false;
             this.GbCliente.Text = "Datos de la devolución";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(226, 73);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(148, 19);
+            this.label6.TabIndex = 27;
+            this.label6.Text = "Fecha de la devolución";
+            // 
+            // DtpFechaDevo
+            // 
+            this.DtpFechaDevo.Enabled = false;
+            this.DtpFechaDevo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtpFechaDevo.Location = new System.Drawing.Point(230, 92);
+            this.DtpFechaDevo.Name = "DtpFechaDevo";
+            this.DtpFechaDevo.Size = new System.Drawing.Size(110, 26);
+            this.DtpFechaDevo.TabIndex = 26;
+            this.DtpFechaDevo.Value = new System.DateTime(2000, 1, 1, 19, 27, 0, 0);
+            // 
             // TbIdVenta
             // 
             this.TbIdVenta.Location = new System.Drawing.Point(9, 95);
@@ -230,7 +252,9 @@
             // 
             // CbProveedores
             // 
+            this.CbProveedores.Controls.Add(this.BtnLimpiar);
             this.CbProveedores.Controls.Add(this.BtnCED);
+            this.CbProveedores.Controls.Add(this.BtnNuevo);
             this.CbProveedores.Controls.Add(this.label3);
             this.CbProveedores.Controls.Add(this.LblTotalPagar);
             this.CbProveedores.Controls.Add(this.Lbl12);
@@ -573,25 +597,25 @@
             this.button1.Text = "CED";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // label6
+            // BtnLimpiar
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(226, 73);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(148, 19);
-            this.label6.TabIndex = 27;
-            this.label6.Text = "Fecha de la devolución";
+            this.BtnLimpiar.Location = new System.Drawing.Point(239, 437);
+            this.BtnLimpiar.Name = "BtnLimpiar";
+            this.BtnLimpiar.Size = new System.Drawing.Size(92, 37);
+            this.BtnLimpiar.TabIndex = 53;
+            this.BtnLimpiar.Text = "Limpiar";
+            this.BtnLimpiar.UseVisualStyleBackColor = true;
+            this.BtnLimpiar.Click += new System.EventHandler(this.BtnLimpiar_Click);
             // 
-            // DtpFechaDevo
+            // BtnNuevo
             // 
-            this.DtpFechaDevo.Enabled = false;
-            this.DtpFechaDevo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtpFechaDevo.Location = new System.Drawing.Point(230, 92);
-            this.DtpFechaDevo.Name = "DtpFechaDevo";
-            this.DtpFechaDevo.Size = new System.Drawing.Size(110, 26);
-            this.DtpFechaDevo.TabIndex = 26;
-            this.DtpFechaDevo.Value = new System.DateTime(2000, 1, 1, 19, 27, 0, 0);
+            this.BtnNuevo.Location = new System.Drawing.Point(123, 437);
+            this.BtnNuevo.Name = "BtnNuevo";
+            this.BtnNuevo.Size = new System.Drawing.Size(92, 37);
+            this.BtnNuevo.TabIndex = 52;
+            this.BtnNuevo.Text = "Nuevo";
+            this.BtnNuevo.UseVisualStyleBackColor = true;
+            this.BtnNuevo.Click += new System.EventHandler(this.BtnNuevo_Click);
             // 
             // FormDevoluciones
             // 
@@ -677,5 +701,7 @@
         private System.Windows.Forms.Button BtnCED;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DateTimePicker DtpFechaDevo;
+        private System.Windows.Forms.Button BtnLimpiar;
+        private System.Windows.Forms.Button BtnNuevo;
     }
 }

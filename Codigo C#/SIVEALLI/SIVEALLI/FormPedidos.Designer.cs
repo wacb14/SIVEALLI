@@ -67,6 +67,8 @@
             this.TbFiltrar = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.PbCerrar = new System.Windows.Forms.PictureBox();
+            this.BtnLimpiar = new System.Windows.Forms.Button();
+            this.BtnNuevo = new System.Windows.Forms.Button();
             this.CbProveedores.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvPedidosDetalle)).BeginInit();
             this.GbHistotialPedidos.SuspendLayout();
@@ -80,7 +82,9 @@
             // 
             // CbProveedores
             // 
+            this.CbProveedores.Controls.Add(this.BtnLimpiar);
             this.CbProveedores.Controls.Add(this.BtnGuardar);
+            this.CbProveedores.Controls.Add(this.BtnNuevo);
             this.CbProveedores.Controls.Add(this.DgvPedidosDetalle);
             this.CbProveedores.Controls.Add(this.button5);
             this.CbProveedores.Controls.Add(this.LTotal);
@@ -476,6 +480,26 @@
             this.PbCerrar.TabStop = false;
             this.PbCerrar.Click += new System.EventHandler(this.PbCerrar_Click);
             // 
+            // BtnLimpiar
+            // 
+            this.BtnLimpiar.Location = new System.Drawing.Point(238, 436);
+            this.BtnLimpiar.Name = "BtnLimpiar";
+            this.BtnLimpiar.Size = new System.Drawing.Size(92, 37);
+            this.BtnLimpiar.TabIndex = 36;
+            this.BtnLimpiar.Text = "Limpiar";
+            this.BtnLimpiar.UseVisualStyleBackColor = true;
+            this.BtnLimpiar.Click += new System.EventHandler(this.BtnLimpiar_Click);
+            // 
+            // BtnNuevo
+            // 
+            this.BtnNuevo.Location = new System.Drawing.Point(122, 436);
+            this.BtnNuevo.Name = "BtnNuevo";
+            this.BtnNuevo.Size = new System.Drawing.Size(92, 37);
+            this.BtnNuevo.TabIndex = 35;
+            this.BtnNuevo.Text = "Nuevo";
+            this.BtnNuevo.UseVisualStyleBackColor = true;
+            this.BtnNuevo.Click += new System.EventHandler(this.BtnNuevo_Click);
+            // 
             // FormPedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -550,5 +574,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.CheckBox CbNuevoPed;
         private System.Windows.Forms.PictureBox PbCerrar;
+        private System.Windows.Forms.Button BtnLimpiar;
+        private System.Windows.Forms.Button BtnNuevo;
     }
 }

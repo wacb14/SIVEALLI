@@ -110,7 +110,7 @@ namespace SIVEALLI
                 fp.Visible = true;
             else
             {
-                fp = new FormPedidos(labelUsuario.Text, "02/02/2020");
+                fp = new FormPedidos(labelUsuario.Text, dtpFecha.Value.ToString().Split(' ')[0]);
                 AbrirFormPanel(fp);
             }
         }
@@ -147,7 +147,7 @@ namespace SIVEALLI
                 fd.Visible = true;
             else
             {
-                fd = new FormDevoluciones(labelUsuario.Text, "02/02/2020");
+                fd = new FormDevoluciones(labelUsuario.Text, dtpFecha.Value.ToString().Split(' ')[0]);
                 AbrirFormPanel(fd);
             }
         }

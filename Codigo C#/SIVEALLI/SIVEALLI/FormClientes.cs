@@ -175,6 +175,16 @@ namespace SIVEALLI
         {
             Close();
         }
+
+        private void BtnNuevo_Click(object sender, EventArgs e)
+        {
+            CbNuevoPed.Checked = true;
+        }
+
+        private void BtnLimpiar_Click(object sender, EventArgs e)
+        {
+            DejarEnBlanco();
+        }
     }
 }
 

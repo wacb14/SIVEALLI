@@ -387,5 +387,19 @@ namespace SIVEALLI
                 }
             }
         }
+
+        private void BtnNuevo_Click(object sender, EventArgs e)
+        {
+            CbNuevoDev.Checked = true;
+        }
+
+        private void BtnLimpiar_Click(object sender, EventArgs e)
+        {
+            TbIdVenta.Text = "";
+            TbBuscarDevol.Text = "";
+            TbBuscarVentas.Text = "";
+            TbRazon.Text = "";
+            DgvDevolucionDetalle.Rows.Clear();
+        }
     }
 }

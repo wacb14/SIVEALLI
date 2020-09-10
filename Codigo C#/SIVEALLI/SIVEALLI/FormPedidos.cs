@@ -347,5 +347,19 @@ namespace SIVEALLI
         {
             Close();
         }
+
+        private void BtnNuevo_Click(object sender, EventArgs e)
+        {
+            CbNuevoPed.Checked = true;
+        }
+
+        private void BtnLimpiar_Click(object sender, EventArgs e)
+        {
+            TbFiltrar.Text = "";
+            TbfiltrarHistorial.Text = "";
+            TbTermEntrega.Text = "";
+            CbProv.SelectedIndex = 0;
+            DgvPedidosDetalle.Rows.Clear();
+        }
     }
 }

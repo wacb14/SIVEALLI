@@ -56,6 +56,8 @@
             this.CbNuevoPed = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.PbCerrar = new System.Windows.Forms.PictureBox();
+            this.BtnLimpiar = new System.Windows.Forms.Button();
+            this.BtnNuevo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DgvClientes)).BeginInit();
             this.GbClientes.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -294,6 +296,8 @@
             // 
             // GbCliente
             // 
+            this.GbCliente.Controls.Add(this.BtnLimpiar);
+            this.GbCliente.Controls.Add(this.BtnNuevo);
             this.GbCliente.Controls.Add(this.CbNuevoPed);
             this.GbCliente.Controls.Add(this.BtnGuardar);
             this.GbCliente.Controls.Add(this.TbCorreo);
@@ -348,6 +352,26 @@
             this.PbCerrar.TabIndex = 7;
             this.PbCerrar.TabStop = false;
             this.PbCerrar.Click += new System.EventHandler(this.PbCerrar_Click);
+            // 
+            // BtnLimpiar
+            // 
+            this.BtnLimpiar.Location = new System.Drawing.Point(10, 451);
+            this.BtnLimpiar.Name = "BtnLimpiar";
+            this.BtnLimpiar.Size = new System.Drawing.Size(92, 37);
+            this.BtnLimpiar.TabIndex = 29;
+            this.BtnLimpiar.Text = "Limpiar";
+            this.BtnLimpiar.UseVisualStyleBackColor = true;
+            this.BtnLimpiar.Click += new System.EventHandler(this.BtnLimpiar_Click);
+            // 
+            // BtnNuevo
+            // 
+            this.BtnNuevo.Location = new System.Drawing.Point(10, 408);
+            this.BtnNuevo.Name = "BtnNuevo";
+            this.BtnNuevo.Size = new System.Drawing.Size(92, 37);
+            this.BtnNuevo.TabIndex = 28;
+            this.BtnNuevo.Text = "Nuevo";
+            this.BtnNuevo.UseVisualStyleBackColor = true;
+            this.BtnNuevo.Click += new System.EventHandler(this.BtnNuevo_Click);
             // 
             // FormClientes
             // 
@@ -404,5 +428,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox CbNuevoPed;
         private System.Windows.Forms.PictureBox PbCerrar;
+        private System.Windows.Forms.Button BtnLimpiar;
+        private System.Windows.Forms.Button BtnNuevo;
     }
 }
