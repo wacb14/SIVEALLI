@@ -19,6 +19,8 @@ namespace SIVEALLI
 
         private void FrmMostrarReporteProductos_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'DataSetPrincipal.spuReporteFechaHoy' Puede moverla o quitarla según sea necesario.
+            this.spuReporteFechaHoyTableAdapter.Fill(this.DataSetPrincipal.spuReporteFechaHoy);
             // TODO: esta línea de código carga datos en la tabla 'DataSetPrincipal.spuListarProductosSinImagen' Puede moverla o quitarla según sea necesario.
             this.spuListarProductosSinImagenTableAdapter.Fill(this.DataSetPrincipal.spuListarProductosSinImagen);
             // TODO: esta línea de código carga datos en la tabla 'DataSetPrincipal.spuNumeroDeProductos' Puede moverla o quitarla según sea necesario.

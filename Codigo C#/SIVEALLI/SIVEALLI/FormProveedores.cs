@@ -78,11 +78,14 @@ namespace SIVEALLI
         public override void ListarRegistros()
         {
             DgvProveedores.DataSource = aEntidad.ListaGeneral();
+            LblNumeroProveedores.Text = LblNumeroProveedores.Text.Split(':')[0] + ": " + DgvProveedores.Rows.Count.ToString();
+
         }
         public override bool EsRegistroValido()
         {
             if (TxtCodigo.Text.Trim() != "" &&
                 TxtNombres.Text.Trim() != "" &&
+                TxtTelefono.Text.Trim() != "" &&
                 TxtDireccion.Text.Trim() != "" &&
                 TxtCorreo.Text.Trim() != "" &&
                 CboEstado.Text.Trim() != "")
@@ -99,6 +102,7 @@ namespace SIVEALLI
         private void FormProveedores_Load(object sender, EventArgs e)
         {
             ListarRegistros();
+            this.DgvProveedores.DefaultCellStyle.Font = new Font("Tahoma", 15);
         }
 
         private void BtnNuevo_Click(object sender, EventArgs e)
@@ -109,7 +113,7 @@ namespace SIVEALLI
                 cantCeros = "00";
             else if (cant < 100)
                 cantCeros = "0";
-
+            InicializarAtributos();
             TxtCodigo.Text = "PR" + cantCeros + (cant + 1);
 
             TxtNombres.Focus();
@@ -152,6 +156,58 @@ namespace SIVEALLI
             {
                 MessageBox.Show(e.ToString(), "Error al realizar la operacion");
             }
+        }
+
+        public virtual void CambiarEstado(int n)
+        {
+            try
+            {
+                if (EsRegistroValido())
+                {
+                    //Recuperar atributos, el primer atributo es la clave
+                    string[] Atributos = { TxtCodigo.Text,
+                    TxtNombres.Text, TxtDireccion.Text,
+                    TxtTelefono.Text, TxtCorreo.Text,
+                    "RETIRADO"};
+                    //Verificar si existe clave primaria
+                    if (aEntidad.ExisteClavePrimaria(n, Atributos))
+                    {
+                        aEntidad.Actualizar(Atributos);
+                    }
+                    else
+                    {
+                        aEntidad.Insertar(Atributos);
+                    }
+                    MessageBox.Show("Operacion realizada exitosamente", "Confirmacion");
+                    InicializarAtributos();
+                    ListarRegistros();
+                }
+                else
+                    MessageBox.Show("Debe completar el llenado del formulario", "ALERTA");
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString(), "Error al realizar la operacion");
+            }
+        }
+
+        private void DgvProveedores_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int fila = e.RowIndex;
+            if (fila >= 0)
+            {
+                TxtCodigo.Text = DgvProveedores.Rows[fila].Cells[0].Value.ToString();
+                TxtNombres.Text = DgvProveedores.Rows[fila].Cells[1].Value.ToString();
+                TxtDireccion.Text = DgvProveedores.Rows[fila].Cells[2].Value.ToString();
+                TxtTelefono.Text = DgvProveedores.Rows[fila].Cells[3].Value.ToString();
+                TxtCorreo.Text = DgvProveedores.Rows[fila].Cells[4].Value.ToString();
+                CboEstado.Text = DgvProveedores.Rows[fila].Cells[5].Value.ToString();
+            }
+        }
+
+        private void BtnCambiarEstado_Click(object sender, EventArgs e)
+        {
+            CambiarEstado(1);
         }
     }
 }

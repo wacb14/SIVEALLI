@@ -19,6 +19,8 @@ namespace SIVEALLI
 
         private void FrmMostrarReporteClientes_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'DataSetPrincipal.spuReporteFechaHoy' Puede moverla o quitarla según sea necesario.
+            this.spuReporteFechaHoyTableAdapter.Fill(this.DataSetPrincipal.spuReporteFechaHoy);
             // TODO: esta línea de código carga datos en la tabla 'DataSetPrincipal.spu_TCliente_Listar' Puede moverla o quitarla según sea necesario.
             this.spu_TCliente_ListarTableAdapter.Fill(this.DataSetPrincipal.spu_TCliente_Listar);
             // TODO: esta línea de código carga datos en la tabla 'DataSetPrincipal.spuNumeroDeClientes' Puede moverla o quitarla según sea necesario.

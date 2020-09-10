@@ -32,3 +32,4 @@ B:\SIVEALLI\Codigo C#\SIVEALLI\BibClases\obj\Debug\BibClases.csprojAssemblyRefer
 B:\SIVEALLI\Codigo C#\SIVEALLI\BibClases\obj\Debug\BibClases.dll
 B:\SIVEALLI\Codigo C#\SIVEALLI\BibClases\obj\Debug\BibClases.pdb
 C:\Users\Marcelo\source\repos\SIVEALLI\Codigo C#\SIVEALLI\BibClases\obj\Debug\BibClases.csprojAssemblyReference.cache
+C:\Users\Home\Documents\GitHub\SIVEALLI\Codigo C#\SIVEALLI\BibClases\obj\Debug\BibClases.csprojAssemblyReference.cache

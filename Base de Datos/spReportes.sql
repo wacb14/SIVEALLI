@@ -1,3 +1,15 @@
+-- Mostrar fecha Actual
+if exists (select * from sysobjects where name='spuReporteFechaHoy') 
+	drop procedure spuReporteFechaHoy
+go
+create procedure spuReporteFechaHoy 
+as
+begin
+	declare @Existingdate datetime
+	Set @Existingdate=GETDATE()
+	Select CONVERT(varchar,@Existingdate,100)
+end;
+go
 -- Para ventas
 --------------- Mostrador
 if exists (select * from sysobjects where name='spuReporteVentasPorFecha') 

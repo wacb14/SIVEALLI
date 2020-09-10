@@ -31,15 +31,19 @@
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource3 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.spuReporteEntradasPorFechaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.DataSetPrincipal = new SIVEALLI.DataSetPrincipal();
+            this.spuNumeroDeEntradasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.spuReporteEntradasPorFechaTableAdapter = new SIVEALLI.DataSetPrincipalTableAdapters.spuReporteEntradasPorFechaTableAdapter();
-            this.spuNumeroDeEntradasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.spuNumeroDeEntradasTableAdapter = new SIVEALLI.DataSetPrincipalTableAdapters.spuNumeroDeEntradasTableAdapter();
+            this.spuReporteFechaHoyBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.spuReporteFechaHoyTableAdapter = new SIVEALLI.DataSetPrincipalTableAdapters.spuReporteFechaHoyTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.spuReporteEntradasPorFechaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataSetPrincipal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spuNumeroDeEntradasBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spuReporteFechaHoyBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // spuReporteEntradasPorFechaBindingSource
@@ -52,6 +56,11 @@
             this.DataSetPrincipal.DataSetName = "DataSetPrincipal";
             this.DataSetPrincipal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // spuNumeroDeEntradasBindingSource
+            // 
+            this.spuNumeroDeEntradasBindingSource.DataMember = "spuNumeroDeEntradas";
+            this.spuNumeroDeEntradasBindingSource.DataSource = this.DataSetPrincipal;
+            // 
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -59,8 +68,11 @@
             reportDataSource1.Value = this.spuReporteEntradasPorFechaBindingSource;
             reportDataSource2.Name = "DataSetNEntradas";
             reportDataSource2.Value = this.spuNumeroDeEntradasBindingSource;
+            reportDataSource3.Name = "DataSetFecha";
+            reportDataSource3.Value = this.spuReporteFechaHoyBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource3);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "SIVEALLI.ReporteEntradas.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
@@ -72,14 +84,18 @@
             // 
             this.spuReporteEntradasPorFechaTableAdapter.ClearBeforeFill = true;
             // 
-            // spuNumeroDeEntradasBindingSource
-            // 
-            this.spuNumeroDeEntradasBindingSource.DataMember = "spuNumeroDeEntradas";
-            this.spuNumeroDeEntradasBindingSource.DataSource = this.DataSetPrincipal;
-            // 
             // spuNumeroDeEntradasTableAdapter
             // 
             this.spuNumeroDeEntradasTableAdapter.ClearBeforeFill = true;
+            // 
+            // spuReporteFechaHoyBindingSource
+            // 
+            this.spuReporteFechaHoyBindingSource.DataMember = "spuReporteFechaHoy";
+            this.spuReporteFechaHoyBindingSource.DataSource = this.DataSetPrincipal;
+            // 
+            // spuReporteFechaHoyTableAdapter
+            // 
+            this.spuReporteFechaHoyTableAdapter.ClearBeforeFill = true;
             // 
             // FrmMostrarReporteEntradas
             // 
@@ -93,6 +109,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.spuReporteEntradasPorFechaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataSetPrincipal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spuNumeroDeEntradasBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spuReporteFechaHoyBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -105,5 +122,7 @@
         private DataSetPrincipalTableAdapters.spuReporteEntradasPorFechaTableAdapter spuReporteEntradasPorFechaTableAdapter;
         private System.Windows.Forms.BindingSource spuNumeroDeEntradasBindingSource;
         private DataSetPrincipalTableAdapters.spuNumeroDeEntradasTableAdapter spuNumeroDeEntradasTableAdapter;
+        private System.Windows.Forms.BindingSource spuReporteFechaHoyBindingSource;
+        private DataSetPrincipalTableAdapters.spuReporteFechaHoyTableAdapter spuReporteFechaHoyTableAdapter;
     }
 }

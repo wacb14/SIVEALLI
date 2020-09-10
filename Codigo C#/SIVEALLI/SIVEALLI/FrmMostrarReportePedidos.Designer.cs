@@ -31,15 +31,19 @@
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource3 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.spuReportePedidosPorFechaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.DataSetPrincipal = new SIVEALLI.DataSetPrincipal();
+            this.spuNumeroDePedidosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.spuReportePedidosPorFechaTableAdapter = new SIVEALLI.DataSetPrincipalTableAdapters.spuReportePedidosPorFechaTableAdapter();
-            this.spuNumeroDePedidosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.spuNumeroDePedidosTableAdapter = new SIVEALLI.DataSetPrincipalTableAdapters.spuNumeroDePedidosTableAdapter();
+            this.spuReporteFechaHoyBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.spuReporteFechaHoyTableAdapter = new SIVEALLI.DataSetPrincipalTableAdapters.spuReporteFechaHoyTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.spuReportePedidosPorFechaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataSetPrincipal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spuNumeroDePedidosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spuReporteFechaHoyBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // spuReportePedidosPorFechaBindingSource
@@ -52,6 +56,11 @@
             this.DataSetPrincipal.DataSetName = "DataSetPrincipal";
             this.DataSetPrincipal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // spuNumeroDePedidosBindingSource
+            // 
+            this.spuNumeroDePedidosBindingSource.DataMember = "spuNumeroDePedidos";
+            this.spuNumeroDePedidosBindingSource.DataSource = this.DataSetPrincipal;
+            // 
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -59,8 +68,11 @@
             reportDataSource1.Value = this.spuReportePedidosPorFechaBindingSource;
             reportDataSource2.Name = "DataSetNPedidos";
             reportDataSource2.Value = this.spuNumeroDePedidosBindingSource;
+            reportDataSource3.Name = "DataSetFecha";
+            reportDataSource3.Value = this.spuReporteFechaHoyBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource3);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "SIVEALLI.ReportePedidos.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
@@ -72,14 +84,18 @@
             // 
             this.spuReportePedidosPorFechaTableAdapter.ClearBeforeFill = true;
             // 
-            // spuNumeroDePedidosBindingSource
-            // 
-            this.spuNumeroDePedidosBindingSource.DataMember = "spuNumeroDePedidos";
-            this.spuNumeroDePedidosBindingSource.DataSource = this.DataSetPrincipal;
-            // 
             // spuNumeroDePedidosTableAdapter
             // 
             this.spuNumeroDePedidosTableAdapter.ClearBeforeFill = true;
+            // 
+            // spuReporteFechaHoyBindingSource
+            // 
+            this.spuReporteFechaHoyBindingSource.DataMember = "spuReporteFechaHoy";
+            this.spuReporteFechaHoyBindingSource.DataSource = this.DataSetPrincipal;
+            // 
+            // spuReporteFechaHoyTableAdapter
+            // 
+            this.spuReporteFechaHoyTableAdapter.ClearBeforeFill = true;
             // 
             // FrmMostrarReportePedidos
             // 
@@ -93,6 +109,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.spuReportePedidosPorFechaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataSetPrincipal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spuNumeroDePedidosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spuReporteFechaHoyBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -105,5 +122,7 @@
         private DataSetPrincipalTableAdapters.spuReportePedidosPorFechaTableAdapter spuReportePedidosPorFechaTableAdapter;
         private System.Windows.Forms.BindingSource spuNumeroDePedidosBindingSource;
         private DataSetPrincipalTableAdapters.spuNumeroDePedidosTableAdapter spuNumeroDePedidosTableAdapter;
+        private System.Windows.Forms.BindingSource spuReporteFechaHoyBindingSource;
+        private DataSetPrincipalTableAdapters.spuReporteFechaHoyTableAdapter spuReporteFechaHoyTableAdapter;
     }
 }
