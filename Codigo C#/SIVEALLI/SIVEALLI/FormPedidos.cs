@@ -115,6 +115,7 @@ namespace SIVEALLI
                         }
                     }
                     MessageBox.Show("Los datos se guardaron exitosamente", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    CargarHistorialPedidos();
                 }
             }
             else MessageBox.Show("Todos los campos deben tener algun valor", "CUIDADO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
