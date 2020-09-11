@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -94,6 +95,32 @@ namespace BibClases
             if (contenido.Equals(","))
             {
                 textBox.Text = "0,";
+            }
+        }
+
+        public static bool BuscarPalabraEnCadena(string Palabra, string Cadena)
+        {
+            // Convertimos la cadena en texto normalizado sin tildes y sin ñ
+            Cadena = Regex.Replace(Cadena.Normalize(NormalizationForm.FormD), @"[^a-zA-z0-9 ]+", "");
+            // Normalizamos a la palabra
+            Palabra = Regex.Replace(Palabra.Normalize(NormalizationForm.FormD), @"[^a-zA-z0-9 ]+", "");
+            // Convertimos la cadena en solo minusculas
+            string Minusculas = Cadena.ToLower();
+            // Convertimos la cadena en solo mayusculas
+            string Mayusculas = Cadena.ToUpper();
+            if (Cadena.Contains(Palabra))
+                return true;
+            else
+            {
+                if (Minusculas.Contains(Palabra.ToLower()))
+                    return true;
+                else
+                {
+                    if (Mayusculas.Contains(Palabra.ToUpper()))
+                        return true;
+                    else
+                        return false;
+                }
             }
         }
 

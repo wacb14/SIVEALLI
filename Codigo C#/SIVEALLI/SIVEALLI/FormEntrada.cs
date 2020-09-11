@@ -34,23 +34,50 @@ namespace SIVEALLI
         private void EventosYValidaciones()
         {
             this.Load += new EventHandler(LLenarDatosControles);
-            this.buttonNuevaEntrada.Click += new EventHandler(GenerarNuevoCodigoEntrada);
-            this.buttonAniadir.Click += new EventHandler(AgregarProductoDetalle);
-            this.buttonEditar.Click += new EventHandler(HabilitarEdicionDataGrid);
+            this.BtnNuevaEntrada.Click += new EventHandler(GenerarNuevoCodigoEntrada);
+            this.BtnAniadir.Click += new EventHandler(AgregarProductoDetalle);
+            //this.buttonEditar.Click += new EventHandler(HabilitarEdicionDataGrid);
             this.buttonEliminarDetalle.Click += new EventHandler(EliminarEntradaDetalle);
             this.buttonListo.Click += new EventHandler(GuardarEntrada);
-            this.cbCodigoEntrada.SelectionChangeCommitted += new EventHandler(CargarDatosEntrada);
+            this.tbCodigoEntrada.Leave += new EventHandler(CargarDatosEntrada);
+            //this.tbCodigoEntrada.selec += new EventHandler(CargarDatosEntrada);
             this.buttonLimpiar.Click += new EventHandler(LimpiarForm);
+            this.dgvDetalleEntrada.CellClick += new DataGridViewCellEventHandler(EditarCantidad);
 
             this.comboBoxCodigoProducto.DropDown += new EventHandler(CargarDatosProductos);
             this.comboBoxCodigoProveedor.DropDown += new EventHandler(CargarDatosProveedores);
-            this.cbCodigoEntrada.DropDown += new EventHandler(CargarCodigosEntrada);
+            //this.tbCodigoEntrada.DropDown += new EventHandler(CargarCodigosEntrada);
         }
 
+        private void EditarCantidad(object sender, DataGridViewCellEventArgs e)
+        {
+            //-- Determinar las coordenadas de la celda que cambio
+            try
+            {
+                int fila = e.RowIndex;
+                int col = e.ColumnIndex;
+
+                if (col == 5)
+                {
+
+                    FormVentasCantidad Cant = new FormVentasCantidad(1000000);
+                    Cant.ShowDialog();
+                    string Cantidad = Cant.GetCantidad.ToString();
+                    dgvDetalleEntrada.Rows[fila].Cells[col].Value = Cantidad;
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Imposible editar campo", "ERROR");
+            }
+        }
+
+        /*
         private void CargarCodigosEntrada(object sender, EventArgs e)
         {
             LlenarCodigoEntradas();
         }
+        */
 
         private void CargarDatosProveedores(object sender, EventArgs e)
         {
@@ -71,30 +98,37 @@ namespace SIVEALLI
         {
             dtpFecha.Value = DateTime.Now;
             numericUpDownCantidad.Value = 1;
-            dataGridViewDetalleEntrada.DataSource = null;
-            dataGridViewDetalleEntrada.Rows.Clear();
+            dgvDetalleEntrada.DataSource = null;
+            dgvDetalleEntrada.Rows.Clear();
             textBoxUsuario.Text = codigoUsuario;
             comboBoxCodigoProducto.SelectedIndex = -1;
             comboBoxCodigoProveedor.SelectedIndex = -1;
-            cbCodigoEntrada.Text = "";
+            tbCodigoEntrada.Text = "";
         }
 
         private void CargarDatosEntrada(object sender, EventArgs e)
         {
-            string codEntrada = cbCodigoEntrada.SelectedValue.ToString();
+            if (aEntidad.ExisteClavePrimaria(tbCodigoEntrada.Text))
+            {
+                ProcesarClave();
 
-            ProcesarClave();
-
-            CargarDatosEntradaDetalle();
+                CargarDatosEntradaDetalle();
+            }
+            else
+            {
+                tbCodigoEntrada.Text = "";
+                LimpiarDatosFormulario();
+                MessageBox.Show("Código de entrada no encontrado");
+            }
         }
 
         private void CargarDatosEntradaDetalle()
         {
-            dataGridViewDetalleEntrada.DataSource = null;
-            dataGridViewDetalleEntrada.Rows.Clear();
-            
-            DataTable detallesentrada = entDet.ListaGeneralCod(cbCodigoEntrada.SelectedValue.ToString());
-            for (int i = 0; i < detallesentrada.Rows.Count; i++) 
+            dgvDetalleEntrada.DataSource = null;
+            dgvDetalleEntrada.Rows.Clear();
+
+            DataTable detallesentrada = entDet.ListaGeneralCod(tbCodigoEntrada.Text.ToString());
+            for (int i = 0; i < detallesentrada.Rows.Count; i++)
             {
                 DataTable dt = producto.DatosProductoEntrada(detallesentrada.Rows[i][1].ToString());
                 string[] datos = new string[dt.Columns.Count + 1];
@@ -105,7 +139,7 @@ namespace SIVEALLI
                 }
                 datos[dt.Columns.Count] = detallesentrada.Rows[i][2].ToString() + "";
 
-                dataGridViewDetalleEntrada.Rows.Add(datos);
+                dgvDetalleEntrada.Rows.Add(datos);
             }
         }
 
@@ -120,17 +154,17 @@ namespace SIVEALLI
 
         private void GuardarEntradaDetalle()
         {
-            string codEntrada = cbCodigoEntrada.Text;
+            string codEntrada = tbCodigoEntrada.Text;
             string codProducto;
             string cantidad;
 
             //eliminamos las antiguas entradas
             entDet.EliminarRegistros(codEntrada);
 
-            for (int i=0; i < dataGridViewDetalleEntrada.Rows.Count; i++)
+            for (int i = 0; i < dgvDetalleEntrada.Rows.Count; i++)
             {
-                codProducto = dataGridViewDetalleEntrada.Rows[i].Cells[0].Value.ToString();
-                cantidad = dataGridViewDetalleEntrada.Rows[i].Cells[5].Value.ToString();
+                codProducto = dgvDetalleEntrada.Rows[i].Cells[0].Value.ToString();
+                cantidad = dgvDetalleEntrada.Rows[i].Cells[5].Value.ToString();
                 entDet.Insertar(new string[] { codEntrada, codProducto, cantidad });
             }
         }
@@ -138,8 +172,8 @@ namespace SIVEALLI
         public override bool EsRegistroValido()
         {
             if (comboBoxCodigoProveedor.Text.Trim() != "" &&
-                cbCodigoEntrada.Text.Trim() != "" &&
-                dataGridViewDetalleEntrada.Rows.Count > 0)
+                tbCodigoEntrada.Text.Trim() != "" &&
+                dgvDetalleEntrada.Rows.Count > 0)
                 return true;
             else
                 return false;
@@ -147,7 +181,7 @@ namespace SIVEALLI
 
         public override string[] AsignarValoresAtributos()
         {
-            
+
             string proveedor = "";
             if (comboBoxCodigoProveedor.SelectedValue == null)
                 proveedor = "";
@@ -157,17 +191,11 @@ namespace SIVEALLI
             //validamos texto combo box entrada con el valor elegido
             //esto debido a que las operaciones de cargar entrada y nueva entrada
             //toman diferentes valores
-            string codigoEntrada = "";
-            if (cbCodigoEntrada.Text.Equals(""))
-            {
-                codigoEntrada = cbCodigoEntrada.SelectedValue.ToString();
-            }
-            else
-                codigoEntrada = cbCodigoEntrada.Text;
-            
+            string codigoEntrada = tbCodigoEntrada.Text;
+
             //MessageBox.Show(cbCodigoEntrada.SelectedValue.ToString());
             return new string[] { codigoEntrada,
-                proveedor, codigoUsuario, 
+                proveedor, codigoUsuario,
                 dtpFecha.Value.Date.ToString()};
         }
 
@@ -185,18 +213,19 @@ namespace SIVEALLI
             try
             {
                 //Averigüar la fila seleccionada
-                int fila = dataGridViewDetalleEntrada.CurrentCell.RowIndex;
+                int fila = dgvDetalleEntrada.CurrentCell.RowIndex;
 
                 //eliminar la fila 
-                dataGridViewDetalleEntrada.Rows.RemoveAt(fila);
+                dgvDetalleEntrada.Rows.RemoveAt(fila);
             }
             catch (Exception)
             {
                 //Mostrar mensaje de error
-                MessageBox.Show("Usuario ligado a operaciones", "ATENCION");
+                MessageBox.Show("Usuario ligado a operaciones o no seleccionó ninguna fila", "ATENCION");
             }
         }
 
+        /*Permite editar una determinada columna de un dgv
         /// <summary>
         /// Habilita la modificación de los valores en la columna cantidad
         /// </summary>
@@ -204,33 +233,33 @@ namespace SIVEALLI
         /// <param name="e"></param>
         private void HabilitarEdicionDataGrid(object sender, EventArgs e)
         {
-            dataGridViewDetalleEntrada.ReadOnly = false;
-            dataGridViewDetalleEntrada.Columns[0].ReadOnly = true;
-            dataGridViewDetalleEntrada.Columns[1].ReadOnly = true;
-            dataGridViewDetalleEntrada.Columns[2].ReadOnly = true;
-            dataGridViewDetalleEntrada.Columns[3].ReadOnly = true;
-            dataGridViewDetalleEntrada.Columns[4].ReadOnly = true;
+            dgvDetalleEntrada.ReadOnly = false;
+            dgvDetalleEntrada.Columns[0].ReadOnly = true;
+            dgvDetalleEntrada.Columns[1].ReadOnly = true;
+            dgvDetalleEntrada.Columns[2].ReadOnly = true;
+            dgvDetalleEntrada.Columns[3].ReadOnly = true;
+            dgvDetalleEntrada.Columns[4].ReadOnly = true;
         }
-
+        */
         private void AgregarProductoDetalle(object sender, EventArgs e)
         {
-            string codigoProducto = comboBoxCodigoProducto.Text;
-            int cantidad = (int) numericUpDownCantidad.Value;
+            string codigoProducto = comboBoxCodigoProducto.SelectedValue.ToString();
+            int cantidad = (int)numericUpDownCantidad.Value;
 
             //Validamos que se haya ingresado un codigo
-            if (codigoProducto.Equals("") || cbCodigoEntrada.Text.Equals("") || comboBoxCodigoProveedor.Text.Equals(""))
+            if (codigoProducto.Equals("") || tbCodigoEntrada.Text.Equals("") || comboBoxCodigoProveedor.Text.Equals(""))
             {
                 MessageBox.Show("Ingrese los datos de proveedor, nueva entrada y producto");
                 return;
             }
 
             //Validamos que el codigo no se haya ingresado antes
-            int numeroFilasDetalle = dataGridViewDetalleEntrada.Rows.Count;
+            int numeroFilasDetalle = dgvDetalleEntrada.Rows.Count;
             int i = 0;
             bool encontrado = false;
-            while(i < numeroFilasDetalle && !encontrado)
+            while (i < numeroFilasDetalle && !encontrado)
             {
-                if (codigoProducto.Equals(dataGridViewDetalleEntrada.Rows[i].Cells[0].Value.ToString()))
+                if (codigoProducto.Equals(dgvDetalleEntrada.Rows[i].Cells[0].Value.ToString()))
                     encontrado = true;
                 i++;
             }
@@ -251,9 +280,9 @@ namespace SIVEALLI
                 datos[i] = dt.Rows[0][i].ToString();
             }
 
-            datos[dt.Columns.Count] = cantidad+ "";
+            datos[dt.Columns.Count] = cantidad + "";
 
-            dataGridViewDetalleEntrada.Rows.Add(datos);
+            dgvDetalleEntrada.Rows.Add(datos);
 
             LimpiarFormularioNuevaEntradaDetalle();
         }
@@ -283,7 +312,7 @@ namespace SIVEALLI
             else if (cant < 99999)
                 cantCeros = "0";
 
-            cbCodigoEntrada.Text = "EN" + cantCeros + (cant + 1);
+            tbCodigoEntrada.Text = "EN" + cantCeros + (cant + 1);
 
             comboBoxCodigoProveedor.Focus();
         }
@@ -292,23 +321,27 @@ namespace SIVEALLI
         {
             LlenarDatosProveedores();
             LlenarCodigoProductos();
-            LlenarCodigoEntradas();
+            //LlenarCodigoEntradas();
 
             textBoxUsuario.Text = codigoUsuario;
+
+            BtnNuevaEntrada.Focus();
         }
 
+        /*Carga codigos de entrada en un comboBox
         private void LlenarCodigoEntradas()
         {
-            cbCodigoEntrada.DataSource = entrada.ListadoParaCombos();
-            cbCodigoEntrada.DisplayMember = "IdEntrada";
-            cbCodigoEntrada.ValueMember = "IdEntrada";
-            cbCodigoEntrada.SelectedIndex = -1;
+            tbCodigoEntrada.DataSource = entrada.ListadoParaCombos();
+            tbCodigoEntrada.DisplayMember = "IdEntrada";
+            tbCodigoEntrada.ValueMember = "IdEntrada";
+            tbCodigoEntrada.SelectedIndex = -1;
         }
+        */
 
         private void LlenarCodigoProductos()
         {
             comboBoxCodigoProducto.DataSource = producto.ListadoCodigos();
-            comboBoxCodigoProducto.DisplayMember = "IdProducto";
+            comboBoxCodigoProducto.DisplayMember = "Nombre";
             comboBoxCodigoProducto.ValueMember = "IdProducto";
             comboBoxCodigoProducto.SelectedIndex = -1;
         }

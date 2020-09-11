@@ -49,12 +49,16 @@ namespace SIVEALLI
                 string tipoUsuario = aUsuario.ValorAtributo("Tipo");
                 if (tipoUsuario.Equals("SUPERVISOR"))
                 {
+                    this.Hide();
                     FormSupervisor fu = new FormSupervisor(textBoxCodigoUsuario.Text);
+                    fu.Closed += (s, args) => this.Close();
                     fu.Show();
                 }
                 else
                 {
+                    this.Hide();
                     FormEmpleado fe = new FormEmpleado(textBoxCodigoUsuario.Text);
+                    fe.Closed += (s, args) => this.Close();
                     fe.Show();
                 }
             }
