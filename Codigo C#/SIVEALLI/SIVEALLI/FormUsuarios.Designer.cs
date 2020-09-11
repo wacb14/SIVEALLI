@@ -30,7 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxCodigo = new System.Windows.Forms.TextBox();
-            this.dataGridViewUsuarios = new System.Windows.Forms.DataGridView();
+            this.dgvUsuarios = new System.Windows.Forms.DataGridView();
             this.textBoxNombres = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxApellidos = new System.Windows.Forms.TextBox();
@@ -51,8 +51,21 @@
             this.BtnGuardar = new System.Windows.Forms.Button();
             this.btnNuevoUsuario = new System.Windows.Forms.Button();
             this.gbDatosUsuarios = new System.Windows.Forms.GroupBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsuarios)).BeginInit();
+            this.BtnRestaurarLista = new System.Windows.Forms.Button();
+            this.LblTotalUsuarios = new System.Windows.Forms.Label();
+            this.BtnImprimirLista = new System.Windows.Forms.Button();
+            this.Lbl11 = new System.Windows.Forms.Label();
+            this.GbBusqueda = new System.Windows.Forms.GroupBox();
+            this.TxtValorBusqueda = new System.Windows.Forms.TextBox();
+            this.Lbl10 = new System.Windows.Forms.Label();
+            this.Lbl9 = new System.Windows.Forms.Label();
+            this.BtnBuscar = new System.Windows.Forms.Button();
+            this.CboBuscarPor = new System.Windows.Forms.ComboBox();
+            this.gbListaUsuarios = new System.Windows.Forms.GroupBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             this.gbDatosUsuarios.SuspendLayout();
+            this.GbBusqueda.SuspendLayout();
+            this.gbListaUsuarios.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -74,20 +87,20 @@
             this.textBoxCodigo.Size = new System.Drawing.Size(130, 26);
             this.textBoxCodigo.TabIndex = 1;
             // 
-            // dataGridViewUsuarios
+            // dgvUsuarios
             // 
-            this.dataGridViewUsuarios.AllowUserToAddRows = false;
-            this.dataGridViewUsuarios.AllowUserToDeleteRows = false;
-            this.dataGridViewUsuarios.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridViewUsuarios.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridViewUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewUsuarios.Location = new System.Drawing.Point(369, 24);
-            this.dataGridViewUsuarios.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridViewUsuarios.Name = "dataGridViewUsuarios";
-            this.dataGridViewUsuarios.ReadOnly = true;
-            this.dataGridViewUsuarios.RowHeadersVisible = false;
-            this.dataGridViewUsuarios.Size = new System.Drawing.Size(688, 483);
-            this.dataGridViewUsuarios.TabIndex = 2;
+            this.dgvUsuarios.AllowUserToAddRows = false;
+            this.dgvUsuarios.AllowUserToDeleteRows = false;
+            this.dgvUsuarios.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgvUsuarios.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUsuarios.Location = new System.Drawing.Point(7, 27);
+            this.dgvUsuarios.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvUsuarios.Name = "dgvUsuarios";
+            this.dgvUsuarios.ReadOnly = true;
+            this.dgvUsuarios.RowHeadersVisible = false;
+            this.dgvUsuarios.Size = new System.Drawing.Size(675, 361);
+            this.dgvUsuarios.TabIndex = 2;
             // 
             // textBoxNombres
             // 
@@ -242,7 +255,7 @@
             // 
             // BtnLimpiar
             // 
-            this.BtnLimpiar.Location = new System.Drawing.Point(917, 514);
+            this.BtnLimpiar.Location = new System.Drawing.Point(12, 514);
             this.BtnLimpiar.Name = "BtnLimpiar";
             this.BtnLimpiar.Size = new System.Drawing.Size(140, 29);
             this.BtnLimpiar.TabIndex = 12;
@@ -291,10 +304,136 @@
             this.gbDatosUsuarios.Controls.Add(this.label6);
             this.gbDatosUsuarios.Location = new System.Drawing.Point(12, 13);
             this.gbDatosUsuarios.Name = "gbDatosUsuarios";
-            this.gbDatosUsuarios.Size = new System.Drawing.Size(337, 530);
+            this.gbDatosUsuarios.Size = new System.Drawing.Size(337, 495);
             this.gbDatosUsuarios.TabIndex = 42;
             this.gbDatosUsuarios.TabStop = false;
             this.gbDatosUsuarios.Text = "Datos usuarios";
+            // 
+            // BtnRestaurarLista
+            // 
+            this.BtnRestaurarLista.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnRestaurarLista.Location = new System.Drawing.Point(7, 395);
+            this.BtnRestaurarLista.Name = "BtnRestaurarLista";
+            this.BtnRestaurarLista.Size = new System.Drawing.Size(170, 27);
+            this.BtnRestaurarLista.TabIndex = 43;
+            this.BtnRestaurarLista.Text = "Restaurar Lista Completa";
+            this.BtnRestaurarLista.UseVisualStyleBackColor = true;
+            // 
+            // LblTotalUsuarios
+            // 
+            this.LblTotalUsuarios.AutoSize = true;
+            this.LblTotalUsuarios.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LblTotalUsuarios.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTotalUsuarios.Location = new System.Drawing.Point(409, 398);
+            this.LblTotalUsuarios.Name = "LblTotalUsuarios";
+            this.LblTotalUsuarios.Size = new System.Drawing.Size(19, 21);
+            this.LblTotalUsuarios.TabIndex = 46;
+            this.LblTotalUsuarios.Text = "0";
+            // 
+            // BtnImprimirLista
+            // 
+            this.BtnImprimirLista.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnImprimirLista.Location = new System.Drawing.Point(556, 395);
+            this.BtnImprimirLista.Name = "BtnImprimirLista";
+            this.BtnImprimirLista.Size = new System.Drawing.Size(127, 27);
+            this.BtnImprimirLista.TabIndex = 44;
+            this.BtnImprimirLista.Text = "Imprimir Lista";
+            this.BtnImprimirLista.UseVisualStyleBackColor = true;
+            // 
+            // Lbl11
+            // 
+            this.Lbl11.AutoSize = true;
+            this.Lbl11.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl11.Location = new System.Drawing.Point(263, 398);
+            this.Lbl11.Name = "Lbl11";
+            this.Lbl11.Size = new System.Drawing.Size(122, 19);
+            this.Lbl11.TabIndex = 45;
+            this.Lbl11.Text = "Total de Usuarios :";
+            // 
+            // GbBusqueda
+            // 
+            this.GbBusqueda.Controls.Add(this.TxtValorBusqueda);
+            this.GbBusqueda.Controls.Add(this.Lbl10);
+            this.GbBusqueda.Controls.Add(this.Lbl9);
+            this.GbBusqueda.Controls.Add(this.BtnBuscar);
+            this.GbBusqueda.Controls.Add(this.CboBuscarPor);
+            this.GbBusqueda.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GbBusqueda.Location = new System.Drawing.Point(369, 446);
+            this.GbBusqueda.Name = "GbBusqueda";
+            this.GbBusqueda.Size = new System.Drawing.Size(689, 97);
+            this.GbBusqueda.TabIndex = 47;
+            this.GbBusqueda.TabStop = false;
+            this.GbBusqueda.Text = "Búsqueda de Usuarios";
+            // 
+            // TxtValorBusqueda
+            // 
+            this.TxtValorBusqueda.Location = new System.Drawing.Point(293, 55);
+            this.TxtValorBusqueda.Name = "TxtValorBusqueda";
+            this.TxtValorBusqueda.Size = new System.Drawing.Size(219, 26);
+            this.TxtValorBusqueda.TabIndex = 17;
+            // 
+            // Lbl10
+            // 
+            this.Lbl10.AutoSize = true;
+            this.Lbl10.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl10.Location = new System.Drawing.Point(289, 30);
+            this.Lbl10.Name = "Lbl10";
+            this.Lbl10.Size = new System.Drawing.Size(171, 19);
+            this.Lbl10.TabIndex = 15;
+            this.Lbl10.Text = "Ingrese valor de búsqueda:";
+            // 
+            // Lbl9
+            // 
+            this.Lbl9.AutoSize = true;
+            this.Lbl9.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl9.Location = new System.Drawing.Point(14, 32);
+            this.Lbl9.Name = "Lbl9";
+            this.Lbl9.Size = new System.Drawing.Size(132, 19);
+            this.Lbl9.TabIndex = 18;
+            this.Lbl9.Text = "Buscar usuarios por:";
+            // 
+            // BtnBuscar
+            // 
+            this.BtnBuscar.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnBuscar.Location = new System.Drawing.Point(560, 55);
+            this.BtnBuscar.Name = "BtnBuscar";
+            this.BtnBuscar.Size = new System.Drawing.Size(92, 26);
+            this.BtnBuscar.TabIndex = 18;
+            this.BtnBuscar.Text = "Buscar";
+            this.BtnBuscar.UseVisualStyleBackColor = true;
+            // 
+            // CboBuscarPor
+            // 
+            this.CboBuscarPor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CboBuscarPor.FormattingEnabled = true;
+            this.CboBuscarPor.ItemHeight = 19;
+            this.CboBuscarPor.Items.AddRange(new object[] {
+            "ID Usuario",
+            "Nombre",
+            "Apellido",
+            "Dirección",
+            "Teléfono",
+            "Correo",
+            "Estado",
+            "Tipo"});
+            this.CboBuscarPor.Location = new System.Drawing.Point(18, 54);
+            this.CboBuscarPor.Name = "CboBuscarPor";
+            this.CboBuscarPor.Size = new System.Drawing.Size(219, 27);
+            this.CboBuscarPor.TabIndex = 19;
+            // 
+            // gbListaUsuarios
+            // 
+            this.gbListaUsuarios.Controls.Add(this.dgvUsuarios);
+            this.gbListaUsuarios.Controls.Add(this.BtnRestaurarLista);
+            this.gbListaUsuarios.Controls.Add(this.BtnImprimirLista);
+            this.gbListaUsuarios.Controls.Add(this.LblTotalUsuarios);
+            this.gbListaUsuarios.Controls.Add(this.Lbl11);
+            this.gbListaUsuarios.Location = new System.Drawing.Point(369, 12);
+            this.gbListaUsuarios.Name = "gbListaUsuarios";
+            this.gbListaUsuarios.Size = new System.Drawing.Size(689, 428);
+            this.gbListaUsuarios.TabIndex = 48;
+            this.gbListaUsuarios.TabStop = false;
+            this.gbListaUsuarios.Text = "Lista de usuarios";
             // 
             // FormUsuarios
             // 
@@ -302,17 +441,22 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1070, 555);
+            this.Controls.Add(this.gbListaUsuarios);
+            this.Controls.Add(this.GbBusqueda);
             this.Controls.Add(this.gbDatosUsuarios);
             this.Controls.Add(this.BtnLimpiar);
-            this.Controls.Add(this.dataGridViewUsuarios);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormUsuarios";
             this.Text = "Usuarios";
             this.Load += new System.EventHandler(this.FormUsuario_Load_1);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsuarios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
             this.gbDatosUsuarios.ResumeLayout(false);
             this.gbDatosUsuarios.PerformLayout();
+            this.GbBusqueda.ResumeLayout(false);
+            this.GbBusqueda.PerformLayout();
+            this.gbListaUsuarios.ResumeLayout(false);
+            this.gbListaUsuarios.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -321,7 +465,7 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxCodigo;
-        private System.Windows.Forms.DataGridView dataGridViewUsuarios;
+        private System.Windows.Forms.DataGridView dgvUsuarios;
         private System.Windows.Forms.TextBox textBoxNombres;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxApellidos;
@@ -342,5 +486,16 @@
         private System.Windows.Forms.Button BtnGuardar;
         private System.Windows.Forms.Button btnNuevoUsuario;
         private System.Windows.Forms.GroupBox gbDatosUsuarios;
+        private System.Windows.Forms.Button BtnRestaurarLista;
+        private System.Windows.Forms.Label LblTotalUsuarios;
+        private System.Windows.Forms.Button BtnImprimirLista;
+        private System.Windows.Forms.Label Lbl11;
+        private System.Windows.Forms.GroupBox GbBusqueda;
+        private System.Windows.Forms.TextBox TxtValorBusqueda;
+        private System.Windows.Forms.Label Lbl10;
+        private System.Windows.Forms.Label Lbl9;
+        private System.Windows.Forms.Button BtnBuscar;
+        private System.Windows.Forms.ComboBox CboBuscarPor;
+        private System.Windows.Forms.GroupBox gbListaUsuarios;
     }
 }
