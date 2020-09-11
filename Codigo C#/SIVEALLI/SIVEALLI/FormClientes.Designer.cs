@@ -77,6 +77,7 @@
             this.CbBuscar.Name = "CbBuscar";
             this.CbBuscar.Size = new System.Drawing.Size(141, 27);
             this.CbBuscar.TabIndex = 19;
+            this.CbBuscar.Text = "ID Cliente";
             // 
             // LbNroClientes
             // 

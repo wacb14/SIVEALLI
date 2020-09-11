@@ -117,7 +117,7 @@
             this.CbProveedores.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CbProveedores.Location = new System.Drawing.Point(3, 191);
             this.CbProveedores.Name = "CbProveedores";
-            this.CbProveedores.Size = new System.Drawing.Size(660, 289);
+            this.CbProveedores.Size = new System.Drawing.Size(660, 330);
             this.CbProveedores.TabIndex = 11;
             this.CbProveedores.TabStop = false;
             this.CbProveedores.Text = "Detalles de pedido";
@@ -140,7 +140,7 @@
             this.DgvPedidosDetalle.Location = new System.Drawing.Point(6, 22);
             this.DgvPedidosDetalle.Name = "DgvPedidosDetalle";
             this.DgvPedidosDetalle.RowHeadersVisible = false;
-            this.DgvPedidosDetalle.Size = new System.Drawing.Size(648, 204);
+            this.DgvPedidosDetalle.Size = new System.Drawing.Size(648, 245);
             this.DgvPedidosDetalle.TabIndex = 21;
             this.DgvPedidosDetalle.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvPedidosDetalle_CellClick);
             this.DgvPedidosDetalle.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvPedidosDetalle_CellContentClick);
@@ -149,7 +149,7 @@
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(510, 251);
+            this.button5.Location = new System.Drawing.Point(509, 292);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(144, 32);
             this.button5.TabIndex = 20;
@@ -160,7 +160,7 @@
             // 
             this.LTotal.AutoSize = true;
             this.LTotal.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LTotal.Location = new System.Drawing.Point(479, 229);
+            this.LTotal.Location = new System.Drawing.Point(480, 270);
             this.LTotal.Name = "LTotal";
             this.LTotal.Size = new System.Drawing.Size(120, 19);
             this.LTotal.TabIndex = 17;
@@ -168,7 +168,7 @@
             // 
             // BtnLimpiar
             // 
-            this.BtnLimpiar.Location = new System.Drawing.Point(6, 251);
+            this.BtnLimpiar.Location = new System.Drawing.Point(5, 292);
             this.BtnLimpiar.Name = "BtnLimpiar";
             this.BtnLimpiar.Size = new System.Drawing.Size(152, 32);
             this.BtnLimpiar.TabIndex = 36;
@@ -218,7 +218,7 @@
             this.GbHistotialPedidos.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GbHistotialPedidos.Location = new System.Drawing.Point(3, 3);
             this.GbHistotialPedidos.Name = "GbHistotialPedidos";
-            this.GbHistotialPedidos.Size = new System.Drawing.Size(389, 480);
+            this.GbHistotialPedidos.Size = new System.Drawing.Size(389, 518);
             this.GbHistotialPedidos.TabIndex = 24;
             this.GbHistotialPedidos.TabStop = false;
             this.GbHistotialPedidos.Text = "Lista de pedidos";
@@ -233,7 +233,7 @@
             this.DgvPedidos.Location = new System.Drawing.Point(3, 166);
             this.DgvPedidos.Name = "DgvPedidos";
             this.DgvPedidos.RowHeadersVisible = false;
-            this.DgvPedidos.Size = new System.Drawing.Size(380, 308);
+            this.DgvPedidos.Size = new System.Drawing.Size(380, 346);
             this.DgvPedidos.TabIndex = 22;
             this.DgvPedidos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvPedidos_CellContentClick);
             // 
@@ -382,7 +382,7 @@
             this.GbCatalodoProductos.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GbCatalodoProductos.Location = new System.Drawing.Point(669, 3);
             this.GbCatalodoProductos.Name = "GbCatalodoProductos";
-            this.GbCatalodoProductos.Size = new System.Drawing.Size(389, 477);
+            this.GbCatalodoProductos.Size = new System.Drawing.Size(389, 518);
             this.GbCatalodoProductos.TabIndex = 25;
             this.GbCatalodoProductos.TabStop = false;
             this.GbCatalodoProductos.Text = "Catalogo de productos";
@@ -450,7 +450,7 @@
             this.DgvCatalogoProductos.Location = new System.Drawing.Point(6, 164);
             this.DgvCatalogoProductos.Name = "DgvCatalogoProductos";
             this.DgvCatalogoProductos.RowHeadersVisible = false;
-            this.DgvCatalogoProductos.Size = new System.Drawing.Size(377, 307);
+            this.DgvCatalogoProductos.Size = new System.Drawing.Size(377, 348);
             this.DgvCatalogoProductos.TabIndex = 22;
             this.DgvCatalogoProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvCatalogoProductos_CellContentClick_1);
             this.DgvCatalogoProductos.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvCatalogoProductos_CellValueChanged);
@@ -476,7 +476,7 @@
             this.TbcVentas.Location = new System.Drawing.Point(0, 0);
             this.TbcVentas.Name = "TbcVentas";
             this.TbcVentas.SelectedIndex = 0;
-            this.TbcVentas.Size = new System.Drawing.Size(1072, 518);
+            this.TbcVentas.Size = new System.Drawing.Size(1072, 556);
             this.TbcVentas.TabIndex = 35;
             // 
             // TbpVentaNueva
@@ -487,7 +487,7 @@
             this.TbpVentaNueva.Location = new System.Drawing.Point(4, 28);
             this.TbpVentaNueva.Name = "TbpVentaNueva";
             this.TbpVentaNueva.Padding = new System.Windows.Forms.Padding(3);
-            this.TbpVentaNueva.Size = new System.Drawing.Size(1064, 486);
+            this.TbpVentaNueva.Size = new System.Drawing.Size(1064, 524);
             this.TbpVentaNueva.TabIndex = 0;
             this.TbpVentaNueva.Text = "Nuevo pedido";
             this.TbpVentaNueva.UseVisualStyleBackColor = true;
@@ -499,7 +499,7 @@
             this.TbpHistorialVentas.Location = new System.Drawing.Point(4, 28);
             this.TbpHistorialVentas.Name = "TbpHistorialVentas";
             this.TbpHistorialVentas.Padding = new System.Windows.Forms.Padding(3);
-            this.TbpHistorialVentas.Size = new System.Drawing.Size(1064, 486);
+            this.TbpHistorialVentas.Size = new System.Drawing.Size(1064, 524);
             this.TbpHistorialVentas.TabIndex = 1;
             this.TbpHistorialVentas.Text = "Historial pedidos";
             this.TbpHistorialVentas.UseVisualStyleBackColor = true;
@@ -520,7 +520,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(398, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(660, 480);
+            this.groupBox1.Size = new System.Drawing.Size(660, 518);
             this.groupBox1.TabIndex = 25;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalles de pedido";
@@ -543,24 +543,24 @@
             this.DgvPedidosDetalle2.Location = new System.Drawing.Point(6, 122);
             this.DgvPedidosDetalle2.Name = "DgvPedidosDetalle2";
             this.DgvPedidosDetalle2.RowHeadersVisible = false;
-            this.DgvPedidosDetalle2.Size = new System.Drawing.Size(648, 295);
+            this.DgvPedidosDetalle2.Size = new System.Drawing.Size(648, 330);
             this.DgvPedidosDetalle2.TabIndex = 21;
             // 
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(562, 442);
+            this.button2.Location = new System.Drawing.Point(506, 480);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(92, 32);
+            this.button2.Size = new System.Drawing.Size(148, 32);
             this.button2.TabIndex = 20;
-            this.button2.Text = "Imprimir";
+            this.button2.Text = "Imprimir documento";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // LbTotal2
             // 
             this.LbTotal2.AutoSize = true;
             this.LbTotal2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LbTotal2.Location = new System.Drawing.Point(483, 420);
+            this.LbTotal2.Location = new System.Drawing.Point(483, 458);
             this.LbTotal2.Name = "LbTotal2";
             this.LbTotal2.Size = new System.Drawing.Size(120, 19);
             this.LbTotal2.TabIndex = 17;
@@ -792,7 +792,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1176, 540);
+            this.ClientSize = new System.Drawing.Size(1070, 555);
             this.Controls.Add(this.TbcVentas);
             this.Controls.Add(this.PbCerrar);
             this.Controls.Add(this.button1);
