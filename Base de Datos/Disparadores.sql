@@ -1,5 +1,5 @@
--------------------------------------------------------------------------- disparador entrada
-CREATE trigger triggerEntradaProducto on TEntradaDetalle for insert
+-------------------------------------------------------------------------- disparador entrada detalle (ingreso nueva entrada detalle)
+create trigger triggerEntradaProducto on TEntradaDetalle for insert
 as
 declare @codigoProducto varchar(8)
 declare @cantidadAumentada int
@@ -12,8 +12,19 @@ where IdProducto = @codigoProducto
 update TProducto
 set Cantidad = @cantidadAntes + @cantidadAumentada, Estado = 'ACTIVO'
 where IdProducto = @codigoProducto
+
 go
 
+--------------------------------------------------------------------------nueva entrada (activar proveedor)
+create trigger triggerNuevaEntrada on TEntrada for insert
+as
+declare @codigoProveedor varchar(5)
+
+select  @codigoProveedor = IdProveedor from inserted
+update TProveedor
+set Estado = 'ACTIVO'
+where IdProveedor = @codigoProveedor
+go
 
 
 -----------------------------------------------------------------
