@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BibClases;
+using System.Text.RegularExpressions;
 
 namespace SIVEALLI
 {
@@ -92,42 +93,63 @@ namespace SIVEALLI
 
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
-            DgvClientes.CurrentCell = null;
-            if (CbBuscar.Text.Trim() == "Nombres")
+            DgvClientes.CurrentCell = null; 
+            int Valor = 0;
+            switch (CbBuscar.Text)
             {
-                for (int k = 0; k < DgvClientes.Rows.Count; k++)
-                {
-                    if (!DgvClientes.Rows[k].Cells[1].Value.ToString().Contains(TbValorBusqueda.Text))
-                        DgvClientes.Rows[k].Visible = false;
-                    else
-                        DgvClientes.Rows[k].Visible = true;
-                }
+                case "ID Cliente":
+                    Valor = 0;
+                    break;
+                case "Nombres":
+                    Valor = 1;
+                    break;
+                case "Apellidos":
+                    Valor = 2;
+                    break;
+                case "Dirección":
+                    Valor = 3;
+                    break;
+                case "Telefono":
+                    Valor = 4;
+                    break;
+                case "Correo":
+                    Valor = 5;
+                    break;
+            }
+            for (int k = 0; k < DgvClientes.Rows.Count; k++)
+            {
+                if(BuscarPalabraEnCadena(TbValorBusqueda.Text,DgvClientes.Rows[k].Cells[Valor].Value.ToString()))
+                    DgvClientes.Rows[k].Visible = true;
+                else
+                    DgvClientes.Rows[k].Visible = false;
+            }
                 //--Mostrar el numero de clientes
                 LbNroClientes.Text = LbNroClientes.Text.Split(':')[0] + ": " + ContarClientesVisibles().ToString();
-            }
-            else if (CbBuscar.Text.Trim() == "Apellidos")
-            {
-                for (int k = 0; k < DgvClientes.Rows.Count; k++)
-                {
-                    if (!DgvClientes.Rows[k].Cells[2].Value.ToString().Contains(TbValorBusqueda.Text))
-                        DgvClientes.Rows[k].Visible = false;
-                    else
-                        DgvClientes.Rows[k].Visible = true;
-                }
-                //--Mostrar el numero de clientes
-                LbNroClientes.Text = LbNroClientes.Text.Split(':')[0] + ": " + ContarClientesVisibles().ToString();
-            }
+
+        }
+        private bool BuscarPalabraEnCadena(string Palabra, string Cadena)
+        {
+            // Convertimos la cadena en texto normalizado sin tildes y sin ñ
+            Cadena = Regex.Replace(Cadena.Normalize(NormalizationForm.FormD), @"[^a-zA-z0-9 ]+", "");
+            // Normalizamos a la palabra
+            Palabra = Regex.Replace(Palabra.Normalize(NormalizationForm.FormD), @"[^a-zA-z0-9 ]+", "");
+            // Convertimos la cadena en solo minusculas
+            string Minusculas = Cadena.ToLower();
+            // Convertimos la cadena en solo mayusculas
+            string Mayusculas = Cadena.ToUpper();
+            if (Cadena.Contains(Palabra))
+                return true;
             else
             {
-                for (int k = 0; k < DgvClientes.Rows.Count; k++)
+                if (Minusculas.Contains(Palabra.ToLower()))
+                    return true;
+                else
                 {
-                    if (!DgvClientes.Rows[k].Cells[0].Value.ToString().Contains(TbValorBusqueda.Text))
-                        DgvClientes.Rows[k].Visible = false;
+                    if (Mayusculas.Contains(Palabra.ToUpper()))
+                        return true;
                     else
-                        DgvClientes.Rows[k].Visible = true;
+                        return false;
                 }
-                //--Mostrar el numero de clientes
-                LbNroClientes.Text = LbNroClientes.Text.Split(':')[0] + ": " + ContarClientesVisibles().ToString();
             }
         }
         public int ContarClientesVisibles()
@@ -184,6 +206,17 @@ namespace SIVEALLI
         private void BtnLimpiar_Click(object sender, EventArgs e)
         {
             DejarEnBlanco();
+        }
+
+        private void BtnMostrarTodo_Click(object sender, EventArgs e)
+        {
+            DgvClientes.CurrentCell = null;
+            for (int k = 0; k < DgvClientes.Rows.Count; k++)
+            {
+                DgvClientes.Rows[k].Visible = true;
+            }
+            //--Mostrar el numero de clientes
+            LbNroClientes.Text = LbNroClientes.Text.Split(':')[0] + ": " + ContarClientesVisibles().ToString();
         }
     }
 }

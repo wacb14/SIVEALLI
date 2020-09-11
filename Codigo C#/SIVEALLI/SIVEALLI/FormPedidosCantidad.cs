@@ -20,7 +20,9 @@ namespace SIVEALLI
         int aFila;
         bool Añadiendo;
         Label LTotal;
-        public FormPedidosCantidad(DataGridView dgvPD, DataGridView dgvCP,string id,string nombre,string precio,int fila,bool Aña,Label Prec)
+
+        int aPos;
+        public FormPedidosCantidad(DataGridView dgvPD, DataGridView dgvCP, string id, string nombre, string precio, int fila, bool Aña, Label Prec, int Pos = 0, bool edi = false)
         {
             InitializeComponent();
             DgvPedidosDetalle = dgvPD;
@@ -31,6 +33,13 @@ namespace SIVEALLI
             aFila = fila;
             Añadiendo = Aña;
             LTotal = Prec;
+
+            aPos = Pos;
+            if (edi)
+            {
+                BtnAceptar2.Visible = true;
+                BtnAceptar.Visible = false;
+            }
         }   
 
         private void BtnAceptar_Click(object sender, EventArgs e)
@@ -46,6 +55,12 @@ namespace SIVEALLI
             //--Calcular el total del importe
             double Total = double.Parse(LTotal.Text.Split('/')[1].ToString());
             LTotal.Text = LTotal.Text.Split('/')[0] + "/ " + (Total + subTotal).ToString();
+            this.Close();
+        }
+
+        private void BtnAceptar2_Click(object sender, EventArgs e)
+        {
+            DgvPedidosDetalle.Rows[aPos].Cells[3].Value = NudCantidad.Value.ToString();
             this.Close();
         }
     }

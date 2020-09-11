@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BibClases;
+using System.Text.RegularExpressions;
 
 namespace SIVEALLI
 {
@@ -29,6 +30,7 @@ namespace SIVEALLI
             aFecha = Fecha;
             CargarCatalogoProductos();
             CargarCbProveedores();
+            CargarHistorialPedidos();
             //--Se carga el id del proximo pedido
             CbNuevoPed.Checked = true;
         }
@@ -62,7 +64,7 @@ namespace SIVEALLI
         public void CargarCatalogoProductos()
         {
             DgvCatalogoProductos.DataSource = Pedido.CatalogoProductos();
-            DgvCatalogoProductos.Columns[0].Visible = false;
+            //DgvCatalogoProductos.Columns[0].Visible = false;
             DgvCatalogoProductos.Columns[2].Width = 101;
             DgvCatalogoProductos.Columns[3].Width = 70;
             DgvCatalogoProductos.Columns[4].Width = 55;
@@ -145,7 +147,7 @@ namespace SIVEALLI
         {//--Determinar la fila que cambío
             int fila = e.RowIndex;
             int col = e.ColumnIndex;
-            if (col == 0)
+            if (fila>=0&& col == 0)
             {  //--Si se activa el check box, se agrega el producto
                 if (!Convert.ToBoolean(DgvCatalogoProductos.Rows[fila].Cells[0].Value))
                 {//--Ver el estado del producto
@@ -191,7 +193,7 @@ namespace SIVEALLI
             int fila = e.RowIndex;
             int col = e.ColumnIndex;
             //--En caso de que se presione el boton, se elimina el producto de los detalles
-            if (col == 5)
+            if (fila>=0&&col == 5)
             {
                 //--Se recupera la posicion del elemnto 
                 int filaProducto = int.Parse(DgvPedidosDetalle.Rows[fila].Cells[6].Value.ToString());
@@ -229,6 +231,16 @@ namespace SIVEALLI
             LTotal.Text = LTotal.Text.Split('/')[0] + "/ " + Total.ToString();
             Añadiendo = false;
         }
+        public void DeterminarImporteTotal2()
+        {
+            double Total = 0;
+            for (int k = 0; k < DgvPedidosDetalle2.Rows.Count; k++)
+            {
+                Total += double.Parse(DgvPedidosDetalle2.Rows[k].Cells[4].Value.ToString());
+            }
+            //--Cololcar el total 
+            LbTotal2.Text = LbTotal2.Text.Split('/')[0] + "/ " + Total.ToString();
+        }
         /// <summary>
         /// Evento que filtrara el contenido del catalogo de producto
         /// </summary>
@@ -239,9 +251,28 @@ namespace SIVEALLI
             //CurrencyManager cm = (CurrencyManager)BindingContext[DgvCatalogoProductos.DataSource];
             //cm.SuspendBinding();
             DgvCatalogoProductos.CurrentCell = null;
+            int Valor= 1;
+            switch (CbBuscar.Text)
+            {
+                case "ID Producto":
+                    Valor = 1;
+                    break;
+                case "Nombre":
+                    Valor = 2;
+                    break;
+                case "Categoria":
+                    Valor = 3;
+                    break;
+                case "Marca":
+                    Valor = 4;
+                    break;
+                case "Estado":
+                    Valor = 6;
+                    break;
+            }
             for (int k = DgvCatalogoProductos.Rows.Count - 1; k >= 0; k--)
             {
-                if (DgvCatalogoProductos.Rows[k].Cells[2].Value.ToString().Contains(TbFiltrar.Text))
+                if(BuscarPalabraEnCadena(TbFiltrar.Text, DgvCatalogoProductos.Rows[k].Cells[Valor].Value.ToString()))
                     DgvCatalogoProductos.Rows[k].Visible = true;
                 else
                 {
@@ -251,29 +282,33 @@ namespace SIVEALLI
         }
         private void BtnFiltrarHistorial_Click(object sender, EventArgs e)
         {
+            int Valor = 0;
+            switch (CbBuscarPedido.Text)
+            {
+                case "ID Producto":
+                    Valor = 0;
+                    break;
+                case "ID Proveedor":
+                    Valor = 1;
+                    break;
+                case "ID Usuario":
+                    Valor = 2;
+                    break;
+                case "Fecha de pedido":
+                    Valor = 3;
+                    break;
+            }
             DgvPedidos.CurrentCell = null;
             for (int k = DgvPedidos.Rows.Count - 1; k >= 0; k--)
             {
-                if (DgvPedidos.Rows[k].Cells[0].Value.ToString().Contains(TbfiltrarHistorial.Text))
+
+                if (BuscarPalabraEnCadena(TbfiltrarHistorial.Text, DgvPedidos.Rows[k].Cells[Valor].Value.ToString()))
                     DgvPedidos.Rows[k].Visible = true;
                 else
                 {
                     DgvPedidos.Rows[k].Visible = false;
                 }
             }
-        }
-        //--Cambiar la vista de productos y pedidos
-        private void BtnHistorial_Click(object sender, EventArgs e)
-        {
-            GbHistotialPedidos.Visible = true;
-            GbCatalodoProductos.Visible = false;
-            CargarHistorialPedidos();
-        }
-
-        private void BtnCatalogo_Click(object sender, EventArgs e)
-        {
-            GbHistotialPedidos.Visible = false;
-            GbCatalodoProductos.Visible = true;
         }
         //--cargar los datos de los pedidos hechos
         private void DgvPedidos_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -283,25 +318,24 @@ namespace SIVEALLI
             if (fila >= 0)
             {
                 DataTable TablaPedido = Pedido.TraerDatosPedido(DgvPedidos.Rows[fila].Cells[0].Value.ToString());
-                TbId.Text = TablaPedido.Rows[0][0].ToString();
+                LbId.Text = TablaPedido.Rows[0][0].ToString();
                 //CbProv.Text = TablaPedido.Rows[0][1].ToString();
-                CbProv.SelectedIndex = int.Parse(TablaPedido.Rows[0][1].ToString().Substring(2));
-                TbTermEntrega.Text = TablaPedido.Rows[0][5].ToString();
+                LbProveedor.Text = TablaPedido.Rows[0][1].ToString();
+                LblTerm.Text = TablaPedido.Rows[0][5].ToString();
+                LblFechaPago.Text = TablaPedido.Rows[0][3].ToString().Split(' ')[0];
                 //--Cargar los datos en data grid view
                 DataTable TablaPedidoDetalle = Pedido.TraerDatosPedidoDetalle(DgvPedidos.Rows[fila].Cells[0].Value.ToString());
-                DgvPedidosDetalle.Rows.Clear();
-                DejarEnCatalogoBlanco();
+                DgvPedidosDetalle2.Rows.Clear();
+                //DejarEnCatalogoBlanco();
                 for (int k = 0; k < TablaPedidoDetalle.Rows.Count; k++)
                 {
                     string codProd = TablaPedidoDetalle.Rows[k][1].ToString();
                     string nombre = DetNombre(codProd);
                     string precio = TablaPedidoDetalle.Rows[k][3].ToString();
                     string cantidad = TablaPedidoDetalle.Rows[k][2].ToString();
-                    DgvPedidosDetalle.Rows.Add(codProd, nombre.Split('#')[0], precio, cantidad, (double.Parse(precio) * int.Parse(cantidad)).ToString(), "X", nombre.Split('#')[1]);
+                    DgvPedidosDetalle2.Rows.Add(codProd, nombre.Split('#')[0], precio, cantidad, (double.Parse(precio) * int.Parse(cantidad)).ToString(), "X", nombre.Split('#')[1]);
                 }
-                DeterminarImporteTotal();
-                CbNuevoPed.Checked = false;
-                CbNuevoPed.Enabled = true;
+                DeterminarImporteTotal2();
             }
         }
         public void DejarEnCatalogoBlanco()
@@ -319,8 +353,8 @@ namespace SIVEALLI
             {
                 if (DgvCatalogoProductos.Rows[k].Cells[1].Value.ToString().Trim() == Cod)
                 {
-                    DgvCatalogoProductos.Rows[k].Cells[0].Value = true;
-                    DgvCatalogoProductos.Rows[k].Cells[0].ReadOnly = true;
+                    //DgvCatalogoProductos.Rows[k].Cells[0].Value = true;
+                    //DgvCatalogoProductos.Rows[k].Cells[0].ReadOnly = true;
                     return DgvCatalogoProductos.Rows[k].Cells[2].Value.ToString() + "#" + k.ToString();
                 }
             }
@@ -344,6 +378,31 @@ namespace SIVEALLI
             }
         }
 
+        private bool BuscarPalabraEnCadena(string Palabra, string Cadena)
+        {
+            // Convertimos la cadena en texto normalizado sin tildes y sin ñ
+            Cadena = Regex.Replace(Cadena.Normalize(NormalizationForm.FormD), @"[^a-zA-z0-9 ]+", "");
+            // Normalizamos a la palabra
+            Palabra = Regex.Replace(Palabra.Normalize(NormalizationForm.FormD), @"[^a-zA-z0-9 ]+", "");
+            // Convertimos la cadena en solo minusculas
+            string Minusculas = Cadena.ToLower();
+            // Convertimos la cadena en solo mayusculas
+            string Mayusculas = Cadena.ToUpper();
+            if (Cadena.Contains(Palabra))
+                return true;
+            else
+            {
+                if (Minusculas.Contains(Palabra.ToLower()))
+                    return true;
+                else
+                {
+                    if (Mayusculas.Contains(Palabra.ToUpper()))
+                        return true;
+                    else
+                        return false;
+                }
+            }
+        }
         private void PbCerrar_Click(object sender, EventArgs e)
         {
             Close();
@@ -360,7 +419,39 @@ namespace SIVEALLI
             TbfiltrarHistorial.Text = "";
             TbTermEntrega.Text = "";
             CbProv.SelectedIndex = 0;
+            LTotal.Text = LTotal.Text.Split('/')[0] + "/ 0";
+            DejarEnCatalogoBlanco();
             DgvPedidosDetalle.Rows.Clear();
+        }
+
+        private void BtnMostrarTodo_Click(object sender, EventArgs e)
+        {
+            DgvCatalogoProductos.CurrentCell = null;
+            for (int k = 0; k < DgvCatalogoProductos.Rows.Count; k++)
+                DgvCatalogoProductos.Rows[k].Visible = true;
+        }
+
+        private void BtnMostrarTodPedidos_Click(object sender, EventArgs e)
+        {
+            DgvPedidos.CurrentCell = null;
+            for (int k = 0; k < DgvPedidos.Rows.Count; k++)
+                DgvPedidos.Rows[k].Visible = true;
+        }
+        /// <summary>
+        /// Editar la cantidad de un producto
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DgvPedidosDetalle_CellClick(object sender, DataGridViewCellEventArgs e)
+        {//--Determinar la fila que cambío
+            int fila = e.RowIndex;
+            int col = e.ColumnIndex;
+            if (fila>=0 && col == 3)
+            {//--Abrir el form que pedira la cantidad del producto
+                FormPedidosCantidad fc = new FormPedidosCantidad(DgvPedidosDetalle, null, null, null, null, 0, false, null, fila, true);
+                fc.StartPosition = FormStartPosition.CenterScreen;
+                fc.Show();
+            }
         }
     }
 }

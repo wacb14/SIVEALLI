@@ -31,6 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.NudCantidad = new System.Windows.Forms.NumericUpDown();
             this.BtnAceptar = new System.Windows.Forms.Button();
+            this.BtnAceptar2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.NudCantidad)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,16 +76,28 @@
             this.BtnAceptar.UseVisualStyleBackColor = true;
             this.BtnAceptar.Click += new System.EventHandler(this.BtnAceptar_Click);
             // 
+            // BtnAceptar2
+            // 
+            this.BtnAceptar2.Location = new System.Drawing.Point(74, 63);
+            this.BtnAceptar2.Name = "BtnAceptar2";
+            this.BtnAceptar2.Size = new System.Drawing.Size(81, 32);
+            this.BtnAceptar2.TabIndex = 4;
+            this.BtnAceptar2.Text = "Aceptar";
+            this.BtnAceptar2.UseVisualStyleBackColor = true;
+            this.BtnAceptar2.Visible = false;
+            this.BtnAceptar2.Click += new System.EventHandler(this.BtnAceptar2_Click);
+            // 
             // FormPedidosCantidad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(231, 104);
+            this.Controls.Add(this.BtnAceptar2);
             this.Controls.Add(this.BtnAceptar);
             this.Controls.Add(this.NudCantidad);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormPedidosCantidad";
             ((System.ComponentModel.ISupportInitialize)(this.NudCantidad)).EndInit();
             this.ResumeLayout(false);
@@ -97,5 +110,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown NudCantidad;
         private System.Windows.Forms.Button BtnAceptar;
+        private System.Windows.Forms.Button BtnAceptar2;
     }
 }
