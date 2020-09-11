@@ -54,8 +54,7 @@ go
 create procedure ListaUsuariosSinContragna
 as
 begin
-select IdUsuario, Nombres, Apellidos, Telefono, Correo, Estado, Tipo, Direccion 
-	from TUsuario
+select IdUsuario, Nombres, Apellidos, Direccion, Telefono, Correo, Estado, Tipo FROM TUsuario
 end;
 go
 
