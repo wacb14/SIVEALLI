@@ -10,8 +10,19 @@ select @cantidadAntes = Cantidad from TProducto
 where IdProducto = @codigoProducto
 
 update TProducto
-set Cantidad = @cantidadAntes + @cantidadAumentada
+set Cantidad = @cantidadAntes + @cantidadAumentada, Estado = 'ACTIVO'
 where IdProducto = @codigoProducto
+
+go
+
+create trigger triggerNuevaEntrada on TEntrada for insert
+as
+declare @codigoProveedor varchar(5)
+
+select  @codigoProveedor = IdProveedor from inserted
+update TProveedor
+set Estado = 'ACTIVO'
+where IdProveedor = @codigoProveedor
 go
 
 
