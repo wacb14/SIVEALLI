@@ -42,19 +42,20 @@
             this.groupBoxEntradaProducto = new System.Windows.Forms.GroupBox();
             this.comboBoxCodigoProducto = new System.Windows.Forms.ComboBox();
             this.dataGridViewDetalleEntrada = new System.Windows.Forms.DataGridView();
-            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
-            this.textBoxUsuario = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.ColumnCodigoProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnPrecioUnitacio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
+            this.textBoxUsuario = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.buttonEditar = new System.Windows.Forms.Button();
             this.buttonEliminarDetalle = new System.Windows.Forms.Button();
             this.buttonLimpiar = new System.Windows.Forms.Button();
             this.buttonListo = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCantidad)).BeginInit();
             this.groupBoxDatosEntrada.SuspendLayout();
             this.groupBoxEntradaProducto.SuspendLayout();
@@ -215,34 +216,8 @@
             this.dataGridViewDetalleEntrada.Location = new System.Drawing.Point(12, 150);
             this.dataGridViewDetalleEntrada.Name = "dataGridViewDetalleEntrada";
             this.dataGridViewDetalleEntrada.ReadOnly = true;
-            this.dataGridViewDetalleEntrada.Size = new System.Drawing.Size(874, 357);
+            this.dataGridViewDetalleEntrada.Size = new System.Drawing.Size(874, 393);
             this.dataGridViewDetalleEntrada.TabIndex = 37;
-            // 
-            // dtpFecha
-            // 
-            this.dtpFecha.Enabled = false;
-            this.dtpFecha.Location = new System.Drawing.Point(777, 12);
-            this.dtpFecha.Name = "dtpFecha";
-            this.dtpFecha.Size = new System.Drawing.Size(281, 26);
-            this.dtpFecha.TabIndex = 42;
-            // 
-            // textBoxUsuario
-            // 
-            this.textBoxUsuario.Enabled = false;
-            this.textBoxUsuario.Location = new System.Drawing.Point(535, 12);
-            this.textBoxUsuario.Name = "textBoxUsuario";
-            this.textBoxUsuario.Size = new System.Drawing.Size(100, 26);
-            this.textBoxUsuario.TabIndex = 43;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(454, 15);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 19);
-            this.label3.TabIndex = 44;
-            this.label3.Text = "Supervisor";
             // 
             // ColumnCodigoProducto
             // 
@@ -286,6 +261,32 @@
             this.ColumnCantidad.ReadOnly = true;
             this.ColumnCantidad.Width = 75;
             // 
+            // dtpFecha
+            // 
+            this.dtpFecha.Enabled = false;
+            this.dtpFecha.Location = new System.Drawing.Point(777, 12);
+            this.dtpFecha.Name = "dtpFecha";
+            this.dtpFecha.Size = new System.Drawing.Size(281, 26);
+            this.dtpFecha.TabIndex = 42;
+            // 
+            // textBoxUsuario
+            // 
+            this.textBoxUsuario.Enabled = false;
+            this.textBoxUsuario.Location = new System.Drawing.Point(535, 12);
+            this.textBoxUsuario.Name = "textBoxUsuario";
+            this.textBoxUsuario.Size = new System.Drawing.Size(100, 26);
+            this.textBoxUsuario.TabIndex = 43;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(454, 15);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(74, 19);
+            this.label3.TabIndex = 44;
+            this.label3.Text = "Supervisor";
+            // 
             // buttonEditar
             // 
             this.buttonEditar.Location = new System.Drawing.Point(906, 178);
@@ -306,7 +307,7 @@
             // 
             // buttonLimpiar
             // 
-            this.buttonLimpiar.Location = new System.Drawing.Point(910, 435);
+            this.buttonLimpiar.Location = new System.Drawing.Point(906, 471);
             this.buttonLimpiar.Name = "buttonLimpiar";
             this.buttonLimpiar.Size = new System.Drawing.Size(152, 33);
             this.buttonLimpiar.TabIndex = 48;
@@ -315,19 +316,30 @@
             // 
             // buttonListo
             // 
-            this.buttonListo.Location = new System.Drawing.Point(910, 474);
+            this.buttonListo.Location = new System.Drawing.Point(906, 510);
             this.buttonListo.Name = "buttonListo";
             this.buttonListo.Size = new System.Drawing.Size(152, 33);
             this.buttonListo.TabIndex = 49;
             this.buttonListo.Text = "Guardar entrada";
             this.buttonListo.UseVisualStyleBackColor = true;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(675, 15);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(95, 19);
+            this.label6.TabIndex = 50;
+            this.label6.Text = "Fecha entrada";
+            // 
             // FormEntrada
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(1070, 519);
+            this.ClientSize = new System.Drawing.Size(1070, 555);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.buttonListo);
             this.Controls.Add(this.buttonLimpiar);
             this.Controls.Add(this.buttonEliminarDetalle);
@@ -381,5 +393,6 @@
         private System.Windows.Forms.Button buttonEliminarDetalle;
         private System.Windows.Forms.Button buttonLimpiar;
         private System.Windows.Forms.Button buttonListo;
+        private System.Windows.Forms.Label label6;
     }
 }

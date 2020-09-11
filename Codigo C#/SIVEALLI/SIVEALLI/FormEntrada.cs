@@ -193,7 +193,7 @@ namespace SIVEALLI
             catch (Exception)
             {
                 //Mostrar mensaje de error
-                MessageBox.Show("Usuario ligado a operaciones", "ATENCION");
+                MessageBox.Show("Usuario ligado a operaciones o no seleccionó ninguna fila", "ATENCION");
             }
         }
 

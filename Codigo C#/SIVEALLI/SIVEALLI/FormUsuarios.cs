@@ -32,21 +32,16 @@ namespace SIVEALLI
             textBoxCodigo.TextChanged += new EventHandler(CambioCodigo);
             this.dataGridViewUsuarios.CellClick += new DataGridViewCellEventHandler(MostrarDatosEnFormulario);
             this.btnRestaurarContra.Click += new EventHandler(RestaurarContraseña);
-            this.btnRestMiCont.Click += new EventHandler(RestaurarMiContraseña);
             this.btnCambioContra.Click += new EventHandler(CambiarContraseña);
+            this.BtnLimpiar.Click += new EventHandler(LimpiarInterfaz);
+            //this.btnDesactivar.Click += new EventHandler(DesactivarUsuario);
+            this.BtnGuardar.Click += new EventHandler(GuardarRegistro);
+            this.btnNuevoUsuario.Click += new EventHandler(GenerarCodigoNuevoUsuario);
 
             //Validaciones
             textBoxNombres.KeyPress += new KeyPressEventHandler(Procesos.ValidarTextBoxSoloLetras);
             textBoxApellidos.KeyPress += new KeyPressEventHandler(Procesos.ValidarTextBoxSoloLetras);
             textBoxTelefono.KeyPress += new KeyPressEventHandler(Procesos.ValidarTextBoxSoloNumeros);
-        }
-
-        private void RestaurarMiContraseña(object sender, EventArgs e)
-        {
-
-            aUsuario.RestaurarContrasegna(codigoUsuario);
-            MessageBox.Show("Nueva contraseña (igual a la identificación): " + codigoUsuario);
-
         }
 
         private void CambiarContraseña(object sender, EventArgs e)
@@ -63,7 +58,7 @@ namespace SIVEALLI
                 return;
             }
 
-            DialogResult result = MessageBox.Show("Esta operación guardará al usuario que la realizó y la fecha. ¿Desea continuar?", "", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Está operación restaurará la contraseña del usuario seleccionado. ¿Desea continuar?", "", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
                 aUsuario.RestaurarContrasegna(textBoxCodigo.Text);
@@ -162,10 +157,10 @@ namespace SIVEALLI
         }
         public override bool EsRegistroValido()
         {
-            if (textBoxCodigo.Text.Trim() != "" && 
+            if (textBoxCodigo.Text.Trim() != "" &&
                 textBoxApellidos.Text.Trim() != "" &&
                 textBoxNombres.Text.Trim() != "" &&
-                comboBoxTipo.Text.Trim() != "" )
+                comboBoxTipo.Text.Trim() != "")
                 return true;
             else
                 return false;
@@ -177,7 +172,8 @@ namespace SIVEALLI
             ListarRegistros();
         }
 
-        private void buttonEliminar_Click(object sender, EventArgs e)
+        /*Funcion boton desactivar usuario
+        private void DesactivarUsuario(object sender, EventArgs e)
         {
             try
             {
@@ -186,7 +182,7 @@ namespace SIVEALLI
 
                 //eliminar la fila 
                 //string[] aux = { dataGridViewUsuarios.Rows[fila].Cells[0].Value.ToString() };
-                string[] atributos = new string[] { 
+                string[] atributos = new string[] {
                     dataGridViewUsuarios.Rows[fila].Cells[0].Value.ToString(),
                 dataGridViewUsuarios.Rows[fila].Cells[1].Value.ToString(),
                 dataGridViewUsuarios.Rows[fila].Cells[2].Value.ToString(),
@@ -211,20 +207,14 @@ namespace SIVEALLI
             }
         }
 
-        private void BtnLimpiar_Click(object sender, EventArgs e)
+        */
+        private void LimpiarInterfaz(object sender, EventArgs e)
         {
             InicializarAtributos();
         }
 
-        private void BtnGuardar_Click(object sender, EventArgs e)
+        private void GuardarRegistro(object sender, EventArgs e)
         {
-            //Uso para tablas con claves compuestas
-            /*int n = 1;
-            if (aEntidad.ToString().Equals("BibClases.CUs"))
-            {
-                n = 2;
-            }
-            */
             Grabar();
         }
 
@@ -232,7 +222,7 @@ namespace SIVEALLI
         /// Guarda un registro en BD
         /// </summary>
         /// <param name="n"></param>
-        public virtual void Grabar()
+        public override void Grabar()
         {
             try
             {
@@ -261,8 +251,9 @@ namespace SIVEALLI
                 MessageBox.Show(e.ToString(), "Error al realizar la operacion");
             }
         }
+        
 
-        private void buttonNuevoUsuario_Click(object sender, EventArgs e)
+        private void GenerarCodigoNuevoUsuario(object sender, EventArgs e)
         {
 
             InicializarAtributosNoClave();
@@ -273,7 +264,7 @@ namespace SIVEALLI
             else if (cant < 99)
                 cantCeros = "0";
 
-            textBoxCodigo.Text = "US"+cantCeros+(cant+1);
+            textBoxCodigo.Text = "US" + cantCeros + (cant + 1);
 
             textBoxNombres.Focus();
 
