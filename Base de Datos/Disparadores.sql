@@ -1,5 +1,5 @@
 -------------------------------------------------------------------------- disparador entrada
-create trigger triggerEntradaProducto on TEntradaDetalle for insert
+CREATE trigger triggerEntradaProducto on TEntradaDetalle for insert
 as
 declare @codigoProducto varchar(8)
 declare @cantidadAumentada int
@@ -10,7 +10,7 @@ select @cantidadAntes = Cantidad from TProducto
 where IdProducto = @codigoProducto
 
 update TProducto
-set Cantidad = @cantidadAntes + @cantidadAumentada
+set Cantidad = @cantidadAntes + @cantidadAumentada, Estado = 'ACTIVO'
 where IdProducto = @codigoProducto
 go
 
