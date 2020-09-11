@@ -224,20 +224,6 @@ namespace SIVEALLI
             //--Cololcar el total 
             LblSubTotal.Text = Total.ToString();
         }
-        private void BtnDevoluciones_Click(object sender, EventArgs e)
-        {
-            CargarHistorialDevoluciones();
-            GbHistorialDevo.Visible = true;
-            GbVentas.Visible = false;
-        }
-
-        private void BtnVentas_Click(object sender, EventArgs e)
-        {
-            LTotal.Text = LTotal.Text.Split('/')[0] + "/ " + "0";
-            CargarVentas();
-            GbVentas.Visible = true;
-            GbHistorialDevo.Visible = false;
-        }
 
         private void PbCerrar_Click(object sender, EventArgs e)
         {
@@ -402,5 +388,6 @@ namespace SIVEALLI
             TbRazon.Text = "";
             DgvDevolucionDetalle.Rows.Clear();
         }
+
     }
 }

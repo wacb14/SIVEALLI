@@ -218,6 +218,13 @@ namespace SIVEALLI
             //--Mostrar el numero de clientes
             LbNroClientes.Text = LbNroClientes.Text.Split(':')[0] + ": " + ContarClientesVisibles().ToString();
         }
+        private void SoloNumeros(object sender, KeyPressEventArgs e)
+        {
+            Keys key = (Keys)e.KeyChar;
+            //--Sila tecla no es digito o borrar, no se escribe
+            if (!(char.IsDigit(e.KeyChar)) && !(key == Keys.Back))
+                e.Handled = true;
+        }
     }
 }
 

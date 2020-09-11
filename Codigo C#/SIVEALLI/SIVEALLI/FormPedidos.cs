@@ -83,59 +83,42 @@ namespace SIVEALLI
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
             if (TbId.Text.Trim() != "" && CbProv.Text.Trim() != "" && TbTermEntrega.Text.Trim() != "")
-            {//--Se valida que el pedido no exceda la cantidad maxima de los productos
-                if (ValidarCantidadMaxima())
-                {
-                    //MessageBox.Show("--"+DtpFechaPago.Text + "--" + aFecha+"--");
-                    if (Pedido.ExisteClavePrimaria(new string[] { TbId.Text }))
-                    {//--Primero se agrega el elmento a la tabla TPedido
-                        Pedido.Actualizar(new string[] { TbId.Text, CbProv.SelectedValue.ToString(), aIdUsuario, DtpFechaPago.Text, aFecha, TbTermEntrega.Text });
-                        //--Se eliminan los productos del pedido
-                        PedidoDetalle.EliminarRegistros(TbId.Text);
-                        //--Luego se guarda pedido detalle
-                        for (int k = 0; k < DgvPedidosDetalle.Rows.Count; k++)
-                        {
-                            string id = DgvPedidosDetalle.Rows[k].Cells[0].Value.ToString();
-                            string Cant = DgvPedidosDetalle.Rows[k].Cells[3].Value.ToString();
-                            string precUni = DgvPedidosDetalle.Rows[k].Cells[2].Value.ToString();
-                            if (PedidoDetalle.ExisteClavePrimaria(2, new string[] { TbId.Text, id }))
-                                PedidoDetalle.Actualizar(new string[] { TbId.Text, id, Cant, precUni });
-                            else
-                                PedidoDetalle.Insertar(new string[] { TbId.Text, id, Cant, precUni });
-                        }
-                    }
-                    else
-                    {//--Primero se agrega el elmento a la tabla TPedido
-                        Pedido.Insertar(new string[] { TbId.Text, CbProv.SelectedValue.ToString(), aIdUsuario, DtpFechaPago.Text, aFecha, TbTermEntrega.Text });
-                        //--Luego se guarda pedido detalle
-                        for (int k = 0; k < DgvPedidosDetalle.Rows.Count; k++)
-                        {
-                            string id = DgvPedidosDetalle.Rows[k].Cells[0].Value.ToString();
-                            string Cant = DgvPedidosDetalle.Rows[k].Cells[3].Value.ToString();
-                            string precUni = DgvPedidosDetalle.Rows[k].Cells[2].Value.ToString();
+            {
+                //MessageBox.Show("--"+DtpFechaPago.Text + "--" + aFecha+"--");
+                if (Pedido.ExisteClavePrimaria(new string[] { TbId.Text }))
+                {//--Primero se agrega el elmento a la tabla TPedido
+                    Pedido.Actualizar(new string[] { TbId.Text, CbProv.SelectedValue.ToString(), aIdUsuario, DtpFechaPago.Text, aFecha, TbTermEntrega.Text });
+                    //--Se eliminan los productos del pedido
+                    PedidoDetalle.EliminarRegistros(TbId.Text);
+                    //--Luego se guarda pedido detalle
+                    for (int k = 0; k < DgvPedidosDetalle.Rows.Count; k++)
+                    {
+                        string id = DgvPedidosDetalle.Rows[k].Cells[0].Value.ToString();
+                        string Cant = DgvPedidosDetalle.Rows[k].Cells[3].Value.ToString();
+                        string precUni = DgvPedidosDetalle.Rows[k].Cells[2].Value.ToString();
+                        if (PedidoDetalle.ExisteClavePrimaria(2, new string[] { TbId.Text, id }))
+                            PedidoDetalle.Actualizar(new string[] { TbId.Text, id, Cant, precUni });
+                        else
                             PedidoDetalle.Insertar(new string[] { TbId.Text, id, Cant, precUni });
-                        }
                     }
+                }
+                else
+                {//--Primero se agrega el elmento a la tabla TPedido
+                    Pedido.Insertar(new string[] { TbId.Text, CbProv.SelectedValue.ToString(), aIdUsuario, DtpFechaPago.Text, aFecha, TbTermEntrega.Text });
+                    //--Luego se guarda pedido detalle
+                    for (int k = 0; k < DgvPedidosDetalle.Rows.Count; k++)
+                    {
+                        string id = DgvPedidosDetalle.Rows[k].Cells[0].Value.ToString();
+                        string Cant = DgvPedidosDetalle.Rows[k].Cells[3].Value.ToString();
+                        string precUni = DgvPedidosDetalle.Rows[k].Cells[2].Value.ToString();
+                        PedidoDetalle.Insertar(new string[] { TbId.Text, id, Cant, precUni });
+                    }
+                }
                     MessageBox.Show("Los datos se guardaron exitosamente", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     CargarHistorialPedidos();
-                }
+                
             }
             else MessageBox.Show("Todos los campos deben tener algun valor", "CUIDADO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        }
-        public bool ValidarCantidadMaxima()
-        {
-            bool Guardar = true;
-            for (int k = 0; k < DgvPedidosDetalle.Rows.Count; k++)
-            {
-                string idPro = DgvPedidosDetalle.Rows[k].Cells[0].Value.ToString();
-                DataTable Datos = Pedido.CantidadMaxProducto(idPro);
-                if (int.Parse(Datos.Rows[0][0].ToString()) < (int.Parse(Datos.Rows[0][1].ToString()) + int.Parse(DgvPedidosDetalle.Rows[k].Cells[3].Value.ToString())))
-                {
-                    MessageBox.Show("Se si se realiza el pedido, se exsedera el numero maximo de unidades de" + idPro, "CUIDADO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Guardar = false;
-                }
-            }
-            return Guardar;
         }
 
         /// <summary>
@@ -162,7 +145,7 @@ namespace SIVEALLI
                         string Nombre = DgvCatalogoProductos.Rows[fila].Cells[2].Value.ToString();
                         string Precio = DgvCatalogoProductos.Rows[fila].Cells[5].Value.ToString();
                         //--Abrir el form que pedira la cantidad del producto
-                        FormPedidosCantidad fc = new FormPedidosCantidad(DgvPedidosDetalle, DgvCatalogoProductos, Id, Nombre, Precio, fila, Añadiendo, LTotal);
+                        FormPedidosCantidad fc = new FormPedidosCantidad(Pedido,DgvPedidosDetalle, DgvCatalogoProductos, Id, Nombre, Precio, fila, Añadiendo, LTotal);
                         fc.StartPosition = FormStartPosition.CenterScreen;
                         fc.Show();
                     }
@@ -448,7 +431,7 @@ namespace SIVEALLI
             int col = e.ColumnIndex;
             if (fila>=0 && col == 3)
             {//--Abrir el form que pedira la cantidad del producto
-                FormPedidosCantidad fc = new FormPedidosCantidad(DgvPedidosDetalle, null, null, null, null, 0, false, null, fila, true);
+                FormPedidosCantidad fc = new FormPedidosCantidad(Pedido,DgvPedidosDetalle, null, DgvPedidosDetalle.Rows[fila].Cells[0].Value.ToString(), null, null, 0, false, null, fila, true);
                 fc.StartPosition = FormStartPosition.CenterScreen;
                 fc.Show();
             }

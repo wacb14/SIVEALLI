@@ -34,41 +34,17 @@ namespace SIVEALLI
         private void EventosYValidaciones()
         {
             this.Load += new EventHandler(LLenarDatosControles);
-            this.BtnNuevaEntrada.Click += new EventHandler(GenerarNuevoCodigoEntrada);
-            this.BtnAniadir.Click += new EventHandler(AgregarProductoDetalle);
-            //this.buttonEditar.Click += new EventHandler(HabilitarEdicionDataGrid);
+            this.buttonNuevaEntrada.Click += new EventHandler(GenerarNuevoCodigoEntrada);
+            this.buttonAniadir.Click += new EventHandler(AgregarProductoDetalle);
+            this.buttonEditar.Click += new EventHandler(HabilitarEdicionDataGrid);
             this.buttonEliminarDetalle.Click += new EventHandler(EliminarEntradaDetalle);
             this.buttonListo.Click += new EventHandler(GuardarEntrada);
             this.cbCodigoEntrada.SelectionChangeCommitted += new EventHandler(CargarDatosEntrada);
             this.buttonLimpiar.Click += new EventHandler(LimpiarForm);
-            this.dgvDetalleEntrada.CellClick += new DataGridViewCellEventHandler(EditarCantidad);
 
             this.comboBoxCodigoProducto.DropDown += new EventHandler(CargarDatosProductos);
             this.comboBoxCodigoProveedor.DropDown += new EventHandler(CargarDatosProveedores);
             this.cbCodigoEntrada.DropDown += new EventHandler(CargarCodigosEntrada);
-        }
-
-        private void EditarCantidad(object sender, DataGridViewCellEventArgs e)
-        {
-            //-- Determinar las coordenadas de la celda que cambio
-            try
-            {
-                int fila = e.RowIndex;
-                int col = e.ColumnIndex;
-
-                if (col == 5)
-                {
-
-                    FormVentasCantidad Cant = new FormVentasCantidad(1000000);
-                    Cant.ShowDialog();
-                    string Cantidad = Cant.GetCantidad.ToString();
-                    dgvDetalleEntrada.Rows[fila].Cells[col].Value = Cantidad;
-                }
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Imposible editar campo", "ERROR");
-            }
         }
 
         private void CargarCodigosEntrada(object sender, EventArgs e)
@@ -95,8 +71,8 @@ namespace SIVEALLI
         {
             dtpFecha.Value = DateTime.Now;
             numericUpDownCantidad.Value = 1;
-            dgvDetalleEntrada.DataSource = null;
-            dgvDetalleEntrada.Rows.Clear();
+            dataGridViewDetalleEntrada.DataSource = null;
+            dataGridViewDetalleEntrada.Rows.Clear();
             textBoxUsuario.Text = codigoUsuario;
             comboBoxCodigoProducto.SelectedIndex = -1;
             comboBoxCodigoProveedor.SelectedIndex = -1;
@@ -114,8 +90,8 @@ namespace SIVEALLI
 
         private void CargarDatosEntradaDetalle()
         {
-            dgvDetalleEntrada.DataSource = null;
-            dgvDetalleEntrada.Rows.Clear();
+            dataGridViewDetalleEntrada.DataSource = null;
+            dataGridViewDetalleEntrada.Rows.Clear();
             
             DataTable detallesentrada = entDet.ListaGeneralCod(cbCodigoEntrada.SelectedValue.ToString());
             for (int i = 0; i < detallesentrada.Rows.Count; i++) 
@@ -129,7 +105,7 @@ namespace SIVEALLI
                 }
                 datos[dt.Columns.Count] = detallesentrada.Rows[i][2].ToString() + "";
 
-                dgvDetalleEntrada.Rows.Add(datos);
+                dataGridViewDetalleEntrada.Rows.Add(datos);
             }
         }
 
@@ -151,10 +127,10 @@ namespace SIVEALLI
             //eliminamos las antiguas entradas
             entDet.EliminarRegistros(codEntrada);
 
-            for (int i=0; i < dgvDetalleEntrada.Rows.Count; i++)
+            for (int i=0; i < dataGridViewDetalleEntrada.Rows.Count; i++)
             {
-                codProducto = dgvDetalleEntrada.Rows[i].Cells[0].Value.ToString();
-                cantidad = dgvDetalleEntrada.Rows[i].Cells[5].Value.ToString();
+                codProducto = dataGridViewDetalleEntrada.Rows[i].Cells[0].Value.ToString();
+                cantidad = dataGridViewDetalleEntrada.Rows[i].Cells[5].Value.ToString();
                 entDet.Insertar(new string[] { codEntrada, codProducto, cantidad });
             }
         }
@@ -163,7 +139,7 @@ namespace SIVEALLI
         {
             if (comboBoxCodigoProveedor.Text.Trim() != "" &&
                 cbCodigoEntrada.Text.Trim() != "" &&
-                dgvDetalleEntrada.Rows.Count > 0)
+                dataGridViewDetalleEntrada.Rows.Count > 0)
                 return true;
             else
                 return false;
@@ -209,19 +185,18 @@ namespace SIVEALLI
             try
             {
                 //Averigüar la fila seleccionada
-                int fila = dgvDetalleEntrada.CurrentCell.RowIndex;
+                int fila = dataGridViewDetalleEntrada.CurrentCell.RowIndex;
 
                 //eliminar la fila 
-                dgvDetalleEntrada.Rows.RemoveAt(fila);
+                dataGridViewDetalleEntrada.Rows.RemoveAt(fila);
             }
             catch (Exception)
             {
                 //Mostrar mensaje de error
-                MessageBox.Show("Usuario ligado a operaciones o no seleccionó ninguna fila", "ATENCION");
+                MessageBox.Show("Usuario ligado a operaciones", "ATENCION");
             }
         }
 
-        /*Permite editar una determinada columna de un dgv
         /// <summary>
         /// Habilita la modificación de los valores en la columna cantidad
         /// </summary>
@@ -229,14 +204,14 @@ namespace SIVEALLI
         /// <param name="e"></param>
         private void HabilitarEdicionDataGrid(object sender, EventArgs e)
         {
-            dgvDetalleEntrada.ReadOnly = false;
-            dgvDetalleEntrada.Columns[0].ReadOnly = true;
-            dgvDetalleEntrada.Columns[1].ReadOnly = true;
-            dgvDetalleEntrada.Columns[2].ReadOnly = true;
-            dgvDetalleEntrada.Columns[3].ReadOnly = true;
-            dgvDetalleEntrada.Columns[4].ReadOnly = true;
+            dataGridViewDetalleEntrada.ReadOnly = false;
+            dataGridViewDetalleEntrada.Columns[0].ReadOnly = true;
+            dataGridViewDetalleEntrada.Columns[1].ReadOnly = true;
+            dataGridViewDetalleEntrada.Columns[2].ReadOnly = true;
+            dataGridViewDetalleEntrada.Columns[3].ReadOnly = true;
+            dataGridViewDetalleEntrada.Columns[4].ReadOnly = true;
         }
-        */
+
         private void AgregarProductoDetalle(object sender, EventArgs e)
         {
             string codigoProducto = comboBoxCodigoProducto.Text;
@@ -250,12 +225,12 @@ namespace SIVEALLI
             }
 
             //Validamos que el codigo no se haya ingresado antes
-            int numeroFilasDetalle = dgvDetalleEntrada.Rows.Count;
+            int numeroFilasDetalle = dataGridViewDetalleEntrada.Rows.Count;
             int i = 0;
             bool encontrado = false;
             while(i < numeroFilasDetalle && !encontrado)
             {
-                if (codigoProducto.Equals(dgvDetalleEntrada.Rows[i].Cells[0].Value.ToString()))
+                if (codigoProducto.Equals(dataGridViewDetalleEntrada.Rows[i].Cells[0].Value.ToString()))
                     encontrado = true;
                 i++;
             }
@@ -278,7 +253,7 @@ namespace SIVEALLI
 
             datos[dt.Columns.Count] = cantidad+ "";
 
-            dgvDetalleEntrada.Rows.Add(datos);
+            dataGridViewDetalleEntrada.Rows.Add(datos);
 
             LimpiarFormularioNuevaEntradaDetalle();
         }

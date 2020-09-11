@@ -47,6 +47,7 @@
             this.TbNombres = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
             this.GbClientes = new System.Windows.Forms.GroupBox();
+            this.BtnMostrarTodo = new System.Windows.Forms.Button();
             this.BtnBuscar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.TbId = new System.Windows.Forms.TextBox();
@@ -56,7 +57,6 @@
             this.CbNuevoPed = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.PbCerrar = new System.Windows.Forms.PictureBox();
-            this.BtnMostrarTodo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DgvClientes)).BeginInit();
             this.GbClientes.SuspendLayout();
             this.GbCliente.SuspendLayout();
@@ -119,9 +119,11 @@
             // TbTelefono
             // 
             this.TbTelefono.Location = new System.Drawing.Point(88, 225);
+            this.TbTelefono.MaxLength = 9;
             this.TbTelefono.Name = "TbTelefono";
             this.TbTelefono.Size = new System.Drawing.Size(273, 26);
             this.TbTelefono.TabIndex = 9;
+            this.TbTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SoloNumeros);
             // 
             // TbValorBusqueda
             // 
@@ -142,7 +144,7 @@
             this.DgvClientes.ReadOnly = true;
             this.DgvClientes.Size = new System.Drawing.Size(648, 399);
             this.DgvClientes.TabIndex = 0;
-            this.DgvClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvClientes_CellContentClick);
+            this.DgvClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvClientes_CellContentClick);
             // 
             // label5
             // 
@@ -243,6 +245,17 @@
             this.GbClientes.TabIndex = 5;
             this.GbClientes.TabStop = false;
             this.GbClientes.Text = "Lista de clientes";
+            // 
+            // BtnMostrarTodo
+            // 
+            this.BtnMostrarTodo.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnMostrarTodo.Location = new System.Drawing.Point(420, 496);
+            this.BtnMostrarTodo.Name = "BtnMostrarTodo";
+            this.BtnMostrarTodo.Size = new System.Drawing.Size(202, 32);
+            this.BtnMostrarTodo.TabIndex = 21;
+            this.BtnMostrarTodo.Text = "Mostrar todos los clientes";
+            this.BtnMostrarTodo.UseVisualStyleBackColor = true;
+            this.BtnMostrarTodo.Click += new System.EventHandler(this.BtnMostrarTodo_Click);
             // 
             // BtnBuscar
             // 
@@ -353,17 +366,6 @@
             this.PbCerrar.TabIndex = 7;
             this.PbCerrar.TabStop = false;
             this.PbCerrar.Click += new System.EventHandler(this.PbCerrar_Click);
-            // 
-            // BtnMostrarTodo
-            // 
-            this.BtnMostrarTodo.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnMostrarTodo.Location = new System.Drawing.Point(420, 496);
-            this.BtnMostrarTodo.Name = "BtnMostrarTodo";
-            this.BtnMostrarTodo.Size = new System.Drawing.Size(202, 32);
-            this.BtnMostrarTodo.TabIndex = 21;
-            this.BtnMostrarTodo.Text = "Mostrar todos los clientes";
-            this.BtnMostrarTodo.UseVisualStyleBackColor = true;
-            this.BtnMostrarTodo.Click += new System.EventHandler(this.BtnMostrarTodo_Click);
             // 
             // FormClientes
             // 

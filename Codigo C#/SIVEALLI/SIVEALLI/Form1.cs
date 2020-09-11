@@ -21,7 +21,6 @@ namespace SIVEALLI
         FormDevoluciones fd;
         FormVentas fv;
         FormNegocio fn;
-        FormEntrada fe;
         public FormSupervisor(string codigoUsuario)
         {
             InitializeComponent();
@@ -58,12 +57,6 @@ namespace SIVEALLI
                 fd.Visible = false;
             if (ScHorizontal.Panel2.Controls.Contains(fv))
                 fv.Visible = false;
-            if (ScHorizontal.Panel2.Controls.Contains(fe))
-                fe.Visible = false;
-            if (ScHorizontal.Panel2.Controls.Contains(fn))
-                fn.Visible = false;
-            if (ScHorizontal.Panel2.Controls.Contains(fu))
-                fu.Visible = false;
         }
         private void buttonUsuarios_Click(object sender, EventArgs e)
         {
@@ -105,16 +98,8 @@ namespace SIVEALLI
 
         private void buttonEntrada_Click(object sender, EventArgs e)
         {
-            DeshabilitarVisible();
-            if (ScHorizontal.Panel2.Controls.Contains(fe))
-                fe.Visible = true;
-            else
-            {
-                fe = new FormEntrada(labelUsuario.Text);
-                //Fc.Show();
-                AbrirFormPanel(fe);
-            }
-
+            FormEntrada fe = new FormEntrada(labelUsuario.Text);
+            fe.Show();
         }
 
         private void BtnPedidos_Click(object sender, EventArgs e)

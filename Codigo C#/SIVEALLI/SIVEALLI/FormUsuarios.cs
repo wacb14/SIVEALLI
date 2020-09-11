@@ -30,15 +30,10 @@ namespace SIVEALLI
             this.Load += new EventHandler(CargarDatos);
             textBoxCodigo.Leave += new EventHandler(AbandonarTextBoxCodigo);
             textBoxCodigo.TextChanged += new EventHandler(CambioCodigo);
-            this.dgvUsuarios.CellClick += new DataGridViewCellEventHandler(MostrarDatosEnFormulario);
+            this.dataGridViewUsuarios.CellClick += new DataGridViewCellEventHandler(MostrarDatosEnFormulario);
             this.btnRestaurarContra.Click += new EventHandler(RestaurarContraseña);
+            this.btnRestMiCont.Click += new EventHandler(RestaurarMiContraseña);
             this.btnCambioContra.Click += new EventHandler(CambiarContraseña);
-            this.BtnLimpiar.Click += new EventHandler(LimpiarInterfaz);
-            //this.btnDesactivar.Click += new EventHandler(DesactivarUsuario);
-            this.BtnGuardar.Click += new EventHandler(GuardarRegistro);
-            this.btnNuevoUsuario.Click += new EventHandler(GenerarCodigoNuevoUsuario);
-            this.BtnRestaurarLista.Click += new EventHandler(RestaurarListaUsuarios);
-            this.BtnBuscar.Click += new EventHandler(BuscarPorCampo);
 
             //Validaciones
             textBoxNombres.KeyPress += new KeyPressEventHandler(Procesos.ValidarTextBoxSoloLetras);
@@ -46,59 +41,12 @@ namespace SIVEALLI
             textBoxTelefono.KeyPress += new KeyPressEventHandler(Procesos.ValidarTextBoxSoloNumeros);
         }
 
-        private void BuscarPorCampo(object sender, EventArgs e)
+        private void RestaurarMiContraseña(object sender, EventArgs e)
         {
-            dgvUsuarios.DataSource = null;
-            dgvUsuarios.Rows.Clear();
 
-            DataTable Lista = aUsuario.ListaUsuarios(); // Validamos que solo se muestren productos activos
-            string Valor = string.Empty;
-            switch (CboBuscarPor.Text)
-            {
-                case "ID Usuario":
-                    Valor = "IdUsuario";
-                    break;
-                case "Nombre":
-                    Valor = "Nombres";
-                    break;
-                case "Apellido":
-                    Valor = "Apellidos";
-                    break;
-                case "Dirección":
-                    Valor = "Direccion";
-                    break;
-                case "Teléfono":
-                    Valor = "Telefono";
-                    break;
-                case "Correo":
-                    Valor = "Correo";
-                    break;
-                case "Estado":
-                    Valor = "Estado";
-                    break;
-                case "Tipo":
-                    Valor = "Tipo";
-                    break;
-            }
+            aUsuario.RestaurarContrasegna(codigoUsuario);
+            MessageBox.Show("Nueva contraseña (igual a la identificación): " + codigoUsuario);
 
-            DataTable tablaMostrar = Lista.Clone();
-            for (int i = 0; i < Lista.Rows.Count; i++)
-            {
-                string ValorProd = Lista.Rows[i][Valor].ToString();
-                if (Procesos.BuscarPalabraEnCadena(TxtValorBusqueda.Text, ValorProd))
-                {
-                    tablaMostrar.ImportRow(Lista.Rows[i]); //.Rows.Add(Lista.Rows[i]);
-                }
-            }
-
-            dgvUsuarios.DataSource = tablaMostrar;
-            LblTotalUsuarios.Text = dgvUsuarios.Rows.Count.ToString();
-        }
-
-        private void RestaurarListaUsuarios(object sender, EventArgs e)
-        {
-            dgvUsuarios.DataSource = aUsuario.ListaUsuarios();
-            LblTotalUsuarios.Text = dgvUsuarios.Rows.Count.ToString();
         }
 
         private void CambiarContraseña(object sender, EventArgs e)
@@ -115,7 +63,7 @@ namespace SIVEALLI
                 return;
             }
 
-            DialogResult result = MessageBox.Show("Está operación restaurará la contraseña del usuario seleccionado. ¿Desea continuar?", "", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Esta operación guardará al usuario que la realizó y la fecha. ¿Desea continuar?", "", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
                 aUsuario.RestaurarContrasegna(textBoxCodigo.Text);
@@ -128,15 +76,15 @@ namespace SIVEALLI
             try
             {
                 //Averigüar la fila seleccionada
-                int fila = dgvUsuarios.CurrentCell.RowIndex;
-                textBoxCodigo.Text = dgvUsuarios.Rows[fila].Cells[0].Value.ToString();
-                textBoxNombres.Text = dgvUsuarios.Rows[fila].Cells[1].Value.ToString();
-                textBoxApellidos.Text = dgvUsuarios.Rows[fila].Cells[2].Value.ToString();
-                textBoxDireccion.Text = dgvUsuarios.Rows[fila].Cells[3].Value.ToString();
-                textBoxTelefono.Text = dgvUsuarios.Rows[fila].Cells[4].Value.ToString();
-                textBoxCorreo.Text = dgvUsuarios.Rows[fila].Cells[5].Value.ToString();
-                comboBoxTipo.Text = dgvUsuarios.Rows[fila].Cells[7].Value.ToString();
-                comboBoxEstado.Text = dgvUsuarios.Rows[fila].Cells[6].Value.ToString();
+                int fila = dataGridViewUsuarios.CurrentCell.RowIndex;
+                textBoxCodigo.Text = dataGridViewUsuarios.Rows[fila].Cells[0].Value.ToString();
+                textBoxNombres.Text = dataGridViewUsuarios.Rows[fila].Cells[1].Value.ToString();
+                textBoxApellidos.Text = dataGridViewUsuarios.Rows[fila].Cells[2].Value.ToString();
+                textBoxDireccion.Text = dataGridViewUsuarios.Rows[fila].Cells[7].Value.ToString();
+                textBoxTelefono.Text = dataGridViewUsuarios.Rows[fila].Cells[3].Value.ToString();
+                textBoxCorreo.Text = dataGridViewUsuarios.Rows[fila].Cells[4].Value.ToString();
+                comboBoxTipo.Text = dataGridViewUsuarios.Rows[fila].Cells[6].Value.ToString();
+                comboBoxEstado.Text = dataGridViewUsuarios.Rows[fila].Cells[5].Value.ToString();
                 //aEntidad.Eliminar(aux);
             }
             catch (Exception)
@@ -159,8 +107,7 @@ namespace SIVEALLI
         private void CargarDatos(object sender, EventArgs e)
         {
             textBoxCodigo.Text = codigoUsuario;
-            dgvUsuarios.DataSource = aUsuario.ListaUsuarios();
-            LblTotalUsuarios.Text = dgvUsuarios.Rows.Count.ToString();
+            dataGridViewUsuarios.DataSource = aUsuario.ListaUsuarios();
             ProcesarClave();
         }
 
@@ -211,14 +158,14 @@ namespace SIVEALLI
         }
         public override void ListarRegistros()
         {
-            dgvUsuarios.DataSource = aEntidad.ListaGeneral();
+            dataGridViewUsuarios.DataSource = aEntidad.ListaGeneral();
         }
         public override bool EsRegistroValido()
         {
-            if (textBoxCodigo.Text.Trim() != "" &&
+            if (textBoxCodigo.Text.Trim() != "" && 
                 textBoxApellidos.Text.Trim() != "" &&
                 textBoxNombres.Text.Trim() != "" &&
-                comboBoxTipo.Text.Trim() != "")
+                comboBoxTipo.Text.Trim() != "" )
                 return true;
             else
                 return false;
@@ -230,8 +177,7 @@ namespace SIVEALLI
             ListarRegistros();
         }
 
-        /*Funcion boton desactivar usuario
-        private void DesactivarUsuario(object sender, EventArgs e)
+        private void buttonEliminar_Click(object sender, EventArgs e)
         {
             try
             {
@@ -240,7 +186,7 @@ namespace SIVEALLI
 
                 //eliminar la fila 
                 //string[] aux = { dataGridViewUsuarios.Rows[fila].Cells[0].Value.ToString() };
-                string[] atributos = new string[] {
+                string[] atributos = new string[] { 
                     dataGridViewUsuarios.Rows[fila].Cells[0].Value.ToString(),
                 dataGridViewUsuarios.Rows[fila].Cells[1].Value.ToString(),
                 dataGridViewUsuarios.Rows[fila].Cells[2].Value.ToString(),
@@ -265,23 +211,28 @@ namespace SIVEALLI
             }
         }
 
-        */
-        private void LimpiarInterfaz(object sender, EventArgs e)
+        private void BtnLimpiar_Click(object sender, EventArgs e)
         {
             InicializarAtributos();
         }
 
-        private void GuardarRegistro(object sender, EventArgs e)
+        private void BtnGuardar_Click(object sender, EventArgs e)
         {
+            //Uso para tablas con claves compuestas
+            /*int n = 1;
+            if (aEntidad.ToString().Equals("BibClases.CUs"))
+            {
+                n = 2;
+            }
+            */
             Grabar();
-            LblTotalUsuarios.Text = dgvUsuarios.Rows.Count.ToString();
         }
 
         /// <summary>
         /// Guarda un registro en BD
         /// </summary>
         /// <param name="n"></param>
-        public override void Grabar()
+        public virtual void Grabar()
         {
             try
             {
@@ -300,7 +251,7 @@ namespace SIVEALLI
                     }
                     MessageBox.Show("Operacion realizada exitosamente", "Confirmacion");
                     InicializarAtributos();
-                    dgvUsuarios.DataSource = aUsuario.ListaUsuarios();
+                    dataGridViewUsuarios.DataSource = aUsuario.ListaUsuarios();
                 }
                 else
                     MessageBox.Show("Debe completar el llenado del formulario", "ALERTA");
@@ -310,9 +261,8 @@ namespace SIVEALLI
                 MessageBox.Show(e.ToString(), "Error al realizar la operacion");
             }
         }
-        
 
-        private void GenerarCodigoNuevoUsuario(object sender, EventArgs e)
+        private void buttonNuevoUsuario_Click(object sender, EventArgs e)
         {
 
             InicializarAtributosNoClave();
@@ -323,7 +273,7 @@ namespace SIVEALLI
             else if (cant < 99)
                 cantCeros = "0";
 
-            textBoxCodigo.Text = "US" + cantCeros + (cant + 1);
+            textBoxCodigo.Text = "US"+cantCeros+(cant+1);
 
             textBoxNombres.Focus();
 

@@ -1,10 +1,9 @@
-create PROCEDURE spuListadoCodigoProductos
-AS
+create procedure spuListadoCodigoProductos
+as
 begin
-select IdProducto, CONCAT(IdProducto, ' - ', Estado) as Nombre from TProducto
+select IdProducto from TProducto
 end;
 go
-
 
 create procedure spuDatosProductoEntrada @IdProducto varchar(8)
 as
@@ -22,10 +21,10 @@ begin
 end;
 go
 
-create PROCEDURE spuCodigoNombreProveedores
-AS
+create procedure spuCodigoNombreProveedores
+as
 begin
-select IdProveedor, CONCAT(Nombre, ' - ', Estado) as Nombre from TProveedor
+	select IdProveedor, Nombre from TProveedor
 end;
 go
 
@@ -55,7 +54,8 @@ go
 create procedure ListaUsuariosSinContragna
 as
 begin
-select IdUsuario, Nombres, Apellidos, Direccion, Telefono, Correo, Estado, Tipo FROM TUsuario
+select IdUsuario, Nombres, Apellidos, Telefono, Correo, Estado, Tipo, Direccion 
+	from TUsuario
 end;
 go
 
