@@ -37,8 +37,8 @@ namespace SIVEALLI
                     //Recuperar atributos, el primer atributo es la clave
                     string[] Atributos = AsignarValoresAtributosSinClavePrimaria();
                     //Verificar si existe clave primaria
-                        aEntidad.Insertar(Atributos);
-                    //MessageBox.Show("Operacion realizada exitosamente", "Confirmacion");
+                    aEntidad.Insertar(Atributos);
+                    MessageBox.Show("Operacion realizada exitosamente", "Confirmacion");
                 }
                 else
                     MessageBox.Show("Debe completar el llenado del formulario", "ALERTA");
@@ -51,7 +51,12 @@ namespace SIVEALLI
 
         private void GuardarRegistro(object sender, EventArgs e)
         {
-            Grabar();
+
+            if (!tbNombre.Text.Equals("") && !tbIGV.Text.Equals("") && !tbMontoSuperarDescuento.Text.Equals("")
+                && !tbPorcentajeDescuento.Text.Equals("") && !tbRUC.Text.Equals(""))
+                Grabar();
+            else
+                MessageBox.Show("Llene los datos");
         }
 
         private void CargarDatos(object sender, EventArgs e)
@@ -61,7 +66,6 @@ namespace SIVEALLI
 
         public override string[] AsignarValoresAtributos()
         {
-
             return new string[] {"1", tbNombre.Text,
                 tbPropietario.Text, tbRUC.Text,
                 tbTelefono.Text, tbCorreo.Text,
@@ -83,6 +87,7 @@ namespace SIVEALLI
 
         public override void MostrarDatos()
         {
+            //MessageBox.Show("pruena mostrar datos");
             tbNombre.Text = aEntidad.ValorAtributo("Nombre");
             tbPropietario.Text = aEntidad.ValorAtributo("Duegno");
             tbRUC.Text = aEntidad.ValorAtributo("RUC");

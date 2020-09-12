@@ -19,5 +19,26 @@ namespace BibClases
                 "IdModificacion", "Nombre", "Duegno", "RUC","Telefono", "Correo","Direccion","IGV","MontoSuperarDescuento","PorcentajeDescuento","Fecha"
             };
         }
+
+        public void InsertarPrimeraVez(params string[] Atributos)
+        {
+            aNuevo = true;
+            aValores = Atributos;
+            //--Formar cadena de insercion 
+            string CadenaInsertar = "exec spu_" + aNombreTabla + "_Insertar '";
+            for (int k = 0; k < aValores.Length; k++)
+            {   //--Incluir los atributos en la consulta
+                CadenaInsertar += aValores[k];
+                if (k == aValores.Length - 1)
+                    //--Se concatena el ultimo atributo, Terminar la consulta
+                    CadenaInsertar += "'";
+                else //dejar la consulta lista para el siguiente atributo
+                    CadenaInsertar += "','";
+            }
+            //MessageBox.Show("Guardar: " + CadenaInsertar);
+            //--Ejecutar la consulta para insertar el registro
+            aConexion.EjecutarComando(CadenaInsertar);
+            aNuevo = false;
+        }
     }
 }

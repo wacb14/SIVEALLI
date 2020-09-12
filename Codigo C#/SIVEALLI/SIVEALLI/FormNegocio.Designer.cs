@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNegocio));
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.tbCorreo = new System.Windows.Forms.TextBox();
@@ -51,6 +50,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.gbVariables = new System.Windows.Forms.GroupBox();
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.gbVariables.SuspendLayout();
             this.SuspendLayout();
@@ -219,6 +219,7 @@
             // 
             // dtpFecha
             // 
+            this.dtpFecha.Enabled = false;
             this.dtpFecha.Location = new System.Drawing.Point(773, 12);
             this.dtpFecha.Name = "dtpFecha";
             this.dtpFecha.Size = new System.Drawing.Size(285, 26);
@@ -238,7 +239,7 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(50, 123);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(466, 279);
             this.groupBox1.TabIndex = 57;
@@ -253,7 +254,7 @@
             this.gbVariables.Controls.Add(this.label8);
             this.gbVariables.Controls.Add(this.label7);
             this.gbVariables.Controls.Add(this.label10);
-            this.gbVariables.Location = new System.Drawing.Point(12, 315);
+            this.gbVariables.Location = new System.Drawing.Point(552, 198);
             this.gbVariables.Name = "gbVariables";
             this.gbVariables.Size = new System.Drawing.Size(466, 153);
             this.gbVariables.TabIndex = 58;
@@ -262,29 +263,36 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnGuardar.FlatAppearance.BorderSize = 0;
-            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
-            this.btnGuardar.Location = new System.Drawing.Point(989, 440);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnGuardar.Location = new System.Drawing.Point(963, 512);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(68, 66);
-            this.btnGuardar.TabIndex = 59;
+            this.btnGuardar.Size = new System.Drawing.Size(95, 31);
+            this.btnGuardar.TabIndex = 60;
+            this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(603, 18);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(163, 19);
+            this.label1.TabIndex = 61;
+            this.label1.Text = "Fecha modificación datos";
             // 
             // FormNegocio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(1070, 519);
+            this.ClientSize = new System.Drawing.Size(1070, 555);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.gbVariables);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dtpFecha);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormNegocio";
             this.Text = "Datos de empresa";
             this.groupBox1.ResumeLayout(false);
@@ -292,6 +300,7 @@
             this.gbVariables.ResumeLayout(false);
             this.gbVariables.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -317,6 +326,7 @@
         private System.Windows.Forms.DateTimePicker dtpFecha;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox gbVariables;
-        protected System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Label label1;
     }
 }

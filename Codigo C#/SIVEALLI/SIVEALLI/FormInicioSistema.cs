@@ -38,7 +38,7 @@ namespace SIVEALLI
         private void IngresarDatosNegocio(object sender, EventArgs e)
         {
             CNegocio negocio = new CNegocio();
-            negocio.Insertar("","","","","","","","","", dtpFecha.Value.Date.ToString());
+            negocio.InsertarPrimeraVez("","","","","","","","","", dtpFecha.Value.Date.ToString());
             FormNegocio fu = new FormNegocio();
             fu.Show();
         }

@@ -243,7 +243,7 @@ namespace SIVEALLI
         */
         private void AgregarProductoDetalle(object sender, EventArgs e)
         {
-            string codigoProducto = comboBoxCodigoProducto.SelectedValue.ToString();
+            string codigoProducto = comboBoxCodigoProducto.Text.ToString();
             int cantidad = (int)numericUpDownCantidad.Value;
 
             //Validamos que se haya ingresado un codigo
