@@ -305,6 +305,7 @@ namespace SIVEALLI
                 //CbProv.Text = TablaPedido.Rows[0][1].ToString();
                 LbProveedor.Text = TablaPedido.Rows[0][1].ToString();
                 LblTerm.Text = TablaPedido.Rows[0][5].ToString();
+                LblFechaPedido.Text = TablaPedido.Rows[0][4].ToString();
                 LblFechaPago.Text = TablaPedido.Rows[0][3].ToString().Split(' ')[0];
                 //--Cargar los datos en data grid view
                 DataTable TablaPedidoDetalle = Pedido.TraerDatosPedidoDetalle(DgvPedidos.Rows[fila].Cells[0].Value.ToString());
@@ -360,7 +361,6 @@ namespace SIVEALLI
                 DejarEnCatalogoBlanco();
             }
         }
-
         private bool BuscarPalabraEnCadena(string Palabra, string Cadena)
         {
             // Convertimos la cadena en texto normalizado sin tildes y sin ñ
@@ -393,15 +393,12 @@ namespace SIVEALLI
 
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
+            CbNuevoPed.Checked = false;
             CbNuevoPed.Checked = true;
         }
 
         private void BtnLimpiar_Click(object sender, EventArgs e)
         {
-            TbFiltrar.Text = "";
-            TbfiltrarHistorial.Text = "";
-            TbTermEntrega.Text = "";
-            CbProv.SelectedIndex = 0;
             LTotal.Text = LTotal.Text.Split('/')[0] + "/ 0";
             DejarEnCatalogoBlanco();
             DgvPedidosDetalle.Rows.Clear();
@@ -435,6 +432,14 @@ namespace SIVEALLI
                 fc.StartPosition = FormStartPosition.CenterScreen;
                 fc.Show();
             }
+        }
+
+        private void BtnLimp2_Click(object sender, EventArgs e)
+        {
+            TbFiltrar.Text = "";
+            TbfiltrarHistorial.Text = "";
+            TbTermEntrega.Text = "";
+            CbProv.SelectedIndex = 0;
         }
     }
 }

@@ -15,12 +15,15 @@ namespace SIVEALLI
         DataGridView DgvDevolucionsDetalle;
         int afila;
         int aCantMax;
-        public FormDevolucionCantidad(DataGridView devDet,int pfila,int cant)
+        public FormDevolucionCantidad(DataGridView devDet,int pfila,int cant,int NroObj=1,string Est="Nuevo")
         {
             InitializeComponent();
             DgvDevolucionsDetalle= devDet;
             afila = pfila;
             aCantMax = cant;
+
+            NudCantidad.Value = NroObj;
+            CbEstC.Text = Est;
         }
 
         private void BtnAceptar_Click(object sender, EventArgs e)
@@ -29,6 +32,7 @@ namespace SIVEALLI
             {
                 DgvDevolucionsDetalle.Rows[afila].Cells[5].Value = "0";
                 DgvDevolucionsDetalle.Rows[afila].Cells[5].Value = NudCantidad.Value.ToString();
+                DgvDevolucionsDetalle.Rows[afila].Cells[3].Value = CbEstC.Text;
                 Close();
             }
             else

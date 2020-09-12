@@ -93,6 +93,9 @@
             this.button2 = new System.Windows.Forms.Button();
             this.LbTotal2 = new System.Windows.Forms.Label();
             this.PbCerrar = new System.Windows.Forms.PictureBox();
+            this.BtnLimp2 = new System.Windows.Forms.Button();
+            this.LblFechaPedido = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.CbProveedores.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvPedidosDetalle)).BeginInit();
             this.GbHistotialPedidos.SuspendLayout();
@@ -128,7 +131,7 @@
             this.BtnLimpiar.Name = "BtnLimpiar";
             this.BtnLimpiar.Size = new System.Drawing.Size(152, 32);
             this.BtnLimpiar.TabIndex = 36;
-            this.BtnLimpiar.Text = "Limpiar datos";
+            this.BtnLimpiar.Text = "Limpiar registros";
             this.BtnLimpiar.UseVisualStyleBackColor = true;
             this.BtnLimpiar.Click += new System.EventHandler(this.BtnLimpiar_Click);
             // 
@@ -234,7 +237,7 @@
             // 
             // BtnNuevo
             // 
-            this.BtnNuevo.Location = new System.Drawing.Point(462, 59);
+            this.BtnNuevo.Location = new System.Drawing.Point(462, 73);
             this.BtnNuevo.Name = "BtnNuevo";
             this.BtnNuevo.Size = new System.Drawing.Size(152, 32);
             this.BtnNuevo.TabIndex = 35;
@@ -348,6 +351,7 @@
             // 
             // GbCliente
             // 
+            this.GbCliente.Controls.Add(this.BtnLimp2);
             this.GbCliente.Controls.Add(this.CbNuevoPed);
             this.GbCliente.Controls.Add(this.BtnNuevo);
             this.GbCliente.Controls.Add(this.BtnGuardar);
@@ -578,13 +582,15 @@
             this.TbpHistorialVentas.Location = new System.Drawing.Point(4, 28);
             this.TbpHistorialVentas.Name = "TbpHistorialVentas";
             this.TbpHistorialVentas.Padding = new System.Windows.Forms.Padding(3);
-            this.TbpHistorialVentas.Size = new System.Drawing.Size(1077, 524);
+            this.TbpHistorialVentas.Size = new System.Drawing.Size(1064, 524);
             this.TbpHistorialVentas.TabIndex = 1;
             this.TbpHistorialVentas.Text = "Historial pedidos";
             this.TbpHistorialVentas.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.LblFechaPedido);
+            this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.LblFechaPago);
             this.groupBox1.Controls.Add(this.LblTerm);
             this.groupBox1.Controls.Add(this.LbProveedor);
@@ -606,49 +612,45 @@
             // 
             // LblFechaPago
             // 
-            this.LblFechaPago.AutoSize = true;
             this.LblFechaPago.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.LblFechaPago.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblFechaPago.Location = new System.Drawing.Point(325, 22);
+            this.LblFechaPago.Location = new System.Drawing.Point(370, 57);
             this.LblFechaPago.Name = "LblFechaPago";
-            this.LblFechaPago.Size = new System.Drawing.Size(2, 21);
+            this.LblFechaPago.Size = new System.Drawing.Size(88, 21);
             this.LblFechaPago.TabIndex = 37;
             // 
             // LblTerm
             // 
-            this.LblTerm.AutoSize = true;
             this.LblTerm.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.LblTerm.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblTerm.Location = new System.Drawing.Point(141, 92);
             this.LblTerm.Name = "LblTerm";
-            this.LblTerm.Size = new System.Drawing.Size(2, 21);
+            this.LblTerm.Size = new System.Drawing.Size(317, 21);
             this.LblTerm.TabIndex = 36;
             // 
             // LbProveedor
             // 
-            this.LbProveedor.AutoSize = true;
             this.LbProveedor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.LbProveedor.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LbProveedor.Location = new System.Drawing.Point(85, 57);
+            this.LbProveedor.Location = new System.Drawing.Point(88, 57);
             this.LbProveedor.Name = "LbProveedor";
-            this.LbProveedor.Size = new System.Drawing.Size(2, 21);
+            this.LbProveedor.Size = new System.Drawing.Size(153, 21);
             this.LbProveedor.TabIndex = 35;
             // 
             // LbId
             // 
-            this.LbId.AutoSize = true;
             this.LbId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.LbId.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LbId.Location = new System.Drawing.Point(80, 22);
+            this.LbId.Location = new System.Drawing.Point(88, 21);
             this.LbId.Name = "LbId";
-            this.LbId.Size = new System.Drawing.Size(2, 21);
+            this.LbId.Size = new System.Drawing.Size(131, 21);
             this.LbId.TabIndex = 34;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(220, 22);
+            this.label10.Location = new System.Drawing.Point(247, 57);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(102, 19);
             this.label10.TabIndex = 31;
@@ -784,6 +786,35 @@
             this.PbCerrar.TabStop = false;
             this.PbCerrar.Click += new System.EventHandler(this.PbCerrar_Click);
             // 
+            // BtnLimp2
+            // 
+            this.BtnLimp2.Location = new System.Drawing.Point(462, 25);
+            this.BtnLimp2.Name = "BtnLimp2";
+            this.BtnLimp2.Size = new System.Drawing.Size(152, 32);
+            this.BtnLimp2.TabIndex = 37;
+            this.BtnLimp2.Text = "Limpiar datos";
+            this.BtnLimp2.UseVisualStyleBackColor = true;
+            this.BtnLimp2.Click += new System.EventHandler(this.BtnLimp2_Click);
+            // 
+            // LblFechaPedido
+            // 
+            this.LblFechaPedido.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LblFechaPedido.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblFechaPedido.Location = new System.Drawing.Point(370, 22);
+            this.LblFechaPedido.Name = "LblFechaPedido";
+            this.LblFechaPedido.Size = new System.Drawing.Size(88, 21);
+            this.LblFechaPedido.TabIndex = 39;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(247, 22);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(117, 19);
+            this.label14.TabIndex = 38;
+            this.label14.Text = "Fecha del pedido:";
+            // 
             // FormPedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -884,5 +915,8 @@
         private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.PictureBox PbCerrar;
+        private System.Windows.Forms.Button BtnLimp2;
+        private System.Windows.Forms.Label LblFechaPedido;
+        private System.Windows.Forms.Label label14;
     }
 }

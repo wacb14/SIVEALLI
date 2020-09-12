@@ -83,5 +83,15 @@ namespace BibClases
             aConexion.EjecutarSelect(CadenaConsulta);
             return aConexion.Datos.Tables[0].Rows[0][0].ToString();
         }
+        //--Guardar stock
+        public void GuardarStockProducto(string id,string Cant)
+        {
+            string CadenaConsulta = "select Cantidad from TProducto where IdProducto = '"+id+"'";
+            aConexion.EjecutarSelect(CadenaConsulta);
+            int Stock= int.Parse(aConexion.Datos.Tables[0].Rows[0][0].ToString());
+            //--Retornar un tabla con la lista completa de  libros
+            CadenaConsulta = "update TProducto set Cantidad = '"+(int.Parse(Cant)+Stock).ToString()+"' where IdProducto = '"+id+"'";
+            aConexion.EjecutarSelect(CadenaConsulta);
+        }
     }
 }
