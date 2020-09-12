@@ -842,17 +842,12 @@ create procedure spu_TVenta_Insertar
 	@PorcentajeDescuento float
 as
 begin  --verificacion de clave primaria
-	if not exists (select * from TVenta where IdVenta = @IdVenta and IdUsuario= @IdUsuario and IdCliente= @IdCliente)
+	if not exists (select * from TVenta where IdVenta = @IdVenta and IdUsuario= @IdUsuario)
 	begin
 		if exists (select * from TUsuario where IdUsuario = @IdUsuario)
 		begin
-			if exists (select * from TCliente where IdCliente = @IdCliente)
-			begin
-				insert into TVenta values (@IdVenta, @IdUsuario, @IdCliente, @Fecha, @Descuento, @IGV, @MontoSuperarDescuento, @PorcentajeDescuento)
-				select codError = 0, mensaje = 'TVenta insertado correctamente'
-			end;
-			else
-				select codError = 1, mensaje = 'El objeto IdCliente no existe'
+			insert into TVenta values (@IdVenta, @IdUsuario, @IdCliente, @Fecha, @Descuento, @IGV, @MontoSuperarDescuento, @PorcentajeDescuento)
+			select codError = 0, mensaje = 'TVenta insertado correctamente'
 		end;
 		else
 			select codError = 1, mensaje = 'El objeto IdUsuario no existe'
@@ -877,19 +872,14 @@ create procedure spu_TVenta_Modificar
 	@PorcentajeDescuento float
 as
 begin  --verificacion de clave primaria
-	if exists (select * from TVenta where IdVenta = @IdVenta and IdUsuario= @IdUsuario and IdCliente= @IdCliente)
+	if exists (select * from TVenta where IdVenta = @IdVenta and IdUsuario= @IdUsuario)
 	begin
 		if exists (select * from TUsuario where IdUsuario = @IdUsuario)
 		begin
-			if exists (select * from TCliente where IdCliente = @IdCliente)
-			begin
-				update TVenta
-				set IdVenta = @IdVenta, IdUsuario = @IdUsuario, IdCliente = @IdCliente, Fecha = @Fecha, Descuento = @Descuento, IGV = @IGV, MontoSuperarDescuento = @MontoSuperarDescuento, PorcentajeDescuento = @PorcentajeDescuento
-				where IdVenta = @IdVenta and IdUsuario= @IdUsuario and IdCliente= @IdCliente
-				select codError = 0, mensaje = 'TVenta actualizado correctamente'
-			end;
-			else
-				select codError = 1, mensaje = 'El objeto IdCliente no existe'
+			update TVenta
+			set IdVenta = @IdVenta, IdUsuario = @IdUsuario, IdCliente = @IdCliente, Fecha = @Fecha, Descuento = @Descuento, IGV = @IGV, MontoSuperarDescuento = @MontoSuperarDescuento, PorcentajeDescuento = @PorcentajeDescuento
+			where IdVenta = @IdVenta and IdUsuario= @IdUsuario
+			select codError = 0, mensaje = 'TVenta actualizado correctamente'
 		end;
 		else
 			select codError = 1, mensaje = 'El objeto IdUsuario no existe'
@@ -909,10 +899,10 @@ create procedure spu_TVenta_Eliminar
 	@IdCliente varchar(8)
 as
 begin  --verificacion de clave primaria
-	if exists (select * from TVenta where IdVenta = @IdVenta and IdUsuario= @IdUsuario and IdCliente= @IdCliente)
+	if exists (select * from TVenta where IdVenta = @IdVenta)
 	begin
 		delete from TVenta
-		where IdVenta = @IdVenta and IdUsuario= @IdUsuario and IdCliente= @IdCliente
+		where IdVenta = @IdVenta and IdUsuario= @IdUsuario
 	end;
 	else
 		select codError = 1, mensaje = 'El objeto TVenta no existe'

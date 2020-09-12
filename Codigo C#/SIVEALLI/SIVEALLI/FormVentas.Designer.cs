@@ -83,6 +83,7 @@
             this.BtnBuscar2 = new System.Windows.Forms.Button();
             this.CboBuscarPor2 = new System.Windows.Forms.ComboBox();
             this.DgvListaVentas = new System.Windows.Forms.DataGridView();
+            this.DtpFechaBusqueda = new System.Windows.Forms.DateTimePicker();
             this.TbcVentas.SuspendLayout();
             this.TbpVentaNueva.SuspendLayout();
             this.GbRegistrarVenta.SuspendLayout();
@@ -416,7 +417,7 @@
             // BtnNuevoCliente
             // 
             this.BtnNuevoCliente.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnNuevoCliente.Location = new System.Drawing.Point(272, 98);
+            this.BtnNuevoCliente.Location = new System.Drawing.Point(270, 98);
             this.BtnNuevoCliente.Name = "BtnNuevoCliente";
             this.BtnNuevoCliente.Size = new System.Drawing.Size(109, 26);
             this.BtnNuevoCliente.TabIndex = 1;
@@ -597,12 +598,13 @@
             // 
             // GbListaVentas
             // 
-            this.GbListaVentas.Controls.Add(this.TxtValorBusqueda2);
             this.GbListaVentas.Controls.Add(this.Lbl7);
             this.GbListaVentas.Controls.Add(this.Lbl6);
             this.GbListaVentas.Controls.Add(this.BtnBuscar2);
-            this.GbListaVentas.Controls.Add(this.CboBuscarPor2);
             this.GbListaVentas.Controls.Add(this.DgvListaVentas);
+            this.GbListaVentas.Controls.Add(this.CboBuscarPor2);
+            this.GbListaVentas.Controls.Add(this.TxtValorBusqueda2);
+            this.GbListaVentas.Controls.Add(this.DtpFechaBusqueda);
             this.GbListaVentas.Location = new System.Drawing.Point(3, 44);
             this.GbListaVentas.Name = "GbListaVentas";
             this.GbListaVentas.Size = new System.Drawing.Size(497, 403);
@@ -662,6 +664,7 @@
             this.CboBuscarPor2.Name = "CboBuscarPor2";
             this.CboBuscarPor2.Size = new System.Drawing.Size(219, 27);
             this.CboBuscarPor2.TabIndex = 29;
+            this.CboBuscarPor2.SelectedValueChanged += new System.EventHandler(this.CboBuscarPor2_SelectedValueChanged);
             // 
             // DgvListaVentas
             // 
@@ -677,6 +680,15 @@
             this.DgvListaVentas.Size = new System.Drawing.Size(485, 221);
             this.DgvListaVentas.TabIndex = 2;
             this.DgvListaVentas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListaVentas_CellClick);
+            // 
+            // DtpFechaBusqueda
+            // 
+            this.DtpFechaBusqueda.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtpFechaBusqueda.Location = new System.Drawing.Point(84, 117);
+            this.DtpFechaBusqueda.Name = "DtpFechaBusqueda";
+            this.DtpFechaBusqueda.Size = new System.Drawing.Size(219, 26);
+            this.DtpFechaBusqueda.TabIndex = 3;
+            this.DtpFechaBusqueda.Visible = false;
             // 
             // FormVentas
             // 
@@ -762,5 +774,6 @@
         private System.Windows.Forms.Label LblSubtotal;
         private System.Windows.Forms.Label LblImpuesto;
         private System.Windows.Forms.Label Lbl8;
+        private System.Windows.Forms.DateTimePicker DtpFechaBusqueda;
     }
 }

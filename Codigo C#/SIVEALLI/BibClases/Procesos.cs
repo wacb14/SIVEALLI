@@ -8,7 +8,6 @@ using System.Windows.Forms;
 
 namespace BibClases
 {
-
     public class Procesos
     {
 

@@ -68,14 +68,13 @@ begin
 	where Estado = @Estado
 end;
 go
-
-create procedure spuNumeroDeProductos
+/*create procedure spuNumeroDeProductos
 as
 begin
 	select count(IdProducto) as NumeroProductos
 		FROM TProducto
 end;
-go
+go*/
 create procedure spuListarProductosActivos
 as
 begin

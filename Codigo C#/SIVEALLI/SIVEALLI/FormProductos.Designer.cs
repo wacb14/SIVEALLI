@@ -39,7 +39,6 @@
             this.Lbl8 = new System.Windows.Forms.Label();
             this.CboEstado = new System.Windows.Forms.ComboBox();
             this.Lbl7 = new System.Windows.Forms.Label();
-            this.BtnModificar = new System.Windows.Forms.Button();
             this.Lbl4 = new System.Windows.Forms.Label();
             this.BtnGuardar = new System.Windows.Forms.Button();
             this.TxtPrecioUnitario = new System.Windows.Forms.TextBox();
@@ -67,6 +66,8 @@
             this.Lbl10 = new System.Windows.Forms.Label();
             this.GbBusqueda = new System.Windows.Forms.GroupBox();
             this.OfdImagen = new System.Windows.Forms.OpenFileDialog();
+            this.Lbl12 = new System.Windows.Forms.Label();
+            this.TxtCantidad = new System.Windows.Forms.TextBox();
             this.GbProducto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NudMaximo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NudMinimo)).BeginInit();
@@ -78,6 +79,8 @@
             // 
             // GbProducto
             // 
+            this.GbProducto.Controls.Add(this.TxtCantidad);
+            this.GbProducto.Controls.Add(this.Lbl12);
             this.GbProducto.Controls.Add(this.Lbl15);
             this.GbProducto.Controls.Add(this.Lbl14);
             this.GbProducto.Controls.Add(this.NudMaximo);
@@ -88,7 +91,6 @@
             this.GbProducto.Controls.Add(this.Lbl8);
             this.GbProducto.Controls.Add(this.CboEstado);
             this.GbProducto.Controls.Add(this.Lbl7);
-            this.GbProducto.Controls.Add(this.BtnModificar);
             this.GbProducto.Controls.Add(this.Lbl4);
             this.GbProducto.Controls.Add(this.BtnGuardar);
             this.GbProducto.Controls.Add(this.TxtPrecioUnitario);
@@ -167,7 +169,7 @@
             // 
             // BtnNuevo
             // 
-            this.BtnNuevo.Location = new System.Drawing.Point(50, 482);
+            this.BtnNuevo.Location = new System.Drawing.Point(83, 482);
             this.BtnNuevo.Name = "BtnNuevo";
             this.BtnNuevo.Size = new System.Drawing.Size(92, 27);
             this.BtnNuevo.TabIndex = 11;
@@ -177,7 +179,7 @@
             // 
             // BtnNuevaImagen
             // 
-            this.BtnNuevaImagen.Location = new System.Drawing.Point(213, 313);
+            this.BtnNuevaImagen.Location = new System.Drawing.Point(221, 254);
             this.BtnNuevaImagen.Name = "BtnNuevaImagen";
             this.BtnNuevaImagen.Size = new System.Drawing.Size(109, 27);
             this.BtnNuevaImagen.TabIndex = 7;
@@ -189,7 +191,7 @@
             // 
             this.Lbl8.AutoSize = true;
             this.Lbl8.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl8.Location = new System.Drawing.Point(244, 49);
+            this.Lbl8.Location = new System.Drawing.Point(249, 37);
             this.Lbl8.Name = "Lbl8";
             this.Lbl8.Size = new System.Drawing.Size(53, 19);
             this.Lbl8.TabIndex = 17;
@@ -218,16 +220,6 @@
             this.Lbl7.TabIndex = 15;
             this.Lbl7.Text = "Estado";
             // 
-            // BtnModificar
-            // 
-            this.BtnModificar.Location = new System.Drawing.Point(144, 482);
-            this.BtnModificar.Name = "BtnModificar";
-            this.BtnModificar.Size = new System.Drawing.Size(92, 27);
-            this.BtnModificar.TabIndex = 12;
-            this.BtnModificar.Text = "Modificar";
-            this.BtnModificar.UseVisualStyleBackColor = true;
-            this.BtnModificar.Click += new System.EventHandler(this.BtnModificar_Click);
-            // 
             // Lbl4
             // 
             this.Lbl4.AutoSize = true;
@@ -240,7 +232,7 @@
             // 
             // BtnGuardar
             // 
-            this.BtnGuardar.Location = new System.Drawing.Point(238, 482);
+            this.BtnGuardar.Location = new System.Drawing.Point(202, 482);
             this.BtnGuardar.Name = "BtnGuardar";
             this.BtnGuardar.Size = new System.Drawing.Size(92, 27);
             this.BtnGuardar.TabIndex = 13;
@@ -338,9 +330,9 @@
             // PctBImagen
             // 
             this.PctBImagen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.PctBImagen.Location = new System.Drawing.Point(182, 88);
+            this.PctBImagen.Location = new System.Drawing.Point(189, 59);
             this.PctBImagen.Name = "PctBImagen";
-            this.PctBImagen.Size = new System.Drawing.Size(172, 200);
+            this.PctBImagen.Size = new System.Drawing.Size(172, 179);
             this.PctBImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PctBImagen.TabIndex = 21;
             this.PctBImagen.TabStop = false;
@@ -497,6 +489,24 @@
             // 
             this.OfdImagen.Filter = "Archivos de imagenes|*.jpg;*.png;*.jpeg;*.gif";
             // 
+            // Lbl12
+            // 
+            this.Lbl12.AutoSize = true;
+            this.Lbl12.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl12.Location = new System.Drawing.Point(198, 291);
+            this.Lbl12.Name = "Lbl12";
+            this.Lbl12.Size = new System.Drawing.Size(132, 19);
+            this.Lbl12.TabIndex = 29;
+            this.Lbl12.Text = "Cantidad Disponible";
+            // 
+            // TxtCantidad
+            // 
+            this.TxtCantidad.Enabled = false;
+            this.TxtCantidad.Location = new System.Drawing.Point(202, 313);
+            this.TxtCantidad.Name = "TxtCantidad";
+            this.TxtCantidad.Size = new System.Drawing.Size(148, 26);
+            this.TxtCantidad.TabIndex = 30;
+            // 
             // FormProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -524,7 +534,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox GbProducto;
-        private System.Windows.Forms.Button BtnModificar;
         private System.Windows.Forms.Button BtnGuardar;
         private System.Windows.Forms.TextBox TxtPrecioUnitario;
         private System.Windows.Forms.Label Lbl6;
@@ -562,5 +571,7 @@
         private System.Windows.Forms.Label Lbl14;
         private System.Windows.Forms.NumericUpDown NudMaximo;
         private System.Windows.Forms.NumericUpDown NudMinimo;
+        private System.Windows.Forms.TextBox TxtCantidad;
+        private System.Windows.Forms.Label Lbl12;
     }
 }

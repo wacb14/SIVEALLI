@@ -13,11 +13,12 @@ namespace SIVEALLI
     public partial class FormVentasCantidad : Form
     {
         int Cantidad = 1;
+        int Maxim;
         public FormVentasCantidad(int Maximo)
         {
             InitializeComponent();
-            NudCantidad.Maximum = Maximo;
             NudCantidad.Minimum = 1;
+            Maxim = Maximo;
         }
         public int GetCantidad
         {
@@ -25,8 +26,18 @@ namespace SIVEALLI
         }
         private void BtnAceptar_Click(object sender, EventArgs e)
         {
-            Cantidad = int.Parse(NudCantidad.Value.ToString());
-            this.Close();
+            if (NudCantidad.Value > Maxim)
+                MessageBox.Show("La cantidad seleccionada supera a la cantidad disponible de este producto. Por favor seleccione otra cantidad ", "ALERTA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else
+                Cantidad = int.Parse(NudCantidad.Value.ToString());
+        }
+
+        private void NudCantidad_ValueChanged(object sender, EventArgs e)
+        {
+            if (NudCantidad.Value <= Maxim)
+                BtnAceptar.DialogResult = DialogResult.OK;
+            else
+                BtnAceptar.DialogResult = DialogResult.None;
         }
     }
 }

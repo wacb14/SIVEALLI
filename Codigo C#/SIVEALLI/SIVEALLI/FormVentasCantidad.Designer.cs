@@ -50,7 +50,7 @@
             this.NudCantidad.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NudCantidad.Location = new System.Drawing.Point(85, 58);
             this.NudCantidad.Maximum = new decimal(new int[] {
-            1000,
+            9999999,
             0,
             0,
             0});
@@ -67,6 +67,7 @@
             0,
             0,
             0});
+            this.NudCantidad.ValueChanged += new System.EventHandler(this.NudCantidad_ValueChanged);
             // 
             // Lbl1
             // 
