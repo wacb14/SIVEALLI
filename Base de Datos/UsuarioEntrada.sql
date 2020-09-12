@@ -112,6 +112,13 @@ begin
 end;
 go
 
+create procedure spuExisteClavePrimariaTNegocio @modificacion int
+as
+begin
+select * from TNegocio
+where IdModificacion = @modificacion
+end;
+go
 
 
 create procedure CambiarContrasegna @IdUsuario varchar(5), @Contrasegna varchar(12)
