@@ -16,11 +16,12 @@ namespace SIVEALLI
     {
         //----------ATRIBUTOS--------------------
         CProducto Producto = new CProducto();
-        string RutaCarpetaImagenes = "C:\\Users\\Lenovo\\Desktop\\Libreria";
+        string RutaCarpetaImagenes = "..\\Libreria";
 
         public FormProductos()
         {
             InitializeComponent();
+            CboBuscarPor.SelectedIndex = 0;
             CargarListaProductos();
             TxtIdProducto.Text = GenerarIdProducto();
         }
@@ -41,13 +42,14 @@ namespace SIVEALLI
                     TxtMarca.Text = Producto.ValorAtributo("Marca");
                     TxtPrecioUnitario.Text = Producto.ValorAtributo("PrecioUnitario");
                     CboEstado.Text = Producto.ValorAtributo("Estado");
+                    TxtCantidad.Text = Producto.ValorAtributo("Cantidad");
                     NudMinimo.Value = decimal.Parse(Producto.ValorAtributo("Minimo"));
                     NudMaximo.Value = decimal.Parse(Producto.ValorAtributo("Maximo"));
                     PctBImagen.Load(RutaCarpetaImagenes + "\\" + Producto.ValorAtributo("Imagen"));
                     OfdImagen.FileName = "";
                 }
             }
-            catch(Exception Ex)
+            catch (Exception Ex)
             {
                 MessageBox.Show(Ex.Message);
             }
@@ -65,7 +67,7 @@ namespace SIVEALLI
             Id += NumeroProductos;
             return Id;
         }
-        
+
         /// <summary>
         /// Deja los campos del formulario del producto en blanco
         /// </summary>
@@ -85,43 +87,21 @@ namespace SIVEALLI
             OfdImagen.FileName = "";
         }
         /// <summary>
-        /// Bloquea los campos del formulario de producto
-        /// </summary>
-        private void BloquearCajas()
-        {
-            TxtNombre.Enabled = false;
-            TxtCategoria.Enabled = false;
-            TxtDescripcion.Enabled = false;
-            TxtMarca.Enabled = false;
-            TxtPrecioUnitario.Enabled = false;
-            BtnNuevaImagen.Enabled = false;
-            CboEstado.Enabled = false;
-            NudMinimo.Enabled = false;
-            NudMaximo.Enabled = false;
-        }
-        /// <summary>
-        /// Desbloquea los campos del formulario de producto
-        /// </summary>
-        private void DesbloquearCajas()
-        {
-            TxtNombre.Enabled = true;
-            TxtCategoria.Enabled = true;
-            TxtDescripcion.Enabled = true;
-            TxtMarca.Enabled = true;
-            TxtPrecioUnitario.Enabled = true;
-            BtnNuevaImagen.Enabled = true;
-            CboEstado.Enabled = true;
-            NudMinimo.Enabled = true;
-            NudMaximo.Enabled = true;
-        }
-        /// <summary>
         /// Carga el DataGridview con la lista de productos
         /// </summary>
         public void CargarListaProductos()
         {
-            DgvProductos.DataSource = Producto.ListaGeneralSinImagen();
-            //--Mostrar el numero de productos disponibles
-            LblTotalProductos.Text = DgvProductos.Rows.Count.ToString();
+            try
+            {
+                DgvProductos.Columns.Clear();
+                DgvProductos.DataSource = Producto.ListaGeneralSinImagen();
+                //--Mostrar el numero de productos disponibles
+                LblTotalProductos.Text = DgvProductos.Rows.Count.ToString();
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+            }
         }
         /// <summary>
         /// Actualiza la imagen del producto en la carpeta de imagenes
@@ -129,10 +109,17 @@ namespace SIVEALLI
         /// <param name="NombreImagen"></param>
         public void ActualizarNuevaImagen(string NombreImagen)
         {
-            // Guardamos la nueva imagen
-            string RutaOrigenArchivo = OfdImagen.FileName;
-            string RutaNueva = RutaCarpetaImagenes + "\\" + NombreImagen;
-            File.Copy(RutaOrigenArchivo, RutaNueva, true);
+            try
+            {
+                // Guardamos la nueva imagen
+                string RutaOrigenArchivo = OfdImagen.FileName;
+                string RutaNueva = RutaCarpetaImagenes + "\\" + NombreImagen;
+                File.Copy(RutaOrigenArchivo, RutaNueva, true);
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+            }
         }
         /// <summary>
         /// Guarda una nueva imagen del producto en la carpeta de imagenes
@@ -146,11 +133,75 @@ namespace SIVEALLI
             {
                 File.Copy(RutaOrigenArchivo, RutaNueva, false);
             }
-            catch(IOException e)
+            catch (IOException e)
             {
-                MessageBox.Show(e.Message+" (Ya existe una imagen con el mismo nombre, modifique el nombre de su imagen por favor)");
+                MessageBox.Show(e.Message + " (Ya existe una imagen con el mismo nombre, modifique el nombre de su imagen por favor)");
             }
         }
+        public void FormatearDGVProductos()
+        {
+            DgvProductos.Columns.Clear();
+            //Columna IdProducto
+            DataGridViewTextBoxColumn TxtIdProducto = new DataGridViewTextBoxColumn();
+            TxtIdProducto.Name = "IdProducto";
+            TxtIdProducto.HeaderText = "IdProducto";
+            DgvProductos.Columns.Add(TxtIdProducto);
+
+            //Columna Nombre
+            DataGridViewTextBoxColumn TxtNombre = new DataGridViewTextBoxColumn();
+            TxtNombre.Name = "Nombre";
+            TxtNombre.HeaderText = "Nombre";
+            DgvProductos.Columns.Add(TxtNombre);
+
+            //Columna Categoria
+            DataGridViewTextBoxColumn TxtCategoria = new DataGridViewTextBoxColumn();
+            TxtCategoria.Name = "Categoria";
+            TxtCategoria.HeaderText = "Categoria";
+            DgvProductos.Columns.Add(TxtCategoria);
+
+            //Columna Descripcion
+            DataGridViewTextBoxColumn TxtDescripcion = new DataGridViewTextBoxColumn();
+            TxtDescripcion.Name = "Descripcion";
+            TxtDescripcion.HeaderText = "Descripcion";
+            DgvProductos.Columns.Add(TxtDescripcion);
+
+            //Columna Marca
+            DataGridViewTextBoxColumn TxtMarca = new DataGridViewTextBoxColumn();
+            TxtMarca.Name = "Marca";
+            TxtMarca.HeaderText = "Marca";
+            DgvProductos.Columns.Add(TxtMarca);
+
+            //Columna PrecioUnitario
+            DataGridViewTextBoxColumn TxtPrecioUnitario = new DataGridViewTextBoxColumn();
+            TxtPrecioUnitario.Name = "PrecioUnitario";
+            TxtPrecioUnitario.HeaderText = "PrecioUnitario";
+            DgvProductos.Columns.Add(TxtPrecioUnitario);
+
+            //Columna Estado
+            DataGridViewTextBoxColumn TxtEstado = new DataGridViewTextBoxColumn();
+            TxtEstado.Name = "Estado";
+            TxtEstado.HeaderText = "Estado";
+            DgvProductos.Columns.Add(TxtEstado);
+
+            //Columna Cantidad
+            DataGridViewTextBoxColumn TxtCantidad = new DataGridViewTextBoxColumn();
+            TxtCantidad.Name = "Cantidad";
+            TxtCantidad.HeaderText = "Cantidad";
+            DgvProductos.Columns.Add(TxtCantidad);
+
+            //Columna Maximo
+            DataGridViewTextBoxColumn TxtMaximo = new DataGridViewTextBoxColumn();
+            TxtMaximo.Name = "Maximo";
+            TxtMaximo.HeaderText = "Maximo";
+            DgvProductos.Columns.Add(TxtMaximo);
+
+            //Columna Minimo
+            DataGridViewTextBoxColumn TxtMinimo = new DataGridViewTextBoxColumn();
+            TxtMinimo.Name = "Minimo";
+            TxtMinimo.HeaderText = "Minimo";
+            DgvProductos.Columns.Add(TxtMinimo);
+        }
+        // ------------------- Eventos --------------------------------
         /// <summary>
         /// Deja el formulario listo para un nuevo ingreso
         /// </summary>
@@ -158,18 +209,7 @@ namespace SIVEALLI
         /// <param name="e"></param>
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
-            DesbloquearCajas();
             LimpiarCajas();
-        }
-
-        /// <summary>
-        /// Permite modificar los campos de un producto
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void BtnModificar_Click(object sender, EventArgs e)
-        {
-            DesbloquearCajas();
         }
 
         /// <summary>
@@ -218,7 +258,7 @@ namespace SIVEALLI
                 else
                     MessageBox.Show("Seleccione una imagen para el producto", "CUIDADO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            catch(Exception Ex)
+            catch (Exception Ex)
             {
                 MessageBox.Show(Ex.Message);
             }
@@ -239,29 +279,60 @@ namespace SIVEALLI
         /// <param name="e"></param>
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
-            switch (CboBuscarPor.Text.Trim())
+            try
             {
-                case "ID Producto":
-                    DgvProductos.DataSource = Producto.BuscarPorAtributo(TxtValorBusqueda.Text.Trim(), "IdProducto");
-                    break;
-                case "Nombre":
-                    DgvProductos.DataSource = Producto.BuscarPorAtributo(TxtValorBusqueda.Text.Trim(), "Nombre");
-                    break;
-                case "Categoria":
-                    DgvProductos.DataSource = Producto.BuscarPorAtributo(TxtValorBusqueda.Text.Trim(), "Categoria");
-                    break;
-                case "Marca":
-                    DgvProductos.DataSource = Producto.BuscarPorAtributo(TxtValorBusqueda.Text.Trim(), "Marca");
-                    break;
-                case "Precio Unitario":
-                    DgvProductos.DataSource = Producto.BuscarPorAtributo(TxtValorBusqueda.Text.Trim(), "PrecioUnitario");
-                    break;
-                case "Estado":
-                    DgvProductos.DataSource = Producto.BuscarPorAtributo(TxtValorBusqueda.Text.Trim(), "Estado");
-                    break;
+                DgvProductos.DataSource = null;
+                FormatearDGVProductos();
+                DgvProductos.Rows.Clear();
+                DataTable Lista = Producto.ListaGeneralSinImagen(); // Validamos que solo se muestren productos activos
+                string Valor = string.Empty;
+                switch (CboBuscarPor.Text.Trim())
+                {
+                    case "ID Producto":
+                        Valor = "IdProducto";
+                        break;
+                    case "Nombre":
+                        Valor = "Nombre";
+                        break;
+                    case "Categoria":
+                        Valor = "Categoria";
+                        break;
+                    case "Marca":
+                        Valor = "Marca";
+                        break;
+                    case "Precio Unitario":
+                        Valor = "PrecioUnitario";
+                        break;
+                    case "Estado":
+                        Valor = "Estado";
+                        break;
+                }
+                for (int i = 0; i < Lista.Rows.Count; i++)
+                {
+                    string ValorProd = Lista.Rows[i][Valor].ToString();
+                    if (Procesos.BuscarPalabraEnCadena(TxtValorBusqueda.Text, ValorProd))
+                    {
+                        string IdProd = Lista.Rows[i]["IdProducto"].ToString();
+                        string Nombre = Lista.Rows[i]["Nombre"].ToString();
+                        string Categoria = Lista.Rows[i]["Categoria"].ToString();
+                        string Descripcion = Lista.Rows[i]["Descripcion"].ToString();
+                        string Marca = Lista.Rows[i]["Marca"].ToString();
+                        string PrecioUnitario = Lista.Rows[i]["PrecioUnitario"].ToString();
+                        string Estado = Lista.Rows[i]["Estado"].ToString();
+                        string Cantidad = Lista.Rows[i]["Cantidad"].ToString();
+                        string Maximo = Lista.Rows[i]["Maximo"].ToString();
+                        string Minimo = Lista.Rows[i]["Minimo"].ToString();
+                        DgvProductos.Rows.Add(IdProd, Nombre, Categoria, Descripcion, Marca, PrecioUnitario, Estado, Cantidad, Maximo, Minimo);
+
+                    }
+                }
+                //-- Mostrar el numero de productos disponibles
+                LblTotalProductos.Text = DgvProductos.Rows.Count.ToString();
             }
-            //-- Mostrar el numero de productos disponibles
-            LblTotalProductos.Text = DgvProductos.Rows.Count.ToString();
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+            }
         }
         /// <summary>
         /// Permite seleccionar una nueva imagen y la coloca en el picturebox
@@ -270,12 +341,19 @@ namespace SIVEALLI
         /// <param name="e"></param>
         private void BtnNuevaImagen_Click(object sender, EventArgs e)
         {
-            OfdImagen.InitialDirectory = RutaCarpetaImagenes;
-            DialogResult Resultado = OfdImagen.ShowDialog();
-            if (Resultado == DialogResult.OK)
+            try
             {
-                string RutaImagen = OfdImagen.FileName;
-                PctBImagen.Load(RutaImagen);
+                OfdImagen.InitialDirectory = RutaCarpetaImagenes;
+                DialogResult Resultado = OfdImagen.ShowDialog();
+                if (Resultado == DialogResult.OK)
+                {
+                    string RutaImagen = OfdImagen.FileName;
+                    PctBImagen.Load(RutaImagen);
+                }
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
             }
         }
         /// <summary>
@@ -289,7 +367,6 @@ namespace SIVEALLI
             string Id = DgvProductos.Rows[fila].Cells["IdProducto"].Value.ToString();
             TxtIdProducto.Text = Id;
             CargarDatosProducto();
-            BloquearCajas();
         }
         /// <summary>
         /// Valida que se ingrese numeros reales en un textbox

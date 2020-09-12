@@ -29,6 +29,7 @@ namespace SIVEALLI
             aFecha = Fecha;
             TxtIdVenta.Text = GenerarIdVenta();
             CboBuscarPor.SelectedIndex = 0;
+            CboBuscarPor2.SelectedIndex = 0;
         }
         /*------------------ Formulario Nueva Venta --------------------*/
         /// <summary>
@@ -43,11 +44,6 @@ namespace SIVEALLI
                 Id += "0";
             Id += NumeroVentas;
             return Id;
-        }
-        private void IngresoClienteObligatorio()
-        {
-            FormClientes Clientes = new FormClientes();
-            Clientes.ShowDialog();
         }
         private bool BuscarPalabraEnCadena(string Palabra, string Cadena)
         {
@@ -88,29 +84,37 @@ namespace SIVEALLI
         }
         private void CalcularTotal()
         {
-            if (Negocio.ExisteClavePrimaria(new string[] { "1" })){
-                float Impuesto = float.Parse(Negocio.ValorAtributo("IGV")); // En porcentaje (ejem 18.5%)
-                float Descuento = float.Parse(Negocio.ValorAtributo("PorcentajeDescuento")); ; // En porcentaje
-                float CantidadSuperada = float.Parse(Negocio.ValorAtributo("MontoSuperarDescuento"));
-                Lbl8.Text = "Impuesto (" + Impuesto + "%) :";
-                Lbl12.Text = "Descuento (" + Descuento + "%) :";
-                float Subtotal = 0;
-                for (int i = 0; i < DgvVentaDetalle.Rows.Count; i++)
-                    Subtotal += float.Parse(DgvVentaDetalle.Rows[i].Cells["colSubtotal"].Value.ToString());
-                Subtotal = (float)Math.Round(Subtotal, 2);
-                LblSubtotal.Text = Subtotal.ToString();
-                float Dcto = 0;
-                if (Subtotal > CantidadSuperada)
-                    Dcto = (float)Math.Round((Descuento / 100) * Subtotal, 2);
-                LblDescuento.Text = "-" + Dcto.ToString();
-                float SubtotalConDscto = Subtotal - Dcto;
-                float CantidadImpuesto = (float)Math.Round((SubtotalConDscto * (Impuesto / 100)), 2);
-                LblImpuesto.Text = CantidadImpuesto.ToString();
-                float Total = SubtotalConDscto + CantidadImpuesto;
-                LblTotal.Text = Total.ToString();
+            try
+            {
+                if (Negocio.ExisteClavePrimaria(new string[] { "1" }))
+                {
+                    float Impuesto = float.Parse(Negocio.ValorAtributo("IGV")); // En porcentaje (ejem 18.5%)
+                    float Descuento = float.Parse(Negocio.ValorAtributo("PorcentajeDescuento")); ; // En porcentaje
+                    float CantidadSuperada = float.Parse(Negocio.ValorAtributo("MontoSuperarDescuento"));
+                    Lbl8.Text = "Impuesto (" + Impuesto + "%) :";
+                    Lbl12.Text = "Descuento (" + Descuento + "%) :";
+                    float Subtotal = 0;
+                    for (int i = 0; i < DgvVentaDetalle.Rows.Count; i++)
+                        Subtotal += float.Parse(DgvVentaDetalle.Rows[i].Cells["colSubtotal"].Value.ToString());
+                    Subtotal = (float)Math.Round(Subtotal, 2);
+                    LblSubtotal.Text = Subtotal.ToString();
+                    float Dcto = 0;
+                    if (Subtotal > CantidadSuperada)
+                        Dcto = (float)Math.Round((Descuento / 100) * Subtotal, 2);
+                    LblDescuento.Text = "-" + Dcto.ToString();
+                    float SubtotalConDscto = Subtotal - Dcto;
+                    float CantidadImpuesto = (float)Math.Round((SubtotalConDscto * (Impuesto / 100)), 2);
+                    LblImpuesto.Text = CantidadImpuesto.ToString();
+                    float Total = SubtotalConDscto + CantidadImpuesto;
+                    LblTotal.Text = Total.ToString();
+                }
+                else
+                    MessageBox.Show("Faltan definir los parametros del negocio");
             }
-            else
-                MessageBox.Show("Faltan definir los parametros del negocio");
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+            }
         }
         private void LimpiarFormulario()
         {
@@ -124,89 +128,94 @@ namespace SIVEALLI
         }
         private void GuardarDatosVenta()
         {
-            // Guardamos los datos generales de la venta
-            string IGV=Negocio.ValorAtributo("IGV");
-            string MontoSuperar = Negocio.ValorAtributo("MontoSuperarDescuento");
-            string PorcentajeDescuento = Negocio.ValorAtributo("PorcentajeDescuento");
-            string HuboDcto = float.Parse(LblSubtotal.Text)> float.Parse(MontoSuperar)?"1":"0";
-            Ventas.Insertar(new string[] { TxtIdVenta.Text, aUsuario, TxtIdCliente.Text, aFecha, HuboDcto, IGV, MontoSuperar, PorcentajeDescuento });
-
-            // Guardamos los detalles de la venta
-            for (int i = 0; i < DgvVentaDetalle.Rows.Count; i++)
+            try
             {
-                string IdProducto = DgvVentaDetalle.Rows[i].Cells["colIdProducto"].Value.ToString();
-                string Cantidad = DgvVentaDetalle.Rows[i].Cells["colCantidad"].Value.ToString();
-                string PrecioUnitario = DgvVentaDetalle.Rows[i].Cells["colPrecioUnitario"].Value.ToString();
-                VentasDetalle.Insertar(new string[] { TxtIdVenta.Text, IdProducto, Cantidad, PrecioUnitario });
+                // Guardamos los datos generales de la venta
+                string IGV = Negocio.ValorAtributo("IGV");
+                string MontoSuperar = Negocio.ValorAtributo("MontoSuperarDescuento");
+                string PorcentajeDescuento = Negocio.ValorAtributo("PorcentajeDescuento");
+                string HuboDcto = float.Parse(LblSubtotal.Text) > float.Parse(MontoSuperar) ? "1" : "0";
+                Ventas.Insertar(new string[] { TxtIdVenta.Text.Trim(), aUsuario, TxtIdCliente.Text.Trim(), aFecha, HuboDcto, IGV, MontoSuperar, PorcentajeDescuento });
+
+                // Guardamos los detalles de la venta
+                for (int i = 0; i < DgvVentaDetalle.Rows.Count; i++)
+                {
+                    string IdProducto = DgvVentaDetalle.Rows[i].Cells["colIdProducto"].Value.ToString();
+                    string Cantidad = DgvVentaDetalle.Rows[i].Cells["colCantidad"].Value.ToString();
+                    string PrecioUnitario = DgvVentaDetalle.Rows[i].Cells["colPrecioUnitario"].Value.ToString();
+                    VentasDetalle.Insertar(new string[] { TxtIdVenta.Text, IdProducto, Cantidad, PrecioUnitario });
+                }
             }
+            
         }
         //------------------------ Eventos -------------------------
-
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
-            DgvCatalogoBusqueda.Rows.Clear();
-            DataTable Lista = Producto.ListaProductosActivos(); // Validamos que solo se muestren productos activos
-            string Valor=string.Empty;
-            switch(CboBuscarPor.Text)
+            try
             {
-                case "ID Producto":
-                    Valor = "IdProducto";
-                    break;
-                case "Nombre":
-                    Valor = "Nombre";
-                    break;
-                case "Categoria":
-                    Valor = "Categoria";
-                    break;
-                case "Marca":
-                    Valor = "Marca";
-                    break;
-            }
-            for (int i = 0; i < Lista.Rows.Count; i++)
-            {
-                string ValorProd = Lista.Rows[i][Valor].ToString();
-                if (BuscarPalabraEnCadena(TxtValorBusqueda.Text, ValorProd)) 
+                DgvCatalogoBusqueda.Rows.Clear();
+                DataTable Lista = Producto.ListaProductosActivos(); // Validamos que solo se muestren productos activos
+                string Valor = string.Empty;
+                switch (CboBuscarPor.Text)
                 {
-                    string IdProd = Lista.Rows[i]["IdProducto"].ToString();
-                    string Nombre = Lista.Rows[i]["Nombre"].ToString();
-                    string Categoria = Lista.Rows[i]["Categoria"].ToString();
-                    string Descripcion = Lista.Rows[i]["Descripcion"].ToString();
-                    string Marca = Lista.Rows[i]["Marca"].ToString();
-                    string PrecioUnitario = Lista.Rows[i]["PrecioUnitario"].ToString();
-                    string Cantidad = Lista.Rows[i]["Cantidad"].ToString();
-                    DgvCatalogoBusqueda.Rows.Add("+",IdProd, Nombre, Marca, Categoria, PrecioUnitario, Cantidad, Descripcion);
+                    case "ID Producto":
+                        Valor = "IdProducto";
+                        break;
+                    case "Nombre":
+                        Valor = "Nombre";
+                        break;
+                    case "Categoria":
+                        Valor = "Categoria";
+                        break;
+                    case "Marca":
+                        Valor = "Marca";
+                        break;
                 }
+                for (int i = 0; i < Lista.Rows.Count; i++)
+                {
+                    string ValorProd = Lista.Rows[i][Valor].ToString();
+                    if (BuscarPalabraEnCadena(TxtValorBusqueda.Text, ValorProd))
+                    {
+                        string IdProd = Lista.Rows[i]["IdProducto"].ToString();
+                        string Nombre = Lista.Rows[i]["Nombre"].ToString();
+                        string Categoria = Lista.Rows[i]["Categoria"].ToString();
+                        string Descripcion = Lista.Rows[i]["Descripcion"].ToString();
+                        string Marca = Lista.Rows[i]["Marca"].ToString();
+                        string PrecioUnitario = Lista.Rows[i]["PrecioUnitario"].ToString();
+                        string Cantidad = Lista.Rows[i]["Cantidad"].ToString();
+                        DgvCatalogoBusqueda.Rows.Add("+", IdProd, Nombre, Marca, Categoria, PrecioUnitario, Cantidad, Descripcion);
+                    }
+                }
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
             }
         }
         private void TxtIdCliente_Leave(object sender, EventArgs e)
         {
-            if (!Cliente.ExisteClavePrimaria(new string[] { TxtIdCliente.Text }))
-            {
-                MessageBox.Show("El ID de cliente ingresado no existe, para continuar registre al cliente primero", "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                IngresoClienteObligatorio();
-            }
+            if (TxtIdCliente.Text.Trim() == "")
+                MessageBox.Show("Debe ingresar algún valor en el campo del Identificador del Cliente.\n(El campo IdCliente no debe quedar vacio)", "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         private void BtnNuevoCliente_Click(object sender, EventArgs e)
         {
-            IngresoClienteObligatorio();
+            FormClientes Clientes = new FormClientes();
+            Clientes.ShowDialog();
         }
-
         private void BtnVaciarDetalles_Click(object sender, EventArgs e)
         {
             DgvVentaDetalle.Rows.Clear();
             CalcularTotal();
         }
-
         private void BtnNuevaVenta_Click(object sender, EventArgs e)
         {
-            if(!Producto.ExisteClavePrimaria(new string[] { TxtIdVenta.Text }))
+            if (!Producto.ExisteClavePrimaria(new string[] { TxtIdVenta.Text }))
             {
                 DialogResult Resultado = MessageBox.Show("Esta venta aun no se ha registrado.\n¿Esta seguro de descartar los datos ingresados y realizar una nueva venta?", "CUIDADO", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                 if (Resultado == DialogResult.OK)
                     LimpiarFormulario();
-            }      
+            }
         }
-
         private void BtnImprimir_Click(object sender, EventArgs e)
         {
             if (!Ventas.ExisteClavePrimaria(new string[] { TxtIdVenta.Text })) // Validamos si ya existe una venta registrada con el mismo codigo
@@ -215,9 +224,7 @@ namespace SIVEALLI
             {
                 MessageBox.Show("Imprimiendo....");
             }
-
         }
-
         private void BtnRegistrarVenta_Click(object sender, EventArgs e)
         {
             try
@@ -226,11 +233,8 @@ namespace SIVEALLI
                     MessageBox.Show("Ya existe una venta registrada con este código.\n Si desea realizar una nueva venta presiones el boton Nueva Venta", "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else
                 {
-                    if (!Cliente.ExisteClavePrimaria(new string[] { TxtIdCliente.Text })) // Validamos que el cliente exista en la base de datos
-                    {
-                        MessageBox.Show("El ID de cliente ingresado no existe, para continuar registre al cliente primero", "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        IngresoClienteObligatorio();
-                    }
+                    if (TxtIdCliente.Text.Trim() == "")
+                        MessageBox.Show("Debe ingresar algún valor en el campo del Identificador del Cliente.\n(El campo IdCliente no debe quedar vacio)", "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     else
                     {
                         if (DgvVentaDetalle.Rows.Count < 1) // Validamos que al menos existe un producto en los detalles
@@ -238,7 +242,7 @@ namespace SIVEALLI
                         else
                         {
                             GuardarDatosVenta();
-                            MessageBox.Show("Los datos de la venta se han registrado correctamente", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            MessageBox.Show("Los datos de la venta se han registrado correctamente", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         }
                     }
                 }
@@ -268,11 +272,14 @@ namespace SIVEALLI
                             int CantMaxima = int.Parse(Producto.ValorAtributo("Cantidad"));
                             string Nombre = Producto.ValorAtributo("Nombre");
                             FormVentasCantidad Cant = new FormVentasCantidad(CantMaxima);
-                            Cant.ShowDialog();
-                            string Cantidad = Cant.GetCantidad.ToString();
-                            string Subtotal = (float.Parse(PrecioUnitario) * Cant.GetCantidad).ToString();
-                            DgvVentaDetalle.Rows.Add("X", IdProd, Nombre, PrecioUnitario, Cantidad, Subtotal);
-                            CalcularTotal();
+                            DialogResult Resultado = Cant.ShowDialog();
+                            if (Resultado == DialogResult.OK)
+                            {
+                                string Cantidad = Cant.GetCantidad.ToString();
+                                string Subtotal = (float.Parse(PrecioUnitario) * Cant.GetCantidad).ToString();
+                                DgvVentaDetalle.Rows.Add("X", IdProd, Nombre, PrecioUnitario, Cantidad, Subtotal);
+                                CalcularTotal();
+                            }
                         }
                     }
                     else
@@ -335,7 +342,7 @@ namespace SIVEALLI
                         DgvListaVentas.DataSource = Ventas.BuscarPorAtributo(TxtValorBusqueda2.Text.Trim(), "IdCliente");
                         break;
                     case "Fecha (DD/MM/AAAA)":
-                        DgvListaVentas.DataSource = Ventas.BuscarPorAtributo(TxtValorBusqueda2.Text.Trim(), "Fecha");
+                        DgvListaVentas.DataSource = Ventas.BuscarPorAtributo(DtpFechaBusqueda.Value.ToString("dd-MM-yyyy"), "Fecha");
                         break;
                 }
             }
@@ -357,6 +364,19 @@ namespace SIVEALLI
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+        private void CboBuscarPor2_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if(CboBuscarPor2.Text.Trim()== "Fecha (DD/MM/AAAA)")
+            {
+                TxtValorBusqueda2.Visible = false;
+                DtpFechaBusqueda.Visible = true;
+            }
+            else
+            {
+                TxtValorBusqueda2.Visible = true;
+                DtpFechaBusqueda.Visible = false;
             }
         }
     }
