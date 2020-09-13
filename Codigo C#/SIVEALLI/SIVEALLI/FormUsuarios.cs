@@ -298,12 +298,13 @@ namespace SIVEALLI
                     if (aEntidad.ExisteClavePrimaria(Atributos))
                     {
                         aEntidad.Actualizar(Atributos);
+                        MessageBox.Show("Modificación realizada exitosamente", "Confirmacion");
                     }
                     else
                     {
                         aEntidad.Insertar(Atributos);
+                        MessageBox.Show("Usuario agregado, usuario y contraseña: " + textBoxCodigo.Text, "Confirmacion");
                     }
-                    MessageBox.Show("Operacion realizada exitosamente", "Confirmacion");
                     InicializarAtributos();
                     dgvUsuarios.DataSource = aUsuario.ListaUsuarios();
                 }

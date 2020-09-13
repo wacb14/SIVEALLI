@@ -51,6 +51,8 @@
             this.gbVariables = new System.Windows.Forms.GroupBox();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.gbVariables.SuspendLayout();
             this.SuspendLayout();
@@ -248,6 +250,8 @@
             // 
             // gbVariables
             // 
+            this.gbVariables.Controls.Add(this.label12);
+            this.gbVariables.Controls.Add(this.label11);
             this.gbVariables.Controls.Add(this.tbIGV);
             this.gbVariables.Controls.Add(this.tbMontoSuperarDescuento);
             this.gbVariables.Controls.Add(this.tbPorcentajeDescuento);
@@ -279,6 +283,26 @@
             this.label1.Size = new System.Drawing.Size(163, 19);
             this.label1.TabIndex = 61;
             this.label1.Text = "Fecha modificación datos";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(418, 47);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(22, 19);
+            this.label11.TabIndex = 56;
+            this.label11.Text = "%";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(418, 115);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(22, 19);
+            this.label12.TabIndex = 57;
+            this.label12.Text = "%";
             // 
             // FormNegocio
             // 
@@ -328,5 +352,7 @@
         private System.Windows.Forms.GroupBox gbVariables;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
     }
 }

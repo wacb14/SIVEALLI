@@ -26,6 +26,13 @@ namespace SIVEALLI
         {
             this.Load += new EventHandler(CargarDatos);
             this.btnGuardar.Click += new EventHandler(GuardarRegistro);
+
+            this.tbIGV.KeyPress += new KeyPressEventHandler(Procesos.ValidarFloat);
+            this.tbMontoSuperarDescuento.KeyPress += new KeyPressEventHandler(Procesos.ValidarFloat);
+            this.tbPorcentajeDescuento.KeyPress += new KeyPressEventHandler(Procesos.ValidarFloat);
+            this.tbPropietario.KeyPress += new KeyPressEventHandler(Procesos.ValidarTextBoxSoloLetras);
+            this.tbRUC.KeyPress += new KeyPressEventHandler(Procesos.ValidarTextBoxSoloNumeros);
+            this.tbTelefono.KeyPress += new KeyPressEventHandler(Procesos.ValidarTextBoxSoloNumeros);
         }
 
         public override void Grabar()

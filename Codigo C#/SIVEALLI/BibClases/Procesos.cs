@@ -22,13 +22,13 @@ namespace BibClases
 
             if (!(char.IsDigit(e.KeyChar)))
             {
-                if (e.KeyChar == ',' && textBox.Text.Contains(","))
+                if (e.KeyChar == '.' && textBox.Text.Contains("."))
                 {
                     e.Handled = true;
                     return;
                 }
                 Keys key = (Keys)e.KeyChar;
-                if (!(key == Keys.Back) && !(e.KeyChar == ','))
+                if (!(key == Keys.Back) && !(e.KeyChar == '.'))
                 {
 
                     e.Handled = true;
