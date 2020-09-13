@@ -56,7 +56,7 @@
             this.BtnImprimirLista = new System.Windows.Forms.Button();
             this.Lbl11 = new System.Windows.Forms.Label();
             this.GbBusqueda = new System.Windows.Forms.GroupBox();
-            this.TxtValorBusqueda = new System.Windows.Forms.TextBox();
+            this.TbValorBusqueda = new System.Windows.Forms.TextBox();
             this.Lbl10 = new System.Windows.Forms.Label();
             this.Lbl9 = new System.Windows.Forms.Label();
             this.BtnBuscar = new System.Windows.Forms.Button();
@@ -352,7 +352,7 @@
             // 
             // GbBusqueda
             // 
-            this.GbBusqueda.Controls.Add(this.TxtValorBusqueda);
+            this.GbBusqueda.Controls.Add(this.TbValorBusqueda);
             this.GbBusqueda.Controls.Add(this.Lbl10);
             this.GbBusqueda.Controls.Add(this.Lbl9);
             this.GbBusqueda.Controls.Add(this.BtnBuscar);
@@ -365,12 +365,12 @@
             this.GbBusqueda.TabStop = false;
             this.GbBusqueda.Text = "Búsqueda de Usuarios";
             // 
-            // TxtValorBusqueda
+            // TbValorBusqueda
             // 
-            this.TxtValorBusqueda.Location = new System.Drawing.Point(293, 55);
-            this.TxtValorBusqueda.Name = "TxtValorBusqueda";
-            this.TxtValorBusqueda.Size = new System.Drawing.Size(219, 26);
-            this.TxtValorBusqueda.TabIndex = 17;
+            this.TbValorBusqueda.Location = new System.Drawing.Point(293, 55);
+            this.TbValorBusqueda.Name = "TbValorBusqueda";
+            this.TbValorBusqueda.Size = new System.Drawing.Size(219, 26);
+            this.TbValorBusqueda.TabIndex = 17;
             // 
             // Lbl10
             // 
@@ -491,7 +491,7 @@
         private System.Windows.Forms.Button BtnImprimirLista;
         private System.Windows.Forms.Label Lbl11;
         private System.Windows.Forms.GroupBox GbBusqueda;
-        private System.Windows.Forms.TextBox TxtValorBusqueda;
+        private System.Windows.Forms.TextBox TbValorBusqueda;
         private System.Windows.Forms.Label Lbl10;
         private System.Windows.Forms.Label Lbl9;
         private System.Windows.Forms.Button BtnBuscar;

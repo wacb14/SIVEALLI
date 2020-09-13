@@ -85,7 +85,7 @@ namespace SIVEALLI
             for (int i = 0; i < Lista.Rows.Count; i++)
             {
                 string ValorProd = Lista.Rows[i][Valor].ToString();
-                if (Procesos.BuscarPalabraEnCadena(TxtValorBusqueda.Text, ValorProd))
+                if (Procesos.BuscarPalabraEnCadena(TbValorBusqueda.Text, ValorProd))
                 {
                     tablaMostrar.ImportRow(Lista.Rows[i]);
                 }
@@ -269,6 +269,11 @@ namespace SIVEALLI
         private void LimpiarInterfaz(object sender, EventArgs e)
         {
             InicializarAtributos();
+
+            dgvUsuarios.DataSource = aUsuario.ListaUsuarios();
+            LblTotalUsuarios.Text = dgvUsuarios.Rows.Count.ToString();
+
+            TbValorBusqueda.Text = "";
         }
 
         private void GuardarRegistro(object sender, EventArgs e)

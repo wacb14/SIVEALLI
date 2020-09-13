@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.GbProducto = new System.Windows.Forms.GroupBox();
+            this.TxtCantidad = new System.Windows.Forms.TextBox();
+            this.Lbl12 = new System.Windows.Forms.Label();
             this.Lbl15 = new System.Windows.Forms.Label();
             this.Lbl14 = new System.Windows.Forms.Label();
             this.NudMaximo = new System.Windows.Forms.NumericUpDown();
@@ -66,8 +68,6 @@
             this.Lbl10 = new System.Windows.Forms.Label();
             this.GbBusqueda = new System.Windows.Forms.GroupBox();
             this.OfdImagen = new System.Windows.Forms.OpenFileDialog();
-            this.Lbl12 = new System.Windows.Forms.Label();
-            this.TxtCantidad = new System.Windows.Forms.TextBox();
             this.GbProducto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NudMaximo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NudMinimo)).BeginInit();
@@ -112,6 +112,24 @@
             this.GbProducto.TabIndex = 5;
             this.GbProducto.TabStop = false;
             this.GbProducto.Text = "Ingresar Nuevo Producto";
+            // 
+            // TxtCantidad
+            // 
+            this.TxtCantidad.Enabled = false;
+            this.TxtCantidad.Location = new System.Drawing.Point(202, 313);
+            this.TxtCantidad.Name = "TxtCantidad";
+            this.TxtCantidad.Size = new System.Drawing.Size(148, 26);
+            this.TxtCantidad.TabIndex = 30;
+            // 
+            // Lbl12
+            // 
+            this.Lbl12.AutoSize = true;
+            this.Lbl12.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl12.Location = new System.Drawing.Point(198, 291);
+            this.Lbl12.Name = "Lbl12";
+            this.Lbl12.Size = new System.Drawing.Size(132, 19);
+            this.Lbl12.TabIndex = 29;
+            this.Lbl12.Text = "Cantidad Disponible";
             // 
             // Lbl15
             // 
@@ -355,7 +373,7 @@
             this.GbProductos.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GbProductos.Location = new System.Drawing.Point(398, 5);
             this.GbProductos.Name = "GbProductos";
-            this.GbProductos.Size = new System.Drawing.Size(670, 371);
+            this.GbProductos.Size = new System.Drawing.Size(670, 398);
             this.GbProductos.TabIndex = 6;
             this.GbProductos.TabStop = false;
             this.GbProductos.Text = "Lista de Productos";
@@ -363,7 +381,7 @@
             // BtnRestaurarLista
             // 
             this.BtnRestaurarLista.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnRestaurarLista.Location = new System.Drawing.Point(48, 334);
+            this.BtnRestaurarLista.Location = new System.Drawing.Point(65, 362);
             this.BtnRestaurarLista.Name = "BtnRestaurarLista";
             this.BtnRestaurarLista.Size = new System.Drawing.Size(170, 27);
             this.BtnRestaurarLista.TabIndex = 14;
@@ -376,7 +394,7 @@
             this.LblTotalProductos.AutoSize = true;
             this.LblTotalProductos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.LblTotalProductos.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTotalProductos.Location = new System.Drawing.Point(404, 337);
+            this.LblTotalProductos.Location = new System.Drawing.Point(421, 365);
             this.LblTotalProductos.Name = "LblTotalProductos";
             this.LblTotalProductos.Size = new System.Drawing.Size(19, 21);
             this.LblTotalProductos.TabIndex = 21;
@@ -385,7 +403,7 @@
             // BtnImprimirLista
             // 
             this.BtnImprimirLista.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnImprimirLista.Location = new System.Drawing.Point(476, 334);
+            this.BtnImprimirLista.Location = new System.Drawing.Point(493, 362);
             this.BtnImprimirLista.Name = "BtnImprimirLista";
             this.BtnImprimirLista.Size = new System.Drawing.Size(127, 27);
             this.BtnImprimirLista.TabIndex = 15;
@@ -396,7 +414,7 @@
             // 
             this.Lbl11.AutoSize = true;
             this.Lbl11.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl11.Location = new System.Drawing.Point(257, 337);
+            this.Lbl11.Location = new System.Drawing.Point(274, 365);
             this.Lbl11.Name = "Lbl11";
             this.Lbl11.Size = new System.Drawing.Size(131, 19);
             this.Lbl11.TabIndex = 17;
@@ -411,14 +429,14 @@
             this.DgvProductos.Location = new System.Drawing.Point(6, 25);
             this.DgvProductos.Name = "DgvProductos";
             this.DgvProductos.ReadOnly = true;
-            this.DgvProductos.Size = new System.Drawing.Size(654, 300);
+            this.DgvProductos.Size = new System.Drawing.Size(654, 331);
             this.DgvProductos.TabIndex = 0;
             this.DgvProductos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvProductos_CellClick);
             // 
             // BtnBuscar
             // 
             this.BtnBuscar.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnBuscar.Location = new System.Drawing.Point(537, 66);
+            this.BtnBuscar.Location = new System.Drawing.Point(528, 60);
             this.BtnBuscar.Name = "BtnBuscar";
             this.BtnBuscar.Size = new System.Drawing.Size(92, 26);
             this.BtnBuscar.TabIndex = 18;
@@ -438,7 +456,7 @@
             "Marca",
             "Precio Unitario",
             "Estado"});
-            this.CboBuscarPor.Location = new System.Drawing.Point(36, 66);
+            this.CboBuscarPor.Location = new System.Drawing.Point(27, 60);
             this.CboBuscarPor.Name = "CboBuscarPor";
             this.CboBuscarPor.Size = new System.Drawing.Size(219, 27);
             this.CboBuscarPor.TabIndex = 19;
@@ -447,7 +465,7 @@
             // 
             this.Lbl9.AutoSize = true;
             this.Lbl9.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl9.Location = new System.Drawing.Point(32, 44);
+            this.Lbl9.Location = new System.Drawing.Point(23, 38);
             this.Lbl9.Name = "Lbl9";
             this.Lbl9.Size = new System.Drawing.Size(144, 19);
             this.Lbl9.TabIndex = 18;
@@ -455,7 +473,7 @@
             // 
             // TxtValorBusqueda
             // 
-            this.TxtValorBusqueda.Location = new System.Drawing.Point(282, 67);
+            this.TxtValorBusqueda.Location = new System.Drawing.Point(273, 61);
             this.TxtValorBusqueda.Name = "TxtValorBusqueda";
             this.TxtValorBusqueda.Size = new System.Drawing.Size(219, 26);
             this.TxtValorBusqueda.TabIndex = 17;
@@ -464,7 +482,7 @@
             // 
             this.Lbl10.AutoSize = true;
             this.Lbl10.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl10.Location = new System.Drawing.Point(278, 44);
+            this.Lbl10.Location = new System.Drawing.Point(269, 38);
             this.Lbl10.Name = "Lbl10";
             this.Lbl10.Size = new System.Drawing.Size(171, 19);
             this.Lbl10.TabIndex = 15;
@@ -478,9 +496,9 @@
             this.GbBusqueda.Controls.Add(this.BtnBuscar);
             this.GbBusqueda.Controls.Add(this.CboBuscarPor);
             this.GbBusqueda.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GbBusqueda.Location = new System.Drawing.Point(398, 382);
+            this.GbBusqueda.Location = new System.Drawing.Point(398, 409);
             this.GbBusqueda.Name = "GbBusqueda";
-            this.GbBusqueda.Size = new System.Drawing.Size(670, 135);
+            this.GbBusqueda.Size = new System.Drawing.Size(670, 108);
             this.GbBusqueda.TabIndex = 7;
             this.GbBusqueda.TabStop = false;
             this.GbBusqueda.Text = "Búsqueda de Productos";
@@ -488,24 +506,6 @@
             // OfdImagen
             // 
             this.OfdImagen.Filter = "Archivos de imagenes|*.jpg;*.png;*.jpeg;*.gif";
-            // 
-            // Lbl12
-            // 
-            this.Lbl12.AutoSize = true;
-            this.Lbl12.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl12.Location = new System.Drawing.Point(198, 291);
-            this.Lbl12.Name = "Lbl12";
-            this.Lbl12.Size = new System.Drawing.Size(132, 19);
-            this.Lbl12.TabIndex = 29;
-            this.Lbl12.Text = "Cantidad Disponible";
-            // 
-            // TxtCantidad
-            // 
-            this.TxtCantidad.Enabled = false;
-            this.TxtCantidad.Location = new System.Drawing.Point(202, 313);
-            this.TxtCantidad.Name = "TxtCantidad";
-            this.TxtCantidad.Size = new System.Drawing.Size(148, 26);
-            this.TxtCantidad.TabIndex = 30;
             // 
             // FormProductos
             // 

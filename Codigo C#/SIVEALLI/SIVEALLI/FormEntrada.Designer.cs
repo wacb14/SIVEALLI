@@ -39,8 +39,14 @@
             this.BtnNuevaEntrada = new System.Windows.Forms.Button();
             this.groupBoxEntradaProducto = new System.Windows.Forms.GroupBox();
             this.BtnAniadir = new System.Windows.Forms.Button();
-            this.comboBoxCodigoProducto = new System.Windows.Forms.ComboBox();
+            this.CbCodigoProducto = new System.Windows.Forms.ComboBox();
             this.dgvDetalleEntrada = new System.Windows.Forms.DataGridView();
+            this.ColumnCodigoProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnPrecioUnitacio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.textBoxUsuario = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -48,12 +54,6 @@
             this.buttonLimpiar = new System.Windows.Forms.Button();
             this.buttonListo = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.ColumnCodigoProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnPrecioUnitacio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCantidad)).BeginInit();
             this.groupBoxDatosEntrada.SuspendLayout();
             this.groupBoxEntradaProducto.SuspendLayout();
@@ -158,7 +158,7 @@
             // groupBoxEntradaProducto
             // 
             this.groupBoxEntradaProducto.Controls.Add(this.BtnAniadir);
-            this.groupBoxEntradaProducto.Controls.Add(this.comboBoxCodigoProducto);
+            this.groupBoxEntradaProducto.Controls.Add(this.CbCodigoProducto);
             this.groupBoxEntradaProducto.Controls.Add(this.label4);
             this.groupBoxEntradaProducto.Controls.Add(this.label5);
             this.groupBoxEntradaProducto.Controls.Add(this.numericUpDownCantidad);
@@ -178,14 +178,13 @@
             this.BtnAniadir.Text = "Agregar producto";
             this.BtnAniadir.UseVisualStyleBackColor = true;
             // 
-            // comboBoxCodigoProducto
+            // CbCodigoProducto
             // 
-            this.comboBoxCodigoProducto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxCodigoProducto.FormattingEnabled = true;
-            this.comboBoxCodigoProducto.Location = new System.Drawing.Point(127, 34);
-            this.comboBoxCodigoProducto.Name = "comboBoxCodigoProducto";
-            this.comboBoxCodigoProducto.Size = new System.Drawing.Size(162, 27);
-            this.comboBoxCodigoProducto.TabIndex = 4;
+            this.CbCodigoProducto.FormattingEnabled = true;
+            this.CbCodigoProducto.Location = new System.Drawing.Point(127, 34);
+            this.CbCodigoProducto.Name = "CbCodigoProducto";
+            this.CbCodigoProducto.Size = new System.Drawing.Size(162, 27);
+            this.CbCodigoProducto.TabIndex = 4;
             // 
             // dgvDetalleEntrada
             // 
@@ -206,6 +205,48 @@
             this.dgvDetalleEntrada.ReadOnly = true;
             this.dgvDetalleEntrada.Size = new System.Drawing.Size(887, 393);
             this.dgvDetalleEntrada.TabIndex = 37;
+            // 
+            // ColumnCodigoProducto
+            // 
+            this.ColumnCodigoProducto.HeaderText = "Código";
+            this.ColumnCodigoProducto.Name = "ColumnCodigoProducto";
+            this.ColumnCodigoProducto.ReadOnly = true;
+            this.ColumnCodigoProducto.Width = 80;
+            // 
+            // ColumnNombre
+            // 
+            this.ColumnNombre.HeaderText = "Nombre";
+            this.ColumnNombre.Name = "ColumnNombre";
+            this.ColumnNombre.ReadOnly = true;
+            this.ColumnNombre.Width = 200;
+            // 
+            // ColumnCategoria
+            // 
+            this.ColumnCategoria.HeaderText = "Categoría";
+            this.ColumnCategoria.Name = "ColumnCategoria";
+            this.ColumnCategoria.ReadOnly = true;
+            this.ColumnCategoria.Width = 200;
+            // 
+            // ColumnMarca
+            // 
+            this.ColumnMarca.HeaderText = "Marca";
+            this.ColumnMarca.Name = "ColumnMarca";
+            this.ColumnMarca.ReadOnly = true;
+            this.ColumnMarca.Width = 130;
+            // 
+            // ColumnPrecioUnitacio
+            // 
+            this.ColumnPrecioUnitacio.HeaderText = "Precio Unitario";
+            this.ColumnPrecioUnitacio.Name = "ColumnPrecioUnitacio";
+            this.ColumnPrecioUnitacio.ReadOnly = true;
+            this.ColumnPrecioUnitacio.Width = 125;
+            // 
+            // ColumnCantidad
+            // 
+            this.ColumnCantidad.HeaderText = "Cantidad";
+            this.ColumnCantidad.Name = "ColumnCantidad";
+            this.ColumnCantidad.ReadOnly = true;
+            this.ColumnCantidad.Width = 75;
             // 
             // dtpFecha
             // 
@@ -270,48 +311,6 @@
             this.label6.TabIndex = 50;
             this.label6.Text = "Fecha entrada";
             // 
-            // ColumnCodigoProducto
-            // 
-            this.ColumnCodigoProducto.HeaderText = "Código";
-            this.ColumnCodigoProducto.Name = "ColumnCodigoProducto";
-            this.ColumnCodigoProducto.ReadOnly = true;
-            this.ColumnCodigoProducto.Width = 80;
-            // 
-            // ColumnNombre
-            // 
-            this.ColumnNombre.HeaderText = "Nombre";
-            this.ColumnNombre.Name = "ColumnNombre";
-            this.ColumnNombre.ReadOnly = true;
-            this.ColumnNombre.Width = 200;
-            // 
-            // ColumnCategoria
-            // 
-            this.ColumnCategoria.HeaderText = "Categoría";
-            this.ColumnCategoria.Name = "ColumnCategoria";
-            this.ColumnCategoria.ReadOnly = true;
-            this.ColumnCategoria.Width = 200;
-            // 
-            // ColumnMarca
-            // 
-            this.ColumnMarca.HeaderText = "Marca";
-            this.ColumnMarca.Name = "ColumnMarca";
-            this.ColumnMarca.ReadOnly = true;
-            this.ColumnMarca.Width = 130;
-            // 
-            // ColumnPrecioUnitacio
-            // 
-            this.ColumnPrecioUnitacio.HeaderText = "Precio Unitario";
-            this.ColumnPrecioUnitacio.Name = "ColumnPrecioUnitacio";
-            this.ColumnPrecioUnitacio.ReadOnly = true;
-            this.ColumnPrecioUnitacio.Width = 125;
-            // 
-            // ColumnCantidad
-            // 
-            this.ColumnCantidad.HeaderText = "Cantidad";
-            this.ColumnCantidad.Name = "ColumnCantidad";
-            this.ColumnCantidad.ReadOnly = true;
-            this.ColumnCantidad.Width = 75;
-            // 
             // FormEntrada
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -354,7 +353,7 @@
         private System.Windows.Forms.GroupBox groupBoxDatosEntrada;
         private System.Windows.Forms.GroupBox groupBoxEntradaProducto;
         private System.Windows.Forms.DataGridView dgvDetalleEntrada;
-        private System.Windows.Forms.ComboBox comboBoxCodigoProducto;
+        private System.Windows.Forms.ComboBox CbCodigoProducto;
         private System.Windows.Forms.DateTimePicker dtpFecha;
         private System.Windows.Forms.TextBox textBoxUsuario;
         private System.Windows.Forms.Label label3;
