@@ -60,7 +60,7 @@ namespace SIVEALLI
         {
             DgvClientes.DataSource = Cliente.ListaGeneral();
             //--Mostrar el numero de clientes
-            LbNroClientes.Text = LbNroClientes.Text.Split(':')[0] +": "+ DgvClientes.Rows.Count.ToString();
+            LblCant.Text =  DgvClientes.Rows.Count.ToString();
         }
 
         private void BtnGuardar_Click(object sender, EventArgs e)
@@ -124,7 +124,7 @@ namespace SIVEALLI
                     DgvClientes.Rows[k].Visible = false;
             }
                 //--Mostrar el numero de clientes
-                LbNroClientes.Text = LbNroClientes.Text.Split(':')[0] + ": " + ContarClientesVisibles().ToString();
+              LblCant.Text = ContarClientesVisibles().ToString();
 
         }
         private bool BuscarPalabraEnCadena(string Palabra, string Cadena)
@@ -216,7 +216,7 @@ namespace SIVEALLI
                 DgvClientes.Rows[k].Visible = true;
             }
             //--Mostrar el numero de clientes
-            LbNroClientes.Text = LbNroClientes.Text.Split(':')[0] + ": " + ContarClientesVisibles().ToString();
+            LblCant.Text =  ContarClientesVisibles().ToString();
         }
         private void SoloNumeros(object sender, KeyPressEventArgs e)
         {

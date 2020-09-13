@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using System.Globalization;
 
 namespace BibClases
 {
@@ -35,9 +36,9 @@ namespace BibClases
             return aConexion.Datos.Tables[0];
         }
         //------------------------------------------------------------------------------------------
-        public DataTable MostrarVentas()
+        public DataTable MostrarVenta(string IdVenta)
         {   //--Retornar un tabla con la lista completa de  libros
-            string CadenaConsulta = "spuTraerHistorialVentas";
+            string CadenaConsulta = "spuTraerDatosDeLaVentas '"+IdVenta+"'";
             aConexion.EjecutarSelect(CadenaConsulta);
             return aConexion.Datos.Tables[0];
         }

@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormClientes));
             this.CbBuscar = new System.Windows.Forms.ComboBox();
-            this.LbNroClientes = new System.Windows.Forms.Label();
             this.BtnGuardar = new System.Windows.Forms.Button();
             this.TbCorreo = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -57,10 +56,14 @@
             this.CbNuevoPed = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.PbCerrar = new System.Windows.Forms.PictureBox();
+            this.GbBusqueda = new System.Windows.Forms.GroupBox();
+            this.LblCant = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DgvClientes)).BeginInit();
             this.GbClientes.SuspendLayout();
             this.GbCliente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbCerrar)).BeginInit();
+            this.GbBusqueda.SuspendLayout();
             this.SuspendLayout();
             // 
             // CbBuscar
@@ -73,44 +76,34 @@
             "Dirección",
             "Telefono",
             "Correo"});
-            this.CbBuscar.Location = new System.Drawing.Point(10, 445);
+            this.CbBuscar.Location = new System.Drawing.Point(24, 54);
             this.CbBuscar.Name = "CbBuscar";
             this.CbBuscar.Size = new System.Drawing.Size(141, 27);
             this.CbBuscar.TabIndex = 19;
             this.CbBuscar.Text = "ID Cliente";
             // 
-            // LbNroClientes
-            // 
-            this.LbNroClientes.AutoSize = true;
-            this.LbNroClientes.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LbNroClientes.Location = new System.Drawing.Point(448, 423);
-            this.LbNroClientes.Name = "LbNroClientes";
-            this.LbNroClientes.Size = new System.Drawing.Size(141, 19);
-            this.LbNroClientes.TabIndex = 17;
-            this.LbNroClientes.Text = "Numero de clientes: 0";
-            // 
             // BtnGuardar
             // 
-            this.BtnGuardar.Location = new System.Drawing.Point(101, 433);
+            this.BtnGuardar.Location = new System.Drawing.Point(109, 435);
             this.BtnGuardar.Name = "BtnGuardar";
-            this.BtnGuardar.Size = new System.Drawing.Size(153, 37);
+            this.BtnGuardar.Size = new System.Drawing.Size(153, 31);
             this.BtnGuardar.TabIndex = 12;
-            this.BtnGuardar.Text = "Registrar cliente";
+            this.BtnGuardar.Text = "Guardar datos";
             this.BtnGuardar.UseVisualStyleBackColor = true;
             this.BtnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
             // 
             // TbCorreo
             // 
-            this.TbCorreo.Location = new System.Drawing.Point(88, 266);
+            this.TbCorreo.Location = new System.Drawing.Point(107, 283);
             this.TbCorreo.Name = "TbCorreo";
-            this.TbCorreo.Size = new System.Drawing.Size(273, 26);
+            this.TbCorreo.Size = new System.Drawing.Size(254, 26);
             this.TbCorreo.TabIndex = 11;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(15, 269);
+            this.label6.Location = new System.Drawing.Point(34, 286);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 19);
             this.label6.TabIndex = 10;
@@ -118,18 +111,18 @@
             // 
             // TbTelefono
             // 
-            this.TbTelefono.Location = new System.Drawing.Point(88, 225);
+            this.TbTelefono.Location = new System.Drawing.Point(107, 242);
             this.TbTelefono.MaxLength = 9;
             this.TbTelefono.Name = "TbTelefono";
-            this.TbTelefono.Size = new System.Drawing.Size(273, 26);
+            this.TbTelefono.Size = new System.Drawing.Size(254, 26);
             this.TbTelefono.TabIndex = 9;
             this.TbTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SoloNumeros);
             // 
             // TbValorBusqueda
             // 
-            this.TbValorBusqueda.Location = new System.Drawing.Point(10, 499);
+            this.TbValorBusqueda.Location = new System.Drawing.Point(236, 54);
             this.TbValorBusqueda.Name = "TbValorBusqueda";
-            this.TbValorBusqueda.Size = new System.Drawing.Size(289, 26);
+            this.TbValorBusqueda.Size = new System.Drawing.Size(227, 26);
             this.TbValorBusqueda.TabIndex = 16;
             // 
             // DgvClientes
@@ -142,7 +135,7 @@
             this.DgvClientes.Location = new System.Drawing.Point(10, 21);
             this.DgvClientes.Name = "DgvClientes";
             this.DgvClientes.ReadOnly = true;
-            this.DgvClientes.Size = new System.Drawing.Size(648, 399);
+            this.DgvClientes.Size = new System.Drawing.Size(648, 371);
             this.DgvClientes.TabIndex = 0;
             this.DgvClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvClientes_CellContentClick);
             // 
@@ -150,7 +143,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(15, 228);
+            this.label5.Location = new System.Drawing.Point(34, 245);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(61, 19);
             this.label5.TabIndex = 8;
@@ -158,23 +151,23 @@
             // 
             // TbDireccion
             // 
-            this.TbDireccion.Location = new System.Drawing.Point(88, 184);
+            this.TbDireccion.Location = new System.Drawing.Point(107, 201);
             this.TbDireccion.Name = "TbDireccion";
-            this.TbDireccion.Size = new System.Drawing.Size(273, 26);
+            this.TbDireccion.Size = new System.Drawing.Size(254, 26);
             this.TbDireccion.TabIndex = 7;
             // 
             // TbApellidos
             // 
-            this.TbApellidos.Location = new System.Drawing.Point(88, 143);
+            this.TbApellidos.Location = new System.Drawing.Point(107, 160);
             this.TbApellidos.Name = "TbApellidos";
-            this.TbApellidos.Size = new System.Drawing.Size(273, 26);
+            this.TbApellidos.Size = new System.Drawing.Size(254, 26);
             this.TbApellidos.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(14, 146);
+            this.label3.Location = new System.Drawing.Point(33, 163);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 19);
             this.label3.TabIndex = 4;
@@ -184,7 +177,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(6, 423);
+            this.label9.Location = new System.Drawing.Point(20, 32);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(127, 19);
             this.label9.TabIndex = 18;
@@ -194,7 +187,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(6, 477);
+            this.label7.Location = new System.Drawing.Point(232, 32);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(171, 19);
             this.label7.TabIndex = 15;
@@ -204,7 +197,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(15, 187);
+            this.label4.Location = new System.Drawing.Point(34, 204);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(67, 19);
             this.label4.TabIndex = 6;
@@ -212,36 +205,32 @@
             // 
             // TbNombres
             // 
-            this.TbNombres.Location = new System.Drawing.Point(88, 102);
+            this.TbNombres.Location = new System.Drawing.Point(107, 119);
             this.TbNombres.Name = "TbNombres";
-            this.TbNombres.Size = new System.Drawing.Size(273, 26);
+            this.TbNombres.Size = new System.Drawing.Size(254, 26);
             this.TbNombres.TabIndex = 3;
             // 
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(452, 445);
+            this.button5.Location = new System.Drawing.Point(517, 400);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(137, 32);
+            this.button5.Size = new System.Drawing.Size(137, 29);
             this.button5.TabIndex = 20;
             this.button5.Text = "Imprimir registros";
             this.button5.UseVisualStyleBackColor = true;
             // 
             // GbClientes
             // 
+            this.GbClientes.Controls.Add(this.label8);
+            this.GbClientes.Controls.Add(this.LblCant);
             this.GbClientes.Controls.Add(this.BtnMostrarTodo);
             this.GbClientes.Controls.Add(this.button5);
-            this.GbClientes.Controls.Add(this.BtnBuscar);
-            this.GbClientes.Controls.Add(this.CbBuscar);
-            this.GbClientes.Controls.Add(this.label9);
-            this.GbClientes.Controls.Add(this.LbNroClientes);
-            this.GbClientes.Controls.Add(this.TbValorBusqueda);
             this.GbClientes.Controls.Add(this.DgvClientes);
-            this.GbClientes.Controls.Add(this.label7);
             this.GbClientes.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GbClientes.Location = new System.Drawing.Point(398, 12);
             this.GbClientes.Name = "GbClientes";
-            this.GbClientes.Size = new System.Drawing.Size(660, 537);
+            this.GbClientes.Size = new System.Drawing.Size(660, 435);
             this.GbClientes.TabIndex = 5;
             this.GbClientes.TabStop = false;
             this.GbClientes.Text = "Lista de clientes";
@@ -249,20 +238,20 @@
             // BtnMostrarTodo
             // 
             this.BtnMostrarTodo.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnMostrarTodo.Location = new System.Drawing.Point(420, 496);
+            this.BtnMostrarTodo.Location = new System.Drawing.Point(6, 400);
             this.BtnMostrarTodo.Name = "BtnMostrarTodo";
-            this.BtnMostrarTodo.Size = new System.Drawing.Size(202, 32);
+            this.BtnMostrarTodo.Size = new System.Drawing.Size(160, 29);
             this.BtnMostrarTodo.TabIndex = 21;
-            this.BtnMostrarTodo.Text = "Mostrar todos los clientes";
+            this.BtnMostrarTodo.Text = "Restaurar lista completa";
             this.BtnMostrarTodo.UseVisualStyleBackColor = true;
             this.BtnMostrarTodo.Click += new System.EventHandler(this.BtnMostrarTodo_Click);
             // 
             // BtnBuscar
             // 
             this.BtnBuscar.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnBuscar.Location = new System.Drawing.Point(305, 496);
+            this.BtnBuscar.Location = new System.Drawing.Point(525, 51);
             this.BtnBuscar.Name = "BtnBuscar";
-            this.BtnBuscar.Size = new System.Drawing.Size(92, 32);
+            this.BtnBuscar.Size = new System.Drawing.Size(92, 33);
             this.BtnBuscar.TabIndex = 15;
             this.BtnBuscar.Text = "Buscar";
             this.BtnBuscar.UseVisualStyleBackColor = true;
@@ -272,7 +261,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(16, 105);
+            this.label2.Location = new System.Drawing.Point(35, 122);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(66, 19);
             this.label2.TabIndex = 2;
@@ -283,7 +272,7 @@
             this.TbId.Enabled = false;
             this.TbId.Location = new System.Drawing.Point(10, 56);
             this.TbId.Name = "TbId";
-            this.TbId.Size = new System.Drawing.Size(92, 26);
+            this.TbId.Size = new System.Drawing.Size(105, 26);
             this.TbId.TabIndex = 1;
             this.TbId.Leave += new System.EventHandler(this.TbId_Leave);
             // 
@@ -315,9 +304,9 @@
             // 
             // BtnLimpiar
             // 
-            this.BtnLimpiar.Location = new System.Drawing.Point(206, 355);
+            this.BtnLimpiar.Location = new System.Drawing.Point(107, 398);
             this.BtnLimpiar.Name = "BtnLimpiar";
-            this.BtnLimpiar.Size = new System.Drawing.Size(155, 37);
+            this.BtnLimpiar.Size = new System.Drawing.Size(155, 31);
             this.BtnLimpiar.TabIndex = 29;
             this.BtnLimpiar.Text = "Limpiar datos";
             this.BtnLimpiar.UseVisualStyleBackColor = true;
@@ -325,9 +314,9 @@
             // 
             // BtnNuevo
             // 
-            this.BtnNuevo.Location = new System.Drawing.Point(10, 355);
+            this.BtnNuevo.Location = new System.Drawing.Point(227, 56);
             this.BtnNuevo.Name = "BtnNuevo";
-            this.BtnNuevo.Size = new System.Drawing.Size(155, 37);
+            this.BtnNuevo.Size = new System.Drawing.Size(134, 29);
             this.BtnNuevo.TabIndex = 28;
             this.BtnNuevo.Text = "Nuevo cliente";
             this.BtnNuevo.UseVisualStyleBackColor = true;
@@ -367,12 +356,50 @@
             this.PbCerrar.TabStop = false;
             this.PbCerrar.Click += new System.EventHandler(this.PbCerrar_Click);
             // 
+            // GbBusqueda
+            // 
+            this.GbBusqueda.Controls.Add(this.label9);
+            this.GbBusqueda.Controls.Add(this.label7);
+            this.GbBusqueda.Controls.Add(this.BtnBuscar);
+            this.GbBusqueda.Controls.Add(this.TbValorBusqueda);
+            this.GbBusqueda.Controls.Add(this.CbBuscar);
+            this.GbBusqueda.Location = new System.Drawing.Point(399, 445);
+            this.GbBusqueda.Margin = new System.Windows.Forms.Padding(4);
+            this.GbBusqueda.Name = "GbBusqueda";
+            this.GbBusqueda.Padding = new System.Windows.Forms.Padding(4);
+            this.GbBusqueda.Size = new System.Drawing.Size(659, 97);
+            this.GbBusqueda.TabIndex = 64;
+            this.GbBusqueda.TabStop = false;
+            this.GbBusqueda.Text = "Busqueda de proveedores";
+            // 
+            // LblCant
+            // 
+            this.LblCant.AutoSize = true;
+            this.LblCant.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LblCant.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblCant.Location = new System.Drawing.Point(372, 404);
+            this.LblCant.Name = "LblCant";
+            this.LblCant.Size = new System.Drawing.Size(19, 21);
+            this.LblCant.TabIndex = 22;
+            this.LblCant.Text = "0";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(233, 404);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(133, 19);
+            this.label8.TabIndex = 23;
+            this.label8.Text = "Numero de clientes: ";
+            // 
             // FormClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1070, 555);
+            this.Controls.Add(this.GbBusqueda);
             this.Controls.Add(this.PbCerrar);
             this.Controls.Add(this.GbClientes);
             this.Controls.Add(this.GbCliente);
@@ -386,6 +413,8 @@
             this.GbCliente.ResumeLayout(false);
             this.GbCliente.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbCerrar)).EndInit();
+            this.GbBusqueda.ResumeLayout(false);
+            this.GbBusqueda.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -393,7 +422,6 @@
         #endregion
 
         private System.Windows.Forms.ComboBox CbBuscar;
-        private System.Windows.Forms.Label LbNroClientes;
         private System.Windows.Forms.Button BtnGuardar;
         private System.Windows.Forms.TextBox TbCorreo;
         private System.Windows.Forms.Label label6;
@@ -420,5 +448,8 @@
         private System.Windows.Forms.Button BtnLimpiar;
         private System.Windows.Forms.Button BtnNuevo;
         private System.Windows.Forms.Button BtnMostrarTodo;
+        private System.Windows.Forms.GroupBox GbBusqueda;
+        private System.Windows.Forms.Label LblCant;
+        private System.Windows.Forms.Label label8;
     }
 }

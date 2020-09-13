@@ -13,9 +13,11 @@ namespace SIVEALLI
     public partial class FormDevolucionCantidad : Form
     {
         DataGridView DgvDevolucionsDetalle;
+        DataGridView DgvProd;
+        bool aag;
         int afila;
         int aCantMax;
-        public FormDevolucionCantidad(DataGridView devDet,int pfila,int cant,int NroObj=1,string Est="Nuevo")
+        public FormDevolucionCantidad(DataGridView ProDev,bool Ag,DataGridView devDet,int pfila,int cant,int NroObj=1,string Est="Nuevo")
         {
             InitializeComponent();
             DgvDevolucionsDetalle= devDet;
@@ -24,6 +26,8 @@ namespace SIVEALLI
 
             NudCantidad.Value = NroObj;
             CbEstC.Text = Est;
+            DgvProd = ProDev;
+            aag = Ag;
         }
 
         private void BtnAceptar_Click(object sender, EventArgs e)
@@ -33,6 +37,25 @@ namespace SIVEALLI
                 DgvDevolucionsDetalle.Rows[afila].Cells[5].Value = "0";
                 DgvDevolucionsDetalle.Rows[afila].Cells[5].Value = NudCantidad.Value.ToString();
                 DgvDevolucionsDetalle.Rows[afila].Cells[3].Value = CbEstC.Text;
+                if (aag)
+                {
+                    string id = DgvDevolucionsDetalle.Rows[afila].Cells[1].Value.ToString();
+                    string Estado = DgvDevolucionsDetalle.Rows[afila].Cells[3].Value.ToString();
+                    string Cantidad = DgvDevolucionsDetalle.Rows[afila].Cells[5].Value.ToString();
+                    string Total = DgvDevolucionsDetalle.Rows[afila].Cells[6].Value.ToString();
+                    DgvProd.Rows.Add(id,Estado,Cantidad,Total);
+                }
+                else
+                {
+                    string Total = DgvDevolucionsDetalle.Rows[afila].Cells[6].Value.ToString();
+                    string id = DgvDevolucionsDetalle.Rows[afila].Cells[1].Value.ToString();
+                    for (int k = 0; k < DgvProd.Rows.Count; k++)
+                        if (DgvProd.Rows[k].Cells[0].Value.ToString().Trim() == id.Trim())
+                        {
+                            DgvProd.Rows[k].Cells[2].Value = NudCantidad.Value.ToString();
+                            DgvProd.Rows[k].Cells[3].Value = Total;
+                        }
+                }
                 Close();
             }
             else

@@ -27,8 +27,6 @@ namespace SIVEALLI
             aIdUsuario = idUsuario;
             //--Se carga el id del proximo pedido
             CbNuevoDev.Checked = true;
-            //--Se carga el historial de ventas
-            CargarVentas();
             CargarHistorialDevoluciones();
         }
         //--Cargar el el id del pedido automaticamente
@@ -51,10 +49,38 @@ namespace SIVEALLI
         }
         public void CargarVentas()
         {
-            DgvVentas.DataSource = Devolucion.MostrarVentas();
-            DgvVentas.Columns[5].Visible = false;
-            DgvVentas.Columns[6].Visible = false;
-            DgvVentas.Columns[7].Visible = false;
+            DataTable Tab = Devolucion.MostrarVenta(TbIdVenta.Text);  
+            if (Tab.Rows.Count > 0)
+            {
+                DgvProduc.Rows.Clear();
+                DgvVentas.Rows.Clear();
+                DgvVentas.Rows.Add(Tab.Rows[0][0].ToString(), Tab.Rows[0][1].ToString(), Tab.Rows[0][2].ToString(), Tab.Rows[0][3].ToString(), Tab.Rows[0][4].ToString(), Tab.Rows[0][5].ToString(), Tab.Rows[0][6].ToString(), Tab.Rows[0][7].ToString());
+                //--Se calcula los datos de la venta
+                int fila = 0;
+                int Pos = DetFilaDeVenta(TbIdVenta.Text);
+                if (Pos != -1)
+                {
+                    MessageBox.Show("La venta ya tiene en un registro de devolucion", "ATENCION", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //CargarDatosDeDevolucion(Pos);
+                }
+                CbNuevoDev.Checked = true;
+                TbRazon.Text = "";
+                DgvDevolucionDetalle.Rows.Clear();
+                CargarDetallesVenta();
+                //--Se cargan los datos del descuento
+                DeterminarImporteTotal();
+                LblImpuesto.Text = DgvVentas.Rows[fila].Cells[6].Value.ToString();
+                if (Convert.ToBoolean(DgvVentas.Rows[fila].Cells[5].Value))
+                    LblDescuento.Text = DgvVentas.Rows[fila].Cells[7].Value.ToString();
+                else
+                    LblDescuento.Text = "0";
+                //--Calcular el importe total que se pago
+                double st = double.Parse(LblSubTotal.Text);
+                double stD = st - (st * (int.Parse(LblDescuento.Text)) / 100);
+                double Total = Math.Round(stD + (stD * int.Parse(LblImpuesto.Text) / 100), 2);
+                LblTotalPagar.Text = Total.ToString();
+            }
+
         }
         /// <summary>
         /// evento del check box que indica si se trata o no de una nueva devolucion
@@ -79,46 +105,11 @@ namespace SIVEALLI
         /// <param name="e"></param>
         private void TbIdVenta_Leave(object sender, EventArgs e)
         {
-            CargarDetallesVenta();
+            CargarVentas();
         }
         public bool BuscarVenta()
         {
             return false;
-        }
-        /// <summary>
-        /// Evento que hace que se muestre los datos de la venta
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void DgvVentas_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {//--Determinar la fila que cambío
-            int fila = e.RowIndex;
-            int col = e.ColumnIndex;
-            if (fila >= 0)
-            {
-                TbIdVenta.Text = DgvVentas.Rows[fila].Cells[0].Value.ToString();
-                int Pos = DetFilaDeVenta(TbIdVenta.Text);
-                if (Pos != -1)
-                {
-                    MessageBox.Show("La venta ya tiene en un registro de devolucion", "ATENCION", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //CargarDatosDeDevolucion(Pos);
-                }
-                CbNuevoDev.Checked = true;
-                TbRazon.Text = "";
-                DgvDevolucionDetalle.Rows.Clear();
-                CargarDetallesVenta();
-                //--Se cargan los datos del descuento
-                DeterminarImporteTotal();
-                LblImpuesto.Text = DgvVentas.Rows[fila].Cells[6].Value.ToString();
-                if (Convert.ToBoolean(DgvVentas.Rows[fila].Cells[5].Value))
-                    LblDescuento.Text = DgvVentas.Rows[fila].Cells[7].Value.ToString();
-                else
-                    LblDescuento.Text = "0";
-                //--Calcular el importe total que se pago
-                double st = double.Parse(LblSubTotal.Text);
-                double stD = st - (st * (int.Parse(LblDescuento.Text)) / 100);
-                LblTotalPagar.Text = (stD + (stD * int.Parse(LblImpuesto.Text) / 100)).ToString();
-            }
         }/// <summary>
          /// Evento que hace que se carguen los datos de las anteriores devoluiconea
          /// </summary>
@@ -241,7 +232,7 @@ namespace SIVEALLI
                     int cantMax = int.Parse(DgvDevolucionDetalle.Rows[fila].Cells[5].Value.ToString());
                     string Cant = DgvDevolucionDetalle.Rows[fila].Cells[5].Value.ToString();
                     DgvDevolucionDetalle.Rows[fila].Cells[7].Value = Cant+"-1";
-                    FormDevolucionCantidad fdc = new FormDevolucionCantidad(DgvDevolucionDetalle, fila, cantMax);
+                    FormDevolucionCantidad fdc = new FormDevolucionCantidad(DgvProduc,true,DgvDevolucionDetalle, fila, cantMax);
                     fdc.StartPosition = FormStartPosition.CenterScreen;
                     fdc.Show();
                 }
@@ -253,6 +244,16 @@ namespace SIVEALLI
                     DgvDevolucionDetalle.Rows[fila].Cells[7].Value = VaAux.Split('-')[0] + "-0";
                     DgvDevolucionDetalle.Rows[fila].Cells[5].Value = VaAux.Split('-')[0];
                     DgvDevolucionDetalle.Rows[fila].Cells[3].Value = "";
+
+                    for (int k = 0; k < DgvProduc.Rows.Count; k++)
+                    {
+                        string idPr = DgvDevolucionDetalle.Rows[fila].Cells[1].Value.ToString();
+                        if (idPr.Trim() == DgvProduc.Rows[k].Cells[0].Value.ToString().Trim())
+                        {
+                            DgvProduc.Rows.RemoveAt(k);
+                            break;
+                        }
+                    }
                 }
                 BtnCED.PerformClick();
             }
@@ -274,6 +275,7 @@ namespace SIVEALLI
                 }
 
             }
+            Total = Math.Round(Total, 2);
             LTotal.Text = LTotal.Text.Split('/')[0] + "/ " + Total.ToString();
 
         }
@@ -290,7 +292,8 @@ namespace SIVEALLI
                 string Dat = DetDesImpuesto(LbVenta.Text);
                 double SubTotalDes = SubTot - (SubTot * double.Parse(Dat.Split('-')[0]) / 100);
                 Total += (SubTotalDes +( SubTotalDes * double.Parse(Dat.Split('-')[1]) / 100));
-            } 
+            }
+            Total = Math.Round(Total, 2);
             LTotal2.Text = LTotal2.Text.Split('/')[0] + "/ " + Total.ToString();
         }
         public string DetDesImpuesto(string idventa)
@@ -369,7 +372,7 @@ namespace SIVEALLI
         {
             DgvDevoluciones.CurrentCell = null;
             int Valor = 0;
-            switch (CbBuscar.Text)
+            switch (CbBuscarDev.Text)
             {
                 case "ID Devolución":
                     Valor = 0;
@@ -395,35 +398,6 @@ namespace SIVEALLI
             }
         }
 
-        private void BtnBuscarVentas_Click(object sender, EventArgs e)
-        {
-            DgvVentas.CurrentCell = null; 
-            int Valor = 0;
-            switch (CbBuscar.Text)
-            {
-                case "ID Venta":
-                    Valor = 0;
-                    break;
-                case "ID Cliente":
-                    Valor = 2;
-                    break;
-                case "Nombres":
-                    Valor = 3;
-                    break;
-                case "Fecha":
-                    Valor = 4;
-                    break;
-            }
-            for (int k = DgvVentas.Rows.Count - 1; k >= 0; k--)
-            {
-                if (BuscarPalabraEnCadena(TbBuscarVentas.Text,DgvVentas.Rows[k].Cells[Valor].Value.ToString()))
-                    DgvVentas.Rows[k].Visible = true;
-                else
-                {
-                    DgvVentas.Rows[k].Visible = false;
-                }
-            }
-        }
         private bool BuscarPalabraEnCadena(string Palabra, string Cadena)
         {
             // Convertimos la cadena en texto normalizado sin tildes y sin ñ
@@ -467,13 +441,7 @@ namespace SIVEALLI
                 DgvDevolucionDetalle.Rows[k].Cells[0].Value = false;
             }
             LTotal.Text = LTotal.Text.Split('/')[0] + "/ 0";
-        }
-
-        private void BtnMostrarTodo_Click(object sender, EventArgs e)
-        {
-            DgvVentas.CurrentCell = null;
-            for (int k = DgvVentas.Rows.Count - 1; k >= 0; k--)
-                DgvVentas.Rows[k].Visible = true;
+            DgvProduc.Rows.Clear();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -493,7 +461,7 @@ namespace SIVEALLI
                 int cantMax = int.Parse(DgvDevolucionDetalle.Rows[fila].Cells[7].Value.ToString().Split('-')[0]);
                 int Cant = int.Parse(DgvDevolucionDetalle.Rows[fila].Cells[5].Value.ToString());
                 string Est = DgvDevolucionDetalle.Rows[fila].Cells[3].Value.ToString();
-                FormDevolucionCantidad fdc = new FormDevolucionCantidad(DgvDevolucionDetalle, fila, cantMax,Cant,Est);
+                FormDevolucionCantidad fdc = new FormDevolucionCantidad(DgvProduc,false,DgvDevolucionDetalle, fila, cantMax,Cant,Est);
                 fdc.StartPosition = FormStartPosition.CenterScreen;
                 fdc.Show();
             }
@@ -503,16 +471,17 @@ namespace SIVEALLI
         {
             TbIdVenta.Text = "";
             TbBuscarDevol.Text = "";
-            TbBuscarVentas.Text = "";
             TbRazon.Text = "";
 
             LblSubTotal.Text = "0";
             LblImpuesto.Text = "0";
             LblDescuento.Text = "0";
             LblTotalPagar.Text = "0";
-
+            DgvVentas.Rows.Clear();
+            
             LTotal.Text = LTotal.Text.Split('/')[0] + "/ 0";
             DgvDevolucionDetalle.Rows.Clear();
+            DgvProduc.Rows.Clear();
         }
     }
 }

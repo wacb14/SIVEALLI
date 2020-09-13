@@ -32,10 +32,6 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.GbVentas = new System.Windows.Forms.GroupBox();
-            this.BtnMostrarTodo = new System.Windows.Forms.Button();
-            this.CbBuscar = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.LblTotalPagar = new System.Windows.Forms.Label();
             this.Lbl12 = new System.Windows.Forms.Label();
@@ -44,18 +40,12 @@
             this.LblImpuesto = new System.Windows.Forms.Label();
             this.Lbl8 = new System.Windows.Forms.Label();
             this.Lbl5 = new System.Windows.Forms.Label();
-            this.DgvVentas = new System.Windows.Forms.DataGridView();
-            this.BtnBuscarVentas = new System.Windows.Forms.Button();
-            this.TbBuscarVentas = new System.Windows.Forms.TextBox();
             this.GbCliente = new System.Windows.Forms.GroupBox();
             this.BtnLim2 = new System.Windows.Forms.Button();
             this.BtnNuevo = new System.Windows.Forms.Button();
-            this.BtnCED = new System.Windows.Forms.Button();
-            this.TbIdVenta = new System.Windows.Forms.TextBox();
             this.CbNuevoDev = new System.Windows.Forms.CheckBox();
             this.TbRazon = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.TbId = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.BtnGuardar = new System.Windows.Forms.Button();
@@ -103,11 +93,28 @@
             this.TbBuscarDevol = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.BtnBuscarDevoluciones = new System.Windows.Forms.Button();
+            this.BtnCED = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.DgvProduc = new System.Windows.Forms.DataGridView();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.TbIdVenta = new System.Windows.Forms.TextBox();
+            this.DgvVentas = new System.Windows.Forms.DataGridView();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.GbVentas.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvVentas)).BeginInit();
             this.GbCliente.SuspendLayout();
             this.CbProveedores.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvDevolucionDetalle)).BeginInit();
@@ -117,6 +124,9 @@
             this.GbHistorialDevo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvDevoluciones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvProduc)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvVentas)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -131,6 +141,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.groupBox2);
             this.tabPage1.Controls.Add(this.GbVentas);
             this.tabPage1.Controls.Add(this.GbCliente);
             this.tabPage1.Controls.Add(this.CbProveedores);
@@ -144,78 +155,27 @@
             // 
             // GbVentas
             // 
-            this.GbVentas.Controls.Add(this.BtnMostrarTodo);
-            this.GbVentas.Controls.Add(this.CbBuscar);
-            this.GbVentas.Controls.Add(this.label9);
-            this.GbVentas.Controls.Add(this.label8);
-            this.GbVentas.Controls.Add(this.label3);
-            this.GbVentas.Controls.Add(this.LblTotalPagar);
-            this.GbVentas.Controls.Add(this.Lbl12);
-            this.GbVentas.Controls.Add(this.LblDescuento);
-            this.GbVentas.Controls.Add(this.LblSubTotal);
-            this.GbVentas.Controls.Add(this.LblImpuesto);
-            this.GbVentas.Controls.Add(this.Lbl8);
-            this.GbVentas.Controls.Add(this.Lbl5);
             this.GbVentas.Controls.Add(this.DgvVentas);
-            this.GbVentas.Controls.Add(this.BtnBuscarVentas);
-            this.GbVentas.Controls.Add(this.TbBuscarVentas);
+            this.GbVentas.Controls.Add(this.label3);
+            this.GbVentas.Controls.Add(this.Lbl5);
+            this.GbVentas.Controls.Add(this.LblTotalPagar);
+            this.GbVentas.Controls.Add(this.Lbl8);
+            this.GbVentas.Controls.Add(this.LblImpuesto);
+            this.GbVentas.Controls.Add(this.Lbl12);
+            this.GbVentas.Controls.Add(this.LblSubTotal);
+            this.GbVentas.Controls.Add(this.LblDescuento);
             this.GbVentas.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GbVentas.Location = new System.Drawing.Point(669, 6);
+            this.GbVentas.Location = new System.Drawing.Point(513, 6);
             this.GbVentas.Name = "GbVentas";
-            this.GbVentas.Size = new System.Drawing.Size(392, 515);
+            this.GbVentas.Size = new System.Drawing.Size(548, 212);
             this.GbVentas.TabIndex = 67;
             this.GbVentas.TabStop = false;
-            this.GbVentas.Text = "Historial de ventas";
-            // 
-            // BtnMostrarTodo
-            // 
-            this.BtnMostrarTodo.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnMostrarTodo.Location = new System.Drawing.Point(113, 127);
-            this.BtnMostrarTodo.Name = "BtnMostrarTodo";
-            this.BtnMostrarTodo.Size = new System.Drawing.Size(192, 32);
-            this.BtnMostrarTodo.TabIndex = 78;
-            this.BtnMostrarTodo.Text = "Mostrar todas las ventas";
-            this.BtnMostrarTodo.UseVisualStyleBackColor = true;
-            this.BtnMostrarTodo.Click += new System.EventHandler(this.BtnMostrarTodo_Click);
-            // 
-            // CbBuscar
-            // 
-            this.CbBuscar.FormattingEnabled = true;
-            this.CbBuscar.Items.AddRange(new object[] {
-            "ID Venta",
-            "ID Cliente",
-            "Nombres",
-            "Fecha"});
-            this.CbBuscar.Location = new System.Drawing.Point(6, 41);
-            this.CbBuscar.Name = "CbBuscar";
-            this.CbBuscar.Size = new System.Drawing.Size(141, 27);
-            this.CbBuscar.TabIndex = 77;
-            this.CbBuscar.Text = "ID Venta";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(6, 19);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(117, 19);
-            this.label9.TabIndex = 76;
-            this.label9.Text = "Buscar Venta por:";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(6, 72);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(185, 19);
-            this.label8.TabIndex = 75;
-            this.label8.Text = "Ingrese el valor de busqueda:";
+            this.GbVentas.Text = "Datos de la venta";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 488);
+            this.label3.Location = new System.Drawing.Point(6, 186);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(187, 19);
             this.label3.TabIndex = 74;
@@ -225,7 +185,7 @@
             // 
             this.LblTotalPagar.AutoSize = true;
             this.LblTotalPagar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.LblTotalPagar.Location = new System.Drawing.Point(207, 490);
+            this.LblTotalPagar.Location = new System.Drawing.Point(203, 186);
             this.LblTotalPagar.Name = "LblTotalPagar";
             this.LblTotalPagar.Size = new System.Drawing.Size(19, 21);
             this.LblTotalPagar.TabIndex = 73;
@@ -234,7 +194,7 @@
             // Lbl12
             // 
             this.Lbl12.AutoSize = true;
-            this.Lbl12.Location = new System.Drawing.Point(6, 458);
+            this.Lbl12.Location = new System.Drawing.Point(6, 129);
             this.Lbl12.Name = "Lbl12";
             this.Lbl12.Size = new System.Drawing.Size(107, 19);
             this.Lbl12.TabIndex = 72;
@@ -244,7 +204,7 @@
             // 
             this.LblDescuento.AutoSize = true;
             this.LblDescuento.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.LblDescuento.Location = new System.Drawing.Point(207, 460);
+            this.LblDescuento.Location = new System.Drawing.Point(203, 127);
             this.LblDescuento.Name = "LblDescuento";
             this.LblDescuento.Size = new System.Drawing.Size(19, 21);
             this.LblDescuento.TabIndex = 71;
@@ -254,7 +214,7 @@
             // 
             this.LblSubTotal.AutoSize = true;
             this.LblSubTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.LblSubTotal.Location = new System.Drawing.Point(207, 401);
+            this.LblSubTotal.Location = new System.Drawing.Point(203, 99);
             this.LblSubTotal.Name = "LblSubTotal";
             this.LblSubTotal.Size = new System.Drawing.Size(19, 21);
             this.LblSubTotal.TabIndex = 70;
@@ -264,7 +224,7 @@
             // 
             this.LblImpuesto.AutoSize = true;
             this.LblImpuesto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.LblImpuesto.Location = new System.Drawing.Point(207, 429);
+            this.LblImpuesto.Location = new System.Drawing.Point(203, 156);
             this.LblImpuesto.Name = "LblImpuesto";
             this.LblImpuesto.Size = new System.Drawing.Size(19, 21);
             this.LblImpuesto.TabIndex = 69;
@@ -273,7 +233,7 @@
             // Lbl8
             // 
             this.Lbl8.AutoSize = true;
-            this.Lbl8.Location = new System.Drawing.Point(6, 429);
+            this.Lbl8.Location = new System.Drawing.Point(6, 158);
             this.Lbl8.Name = "Lbl8";
             this.Lbl8.Size = new System.Drawing.Size(99, 19);
             this.Lbl8.TabIndex = 68;
@@ -282,43 +242,11 @@
             // Lbl5
             // 
             this.Lbl5.AutoSize = true;
-            this.Lbl5.Location = new System.Drawing.Point(6, 401);
+            this.Lbl5.Location = new System.Drawing.Point(6, 99);
             this.Lbl5.Name = "Lbl5";
             this.Lbl5.Size = new System.Drawing.Size(158, 19);
             this.Lbl5.TabIndex = 67;
             this.Lbl5.Text = "Subtotal (sin impuesto) : ";
-            // 
-            // DgvVentas
-            // 
-            this.DgvVentas.AllowUserToAddRows = false;
-            this.DgvVentas.AllowUserToDeleteRows = false;
-            this.DgvVentas.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.DgvVentas.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.DgvVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvVentas.Location = new System.Drawing.Point(6, 165);
-            this.DgvVentas.Name = "DgvVentas";
-            this.DgvVentas.RowHeadersVisible = false;
-            this.DgvVentas.Size = new System.Drawing.Size(380, 226);
-            this.DgvVentas.TabIndex = 22;
-            this.DgvVentas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvVentas_CellContentClick);
-            // 
-            // BtnBuscarVentas
-            // 
-            this.BtnBuscarVentas.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnBuscarVentas.Location = new System.Drawing.Point(232, 89);
-            this.BtnBuscarVentas.Name = "BtnBuscarVentas";
-            this.BtnBuscarVentas.Size = new System.Drawing.Size(103, 32);
-            this.BtnBuscarVentas.TabIndex = 24;
-            this.BtnBuscarVentas.Text = "Buscar";
-            this.BtnBuscarVentas.UseVisualStyleBackColor = true;
-            this.BtnBuscarVentas.Click += new System.EventHandler(this.BtnBuscarVentas_Click);
-            // 
-            // TbBuscarVentas
-            // 
-            this.TbBuscarVentas.Location = new System.Drawing.Point(6, 94);
-            this.TbBuscarVentas.Name = "TbBuscarVentas";
-            this.TbBuscarVentas.Size = new System.Drawing.Size(170, 26);
-            this.TbBuscarVentas.TabIndex = 16;
             // 
             // GbCliente
             // 
@@ -335,14 +263,14 @@
             this.GbCliente.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GbCliente.Location = new System.Drawing.Point(3, 3);
             this.GbCliente.Name = "GbCliente";
-            this.GbCliente.Size = new System.Drawing.Size(660, 215);
+            this.GbCliente.Size = new System.Drawing.Size(504, 215);
             this.GbCliente.TabIndex = 35;
             this.GbCliente.TabStop = false;
             this.GbCliente.Text = "Datos de la devolución";
             // 
             // BtnLim2
             // 
-            this.BtnLim2.Location = new System.Drawing.Point(439, 146);
+            this.BtnLim2.Location = new System.Drawing.Point(316, 68);
             this.BtnLim2.Name = "BtnLim2";
             this.BtnLim2.Size = new System.Drawing.Size(161, 31);
             this.BtnLim2.TabIndex = 68;
@@ -352,30 +280,13 @@
             // 
             // BtnNuevo
             // 
-            this.BtnNuevo.Location = new System.Drawing.Point(439, 72);
+            this.BtnNuevo.Location = new System.Drawing.Point(316, 29);
             this.BtnNuevo.Name = "BtnNuevo";
             this.BtnNuevo.Size = new System.Drawing.Size(161, 31);
             this.BtnNuevo.TabIndex = 75;
             this.BtnNuevo.Text = "Nuevo";
             this.BtnNuevo.UseVisualStyleBackColor = true;
             this.BtnNuevo.Click += new System.EventHandler(this.BtnNuevo_Click);
-            // 
-            // BtnCED
-            // 
-            this.BtnCED.Location = new System.Drawing.Point(1092, 174);
-            this.BtnCED.Name = "BtnCED";
-            this.BtnCED.Size = new System.Drawing.Size(92, 37);
-            this.BtnCED.TabIndex = 65;
-            this.BtnCED.Text = "CED";
-            this.BtnCED.UseVisualStyleBackColor = true;
-            // 
-            // TbIdVenta
-            // 
-            this.TbIdVenta.Location = new System.Drawing.Point(9, 95);
-            this.TbIdVenta.Name = "TbIdVenta";
-            this.TbIdVenta.Size = new System.Drawing.Size(149, 26);
-            this.TbIdVenta.TabIndex = 25;
-            this.TbIdVenta.Leave += new System.EventHandler(this.TbIdVenta_Leave);
             // 
             // CbNuevoDev
             // 
@@ -394,7 +305,7 @@
             this.TbRazon.Location = new System.Drawing.Point(10, 146);
             this.TbRazon.Multiline = true;
             this.TbRazon.Name = "TbRazon";
-            this.TbRazon.Size = new System.Drawing.Size(364, 63);
+            this.TbRazon.Size = new System.Drawing.Size(488, 63);
             this.TbRazon.TabIndex = 13;
             // 
             // label4
@@ -406,16 +317,6 @@
             this.label4.Size = new System.Drawing.Size(149, 19);
             this.label4.TabIndex = 6;
             this.label4.Text = "Razón de la devolución";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(6, 73);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 19);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Id venta";
             // 
             // TbId
             // 
@@ -437,7 +338,7 @@
             // 
             // BtnGuardar
             // 
-            this.BtnGuardar.Location = new System.Drawing.Point(439, 109);
+            this.BtnGuardar.Location = new System.Drawing.Point(316, 103);
             this.BtnGuardar.Name = "BtnGuardar";
             this.BtnGuardar.Size = new System.Drawing.Size(161, 31);
             this.BtnGuardar.TabIndex = 54;
@@ -450,7 +351,6 @@
             this.CbProveedores.Controls.Add(this.button2);
             this.CbProveedores.Controls.Add(this.BtnLimpiar);
             this.CbProveedores.Controls.Add(this.DgvDevolucionDetalle);
-            this.CbProveedores.Controls.Add(this.LTotal);
             this.CbProveedores.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CbProveedores.Location = new System.Drawing.Point(3, 218);
             this.CbProveedores.Name = "CbProveedores";
@@ -498,7 +398,7 @@
             this.DgvDevolucionDetalle.Location = new System.Drawing.Point(6, 22);
             this.DgvDevolucionDetalle.Name = "DgvDevolucionDetalle";
             this.DgvDevolucionDetalle.RowHeadersVisible = false;
-            this.DgvDevolucionDetalle.Size = new System.Drawing.Size(648, 221);
+            this.DgvDevolucionDetalle.Size = new System.Drawing.Size(648, 239);
             this.DgvDevolucionDetalle.TabIndex = 21;
             this.DgvDevolucionDetalle.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvDevolucionDetalle_CellClick);
             this.DgvDevolucionDetalle.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvDevolucionDetalle_CellContentClick);
@@ -564,7 +464,7 @@
             // 
             this.LTotal.AutoSize = true;
             this.LTotal.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LTotal.Location = new System.Drawing.Point(413, 246);
+            this.LTotal.Location = new System.Drawing.Point(2, 272);
             this.LTotal.Name = "LTotal";
             this.LTotal.Size = new System.Drawing.Size(187, 19);
             this.LTotal.TabIndex = 55;
@@ -607,6 +507,7 @@
             // LbVenta
             // 
             this.LbVenta.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LbVenta.Enabled = false;
             this.LbVenta.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LbVenta.Location = new System.Drawing.Point(402, 21);
             this.LbVenta.Name = "LbVenta";
@@ -646,6 +547,7 @@
             // LblFechaPago
             // 
             this.LblFechaPago.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LblFechaPago.Enabled = false;
             this.LblFechaPago.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblFechaPago.Location = new System.Drawing.Point(402, 52);
             this.LblFechaPago.Name = "LblFechaPago";
@@ -655,6 +557,7 @@
             // LblRazon
             // 
             this.LblRazon.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LblRazon.Enabled = false;
             this.LblRazon.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblRazon.Location = new System.Drawing.Point(69, 89);
             this.LblRazon.Name = "LblRazon";
@@ -664,6 +567,7 @@
             // LbUsuario
             // 
             this.LbUsuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LbUsuario.Enabled = false;
             this.LbUsuario.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LbUsuario.Location = new System.Drawing.Point(86, 52);
             this.LbUsuario.Name = "LbUsuario";
@@ -673,6 +577,7 @@
             // LbId
             // 
             this.LbId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LbId.Enabled = false;
             this.LbId.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LbId.Location = new System.Drawing.Point(86, 22);
             this.LbId.Name = "LbId";
@@ -890,6 +795,15 @@
             this.BtnBuscarDevoluciones.UseVisualStyleBackColor = true;
             this.BtnBuscarDevoluciones.Click += new System.EventHandler(this.BtnBuscarDevoluciones_Click);
             // 
+            // BtnCED
+            // 
+            this.BtnCED.Location = new System.Drawing.Point(1092, 174);
+            this.BtnCED.Name = "BtnCED";
+            this.BtnCED.Size = new System.Drawing.Size(92, 37);
+            this.BtnCED.TabIndex = 65;
+            this.BtnCED.Text = "CED";
+            this.BtnCED.UseVisualStyleBackColor = true;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -902,6 +816,156 @@
             this.pictureBox1.TabIndex = 66;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.PbCerrar_Click);
+            // 
+            // DgvProduc
+            // 
+            this.DgvProduc.AllowUserToAddRows = false;
+            this.DgvProduc.AllowUserToDeleteRows = false;
+            this.DgvProduc.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.DgvProduc.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.DgvProduc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvProduc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column2,
+            this.Column4,
+            this.Column3,
+            this.Column5});
+            this.DgvProduc.Location = new System.Drawing.Point(4, 22);
+            this.DgvProduc.Name = "DgvProduc";
+            this.DgvProduc.ReadOnly = true;
+            this.DgvProduc.RowHeadersVisible = false;
+            this.DgvProduc.Size = new System.Drawing.Size(385, 247);
+            this.DgvProduc.TabIndex = 78;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.DgvProduc);
+            this.groupBox2.Controls.Add(this.LTotal);
+            this.groupBox2.Location = new System.Drawing.Point(669, 218);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(392, 303);
+            this.groupBox2.TabIndex = 80;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Productos que se devolveran";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(6, 73);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(58, 19);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Id venta";
+            // 
+            // TbIdVenta
+            // 
+            this.TbIdVenta.Location = new System.Drawing.Point(9, 95);
+            this.TbIdVenta.MaxLength = 8;
+            this.TbIdVenta.Name = "TbIdVenta";
+            this.TbIdVenta.Size = new System.Drawing.Size(149, 26);
+            this.TbIdVenta.TabIndex = 25;
+            this.TbIdVenta.Leave += new System.EventHandler(this.TbIdVenta_Leave);
+            // 
+            // DgvVentas
+            // 
+            this.DgvVentas.AllowUserToAddRows = false;
+            this.DgvVentas.AllowUserToDeleteRows = false;
+            this.DgvVentas.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.DgvVentas.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.DgvVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvVentas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column6,
+            this.Column7,
+            this.Column8,
+            this.Column9,
+            this.Column10,
+            this.Column11,
+            this.Column12,
+            this.Column13});
+            this.DgvVentas.Location = new System.Drawing.Point(6, 25);
+            this.DgvVentas.Name = "DgvVentas";
+            this.DgvVentas.RowHeadersVisible = false;
+            this.DgvVentas.Size = new System.Drawing.Size(534, 71);
+            this.DgvVentas.TabIndex = 22;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Id Venta";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Id Usuario";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Id Cliente";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Nombres";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            this.Column9.Width = 133;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Fecha";
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "Descuento";
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
+            this.Column11.Visible = false;
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "IGV";
+            this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
+            this.Column12.Visible = false;
+            // 
+            // Column13
+            // 
+            this.Column13.HeaderText = "PorcentajeDescuento";
+            this.Column13.Name = "Column13";
+            this.Column13.ReadOnly = true;
+            this.Column13.Visible = false;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Id producto";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 108;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Estado";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Cantidad";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 85;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Total (s/)";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 90;
             // 
             // FormDevoluciones
             // 
@@ -919,11 +983,9 @@
             this.tabPage1.ResumeLayout(false);
             this.GbVentas.ResumeLayout(false);
             this.GbVentas.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvVentas)).EndInit();
             this.GbCliente.ResumeLayout(false);
             this.GbCliente.PerformLayout();
             this.CbProveedores.ResumeLayout(false);
-            this.CbProveedores.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvDevolucionDetalle)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
@@ -933,6 +995,10 @@
             this.GbHistorialDevo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvDevoluciones)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvProduc)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvVentas)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -945,11 +1011,9 @@
         private System.Windows.Forms.Button BtnGuardar;
         private System.Windows.Forms.Label LTotal;
         private System.Windows.Forms.GroupBox GbCliente;
-        private System.Windows.Forms.TextBox TbIdVenta;
         private System.Windows.Forms.CheckBox CbNuevoDev;
         private System.Windows.Forms.TextBox TbRazon;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox TbId;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox CbProveedores;
@@ -969,14 +1033,7 @@
         private System.Windows.Forms.Label LblImpuesto;
         private System.Windows.Forms.Label Lbl8;
         private System.Windows.Forms.Label Lbl5;
-        private System.Windows.Forms.DataGridView DgvVentas;
-        private System.Windows.Forms.Button BtnBuscarVentas;
-        private System.Windows.Forms.TextBox TbBuscarVentas;
         private System.Windows.Forms.Button BtnNuevo;
-        private System.Windows.Forms.ComboBox CbBuscar;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button BtnMostrarTodo;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView DgvDevolucionDetalle2;
@@ -1013,5 +1070,22 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColCantidadDev;
         private System.Windows.Forms.Button BtnLim2;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.DataGridView DgvProduc;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox TbIdVenta;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridView DgvVentas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
     }
 }

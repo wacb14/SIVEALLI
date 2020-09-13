@@ -6,7 +6,6 @@ C:\Users\Marcelo\source\repos\SIVEALLI\SIVEALLI\Codigo C#\SIVEALLI\BibClases\obj
 C:\Users\Marcelo\source\repos\SIVEALLI\SIVEALLI\Codigo C#\SIVEALLI\BibClases\obj\Debug\BibClases.pdb
 C:\Users\ASUS\Documents\ProyectoIngSoft\SIVEALLI\Codigo C#\SIVEALLI\BibClases\bin\Debug\BibClases.dll
 C:\Users\ASUS\Documents\ProyectoIngSoft\SIVEALLI\Codigo C#\SIVEALLI\BibClases\bin\Debug\BibClases.pdb
-C:\Users\ASUS\Documents\ProyectoIngSoft\SIVEALLI\Codigo C#\SIVEALLI\BibClases\obj\Debug\BibClases.csprojAssemblyReference.cache
 C:\Users\ASUS\Documents\ProyectoIngSoft\SIVEALLI\Codigo C#\SIVEALLI\BibClases\obj\Debug\BibClases.csproj.CoreCompileInputs.cache
 C:\Users\ASUS\Documents\ProyectoIngSoft\SIVEALLI\Codigo C#\SIVEALLI\BibClases\obj\Debug\BibClases.dll
 C:\Users\ASUS\Documents\ProyectoIngSoft\SIVEALLI\Codigo C#\SIVEALLI\BibClases\obj\Debug\BibClases.pdb

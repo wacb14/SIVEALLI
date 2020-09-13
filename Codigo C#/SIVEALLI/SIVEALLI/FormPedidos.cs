@@ -210,6 +210,7 @@ namespace SIVEALLI
             {
                 Total += double.Parse(DgvPedidosDetalle.Rows[k].Cells[4].Value.ToString());
             }
+            Total = Math.Round(Total, 2);
             //--Cololcar el total 
             LTotal.Text = LTotal.Text.Split('/')[0] + "/ " + Total.ToString();
             Añadiendo = false;
@@ -221,6 +222,7 @@ namespace SIVEALLI
             {
                 Total += double.Parse(DgvPedidosDetalle2.Rows[k].Cells[4].Value.ToString());
             }
+            Total = Math.Round(Total, 2);
             //--Cololcar el total 
             LbTotal2.Text = LbTotal2.Text.Split('/')[0] + "/ " + Total.ToString();
         }
