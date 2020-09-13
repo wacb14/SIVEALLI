@@ -1,11 +1,13 @@
-if exists (select * from sysobjects where name='spuTraerHistorialVentas') 
-	drop procedure spuTraerHistorialVentas
+-------------------------------------------------------------------------------------
+if exists (select * from sysobjects where name='spuTraerDatosDeLaVentas') 
+	drop procedure spuTraerDatosDeLaVentas
 go
-create procedure spuTraerHistorialVentas
+create procedure spuTraerDatosDeLaVentas @IdVenta varchar(8)
 as
 begin
 	select tv.IdVenta,tv.IdUsuario,tv.IdCliente,(tc.Nombres +' '+ tc.Apellidos) as 'Nombres',tv.Fecha,tv.Descuento,tv.IGV,tv.PorcentajeDescuento
 	from TVenta tv inner join TCliente tc on tv.IdCliente=tc.IdCliente
+	where tv.IdVenta=@IdVenta
 end;
 go
 -----------------------------------------------------------------------------------------
