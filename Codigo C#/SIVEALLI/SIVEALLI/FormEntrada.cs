@@ -21,14 +21,16 @@ namespace SIVEALLI
         CEntradaDetalle entDet = new CEntradaDetalle();
 
         string codigoUsuario;
+        string aFecha;
 
-        public FormEntrada(string usuario)
+        public FormEntrada(string usuario, string fecha)
         {
             InitializeComponent();
             IniciarEntidad(new CEntrada());
             EventosYValidaciones();
 
             this.codigoUsuario = usuario;
+            aFecha = fecha;
         }
 
         private void EventosYValidaciones()
@@ -39,7 +41,7 @@ namespace SIVEALLI
             //this.buttonEditar.Click += new EventHandler(HabilitarEdicionDataGrid);
             this.buttonEliminarDetalle.Click += new EventHandler(EliminarEntradaDetalle);
             this.buttonListo.Click += new EventHandler(GuardarEntrada);
-            this.tbCodigoEntrada.Leave += new EventHandler(CargarDatosEntrada);
+            this.TbCodigoEntradaH.Leave += new EventHandler(CargarDatosEntrada);
             //this.tbCodigoEntrada.selec += new EventHandler(CargarDatosEntrada);
             this.buttonLimpiar.Click += new EventHandler(LimpiarForm);
             this.dgvDetalleEntrada.CellClick += new DataGridViewCellEventHandler(EditarCantidad);
@@ -96,11 +98,11 @@ namespace SIVEALLI
 
         private void LimpiarDatosFormulario()
         {
-            dtpFecha.Value = DateTime.Now;
+            //dtpFecha.Value = DateTime.Now;
             numericUpDownCantidad.Value = 1;
             dgvDetalleEntrada.DataSource = null;
             dgvDetalleEntrada.Rows.Clear();
-            textBoxUsuario.Text = codigoUsuario;
+            //textBoxUsuario.Text = codigoUsuario;
             CbCodigoProducto.SelectedIndex = -1;
             comboBoxCodigoProveedor.SelectedIndex = -1;
             tbCodigoEntrada.Text = "";
@@ -108,7 +110,7 @@ namespace SIVEALLI
 
         private void CargarDatosEntrada(object sender, EventArgs e)
         {
-            if (aEntidad.ExisteClavePrimaria(tbCodigoEntrada.Text))
+            if (aEntidad.ExisteClavePrimaria(TbCodigoEntradaH.Text))
             {
                 ProcesarClave();
 
@@ -124,10 +126,10 @@ namespace SIVEALLI
 
         private void CargarDatosEntradaDetalle()
         {
-            dgvDetalleEntrada.DataSource = null;
-            dgvDetalleEntrada.Rows.Clear();
+            DgvListaDellesH.DataSource = null;
+            DgvListaDellesH.Rows.Clear();
 
-            DataTable detallesentrada = entDet.ListaGeneralCod(tbCodigoEntrada.Text.ToString());
+            DataTable detallesentrada = entDet.ListaGeneralCod(TbCodigoEntradaH.Text.ToString());
             for (int i = 0; i < detallesentrada.Rows.Count; i++)
             {
                 DataTable dt = producto.DatosProductoEntrada(detallesentrada.Rows[i][1].ToString());
@@ -139,7 +141,7 @@ namespace SIVEALLI
                 }
                 datos[dt.Columns.Count] = detallesentrada.Rows[i][2].ToString() + "";
 
-                dgvDetalleEntrada.Rows.Add(datos);
+                DgvListaDellesH.Rows.Add(datos);
             }
         }
 
@@ -196,16 +198,17 @@ namespace SIVEALLI
             //MessageBox.Show(cbCodigoEntrada.SelectedValue.ToString());
             return new string[] { codigoEntrada,
                 proveedor, codigoUsuario,
-                dtpFecha.Value.Date.ToString()};
+                aFecha
+            };
         }
 
         public override void MostrarDatos()
         {
 
             //MessageBox.Show(aEntidad.ValorAtributo("IdProveedor"));
-            comboBoxCodigoProveedor.SelectedValue = aEntidad.ValorAtributo("IdProveedor");
-            textBoxUsuario.Text = aEntidad.ValorAtributo("IdUsuario");
-            dtpFecha.Value = Convert.ToDateTime(aEntidad.ValorAtributo("Fecha"));
+            CbProveedoresH.SelectedValue = aEntidad.ValorAtributo("IdProveedor");
+            TbSupervisor.Text = aEntidad.ValorAtributo("IdUsuario");
+            DtpFechaH.Value = Convert.ToDateTime(aEntidad.ValorAtributo("Fecha"));
         }
 
         private void EliminarEntradaDetalle(object sender, EventArgs e)
@@ -335,7 +338,7 @@ namespace SIVEALLI
             LlenarCodigoProductos();
             //LlenarCodigoEntradas();
 
-            textBoxUsuario.Text = codigoUsuario;
+            //textBoxUsuario.Text = codigoUsuario;
 
             BtnNuevaEntrada.Focus();
         }

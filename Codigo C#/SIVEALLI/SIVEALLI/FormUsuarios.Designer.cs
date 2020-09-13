@@ -237,7 +237,7 @@
             // 
             // btnCambioContra
             // 
-            this.btnCambioContra.Location = new System.Drawing.Point(107, 444);
+            this.btnCambioContra.Location = new System.Drawing.Point(56, 444);
             this.btnCambioContra.Name = "btnCambioContra";
             this.btnCambioContra.Size = new System.Drawing.Size(194, 29);
             this.btnCambioContra.TabIndex = 11;
@@ -246,7 +246,7 @@
             // 
             // btnRestaurarContra
             // 
-            this.btnRestaurarContra.Location = new System.Drawing.Point(107, 409);
+            this.btnRestaurarContra.Location = new System.Drawing.Point(56, 409);
             this.btnRestaurarContra.Name = "btnRestaurarContra";
             this.btnRestaurarContra.Size = new System.Drawing.Size(195, 29);
             this.btnRestaurarContra.TabIndex = 10;
@@ -255,16 +255,16 @@
             // 
             // BtnLimpiar
             // 
-            this.BtnLimpiar.Location = new System.Drawing.Point(12, 514);
+            this.BtnLimpiar.Location = new System.Drawing.Point(56, 479);
             this.BtnLimpiar.Name = "BtnLimpiar";
-            this.BtnLimpiar.Size = new System.Drawing.Size(140, 29);
+            this.BtnLimpiar.Size = new System.Drawing.Size(195, 29);
             this.BtnLimpiar.TabIndex = 12;
             this.BtnLimpiar.Text = "Limpiar formulario";
             this.BtnLimpiar.UseVisualStyleBackColor = true;
             // 
             // BtnGuardar
             // 
-            this.BtnGuardar.Location = new System.Drawing.Point(107, 374);
+            this.BtnGuardar.Location = new System.Drawing.Point(56, 374);
             this.BtnGuardar.Name = "BtnGuardar";
             this.BtnGuardar.Size = new System.Drawing.Size(195, 29);
             this.BtnGuardar.TabIndex = 9;
@@ -285,6 +285,7 @@
             this.gbDatosUsuarios.Controls.Add(this.btnNuevoUsuario);
             this.gbDatosUsuarios.Controls.Add(this.label1);
             this.gbDatosUsuarios.Controls.Add(this.BtnGuardar);
+            this.gbDatosUsuarios.Controls.Add(this.BtnLimpiar);
             this.gbDatosUsuarios.Controls.Add(this.textBoxCodigo);
             this.gbDatosUsuarios.Controls.Add(this.label2);
             this.gbDatosUsuarios.Controls.Add(this.btnRestaurarContra);
@@ -304,7 +305,7 @@
             this.gbDatosUsuarios.Controls.Add(this.label6);
             this.gbDatosUsuarios.Location = new System.Drawing.Point(12, 13);
             this.gbDatosUsuarios.Name = "gbDatosUsuarios";
-            this.gbDatosUsuarios.Size = new System.Drawing.Size(337, 495);
+            this.gbDatosUsuarios.Size = new System.Drawing.Size(337, 530);
             this.gbDatosUsuarios.TabIndex = 42;
             this.gbDatosUsuarios.TabStop = false;
             this.gbDatosUsuarios.Text = "Datos usuarios";
@@ -420,6 +421,7 @@
             this.CboBuscarPor.Name = "CboBuscarPor";
             this.CboBuscarPor.Size = new System.Drawing.Size(219, 27);
             this.CboBuscarPor.TabIndex = 19;
+            this.CboBuscarPor.SelectedIndex = 0;
             // 
             // gbListaUsuarios
             // 
@@ -444,7 +446,6 @@
             this.Controls.Add(this.gbListaUsuarios);
             this.Controls.Add(this.GbBusqueda);
             this.Controls.Add(this.gbDatosUsuarios);
-            this.Controls.Add(this.BtnLimpiar);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormUsuarios";

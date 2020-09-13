@@ -111,7 +111,7 @@ namespace SIVEALLI
                 fe.Visible = true;
             else
             {
-                fe = new FormEntrada(labelUsuario.Text);
+                fe = new FormEntrada(labelUsuario.Text, dtpFecha.Value.Date.ToString());
                 //Fc.Show();
                 AbrirFormPanel(fe);
             }

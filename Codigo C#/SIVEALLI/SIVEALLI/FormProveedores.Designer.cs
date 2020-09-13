@@ -32,9 +32,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.GbMostrar = new System.Windows.Forms.GroupBox();
             this.BtnCargarTabla = new System.Windows.Forms.Button();
-            this.BtnBuscar = new System.Windows.Forms.Button();
             this.LblNumeroProveedores = new System.Windows.Forms.Label();
             this.DgvProveedores = new System.Windows.Forms.DataGridView();
+            this.BtnBuscar = new System.Windows.Forms.Button();
             this.TxtValorBusqueda = new System.Windows.Forms.TextBox();
             this.Lbl10 = new System.Windows.Forms.Label();
             this.Lbl9 = new System.Windows.Forms.Label();
@@ -69,11 +69,11 @@
             this.GbMostrar.Controls.Add(this.LblNumeroProveedores);
             this.GbMostrar.Controls.Add(this.DgvProveedores);
             this.GbMostrar.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GbMostrar.Location = new System.Drawing.Point(363, 13);
+            this.GbMostrar.Location = new System.Drawing.Point(343, 13);
             this.GbMostrar.Margin = new System.Windows.Forms.Padding(4);
             this.GbMostrar.Name = "GbMostrar";
             this.GbMostrar.Padding = new System.Windows.Forms.Padding(4);
-            this.GbMostrar.Size = new System.Drawing.Size(701, 405);
+            this.GbMostrar.Size = new System.Drawing.Size(721, 405);
             this.GbMostrar.TabIndex = 62;
             this.GbMostrar.TabStop = false;
             this.GbMostrar.Text = "Lista de Proveedores";
@@ -88,18 +88,6 @@
             this.BtnCargarTabla.Text = "Restaurar lista completa";
             this.BtnCargarTabla.UseVisualStyleBackColor = true;
             this.BtnCargarTabla.Click += new System.EventHandler(this.BtnCargarTabla_Click);
-            // 
-            // BtnBuscar
-            // 
-            this.BtnBuscar.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnBuscar.Location = new System.Drawing.Point(499, 60);
-            this.BtnBuscar.Margin = new System.Windows.Forms.Padding(4);
-            this.BtnBuscar.Name = "BtnBuscar";
-            this.BtnBuscar.Size = new System.Drawing.Size(145, 29);
-            this.BtnBuscar.TabIndex = 65;
-            this.BtnBuscar.Text = "Buscar";
-            this.BtnBuscar.UseVisualStyleBackColor = true;
-            this.BtnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
             // 
             // LblNumeroProveedores
             // 
@@ -137,9 +125,21 @@
             this.DgvProveedores.TabIndex = 37;
             this.DgvProveedores.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvProveedores_CellContentClick);
             // 
+            // BtnBuscar
+            // 
+            this.BtnBuscar.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnBuscar.Location = new System.Drawing.Point(560, 60);
+            this.BtnBuscar.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnBuscar.Name = "BtnBuscar";
+            this.BtnBuscar.Size = new System.Drawing.Size(145, 29);
+            this.BtnBuscar.TabIndex = 65;
+            this.BtnBuscar.Text = "Buscar";
+            this.BtnBuscar.UseVisualStyleBackColor = true;
+            this.BtnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
+            // 
             // TxtValorBusqueda
             // 
-            this.TxtValorBusqueda.Location = new System.Drawing.Point(246, 63);
+            this.TxtValorBusqueda.Location = new System.Drawing.Point(267, 62);
             this.TxtValorBusqueda.Margin = new System.Windows.Forms.Padding(4);
             this.TxtValorBusqueda.Name = "TxtValorBusqueda";
             this.TxtValorBusqueda.Size = new System.Drawing.Size(187, 26);
@@ -149,7 +149,7 @@
             // 
             this.Lbl10.AutoSize = true;
             this.Lbl10.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl10.Location = new System.Drawing.Point(242, 39);
+            this.Lbl10.Location = new System.Drawing.Point(263, 38);
             this.Lbl10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Lbl10.Name = "Lbl10";
             this.Lbl10.Size = new System.Drawing.Size(171, 19);
@@ -207,7 +207,7 @@
             this.GbProveedores.Margin = new System.Windows.Forms.Padding(4);
             this.GbProveedores.Name = "GbProveedores";
             this.GbProveedores.Padding = new System.Windows.Forms.Padding(4);
-            this.GbProveedores.Size = new System.Drawing.Size(342, 455);
+            this.GbProveedores.Size = new System.Drawing.Size(322, 455);
             this.GbProveedores.TabIndex = 61;
             this.GbProveedores.TabStop = false;
             this.GbProveedores.Text = "Proveedor";
@@ -389,7 +389,7 @@
             this.BtnLimpiar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.BtnLimpiar.FlatAppearance.BorderSize = 0;
             this.BtnLimpiar.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnLimpiar.Location = new System.Drawing.Point(13, 517);
+            this.BtnLimpiar.Location = new System.Drawing.Point(13, 512);
             this.BtnLimpiar.Margin = new System.Windows.Forms.Padding(4);
             this.BtnLimpiar.Name = "BtnLimpiar";
             this.BtnLimpiar.Size = new System.Drawing.Size(155, 30);
@@ -405,11 +405,11 @@
             this.GbBusqueda.Controls.Add(this.Lbl10);
             this.GbBusqueda.Controls.Add(this.TxtValorBusqueda);
             this.GbBusqueda.Controls.Add(this.CboBuscarPor);
-            this.GbBusqueda.Location = new System.Drawing.Point(363, 426);
+            this.GbBusqueda.Location = new System.Drawing.Point(351, 426);
             this.GbBusqueda.Margin = new System.Windows.Forms.Padding(4);
             this.GbBusqueda.Name = "GbBusqueda";
             this.GbBusqueda.Padding = new System.Windows.Forms.Padding(4);
-            this.GbBusqueda.Size = new System.Drawing.Size(701, 116);
+            this.GbBusqueda.Size = new System.Drawing.Size(713, 116);
             this.GbBusqueda.TabIndex = 63;
             this.GbBusqueda.TabStop = false;
             this.GbBusqueda.Text = "Busqueda de proveedores";
