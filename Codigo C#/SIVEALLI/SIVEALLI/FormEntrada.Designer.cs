@@ -54,14 +54,17 @@
             this.comboBoxCodigoProveedor = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.GbBusqueda = new System.Windows.Forms.GroupBox();
+            this.DgvBusquedaEntrada = new System.Windows.Forms.DataGridView();
             this.TbValorBusqueda = new System.Windows.Forms.TextBox();
             this.Lbl10 = new System.Windows.Forms.Label();
             this.Lbl9 = new System.Windows.Forms.Label();
             this.BtnBuscar = new System.Windows.Forms.Button();
             this.CbBuscarPor = new System.Windows.Forms.ComboBox();
-            this.BtnGuardarH = new System.Windows.Forms.Button();
-            this.BtnLimpiarH = new System.Windows.Forms.Button();
-            this.BtnBorrarLineaH = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.BtnImprimir = new System.Windows.Forms.Button();
+            this.TbProveedorH = new System.Windows.Forms.TextBox();
+            this.TbCodigoEntradaH = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.DgvListaDellesH = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,16 +72,11 @@
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.TbCodigoEntradaH = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.CbProveedoresH = new System.Windows.Forms.ComboBox();
-            this.TbSupervisor = new System.Windows.Forms.TextBox();
+            this.TbSupervisorH = new System.Windows.Forms.TextBox();
             this.DtpFechaH = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
-            this.DgvBusquedaEntrada = new System.Windows.Forms.DataGridView();
             this.TcNuevaEntrada.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -87,9 +85,9 @@
             this.groupBox2.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.GbBusqueda.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvListaDellesH)).BeginInit();
-            this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvBusquedaEntrada)).BeginInit();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvListaDellesH)).BeginInit();
             this.SuspendLayout();
             // 
             // TcNuevaEntrada
@@ -337,12 +335,7 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.DgvBusquedaEntrada);
             this.tabPage2.Controls.Add(this.GbBusqueda);
-            this.tabPage2.Controls.Add(this.BtnGuardarH);
-            this.tabPage2.Controls.Add(this.BtnLimpiarH);
-            this.tabPage2.Controls.Add(this.BtnBorrarLineaH);
-            this.tabPage2.Controls.Add(this.DgvListaDellesH);
             this.tabPage2.Controls.Add(this.groupBox4);
             this.tabPage2.Location = new System.Drawing.Point(4, 28);
             this.tabPage2.Name = "tabPage2";
@@ -354,6 +347,7 @@
             // 
             // GbBusqueda
             // 
+            this.GbBusqueda.Controls.Add(this.DgvBusquedaEntrada);
             this.GbBusqueda.Controls.Add(this.TbValorBusqueda);
             this.GbBusqueda.Controls.Add(this.Lbl10);
             this.GbBusqueda.Controls.Add(this.Lbl9);
@@ -362,23 +356,37 @@
             this.GbBusqueda.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GbBusqueda.Location = new System.Drawing.Point(6, 6);
             this.GbBusqueda.Name = "GbBusqueda";
-            this.GbBusqueda.Size = new System.Drawing.Size(253, 195);
+            this.GbBusqueda.Size = new System.Drawing.Size(835, 195);
             this.GbBusqueda.TabIndex = 78;
             this.GbBusqueda.TabStop = false;
             this.GbBusqueda.Text = "Búsqueda de entradas";
             // 
+            // DgvBusquedaEntrada
+            // 
+            this.DgvBusquedaEntrada.AllowUserToAddRows = false;
+            this.DgvBusquedaEntrada.AllowUserToDeleteRows = false;
+            this.DgvBusquedaEntrada.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.DgvBusquedaEntrada.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.DgvBusquedaEntrada.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvBusquedaEntrada.Location = new System.Drawing.Point(382, 25);
+            this.DgvBusquedaEntrada.Name = "DgvBusquedaEntrada";
+            this.DgvBusquedaEntrada.ReadOnly = true;
+            this.DgvBusquedaEntrada.RowHeadersVisible = false;
+            this.DgvBusquedaEntrada.Size = new System.Drawing.Size(440, 163);
+            this.DgvBusquedaEntrada.TabIndex = 80;
+            // 
             // TbValorBusqueda
             // 
-            this.TbValorBusqueda.Location = new System.Drawing.Point(44, 122);
+            this.TbValorBusqueda.Location = new System.Drawing.Point(184, 65);
             this.TbValorBusqueda.Name = "TbValorBusqueda";
-            this.TbValorBusqueda.Size = new System.Drawing.Size(165, 26);
+            this.TbValorBusqueda.Size = new System.Drawing.Size(169, 26);
             this.TbValorBusqueda.TabIndex = 17;
             // 
             // Lbl10
             // 
             this.Lbl10.AutoSize = true;
             this.Lbl10.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl10.Location = new System.Drawing.Point(38, 100);
+            this.Lbl10.Location = new System.Drawing.Point(6, 68);
             this.Lbl10.Name = "Lbl10";
             this.Lbl10.Size = new System.Drawing.Size(171, 19);
             this.Lbl10.TabIndex = 15;
@@ -388,7 +396,7 @@
             // 
             this.Lbl9.AutoSize = true;
             this.Lbl9.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl9.Location = new System.Drawing.Point(38, 32);
+            this.Lbl9.Location = new System.Drawing.Point(7, 32);
             this.Lbl9.Name = "Lbl9";
             this.Lbl9.Size = new System.Drawing.Size(132, 19);
             this.Lbl9.TabIndex = 18;
@@ -397,9 +405,9 @@
             // BtnBuscar
             // 
             this.BtnBuscar.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnBuscar.Location = new System.Drawing.Point(78, 163);
+            this.BtnBuscar.Location = new System.Drawing.Point(149, 111);
             this.BtnBuscar.Name = "BtnBuscar";
-            this.BtnBuscar.Size = new System.Drawing.Size(92, 26);
+            this.BtnBuscar.Size = new System.Drawing.Size(80, 29);
             this.BtnBuscar.TabIndex = 18;
             this.BtnBuscar.Text = "Buscar";
             this.BtnBuscar.UseVisualStyleBackColor = true;
@@ -414,37 +422,65 @@
             "Id Proveedor",
             "Id Usuario",
             "Fecha"});
-            this.CbBuscarPor.Location = new System.Drawing.Point(40, 54);
+            this.CbBuscarPor.Location = new System.Drawing.Point(184, 32);
             this.CbBuscarPor.Name = "CbBuscarPor";
             this.CbBuscarPor.Size = new System.Drawing.Size(169, 27);
             this.CbBuscarPor.TabIndex = 19;
+            this.CbBuscarPor.SelectedIndex = 0;
+            // groupBox4
             // 
-            // BtnGuardarH
+            this.groupBox4.Controls.Add(this.BtnImprimir);
+            this.groupBox4.Controls.Add(this.TbProveedorH);
+            this.groupBox4.Controls.Add(this.TbCodigoEntradaH);
+            this.groupBox4.Controls.Add(this.label5);
+            this.groupBox4.Controls.Add(this.DgvListaDellesH);
+            this.groupBox4.Controls.Add(this.label6);
+            this.groupBox4.Controls.Add(this.label1);
+            this.groupBox4.Controls.Add(this.TbSupervisorH);
+            this.groupBox4.Controls.Add(this.DtpFechaH);
+            this.groupBox4.Controls.Add(this.label2);
+            this.groupBox4.Location = new System.Drawing.Point(6, 207);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(1026, 286);
+            this.groupBox4.TabIndex = 68;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Datos de documento de entrada";
             // 
-            this.BtnGuardarH.Location = new System.Drawing.Point(880, 460);
-            this.BtnGuardarH.Name = "BtnGuardarH";
-            this.BtnGuardarH.Size = new System.Drawing.Size(152, 33);
-            this.BtnGuardarH.TabIndex = 77;
-            this.BtnGuardarH.Text = "Guardar entrada";
-            this.BtnGuardarH.UseVisualStyleBackColor = true;
+            // BtnImprimir
             // 
-            // BtnLimpiarH
+            this.BtnImprimir.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnImprimir.Location = new System.Drawing.Point(40, 238);
+            this.BtnImprimir.Name = "BtnImprimir";
+            this.BtnImprimir.Size = new System.Drawing.Size(80, 29);
+            this.BtnImprimir.TabIndex = 77;
+            this.BtnImprimir.Text = "Imprimir";
+            this.BtnImprimir.UseVisualStyleBackColor = true;
             // 
-            this.BtnLimpiarH.Location = new System.Drawing.Point(880, 421);
-            this.BtnLimpiarH.Name = "BtnLimpiarH";
-            this.BtnLimpiarH.Size = new System.Drawing.Size(152, 33);
-            this.BtnLimpiarH.TabIndex = 76;
-            this.BtnLimpiarH.Text = "Limpiar datos";
-            this.BtnLimpiarH.UseVisualStyleBackColor = true;
+            // TbProveedorH
             // 
-            // BtnBorrarLineaH
+            this.TbProveedorH.Enabled = false;
+            this.TbProveedorH.Location = new System.Drawing.Point(6, 95);
+            this.TbProveedorH.Name = "TbProveedorH";
+            this.TbProveedorH.Size = new System.Drawing.Size(155, 26);
+            this.TbProveedorH.TabIndex = 75;
             // 
-            this.BtnBorrarLineaH.Location = new System.Drawing.Point(880, 382);
-            this.BtnBorrarLineaH.Name = "BtnBorrarLineaH";
-            this.BtnBorrarLineaH.Size = new System.Drawing.Size(152, 33);
-            this.BtnBorrarLineaH.TabIndex = 75;
-            this.BtnBorrarLineaH.Text = "Borrar linea entrada";
-            this.BtnBorrarLineaH.UseVisualStyleBackColor = true;
+            // TbCodigoEntradaH
+            // 
+            this.TbCodigoEntradaH.Enabled = false;
+            this.TbCodigoEntradaH.Location = new System.Drawing.Point(6, 44);
+            this.TbCodigoEntradaH.Name = "TbCodigoEntradaH";
+            this.TbCodigoEntradaH.Size = new System.Drawing.Size(155, 26);
+            this.TbCodigoEntradaH.TabIndex = 2;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(7, 22);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(54, 19);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Código";
             // 
             // DgvListaDellesH
             // 
@@ -460,11 +496,11 @@
             this.dataGridViewTextBoxColumn10,
             this.dataGridViewTextBoxColumn11,
             this.dataGridViewTextBoxColumn12});
-            this.DgvListaDellesH.Location = new System.Drawing.Point(6, 333);
+            this.DgvListaDellesH.Location = new System.Drawing.Point(179, 22);
             this.DgvListaDellesH.Name = "DgvListaDellesH";
             this.DgvListaDellesH.ReadOnly = true;
             this.DgvListaDellesH.RowHeadersVisible = false;
-            this.DgvListaDellesH.Size = new System.Drawing.Size(868, 160);
+            this.DgvListaDellesH.Size = new System.Drawing.Size(841, 258);
             this.DgvListaDellesH.TabIndex = 69;
             // 
             // dataGridViewTextBoxColumn7
@@ -509,44 +545,10 @@
             this.dataGridViewTextBoxColumn12.ReadOnly = true;
             this.dataGridViewTextBoxColumn12.Width = 75;
             // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.TbCodigoEntradaH);
-            this.groupBox4.Controls.Add(this.label5);
-            this.groupBox4.Controls.Add(this.label6);
-            this.groupBox4.Controls.Add(this.label1);
-            this.groupBox4.Controls.Add(this.CbProveedoresH);
-            this.groupBox4.Controls.Add(this.TbSupervisor);
-            this.groupBox4.Controls.Add(this.DtpFechaH);
-            this.groupBox4.Controls.Add(this.label2);
-            this.groupBox4.Location = new System.Drawing.Point(6, 207);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(1026, 120);
-            this.groupBox4.TabIndex = 68;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Datos de documento de entrada";
-            // 
-            // TbCodigoEntradaH
-            // 
-            this.TbCodigoEntradaH.Location = new System.Drawing.Point(96, 40);
-            this.TbCodigoEntradaH.Name = "TbCodigoEntradaH";
-            this.TbCodigoEntradaH.Size = new System.Drawing.Size(187, 26);
-            this.TbCodigoEntradaH.TabIndex = 2;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(16, 44);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(54, 19);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Código";
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(16, 75);
+            this.label6.Location = new System.Drawing.Point(7, 73);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(73, 19);
@@ -556,56 +558,39 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(658, 83);
+            this.label1.Location = new System.Drawing.Point(2, 175);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 19);
             this.label1.TabIndex = 74;
             this.label1.Text = "Supervisor";
             // 
-            // CbProveedoresH
+            // TbSupervisorH
             // 
-            this.CbProveedoresH.FormattingEnabled = true;
-            this.CbProveedoresH.Location = new System.Drawing.Point(96, 72);
-            this.CbProveedoresH.Name = "CbProveedoresH";
-            this.CbProveedoresH.Size = new System.Drawing.Size(187, 27);
-            this.CbProveedoresH.TabIndex = 3;
-            // 
-            // TbSupervisor
-            // 
-            this.TbSupervisor.Enabled = false;
-            this.TbSupervisor.Location = new System.Drawing.Point(739, 76);
-            this.TbSupervisor.Name = "TbSupervisor";
-            this.TbSupervisor.Size = new System.Drawing.Size(100, 26);
-            this.TbSupervisor.TabIndex = 73;
+            this.TbSupervisorH.Enabled = false;
+            this.TbSupervisorH.Location = new System.Drawing.Point(6, 197);
+            this.TbSupervisorH.Name = "TbSupervisorH";
+            this.TbSupervisorH.Size = new System.Drawing.Size(155, 26);
+            this.TbSupervisorH.TabIndex = 73;
             // 
             // DtpFechaH
             // 
             this.DtpFechaH.Enabled = false;
-            this.DtpFechaH.Location = new System.Drawing.Point(739, 44);
+            this.DtpFechaH.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtpFechaH.Location = new System.Drawing.Point(6, 146);
             this.DtpFechaH.Name = "DtpFechaH";
-            this.DtpFechaH.Size = new System.Drawing.Size(281, 26);
+            this.DtpFechaH.Size = new System.Drawing.Size(155, 26);
             this.DtpFechaH.TabIndex = 71;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(637, 47);
+            this.label2.Location = new System.Drawing.Point(7, 124);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(95, 19);
             this.label2.TabIndex = 72;
             this.label2.Text = "Fecha entrada";
-            // 
-            // DgvBusquedaEntrada
-            // 
-            this.DgvBusquedaEntrada.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.DgvBusquedaEntrada.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.DgvBusquedaEntrada.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvBusquedaEntrada.Location = new System.Drawing.Point(265, 6);
-            this.DgvBusquedaEntrada.Name = "DgvBusquedaEntrada";
-            this.DgvBusquedaEntrada.Size = new System.Drawing.Size(767, 195);
-            this.DgvBusquedaEntrada.TabIndex = 79;
             // 
             // FormEntrada
             // 
@@ -629,10 +614,10 @@
             this.tabPage2.ResumeLayout(false);
             this.GbBusqueda.ResumeLayout(false);
             this.GbBusqueda.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvListaDellesH)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvBusquedaEntrada)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvBusquedaEntrada)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvListaDellesH)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -664,11 +649,8 @@
         private System.Windows.Forms.Button buttonListo;
         private System.Windows.Forms.Button buttonLimpiar;
         private System.Windows.Forms.Button buttonEliminarDetalle;
-        private System.Windows.Forms.Button BtnGuardarH;
-        private System.Windows.Forms.Button BtnLimpiarH;
-        private System.Windows.Forms.Button BtnBorrarLineaH;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox TbSupervisor;
+        private System.Windows.Forms.TextBox TbSupervisorH;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker DtpFechaH;
         private System.Windows.Forms.DataGridView DgvListaDellesH;
@@ -682,13 +664,14 @@
         private System.Windows.Forms.TextBox TbCodigoEntradaH;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox CbProveedoresH;
         private System.Windows.Forms.GroupBox GbBusqueda;
         private System.Windows.Forms.TextBox TbValorBusqueda;
         private System.Windows.Forms.Label Lbl10;
         private System.Windows.Forms.Label Lbl9;
         private System.Windows.Forms.Button BtnBuscar;
         private System.Windows.Forms.ComboBox CbBuscarPor;
+        private System.Windows.Forms.TextBox TbProveedorH;
+        private System.Windows.Forms.Button BtnImprimir;
         private System.Windows.Forms.DataGridView DgvBusquedaEntrada;
     }
 }

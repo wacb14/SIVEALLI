@@ -45,10 +45,88 @@ namespace SIVEALLI
             //this.tbCodigoEntrada.selec += new EventHandler(CargarDatosEntrada);
             this.buttonLimpiar.Click += new EventHandler(LimpiarForm);
             this.dgvDetalleEntrada.CellClick += new DataGridViewCellEventHandler(EditarCantidad);
+            this.BtnBuscar.Click += new EventHandler(BuscarPorCampo);
+            this.DgvBusquedaEntrada.CellClick += new DataGridViewCellEventHandler(MostrarDetallesBusquedaEntrada);
 
             this.CbCodigoProducto.DropDown += new EventHandler(CargarDatosProductos);
             this.comboBoxCodigoProveedor.DropDown += new EventHandler(CargarDatosProveedores);
             //this.tbCodigoEntrada.DropDown += new EventHandler(CargarCodigosEntrada);
+        }
+
+        private void MostrarDetallesBusquedaEntrada(object sender, DataGridViewCellEventArgs e)
+        {
+            DgvListaDellesH.Rows.Clear();
+
+            try
+            {
+                int fila = DgvBusquedaEntrada.CurrentCell.RowIndex;
+
+                TbCodigoEntradaH.Text = DgvBusquedaEntrada.Rows[fila].Cells[0].Value.ToString();
+                TbProveedorH.Text = DgvBusquedaEntrada.Rows[fila].Cells[1].Value.ToString();
+                TbSupervisorH.Text = DgvBusquedaEntrada.Rows[fila].Cells[2].Value.ToString();
+                DtpFechaH.Value = Convert.ToDateTime(DgvBusquedaEntrada.Rows[fila].Cells[3].Value.ToString());
+
+                //Hallamos el codigo de entrada
+                DataTable detallesBusqueda = entDet.ListaGeneralCod(DgvBusquedaEntrada.Rows[fila].Cells[0].Value.ToString());
+
+                string nombre = "";
+                string id = "";
+                string categoria = "" , marca = "", precio = "";
+
+                for (int i = 0; i < detallesBusqueda.Columns.Count; i++)
+                {
+                    DataTable dt = producto.DatosProductoEntrada(detallesBusqueda.Rows[i][1].ToString());
+                    nombre = producto.ValorAtributo("Nombre");
+                    id = producto.ValorAtributo("IdProducto");
+                    categoria = producto.ValorAtributo("Categoria");
+                    marca = producto.ValorAtributo("Marca");
+                    precio = producto.ValorAtributo("PrecioUnitario");
+                    DgvListaDellesH.Rows.Add(new string[] { id, nombre, categoria, marca, precio, 
+                        detallesBusqueda.Rows[i][2].ToString() });
+                }
+            }
+            catch(Exception)
+            {
+
+            }
+        }
+
+        private void BuscarPorCampo(object sender, EventArgs e)
+        {
+            DgvBusquedaEntrada.DataSource = null;
+            DgvBusquedaEntrada.Rows.Clear();
+
+            DataTable Lista =  aEntidad.ListaGeneral(); // Validamos que solo se muestren productos activos
+            string Valor = string.Empty;
+            switch (CbBuscarPor.Text)
+            {
+                case "Id Entrada":
+                    Valor = "IdEntrada";
+                    break;
+                case "Id Proveedor":
+                    Valor = "IdProveedor";
+                    break;
+                case "Id Usuario":
+                    Valor = "IdUsuario";
+                    break;
+                case "Fecha":
+                    Valor = "Fecha";
+                    break;
+            }
+
+            
+            DataTable tablaMostrar = Lista.Clone();
+            for (int i = 0; i < Lista.Rows.Count; i++)
+            {
+                string ValorProd = Lista.Rows[i][Valor].ToString();
+                if (Procesos.BuscarPalabraEnCadena(TbValorBusqueda.Text, ValorProd))
+                {
+                    tablaMostrar.ImportRow(Lista.Rows[i]);
+                }
+            }
+            
+            DgvBusquedaEntrada.DataSource = tablaMostrar;
+            //DgvBusquedaEntrada.DataSource = Lista;
         }
 
         private void EditarCantidad(object sender, DataGridViewCellEventArgs e)
@@ -206,8 +284,8 @@ namespace SIVEALLI
         {
 
             //MessageBox.Show(aEntidad.ValorAtributo("IdProveedor"));
-            CbProveedoresH.SelectedValue = aEntidad.ValorAtributo("IdProveedor");
-            TbSupervisor.Text = aEntidad.ValorAtributo("IdUsuario");
+            TbProveedorH.Text = aEntidad.ValorAtributo("IdProveedor");
+            TbSupervisorH.Text = aEntidad.ValorAtributo("IdUsuario");
             DtpFechaH.Value = Convert.ToDateTime(aEntidad.ValorAtributo("Fecha"));
         }
 
@@ -256,6 +334,11 @@ namespace SIVEALLI
                 return;
             }
 
+            if (CbCodigoProducto.SelectedIndex == -1)
+            {
+                MessageBox.Show("Producto no existente");
+                return;
+            }
             string codigoProducto = CbCodigoProducto.SelectedValue.ToString();
             //MessageBox.Show(CbCodigoProducto.SelectedIndex.ToString());
 
