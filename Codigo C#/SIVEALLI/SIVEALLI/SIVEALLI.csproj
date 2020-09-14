@@ -86,15 +86,21 @@
     <Compile Include="FormCambioContrasegna.Designer.cs">
       <DependentUpon>FormCambioContrasegna.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormClientes.cs" />
+    <Compile Include="FormClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormClientes.designer.cs">
       <DependentUpon>FormClientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormDevolucionCantidad.cs" />
+    <Compile Include="FormDevolucionCantidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormDevolucionCantidad.designer.cs">
       <DependentUpon>FormDevolucionCantidad.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormDevoluciones.cs" />
+    <Compile Include="FormDevoluciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormDevoluciones.designer.cs">
       <DependentUpon>FormDevoluciones.cs</DependentUpon>
     </Compile>
@@ -134,11 +140,15 @@
     <Compile Include="FormPadre.Designer.cs">
       <DependentUpon>FormPadre.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormPedidos.cs" />
+    <Compile Include="FormPedidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormPedidos.designer.cs">
       <DependentUpon>FormPedidos.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormPedidosCantidad.cs" />
+    <Compile Include="FormPedidosCantidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormPedidosCantidad.designer.cs">
       <DependentUpon>FormPedidosCantidad.cs</DependentUpon>
     </Compile>
@@ -153,6 +163,12 @@
     </Compile>
     <Compile Include="FormProveedores.Designer.cs">
       <DependentUpon>FormProveedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUsuarioEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUsuarioEmpleado.Designer.cs">
+      <DependentUpon>FormUsuarioEmpleado.cs</DependentUpon>
     </Compile>
     <Compile Include="FormUsuarios.cs">
       <SubType>Form</SubType>

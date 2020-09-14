@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormUsuarios));
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxCodigo = new System.Windows.Forms.TextBox();
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
@@ -62,6 +63,7 @@
             this.BtnBuscar = new System.Windows.Forms.Button();
             this.CboBuscarPor = new System.Windows.Forms.ComboBox();
             this.gbListaUsuarios = new System.Windows.Forms.GroupBox();
+            this.BtnCerrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             this.gbDatosUsuarios.SuspendLayout();
             this.GbBusqueda.SuspendLayout();
@@ -421,7 +423,6 @@
             this.CboBuscarPor.Name = "CboBuscarPor";
             this.CboBuscarPor.Size = new System.Drawing.Size(219, 27);
             this.CboBuscarPor.TabIndex = 19;
-            this.CboBuscarPor.SelectedIndex = 0;
             // 
             // gbListaUsuarios
             // 
@@ -430,12 +431,25 @@
             this.gbListaUsuarios.Controls.Add(this.BtnImprimirLista);
             this.gbListaUsuarios.Controls.Add(this.LblTotalUsuarios);
             this.gbListaUsuarios.Controls.Add(this.Lbl11);
-            this.gbListaUsuarios.Location = new System.Drawing.Point(369, 12);
+            this.gbListaUsuarios.Location = new System.Drawing.Point(369, 45);
             this.gbListaUsuarios.Name = "gbListaUsuarios";
-            this.gbListaUsuarios.Size = new System.Drawing.Size(689, 428);
+            this.gbListaUsuarios.Size = new System.Drawing.Size(689, 395);
             this.gbListaUsuarios.TabIndex = 48;
             this.gbListaUsuarios.TabStop = false;
             this.gbListaUsuarios.Text = "Lista de usuarios";
+            // 
+            // BtnCerrar
+            // 
+            this.BtnCerrar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.BtnCerrar.FlatAppearance.BorderSize = 0;
+            this.BtnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("BtnCerrar.Image")));
+            this.BtnCerrar.Location = new System.Drawing.Point(1028, 9);
+            this.BtnCerrar.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnCerrar.Name = "BtnCerrar";
+            this.BtnCerrar.Size = new System.Drawing.Size(33, 33);
+            this.BtnCerrar.TabIndex = 63;
+            this.BtnCerrar.UseVisualStyleBackColor = true;
             // 
             // FormUsuarios
             // 
@@ -443,6 +457,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1070, 555);
+            this.Controls.Add(this.BtnCerrar);
             this.Controls.Add(this.gbListaUsuarios);
             this.Controls.Add(this.GbBusqueda);
             this.Controls.Add(this.gbDatosUsuarios);
@@ -482,21 +497,22 @@
         private System.Windows.Forms.ComboBox comboBoxEstado;
         private System.Windows.Forms.ComboBox comboBoxTipo;
         private System.Windows.Forms.Button btnCambioContra;
-        private System.Windows.Forms.Button btnRestaurarContra;
-        private System.Windows.Forms.Button BtnLimpiar;
-        private System.Windows.Forms.Button BtnGuardar;
-        private System.Windows.Forms.Button btnNuevoUsuario;
-        private System.Windows.Forms.GroupBox gbDatosUsuarios;
         private System.Windows.Forms.Button BtnRestaurarLista;
         private System.Windows.Forms.Label LblTotalUsuarios;
         private System.Windows.Forms.Button BtnImprimirLista;
         private System.Windows.Forms.Label Lbl11;
-        private System.Windows.Forms.GroupBox GbBusqueda;
         private System.Windows.Forms.TextBox TbValorBusqueda;
         private System.Windows.Forms.Label Lbl10;
         private System.Windows.Forms.Label Lbl9;
         private System.Windows.Forms.Button BtnBuscar;
         private System.Windows.Forms.ComboBox CboBuscarPor;
-        private System.Windows.Forms.GroupBox gbListaUsuarios;
+        protected System.Windows.Forms.Button BtnCerrar;
+        protected System.Windows.Forms.Button btnRestaurarContra;
+        protected System.Windows.Forms.Button BtnLimpiar;
+        protected System.Windows.Forms.Button BtnGuardar;
+        protected System.Windows.Forms.Button btnNuevoUsuario;
+        protected System.Windows.Forms.GroupBox gbDatosUsuarios;
+        protected System.Windows.Forms.GroupBox GbBusqueda;
+        protected System.Windows.Forms.GroupBox gbListaUsuarios;
     }
 }

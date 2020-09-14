@@ -54,7 +54,7 @@
             this.textBoxCodigoUsuario.Name = "textBoxCodigoUsuario";
             this.textBoxCodigoUsuario.Size = new System.Drawing.Size(148, 26);
             this.textBoxCodigoUsuario.TabIndex = 1;
-            this.textBoxCodigoUsuario.Text = "US001";
+            this.textBoxCodigoUsuario.Text = "US003";
             // 
             // buttonAceptar
             // 

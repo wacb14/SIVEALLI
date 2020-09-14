@@ -258,11 +258,11 @@
         private System.Windows.Forms.Button BtnClientes;
         private System.Windows.Forms.Button BtnPedidos;
         private System.Windows.Forms.Button BtnReportes;
-        private System.Windows.Forms.Label labelUsuario;
         private System.Windows.Forms.Button BtnDevoluciones;
         private System.Windows.Forms.Button BtnVentas;
         private System.Windows.Forms.DateTimePicker dtpFecha;
         private System.Windows.Forms.Button btnNegocio;
+        protected System.Windows.Forms.Label labelUsuario;
     }
 }
 

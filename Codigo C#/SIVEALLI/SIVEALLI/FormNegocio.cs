@@ -26,6 +26,7 @@ namespace SIVEALLI
         {
             this.Load += new EventHandler(CargarDatos);
             this.btnGuardar.Click += new EventHandler(GuardarRegistro);
+            this.BtnCerrar.Click += new EventHandler(CerrarVentana);
 
             this.tbIGV.KeyPress += new KeyPressEventHandler(Procesos.ValidarFloat);
             this.tbMontoSuperarDescuento.KeyPress += new KeyPressEventHandler(Procesos.ValidarFloat);
@@ -33,6 +34,11 @@ namespace SIVEALLI
             this.tbPropietario.KeyPress += new KeyPressEventHandler(Procesos.ValidarTextBoxSoloLetras);
             this.tbRUC.KeyPress += new KeyPressEventHandler(Procesos.ValidarTextBoxSoloNumeros);
             this.tbTelefono.KeyPress += new KeyPressEventHandler(Procesos.ValidarTextBoxSoloNumeros);
+        }
+
+        private void CerrarVentana(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         public override void Grabar()

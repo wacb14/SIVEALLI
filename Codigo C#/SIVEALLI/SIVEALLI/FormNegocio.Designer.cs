@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNegocio));
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.tbCorreo = new System.Windows.Forms.TextBox();
@@ -49,10 +50,11 @@
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.gbVariables = new System.Windows.Forms.GroupBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.BtnCerrar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.gbVariables.SuspendLayout();
             this.SuspendLayout();
@@ -222,7 +224,7 @@
             // dtpFecha
             // 
             this.dtpFecha.Enabled = false;
-            this.dtpFecha.Location = new System.Drawing.Point(773, 12);
+            this.dtpFecha.Location = new System.Drawing.Point(773, 53);
             this.dtpFecha.Name = "dtpFecha";
             this.dtpFecha.Size = new System.Drawing.Size(285, 26);
             this.dtpFecha.TabIndex = 56;
@@ -265,6 +267,26 @@
             this.gbVariables.TabStop = false;
             this.gbVariables.Text = "Variables de negocio";
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(418, 115);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(22, 19);
+            this.label12.TabIndex = 57;
+            this.label12.Text = "%";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(418, 47);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(22, 19);
+            this.label11.TabIndex = 56;
+            this.label11.Text = "%";
+            // 
             // btnGuardar
             // 
             this.btnGuardar.Location = new System.Drawing.Point(963, 512);
@@ -277,32 +299,25 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(603, 18);
+            this.label1.Location = new System.Drawing.Point(603, 59);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(163, 19);
             this.label1.TabIndex = 61;
             this.label1.Text = "Fecha modificación datos";
             // 
-            // label11
+            // BtnCerrar
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(418, 47);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(22, 19);
-            this.label11.TabIndex = 56;
-            this.label11.Text = "%";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(418, 115);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(22, 19);
-            this.label12.TabIndex = 57;
-            this.label12.Text = "%";
+            this.BtnCerrar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.BtnCerrar.FlatAppearance.BorderSize = 0;
+            this.BtnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("BtnCerrar.Image")));
+            this.BtnCerrar.Location = new System.Drawing.Point(1028, 9);
+            this.BtnCerrar.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnCerrar.Name = "BtnCerrar";
+            this.BtnCerrar.Size = new System.Drawing.Size(33, 33);
+            this.BtnCerrar.TabIndex = 62;
+            this.BtnCerrar.UseVisualStyleBackColor = true;
             // 
             // FormNegocio
             // 
@@ -310,6 +325,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1070, 555);
+            this.Controls.Add(this.BtnCerrar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.gbVariables);
@@ -354,5 +370,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
+        protected System.Windows.Forms.Button BtnCerrar;
     }
 }

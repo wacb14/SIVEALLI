@@ -10,11 +10,17 @@ using System.Windows.Forms;
 
 namespace SIVEALLI
 {
-    public partial class FormEmpleado : Form
+    public partial class FormEmpleado : FormSupervisor
     {
-        public FormEmpleado(string CodigoEmpleado)
+        public FormEmpleado(string CodigoEmpleado) : base(CodigoEmpleado)
         {
             InitializeComponent();
+        }
+
+        protected override void buttonUsuarios_Click(object sender, EventArgs e)
+        {
+            FormUsuarioEmpleado fe = new FormUsuarioEmpleado(labelUsuario.Text);
+            fe.Show();
         }
     }
 }

@@ -39,11 +39,17 @@ namespace SIVEALLI
             this.btnNuevoUsuario.Click += new EventHandler(GenerarCodigoNuevoUsuario);
             this.BtnRestaurarLista.Click += new EventHandler(RestaurarListaUsuarios);
             this.BtnBuscar.Click += new EventHandler(BuscarPorCampo);
+            this.BtnCerrar.Click += new EventHandler(CerrarVentana);
 
             //Validaciones
             textBoxNombres.KeyPress += new KeyPressEventHandler(Procesos.ValidarTextBoxSoloLetras);
             textBoxApellidos.KeyPress += new KeyPressEventHandler(Procesos.ValidarTextBoxSoloLetras);
             textBoxTelefono.KeyPress += new KeyPressEventHandler(Procesos.ValidarTextBoxSoloNumeros);
+        }
+
+        private void CerrarVentana(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private void BuscarPorCampo(object sender, EventArgs e)

@@ -66,7 +66,7 @@ namespace SIVEALLI
             if (ScHorizontal.Panel2.Controls.Contains(fu))
                 fu.Visible = false;
         }
-        private void buttonUsuarios_Click(object sender, EventArgs e)
+        protected virtual void buttonUsuarios_Click(object sender, EventArgs e)
         {
             DeshabilitarVisible();
             if (ScHorizontal.Panel2.Controls.Contains(fu))
