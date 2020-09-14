@@ -21,6 +21,11 @@ namespace SIVEALLI
             this.btnRestaurarContra.Visible = false;
             this.BtnLimpiar.Visible = false;
             this.btnNuevoUsuario.Visible = false;
+
+            this.CbEstado.Visible = false;
+            this.CbTipo.Visible = false;
+            this.LblEstado.Visible = false;
+            this.LblTipo.Visible = false;
         }
     }
 }

@@ -36,9 +36,9 @@
             this.BtnReportes = new System.Windows.Forms.Button();
             this.BtnPedidos = new System.Windows.Forms.Button();
             this.BtnClientes = new System.Windows.Forms.Button();
-            this.buttonUsuarios = new System.Windows.Forms.Button();
+            this.BtnUsuarios = new System.Windows.Forms.Button();
             this.BtnProductos = new System.Windows.Forms.Button();
-            this.buttonEntrada = new System.Windows.Forms.Button();
+            this.BtnEntrada = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.ScHorizontal = new System.Windows.Forms.SplitContainer();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
@@ -68,9 +68,9 @@
             this.ScVertical.Panel1.Controls.Add(this.BtnReportes);
             this.ScVertical.Panel1.Controls.Add(this.BtnPedidos);
             this.ScVertical.Panel1.Controls.Add(this.BtnClientes);
-            this.ScVertical.Panel1.Controls.Add(this.buttonUsuarios);
+            this.ScVertical.Panel1.Controls.Add(this.BtnUsuarios);
             this.ScVertical.Panel1.Controls.Add(this.BtnProductos);
-            this.ScVertical.Panel1.Controls.Add(this.buttonEntrada);
+            this.ScVertical.Panel1.Controls.Add(this.BtnEntrada);
             this.ScVertical.Panel1.Controls.Add(this.button2);
             // 
             // ScVertical.Panel2
@@ -145,16 +145,16 @@
             this.BtnClientes.UseVisualStyleBackColor = true;
             this.BtnClientes.Click += new System.EventHandler(this.BtnClientes_Click);
             // 
-            // buttonUsuarios
+            // BtnUsuarios
             // 
-            this.buttonUsuarios.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonUsuarios.Location = new System.Drawing.Point(12, 70);
-            this.buttonUsuarios.Name = "buttonUsuarios";
-            this.buttonUsuarios.Size = new System.Drawing.Size(148, 34);
-            this.buttonUsuarios.TabIndex = 4;
-            this.buttonUsuarios.Text = "Usuarios";
-            this.buttonUsuarios.UseVisualStyleBackColor = true;
-            this.buttonUsuarios.Click += new System.EventHandler(this.buttonUsuarios_Click);
+            this.BtnUsuarios.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnUsuarios.Location = new System.Drawing.Point(12, 70);
+            this.BtnUsuarios.Name = "BtnUsuarios";
+            this.BtnUsuarios.Size = new System.Drawing.Size(148, 34);
+            this.BtnUsuarios.TabIndex = 4;
+            this.BtnUsuarios.Text = "Usuarios";
+            this.BtnUsuarios.UseVisualStyleBackColor = true;
+            this.BtnUsuarios.Click += new System.EventHandler(this.buttonUsuarios_Click);
             // 
             // BtnProductos
             // 
@@ -167,16 +167,16 @@
             this.BtnProductos.UseVisualStyleBackColor = true;
             this.BtnProductos.Click += new System.EventHandler(this.BtnProductos_Click);
             // 
-            // buttonEntrada
+            // BtnEntrada
             // 
-            this.buttonEntrada.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEntrada.Location = new System.Drawing.Point(12, 309);
-            this.buttonEntrada.Name = "buttonEntrada";
-            this.buttonEntrada.Size = new System.Drawing.Size(148, 34);
-            this.buttonEntrada.TabIndex = 2;
-            this.buttonEntrada.Text = "Entrada";
-            this.buttonEntrada.UseVisualStyleBackColor = true;
-            this.buttonEntrada.Click += new System.EventHandler(this.buttonEntrada_Click);
+            this.BtnEntrada.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnEntrada.Location = new System.Drawing.Point(12, 309);
+            this.BtnEntrada.Name = "BtnEntrada";
+            this.BtnEntrada.Size = new System.Drawing.Size(148, 34);
+            this.BtnEntrada.TabIndex = 2;
+            this.BtnEntrada.Text = "Entrada";
+            this.BtnEntrada.UseVisualStyleBackColor = true;
+            this.BtnEntrada.Click += new System.EventHandler(this.buttonEntrada_Click);
             // 
             // button2
             // 
@@ -249,20 +249,20 @@
 
         #endregion
 
-        private System.Windows.Forms.SplitContainer ScVertical;
-        private System.Windows.Forms.Button buttonUsuarios;
-        private System.Windows.Forms.Button BtnProductos;
-        private System.Windows.Forms.Button buttonEntrada;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.SplitContainer ScHorizontal;
-        private System.Windows.Forms.Button BtnClientes;
-        private System.Windows.Forms.Button BtnPedidos;
-        private System.Windows.Forms.Button BtnReportes;
-        private System.Windows.Forms.Button BtnDevoluciones;
-        private System.Windows.Forms.Button BtnVentas;
-        private System.Windows.Forms.DateTimePicker dtpFecha;
-        private System.Windows.Forms.Button btnNegocio;
+        protected System.Windows.Forms.SplitContainer ScVertical;
+        protected System.Windows.Forms.SplitContainer ScHorizontal;
+        protected System.Windows.Forms.Button BtnReportes;
+        protected System.Windows.Forms.DateTimePicker dtpFecha;
         protected System.Windows.Forms.Label labelUsuario;
+        protected System.Windows.Forms.Button BtnUsuarios;
+        protected System.Windows.Forms.Button BtnProductos;
+        protected System.Windows.Forms.Button BtnEntrada;
+        protected System.Windows.Forms.Button button2;
+        protected System.Windows.Forms.Button BtnClientes;
+        protected System.Windows.Forms.Button BtnPedidos;
+        protected System.Windows.Forms.Button BtnDevoluciones;
+        protected System.Windows.Forms.Button BtnVentas;
+        protected System.Windows.Forms.Button btnNegocio;
     }
 }
 

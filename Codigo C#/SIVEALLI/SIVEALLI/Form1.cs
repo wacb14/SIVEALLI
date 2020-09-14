@@ -14,7 +14,7 @@ namespace SIVEALLI
     {
         FormClientes fc;
         FormPedidos fp;
-        FormUsuarios fu;
+        protected FormUsuarios fu;
         FormProveedores P;
         FormProductos Fp;
         FrmReportes R;
@@ -22,6 +22,9 @@ namespace SIVEALLI
         FormVentas fv;
         FormNegocio fn;
         FormEntrada fe;
+
+        protected FormUsuarioEmpleado fue;
+
         public FormSupervisor(string codigoUsuario)
         {
             InitializeComponent();
@@ -30,7 +33,7 @@ namespace SIVEALLI
             labelUsuario.Text = codigoUsuario;
         }
 
-        protected void AbrirFormPanel(Form Ventana)
+        protected virtual void AbrirFormPanel(Form Ventana)
         {
             Ventana.TopLevel = false;
             //--Se quitan los bordes
@@ -41,7 +44,7 @@ namespace SIVEALLI
             ScHorizontal.Panel2.Tag = Ventana;
             Ventana.Show();//--Se inicia el form
         }
-        public void DeshabilitarVisible()
+        public virtual void DeshabilitarVisible()
         {
             if (ScHorizontal.Panel2.Controls.Contains(fp))
                 fp.Visible = false;

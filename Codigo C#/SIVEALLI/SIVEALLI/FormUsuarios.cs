@@ -141,8 +141,8 @@ namespace SIVEALLI
                 textBoxDireccion.Text = dgvUsuarios.Rows[fila].Cells[3].Value.ToString();
                 textBoxTelefono.Text = dgvUsuarios.Rows[fila].Cells[4].Value.ToString();
                 textBoxCorreo.Text = dgvUsuarios.Rows[fila].Cells[5].Value.ToString();
-                comboBoxTipo.Text = dgvUsuarios.Rows[fila].Cells[7].Value.ToString();
-                comboBoxEstado.Text = dgvUsuarios.Rows[fila].Cells[6].Value.ToString();
+                CbTipo.Text = dgvUsuarios.Rows[fila].Cells[7].Value.ToString();
+                CbEstado.Text = dgvUsuarios.Rows[fila].Cells[6].Value.ToString();
                 //aEntidad.Eliminar(aux);
             }
             catch (Exception)
@@ -187,7 +187,7 @@ namespace SIVEALLI
                 textBoxNombres.Text, textBoxApellidos.Text,
                 textBoxDireccion.Text, textBoxTelefono.Text,
                 textBoxCorreo.Text, contraseña,
-                comboBoxTipo.Text, comboBoxEstado.Text};
+                CbTipo.Text, CbEstado.Text};
         }
         public override void MostrarDatos()
         {
@@ -197,8 +197,8 @@ namespace SIVEALLI
             textBoxDireccion.Text = aEntidad.ValorAtributo("Direccion");
             textBoxTelefono.Text = aEntidad.ValorAtributo("Telefono");
             textBoxCorreo.Text = aEntidad.ValorAtributo("Correo");
-            comboBoxTipo.Text = aEntidad.ValorAtributo("Tipo");
-            comboBoxEstado.Text = aEntidad.ValorAtributo("Estado");
+            CbTipo.Text = aEntidad.ValorAtributo("Tipo");
+            CbEstado.Text = aEntidad.ValorAtributo("Estado");
         }
         public override void InicializarAtributoClave()
         {
@@ -212,8 +212,8 @@ namespace SIVEALLI
             textBoxDireccion.Text = "";
             textBoxTelefono.Text = "";
             textBoxCorreo.Text = "";
-            comboBoxEstado.Text = "";
-            comboBoxTipo.Text = "";
+            CbEstado.Text = "";
+            CbTipo.Text = "";
         }
         public override void ListarRegistros()
         {
@@ -224,7 +224,7 @@ namespace SIVEALLI
             if (textBoxCodigo.Text.Trim() != "" &&
                 textBoxApellidos.Text.Trim() != "" &&
                 textBoxNombres.Text.Trim() != "" &&
-                comboBoxTipo.Text.Trim() != "")
+                CbTipo.Text.Trim() != "")
                 return true;
             else
                 return false;
@@ -311,7 +311,7 @@ namespace SIVEALLI
                         aEntidad.Insertar(Atributos);
                         MessageBox.Show("Usuario agregado, usuario y contraseña: " + textBoxCodigo.Text, "Confirmacion");
                     }
-                    InicializarAtributos();
+                    //InicializarAtributos();
                     dgvUsuarios.DataSource = aUsuario.ListaUsuarios();
                 }
                 else

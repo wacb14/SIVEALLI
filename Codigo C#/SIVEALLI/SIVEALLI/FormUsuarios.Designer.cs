@@ -42,10 +42,10 @@
             this.label5 = new System.Windows.Forms.Label();
             this.textBoxCorreo = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.comboBoxEstado = new System.Windows.Forms.ComboBox();
-            this.comboBoxTipo = new System.Windows.Forms.ComboBox();
+            this.LblEstado = new System.Windows.Forms.Label();
+            this.LblTipo = new System.Windows.Forms.Label();
+            this.CbEstado = new System.Windows.Forms.ComboBox();
+            this.CbTipo = new System.Windows.Forms.ComboBox();
             this.btnCambioContra = new System.Windows.Forms.Button();
             this.btnRestaurarContra = new System.Windows.Forms.Button();
             this.BtnLimpiar = new System.Windows.Forms.Button();
@@ -194,48 +194,48 @@
             this.label6.TabIndex = 11;
             this.label6.Text = "Correo";
             // 
-            // label8
+            // LblEstado
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(21, 344);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(51, 19);
-            this.label8.TabIndex = 15;
-            this.label8.Text = "Estado";
+            this.LblEstado.AutoSize = true;
+            this.LblEstado.Location = new System.Drawing.Point(21, 344);
+            this.LblEstado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LblEstado.Name = "LblEstado";
+            this.LblEstado.Size = new System.Drawing.Size(51, 19);
+            this.LblEstado.TabIndex = 15;
+            this.LblEstado.Text = "Estado";
             // 
-            // label9
+            // LblTipo
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(21, 306);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(36, 19);
-            this.label9.TabIndex = 13;
-            this.label9.Text = "Tipo";
+            this.LblTipo.AutoSize = true;
+            this.LblTipo.Location = new System.Drawing.Point(21, 306);
+            this.LblTipo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LblTipo.Name = "LblTipo";
+            this.LblTipo.Size = new System.Drawing.Size(36, 19);
+            this.LblTipo.TabIndex = 13;
+            this.LblTipo.Text = "Tipo";
             // 
-            // comboBoxEstado
+            // CbEstado
             // 
-            this.comboBoxEstado.FormattingEnabled = true;
-            this.comboBoxEstado.Items.AddRange(new object[] {
+            this.CbEstado.FormattingEnabled = true;
+            this.CbEstado.Items.AddRange(new object[] {
             "ACTIVO",
             "RETIRADO",
             "OTRO"});
-            this.comboBoxEstado.Location = new System.Drawing.Point(107, 341);
-            this.comboBoxEstado.Name = "comboBoxEstado";
-            this.comboBoxEstado.Size = new System.Drawing.Size(195, 27);
-            this.comboBoxEstado.TabIndex = 8;
+            this.CbEstado.Location = new System.Drawing.Point(107, 341);
+            this.CbEstado.Name = "CbEstado";
+            this.CbEstado.Size = new System.Drawing.Size(195, 27);
+            this.CbEstado.TabIndex = 8;
             // 
-            // comboBoxTipo
+            // CbTipo
             // 
-            this.comboBoxTipo.FormattingEnabled = true;
-            this.comboBoxTipo.Items.AddRange(new object[] {
+            this.CbTipo.FormattingEnabled = true;
+            this.CbTipo.Items.AddRange(new object[] {
             "SUPERVISOR",
             "EMPLEADO"});
-            this.comboBoxTipo.Location = new System.Drawing.Point(107, 303);
-            this.comboBoxTipo.Name = "comboBoxTipo";
-            this.comboBoxTipo.Size = new System.Drawing.Size(195, 27);
-            this.comboBoxTipo.TabIndex = 7;
+            this.CbTipo.Location = new System.Drawing.Point(107, 303);
+            this.CbTipo.Name = "CbTipo";
+            this.CbTipo.Size = new System.Drawing.Size(195, 27);
+            this.CbTipo.TabIndex = 7;
             // 
             // btnCambioContra
             // 
@@ -294,13 +294,13 @@
             this.gbDatosUsuarios.Controls.Add(this.textBoxNombres);
             this.gbDatosUsuarios.Controls.Add(this.btnCambioContra);
             this.gbDatosUsuarios.Controls.Add(this.label3);
-            this.gbDatosUsuarios.Controls.Add(this.comboBoxTipo);
+            this.gbDatosUsuarios.Controls.Add(this.CbTipo);
             this.gbDatosUsuarios.Controls.Add(this.textBoxApellidos);
-            this.gbDatosUsuarios.Controls.Add(this.comboBoxEstado);
+            this.gbDatosUsuarios.Controls.Add(this.CbEstado);
             this.gbDatosUsuarios.Controls.Add(this.label4);
-            this.gbDatosUsuarios.Controls.Add(this.label8);
+            this.gbDatosUsuarios.Controls.Add(this.LblEstado);
             this.gbDatosUsuarios.Controls.Add(this.textBoxDireccion);
-            this.gbDatosUsuarios.Controls.Add(this.label9);
+            this.gbDatosUsuarios.Controls.Add(this.LblTipo);
             this.gbDatosUsuarios.Controls.Add(this.label5);
             this.gbDatosUsuarios.Controls.Add(this.textBoxCorreo);
             this.gbDatosUsuarios.Controls.Add(this.textBoxTelefono);
@@ -492,10 +492,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBoxCorreo;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox comboBoxEstado;
-        private System.Windows.Forms.ComboBox comboBoxTipo;
         private System.Windows.Forms.Button btnCambioContra;
         private System.Windows.Forms.Button BtnRestaurarLista;
         private System.Windows.Forms.Label LblTotalUsuarios;
@@ -514,5 +510,9 @@
         protected System.Windows.Forms.GroupBox gbDatosUsuarios;
         protected System.Windows.Forms.GroupBox GbBusqueda;
         protected System.Windows.Forms.GroupBox gbListaUsuarios;
+        protected System.Windows.Forms.Label LblEstado;
+        protected System.Windows.Forms.Label LblTipo;
+        protected System.Windows.Forms.ComboBox CbEstado;
+        protected System.Windows.Forms.ComboBox CbTipo;
     }
 }
