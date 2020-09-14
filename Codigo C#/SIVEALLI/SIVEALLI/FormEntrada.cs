@@ -49,11 +49,65 @@ namespace SIVEALLI
             this.BtnBuscar.Click += new EventHandler(BuscarPorCampo);
             this.DgvBusquedaEntrada.CellClick += new DataGridViewCellEventHandler(MostrarDetallesBusquedaEntrada);
             this.BtnImprimir.Click += new EventHandler(ImprimirListaSeleccionada);
-            this.PdDgvEntrada.PrintPage += new PrintPageEventHandler(ImprimirDgv);
+            this.PdDgvEntradaH.PrintPage += new PrintPageEventHandler(ImprimirDgv);
+
+            this.BtnImprimirNentrada.Click += new EventHandler(ImprimirNuevaEntrada);
+            this.PdNuevaEntrada.PrintPage += new PrintPageEventHandler(ImprimirNuevoDgv);
 
             this.CbCodigoProducto.DropDown += new EventHandler(CargarDatosProductos);
             this.comboBoxCodigoProveedor.DropDown += new EventHandler(CargarDatosProveedores);
             //this.tbCodigoEntrada.DropDown += new EventHandler(CargarCodigosEntrada);
+        }
+
+        private void ImprimirNuevoDgv(object sender, PrintPageEventArgs e)
+        {
+            string mensaje = "Código de entrada   : " + tbCodigoEntrada.Text + "\n";
+            mensaje = mensaje + "Código de proveedor : " + comboBoxCodigoProveedor.Text + "\n";
+            mensaje = mensaje + "Código de Supervisor: " + codigoUsuario + "\n";
+            mensaje = mensaje + "Código de proveedor : " + aFecha + "\n";
+
+
+            try
+            {
+                // Crear el objeto
+                Bitmap objetoBitmap = new Bitmap(this.dgvDetalleEntrada.Width, this.dgvDetalleEntrada.Height);
+                // Colocar la lista
+                dgvDetalleEntrada.DrawToBitmap(objetoBitmap, new Rectangle(0, 0, this.dgvDetalleEntrada.Width, this.dgvDetalleEntrada.Height));
+                // 100 y 50 imprima 100 abajo y 50 a la derecha
+                e.Graphics.DrawImage(objetoBitmap, 20, 320);
+                // Colocar titulo a la lista con fuente TNR 20 negro en la parte superior
+                e.Graphics.DrawString("Documento de nueva entrada", new Font("Consolas", 18, FontStyle.Bold), Brushes.Black, new Point(100, 90));
+                e.Graphics.DrawString(mensaje, new Font("Consolas", 14, FontStyle.Bold), Brushes.Black, new Point(150, 140));
+            }
+            catch (Exception l)
+            {
+                MessageBox.Show(l.ToString(), "Error al realizar la operacion");
+            }
+        }
+
+        private void ImprimirNuevaEntrada(object sender, EventArgs e)
+        {
+            if (!EsRegistroValido())
+            {
+                MessageBox.Show("LLene los datos de nueva entrada.");
+                return;
+            }
+            if (!entrada.ExisteClavePrimaria(tbCodigoEntrada.Text))
+            {
+                MessageBox.Show("Primero debe guardar la nueva entrada.");
+                return;
+            }
+
+            try
+            {
+                //Print preview Dialog
+                PpdEntrada.Document = PdNuevaEntrada;
+                PpdEntrada.ShowDialog();
+            }
+            catch (Exception l)
+            {
+                MessageBox.Show(l.ToString(), "Error al realizar la operacion");
+            }
         }
 
         private void ImprimirDgv(object sender, System.Drawing.Printing.PrintPageEventArgs e)
@@ -89,7 +143,7 @@ namespace SIVEALLI
             try
             {
                 //Print preview Dialog
-                PpdEntrada.Document = PdDgvEntrada;
+                PpdEntrada.Document = PdDgvEntradaH;
                 PpdEntrada.ShowDialog();
             }
             catch (Exception l)
