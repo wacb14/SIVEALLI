@@ -33,7 +33,7 @@ namespace SIVEALLI
         }
         /*------------------ Formulario Nueva Venta --------------------*/
         /// <summary>
-        /// 
+        /// Genera automaticamente un ID de Venta basado en el numero de registros de la BD
         /// </summary>
         /// <returns></returns>
         private string GenerarIdVenta()
@@ -45,6 +45,12 @@ namespace SIVEALLI
             Id += NumeroVentas;
             return Id;
         }
+        /// <summary>
+        /// Busca una cadena dentro de otra, sin considerar si hay diferencias en mayusculas, minusculas ni tildes
+        /// </summary>
+        /// <param name="Palabra">La cadena a buscar</param>
+        /// <param name="Cadena">La cadena donde vamos a buscar</param>
+        /// <returns></returns>
         private bool BuscarPalabraEnCadena(string Palabra, string Cadena)
         {
             // Convertimos la cadena en texto normalizado sin tildes y sin ñ
@@ -70,6 +76,11 @@ namespace SIVEALLI
                 }
             }
         }
+        /// <summary>
+        /// Comprueba si existe un registro repetido en la tabla detalle
+        /// </summary>
+        /// <param name="IdProducto">El identificador del producto</param>
+        /// <returns></returns>
         private bool BuscarRepetidoEnDetalle(string IdProducto)
         {
             bool Encontrado = false;
@@ -82,6 +93,9 @@ namespace SIVEALLI
             }
             return Encontrado;
         }
+        /// <summary>
+        /// Calcula los campos descuento,impuesto y total de una venta
+        /// </summary>
         private void CalcularTotal()
         {
             try
@@ -116,6 +130,42 @@ namespace SIVEALLI
                 MessageBox.Show(Ex.Message);
             }
         }
+        /// <summary>
+        /// Permite reconstruir los campos descuento,impuesto y total de una venta
+        /// </summary>
+        /// <param name="fila">La fila del registro</param>
+        private void CalcularTotal2(int fila)
+        {
+            try
+            {
+                float Impuesto = float.Parse(DgvListaVentas.Rows[fila].Cells["IGV"].Value.ToString()); // En porcentaje (ejem 18.5%)
+                float Descuento = float.Parse(DgvListaVentas.Rows[fila].Cells["PorcentajeDescuento"].Value.ToString()); // En porcentaje
+                float CantidadSuperada = float.Parse(DgvListaVentas.Rows[fila].Cells["MontoSuperarDescuento"].Value.ToString());
+                Lbl16 .Text = "Impuesto (" + Impuesto + "%) :";
+                Lbl15.Text = "Descuento (" + Descuento + "%) :";
+                float Subtotal = 0;
+                for (int i = 0; i < DgvDetallesVenta2.Rows.Count; i++)
+                    Subtotal += float.Parse(DgvDetallesVenta2.Rows[i].Cells["Subtotal"].Value.ToString());
+                Subtotal = (float)Math.Round(Subtotal, 2);
+                LblSubtotal2.Text = Subtotal.ToString();
+                float Dcto = 0;
+                if (Subtotal > CantidadSuperada)
+                    Dcto = (float)Math.Round((Descuento / 100) * Subtotal, 2);
+                LblDescuento2.Text = "-" + Dcto.ToString();
+                float SubtotalConDscto = Subtotal - Dcto;
+                float CantidadImpuesto = (float)Math.Round((SubtotalConDscto * (Impuesto / 100)), 2);
+                LblImpuesto2.Text = CantidadImpuesto.ToString();
+                float Total = SubtotalConDscto + CantidadImpuesto;
+                LblTotal2.Text = Total.ToString();
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+            }
+        }
+        /// <summary>
+        /// Limpia completamente el formulario de Venta
+        /// </summary>
         private void LimpiarFormulario()
         {
             TxtIdVenta.Text = GenerarIdVenta();
@@ -126,6 +176,9 @@ namespace SIVEALLI
             DgvVentaDetalle.Rows.Clear();
             CalcularTotal();
         }
+        /// <summary>
+        /// Realiza el guardado de los datos de una venta
+        /// </summary>
         private void GuardarDatosVenta()
         {
                 // Guardamos los datos generales de la venta
@@ -146,6 +199,11 @@ namespace SIVEALLI
             
         }
         //------------------------ Eventos -------------------------
+        /// <summary>
+        /// Realiza la busqueda
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
             try
@@ -189,21 +247,41 @@ namespace SIVEALLI
                 MessageBox.Show(Ex.Message);
             }
         }
+        /// <summary>
+        /// Valida que el campo cliente no quede vacio
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TxtIdCliente_Leave(object sender, EventArgs e)
         {
             if (TxtIdCliente.Text.Trim() == "")
                 MessageBox.Show("Debe ingresar algún valor en el campo del Identificador del Cliente.\n(El campo IdCliente no debe quedar vacio)", "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+        /// <summary>
+        /// Permite ingresar un nuevo cliente directamente
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnNuevoCliente_Click(object sender, EventArgs e)
         {
             FormClientes Clientes = new FormClientes();
             Clientes.ShowDialog();
         }
+        /// <summary>
+        /// Vacia la tabla de detalles
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnVaciarDetalles_Click(object sender, EventArgs e)
         {
             DgvVentaDetalle.Rows.Clear();
             CalcularTotal();
         }
+        /// <summary>
+        /// Valida que se haya guardado la venta en curso o permite descartarla
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnNuevaVenta_Click(object sender, EventArgs e)
         {
             if (!Producto.ExisteClavePrimaria(new string[] { TxtIdVenta.Text }))
@@ -213,6 +291,11 @@ namespace SIVEALLI
                     LimpiarFormulario();
             }
         }
+        /// <summary>
+        /// Imprime la boleta de venta, antes validando el registro de la venta
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnImprimir_Click(object sender, EventArgs e)
         {
             if (!Ventas.ExisteClavePrimaria(new string[] { TxtIdVenta.Text })) // Validamos si ya existe una venta registrada con el mismo codigo
@@ -222,6 +305,11 @@ namespace SIVEALLI
                 MessageBox.Show("Imprimiendo....");
             }
         }
+        /// <summary>
+        /// Valida y registra los datos de una venta
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnRegistrarVenta_Click(object sender, EventArgs e)
         {
             try
@@ -249,7 +337,11 @@ namespace SIVEALLI
                 MessageBox.Show(Ex.Message);
             }
         }
-        
+        /// <summary>
+        /// Eventos del boton + que permiten agregar un producto al detalle
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DgvCatalogoBusqueda_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             //-- Determinar las coordenadas de la celda que cambio
@@ -288,6 +380,11 @@ namespace SIVEALLI
                 MessageBox.Show(ex.Message);
             }
         }
+        /// <summary>
+        /// Eventos que permiten eliminar un producto del detalle
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DgvVentaDetalle_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             //-- Determinar las coordenadas de la celda que cambio
@@ -323,6 +420,11 @@ namespace SIVEALLI
             }
         }
         /*---------------------- Formulario Historial Ventas -----------------*/
+        /// <summary>
+        /// Busca en el historial de ventas
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnBuscar2_Click(object sender, EventArgs e)
         {
             try
@@ -348,6 +450,11 @@ namespace SIVEALLI
                 MessageBox.Show(Ex.Message);
             }
         }
+        /// <summary>
+        /// Evento que permite la consulta de los detalles de una venta
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DgvListaVentas_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             //-- Determinar las coordenadas de la celda que cambio
@@ -357,12 +464,18 @@ namespace SIVEALLI
             {
                 string IdVenta = DgvListaVentas.Rows[fila].Cells["IdVenta"].Value.ToString();
                 DgvDetallesVenta2.DataSource = VentasDetalle.ListarDetallesDeUnaVenta(IdVenta);
+                CalcularTotal2(fila);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
+        /// <summary>
+        /// Hace visible o invisible al datetimepicker de fecha para la busqueda
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CboBuscarPor2_SelectedValueChanged(object sender, EventArgs e)
         {
             if(CboBuscarPor2.Text.Trim()== "Fecha (DD/MM/AAAA)")

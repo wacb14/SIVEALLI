@@ -28,5 +28,6 @@ C:\Users\Home\Documents\GitHub\SIVEALLI\Codigo C#\SIVEALLI\BibClases\obj\Debug\B
 C:\Users\Home\Documents\GitHub\SIVEALLI\Codigo C#\SIVEALLI\BibClases\obj\Debug\BibClases.csprojAssemblyReference.cache
 B:\SIVEALLI\Codigo C#\SIVEALLI\BibClases\bin\Debug\BibClases.dll
 B:\SIVEALLI\Codigo C#\SIVEALLI\BibClases\bin\Debug\BibClases.pdb
+B:\SIVEALLI\Codigo C#\SIVEALLI\BibClases\obj\Debug\BibClases.csprojAssemblyReference.cache
 B:\SIVEALLI\Codigo C#\SIVEALLI\BibClases\obj\Debug\BibClases.dll
 B:\SIVEALLI\Codigo C#\SIVEALLI\BibClases\obj\Debug\BibClases.pdb

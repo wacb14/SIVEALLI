@@ -17,7 +17,7 @@ go
 create procedure spuVentasListarPorIdVenta @IdVenta varchar(8)
 as
 begin
-	select IdVenta,IdUsuario,IdCliente,Fecha
+	select *
 	from TVenta
 	where IdVenta = @IdVenta
 end;
@@ -25,7 +25,7 @@ go
 create procedure spuVentasListarPorIdUsuario @IdUsuario varchar(5)
 as
 begin
-	select IdVenta,IdUsuario,IdCliente,Fecha
+	select *
 	from TVenta
 	where IdUsuario = @IdUsuario
 end;
@@ -33,7 +33,7 @@ go
 create procedure spuVentasListarPorIdCliente @IdCliente varchar(8)
 as
 begin
-	select IdVenta,IdUsuario,IdCliente,Fecha
+	select *
 	from TVenta
 	where IdCliente = @IdCliente
 end;
@@ -42,7 +42,7 @@ create procedure spuVentasListarPorFecha @Fecha varchar(10)
 as
 begin
 	set dateformat dmy
-	select IdVenta,IdUsuario,IdCliente,Fecha
+	select *
 	from TVenta
 	where Fecha = @Fecha
 end;
