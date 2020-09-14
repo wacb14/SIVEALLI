@@ -228,20 +228,49 @@ namespace SIVEALLI
         private void FormProveedores_Load(object sender, EventArgs e)
         {
             ListarRegistros();
+            CboBuscarPor.Text = "Id Proveedor";
         }
         // Mostrara la informacion del DGV a los text box, util para rellenar datos y ver o modificar
         private void DgvProveedores_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            int fila = e.RowIndex;
-            if (fila >= 0)
+            try
             {
-                TxtCodigo.Text = DgvProveedores.Rows[fila].Cells[0].Value.ToString();
-                TxtNombres.Text = DgvProveedores.Rows[fila].Cells[1].Value.ToString();
-                TxtDireccion.Text = DgvProveedores.Rows[fila].Cells[2].Value.ToString();
-                TxtTelefono.Text = DgvProveedores.Rows[fila].Cells[3].Value.ToString();
-                TxtCorreo.Text = DgvProveedores.Rows[fila].Cells[4].Value.ToString();
-                CboEstado.Text = DgvProveedores.Rows[fila].Cells[5].Value.ToString();
+                int fila = e.RowIndex;
+                if (fila >= 0)
+                {
+                    TxtCodigo.Text = DgvProveedores.Rows[fila].Cells[0].Value.ToString();
+                    TxtNombres.Text = DgvProveedores.Rows[fila].Cells[1].Value.ToString();
+                    TxtDireccion.Text = DgvProveedores.Rows[fila].Cells[2].Value.ToString();
+                    TxtTelefono.Text = DgvProveedores.Rows[fila].Cells[3].Value.ToString();
+                    TxtCorreo.Text = DgvProveedores.Rows[fila].Cells[4].Value.ToString();
+                    CboEstado.Text = DgvProveedores.Rows[fila].Cells[5].Value.ToString();
+                }
             }
+            catch (Exception l)
+            {
+                MessageBox.Show(l.ToString(), "Error al realizar la operacion");
+            }
+
+        }
+
+        private void PrdDgv_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            try
+            {
+                // Crear el objeto
+                Bitmap objetoBitmap = new Bitmap(this.DgvProveedores.Width, this.DgvProveedores.Height);
+                // Colocar la lista
+                DgvProveedores.DrawToBitmap(objetoBitmap, new Rectangle(0, 0, this.DgvProveedores.Width, this.DgvProveedores.Height));
+                // 100 y 50 imprima 100 abajo y 50 a la derecha
+                e.Graphics.DrawImage(objetoBitmap, 50, 100);
+                // Colocar titulo a la lista con fuente TNR 20 negro en la parte superior
+                e.Graphics.DrawString("Lista actual de Proveedores", new Font("Times new Roman", 20, FontStyle.Bold), Brushes.Black, new Point(300, 30));
+            }
+            catch (Exception l)
+            {
+                MessageBox.Show(l.ToString(), "Error al realizar la operacion");
+            }
+
         }
 
         #endregion Eventos
@@ -256,36 +285,61 @@ namespace SIVEALLI
         // Cuando se agrega un nuevo proveedor
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
-            // Coloca a los proveedores con el formato PR al inicio
-            int cant = aEntidad.NumeroRegistros();
-            string cantCeros = "";
-            if (cant < 10)
-                cantCeros = "00";
-            else if (cant < 100)
-                cantCeros = "0";
-            InicializarAtributos();
-            TxtCodigo.Text = "PR" + cantCeros + (cant + 1);
-            // Despues de generar el codigo se enfoca en nombre
-            TxtNombres.Focus();
+            try
+            {
+                // Coloca a los proveedores con el formato PR al inicio
+                int cant = aEntidad.NumeroRegistros();
+                string cantCeros = "";
+                if (cant < 10)
+                    cantCeros = "00";
+                else if (cant < 100)
+                    cantCeros = "0";
+                InicializarAtributos();
+                TxtCodigo.Text = "PR" + cantCeros + (cant + 1);
+                // Despues de generar el codigo se enfoca en nombre
+                TxtNombres.Focus();
+            }
+            catch (Exception l)
+            {
+                MessageBox.Show(l.ToString(), "Error al realizar la operacion");
+            }
+
         }
         // Vacia los text box
         private void BtnLimpiar_Click(object sender, EventArgs e)
         {
-            InicializarAtributos();
+            try
+            {
+                InicializarAtributos();
+            }
+            catch (Exception l)
+            {
+                MessageBox.Show(l.ToString(), "Error al realizar la operacion");
+            }
+
         }
         // Guarda los datos validados en la BD y en la tabla
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
-            //Existe una busqueda
-            if (CargarRegistroValido)
+            try
             {
-                //Limpiar posibles datos sobrantes
-                DgvProveedores.Columns.Clear();
-                DgvProveedores.Rows.Clear();
+                //Existe una busqueda
+                if (CargarRegistroValido)
+                {
+                    //Limpiar posibles datos sobrantes
+                    DgvProveedores.Columns.Clear();
+                    DgvProveedores.Rows.Clear();
+                }
+                Grabar(1);
+                CargarRegistroValido = false;
             }
-            Grabar(1);
-            CargarRegistroValido = false;
+            catch (Exception l)
+            {
+                MessageBox.Show(l.ToString(), "Error al realizar la operacion");
+            }
+
         }
+        /*
         // Actualiza el estado a "retirado"
         private void BtnCambiarEstado_Click(object sender, EventArgs e)
         {
@@ -299,82 +353,129 @@ namespace SIVEALLI
             CambiarEstado(1);
             CargarRegistroValido = false;
         }
+        */
         // Carga toda la tabla, util despues de realizar una busqueda
         private void BtnCargarTabla_Click(object sender, EventArgs e)
         {
-            //Existe una busqueda
-            if (CargarRegistroValido)
+            try
             {
-                //Limpiar posibles datos sobrantes
-                DgvProveedores.Columns.Clear();
-                DgvProveedores.Rows.Clear();
+                //Existe una busqueda
+                if (CargarRegistroValido)
+                {
+                    //Limpiar posibles datos sobrantes
+                    DgvProveedores.Columns.Clear();
+                    DgvProveedores.Rows.Clear();
+                }
+                //Volver a estado base
+                CargarRegistroValido = false;
+                //Llenar tabla
+                ListarRegistros();
+                LblNumeroProveedores.Text = LblNumeroProveedores.Text.Split(':')[0] + ": " + DgvProveedores.Rows.Count.ToString();
             }
-            //Volver a estado base
-            CargarRegistroValido = false;
-            //Llenar tabla
-            ListarRegistros();
-            LblNumeroProveedores.Text = LblNumeroProveedores.Text.Split(':')[0] + ": " + DgvProveedores.Rows.Count.ToString();
+            catch (Exception l)
+            {
+                MessageBox.Show(l.ToString(), "Error al realizar la operacion");
+            }
+
 
         }
         // Busca por atributo con mucha libertad de escritura
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
-            //Se hizo una busqueda
-            CargarRegistroValido = true;
-            //Limpiar registro
-            DgvProveedores.DataSource = null;
-            DgvProveedores.Columns.Clear();
-            DgvProveedores.Rows.Clear();
-            // Generar lista de todos los elementos
-            DataTable Lista = aEntidad.ListaGeneral();
-            string Valor = string.Empty;
-            // Varia dependiendo del atributo de busqueda marcado
-            switch (CboBuscarPor.Text)
+            try
             {
-                case "ID Proveedor":
-                    Valor = "IdProveedor";
-                    break;
-                case "Nombre":
-                    Valor = "Nombre";
-                    break;
-                case "Direccion":
-                    Valor = "Direccion";
-                    break;
-                case "Telefono":
-                    Valor = "Telefono";
-                    break;
-                case "Correo":
-                    Valor = "Correo";
-                    break;
-                case "Estado":
-                    Valor = "Estado";
-                    break;
-            }
-            //Agregar nuevas columnas de busqueda
-            DgvProveedores.Columns.Add("IdProveedor", "IdProveedor");
-            DgvProveedores.Columns.Add("Nombre", "Nombre");
-            DgvProveedores.Columns.Add("Direccion", "Direccion");
-            DgvProveedores.Columns.Add("Telefono", "Telefono");
-            DgvProveedores.Columns.Add("Correo", "Correo");
-            DgvProveedores.Columns.Add("Estado", "Estado");
-            // Buscar en la lista generada y agregar el valor al DGV
-            for (int i = 0; i < Lista.Rows.Count; i++)
-            {
-                string ValorProd = Lista.Rows[i][Valor].ToString();
-                if (BuscarPalabraEnCadena(TxtValorBusqueda.Text, ValorProd))
+                //Se hizo una busqueda
+                CargarRegistroValido = true;
+                //Limpiar registro
+                DgvProveedores.DataSource = null;
+                DgvProveedores.Columns.Clear();
+                DgvProveedores.Rows.Clear();
+                // Generar lista de todos los elementos
+                DataTable Lista = aEntidad.ListaGeneral();
+                string Valor = string.Empty;
+                // Varia dependiendo del atributo de busqueda marcado
+                switch (CboBuscarPor.Text)
                 {
-                    string IdProv = Lista.Rows[i]["IdProveedor"].ToString();
-                    string Nombre = Lista.Rows[i]["Nombre"].ToString();
-                    string Direccion = Lista.Rows[i]["Direccion"].ToString();
-                    string Telefono = Lista.Rows[i]["Telefono"].ToString();
-                    string Correo = Lista.Rows[i]["Correo"].ToString();
-                    string Estado = Lista.Rows[i]["Estado"].ToString();
-                    DgvProveedores.Rows.Add(IdProv, Nombre, Direccion, Telefono, Correo, Estado);
+                    case "ID Proveedor":
+                        Valor = "IdProveedor";
+                        break;
+                    case "Nombre":
+                        Valor = "Nombre";
+                        break;
+                    case "Direccion":
+                        Valor = "Direccion";
+                        break;
+                    case "Telefono":
+                        Valor = "Telefono";
+                        break;
+                    case "Correo":
+                        Valor = "Correo";
+                        break;
+                    case "Estado":
+                        Valor = "Estado";
+                        break;
                 }
+                //Agregar nuevas columnas de busqueda
+                DgvProveedores.Columns.Add("IdProveedor", "IdProveedor");
+                DgvProveedores.Columns.Add("Nombre", "Nombre");
+                DgvProveedores.Columns.Add("Direccion", "Direccion");
+                DgvProveedores.Columns.Add("Telefono", "Telefono");
+                DgvProveedores.Columns.Add("Correo", "Correo");
+                DgvProveedores.Columns.Add("Estado", "Estado");
+                // Buscar en la lista generada y agregar el valor al DGV
+                for (int i = 0; i < Lista.Rows.Count; i++)
+                {
+                    string ValorProd = Lista.Rows[i][Valor].ToString();
+                    if (BuscarPalabraEnCadena(TxtValorBusqueda.Text, ValorProd))
+                    {
+                        string IdProv = Lista.Rows[i]["IdProveedor"].ToString();
+                        string Nombre = Lista.Rows[i]["Nombre"].ToString();
+                        string Direccion = Lista.Rows[i]["Direccion"].ToString();
+                        string Telefono = Lista.Rows[i]["Telefono"].ToString();
+                        string Correo = Lista.Rows[i]["Correo"].ToString();
+                        string Estado = Lista.Rows[i]["Estado"].ToString();
+                        DgvProveedores.Rows.Add(IdProv, Nombre, Direccion, Telefono, Correo, Estado);
+                    }
+                }
+                //Actualizar Numero total de proveedores
+                LblNumeroProveedores.Text = LblNumeroProveedores.Text.Split(':')[0] + ": " + DgvProveedores.Rows.Count.ToString();
             }
-            //Actualizar Numero total de proveedores
-            LblNumeroProveedores.Text = LblNumeroProveedores.Text.Split(':')[0] + ": " + DgvProveedores.Rows.Count.ToString();
+            catch (Exception l)
+            {
+                MessageBox.Show(l.ToString(), "Error al realizar la operacion");
+            }
+
         }
+        // Procede a imprimir el DGV se aproya con el evento de PrdDgv
+        private void BtnImprimir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //Print preview Dialog
+                Ppd1.Document = PrdDgv;
+                Ppd1.ShowDialog();
+            }
+            catch (Exception l)
+            {
+                MessageBox.Show(l.ToString(), "Error al realizar la operacion");
+            }
+
+        }
+        // Cierra el panel
+        private void PbCerrar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Close();
+            }
+            catch (Exception l)
+            {
+                MessageBox.Show(l.ToString(), "Error al realizar la operacion");
+            }
+
+        }
+
         #endregion Botones
+
     }
 }
