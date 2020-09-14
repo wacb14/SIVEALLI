@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,11 +41,48 @@ namespace SIVEALLI
             this.BtnRestaurarLista.Click += new EventHandler(RestaurarListaUsuarios);
             this.BtnBuscar.Click += new EventHandler(BuscarPorCampo);
             this.BtnCerrar.Click += new EventHandler(CerrarVentana);
+            this.BtnImprimirLista.Click += new EventHandler(ImprimirListaSeleccionada);
+            this.PdDgvUsuarios.PrintPage += new PrintPageEventHandler(ImprimirDgv);
 
             //Validaciones
             textBoxNombres.KeyPress += new KeyPressEventHandler(Procesos.ValidarTextBoxSoloLetras);
             textBoxApellidos.KeyPress += new KeyPressEventHandler(Procesos.ValidarTextBoxSoloLetras);
             textBoxTelefono.KeyPress += new KeyPressEventHandler(Procesos.ValidarTextBoxSoloNumeros);
+        }
+
+        private void ImprimirDgv(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            try
+            {
+                // Crear el objeto
+                Bitmap objetoBitmap = new Bitmap(this.dgvUsuarios.Width, this.dgvUsuarios.Height);
+                // Colocar la lista
+                dgvUsuarios.DrawToBitmap(objetoBitmap, new Rectangle(0, 0, this.dgvUsuarios.Width, this.dgvUsuarios.Height));
+                // 100 y 50 imprima 100 abajo y 50 a la derecha
+                e.Graphics.DrawImage(objetoBitmap, 50, 100);
+                // Colocar titulo a la lista con fuente TNR 20 negro en la parte superior
+                e.Graphics.DrawString("Lista actual de Proveedores", new Font("Times new Roman", 20, FontStyle.Bold), Brushes.Black, new Point(300, 30));
+            }
+            catch (Exception l)
+            {
+                MessageBox.Show(l.ToString(), "Error al realizar la operacion");
+            }
+
+        }
+
+        private void ImprimirListaSeleccionada(object sender, EventArgs e)
+        {
+            try
+            {
+                //Print preview Dialog
+                PpdUsuarios.Document = PdDgvUsuarios;
+                PpdUsuarios.ShowDialog();
+            }
+            catch (Exception l)
+            {
+                MessageBox.Show(l.ToString(), "Error al realizar la operacion");
+            }
+
         }
 
         private void CerrarVentana(object sender, EventArgs e)

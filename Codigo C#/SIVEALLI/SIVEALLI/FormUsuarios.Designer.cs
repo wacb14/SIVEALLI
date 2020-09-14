@@ -64,6 +64,8 @@
             this.CboBuscarPor = new System.Windows.Forms.ComboBox();
             this.gbListaUsuarios = new System.Windows.Forms.GroupBox();
             this.BtnCerrar = new System.Windows.Forms.Button();
+            this.PpdUsuarios = new System.Windows.Forms.PrintPreviewDialog();
+            this.PdDgvUsuarios = new System.Drawing.Printing.PrintDocument();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             this.gbDatosUsuarios.SuspendLayout();
             this.GbBusqueda.SuspendLayout();
@@ -101,7 +103,7 @@
             this.dgvUsuarios.Name = "dgvUsuarios";
             this.dgvUsuarios.ReadOnly = true;
             this.dgvUsuarios.RowHeadersVisible = false;
-            this.dgvUsuarios.Size = new System.Drawing.Size(675, 361);
+            this.dgvUsuarios.Size = new System.Drawing.Size(675, 328);
             this.dgvUsuarios.TabIndex = 2;
             // 
             // textBoxNombres
@@ -315,7 +317,7 @@
             // BtnRestaurarLista
             // 
             this.BtnRestaurarLista.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnRestaurarLista.Location = new System.Drawing.Point(7, 395);
+            this.BtnRestaurarLista.Location = new System.Drawing.Point(6, 362);
             this.BtnRestaurarLista.Name = "BtnRestaurarLista";
             this.BtnRestaurarLista.Size = new System.Drawing.Size(170, 27);
             this.BtnRestaurarLista.TabIndex = 43;
@@ -327,7 +329,7 @@
             this.LblTotalUsuarios.AutoSize = true;
             this.LblTotalUsuarios.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.LblTotalUsuarios.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTotalUsuarios.Location = new System.Drawing.Point(409, 398);
+            this.LblTotalUsuarios.Location = new System.Drawing.Point(404, 365);
             this.LblTotalUsuarios.Name = "LblTotalUsuarios";
             this.LblTotalUsuarios.Size = new System.Drawing.Size(19, 21);
             this.LblTotalUsuarios.TabIndex = 46;
@@ -336,7 +338,7 @@
             // BtnImprimirLista
             // 
             this.BtnImprimirLista.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnImprimirLista.Location = new System.Drawing.Point(556, 395);
+            this.BtnImprimirLista.Location = new System.Drawing.Point(556, 359);
             this.BtnImprimirLista.Name = "BtnImprimirLista";
             this.BtnImprimirLista.Size = new System.Drawing.Size(127, 27);
             this.BtnImprimirLista.TabIndex = 44;
@@ -347,7 +349,7 @@
             // 
             this.Lbl11.AutoSize = true;
             this.Lbl11.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl11.Location = new System.Drawing.Point(263, 398);
+            this.Lbl11.Location = new System.Drawing.Point(258, 365);
             this.Lbl11.Name = "Lbl11";
             this.Lbl11.Size = new System.Drawing.Size(122, 19);
             this.Lbl11.TabIndex = 45;
@@ -451,6 +453,16 @@
             this.BtnCerrar.TabIndex = 63;
             this.BtnCerrar.UseVisualStyleBackColor = true;
             // 
+            // PpdUsuarios
+            // 
+            this.PpdUsuarios.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.PpdUsuarios.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.PpdUsuarios.ClientSize = new System.Drawing.Size(400, 300);
+            this.PpdUsuarios.Enabled = true;
+            this.PpdUsuarios.Icon = ((System.Drawing.Icon)(resources.GetObject("PpdUsuarios.Icon")));
+            this.PpdUsuarios.Name = "Ppd1";
+            this.PpdUsuarios.Visible = false;
+            // 
             // FormUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -514,5 +526,7 @@
         protected System.Windows.Forms.Label LblTipo;
         protected System.Windows.Forms.ComboBox CbEstado;
         protected System.Windows.Forms.ComboBox CbTipo;
+        private System.Windows.Forms.PrintPreviewDialog PpdUsuarios;
+        private System.Drawing.Printing.PrintDocument PdDgvUsuarios;
     }
 }
