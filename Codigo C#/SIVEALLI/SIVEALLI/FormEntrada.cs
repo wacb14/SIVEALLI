@@ -6,6 +6,7 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -47,11 +48,57 @@ namespace SIVEALLI
             this.dgvDetalleEntrada.CellClick += new DataGridViewCellEventHandler(EditarCantidad);
             this.BtnBuscar.Click += new EventHandler(BuscarPorCampo);
             this.DgvBusquedaEntrada.CellClick += new DataGridViewCellEventHandler(MostrarDetallesBusquedaEntrada);
+            this.BtnImprimir.Click += new EventHandler(ImprimirListaSeleccionada);
+            this.PdDgvEntrada.PrintPage += new PrintPageEventHandler(ImprimirDgv);
 
             this.CbCodigoProducto.DropDown += new EventHandler(CargarDatosProductos);
             this.comboBoxCodigoProveedor.DropDown += new EventHandler(CargarDatosProveedores);
             //this.tbCodigoEntrada.DropDown += new EventHandler(CargarCodigosEntrada);
         }
+
+        private void ImprimirDgv(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+
+            string mensaje = "Código de entrada   : " + TbCodigoEntradaH.Text + "\n";
+            mensaje = mensaje + "Código de proveedor : " + TbProveedorH.Text + "\n";
+            mensaje = mensaje + "Código de Supervisor: " + TbSupervisorH.Text + "\n";
+            mensaje = mensaje + "Código de proveedor : " + DtpFechaH.Value.Date.ToString() + "\n";
+
+
+            try
+            {
+                // Crear el objeto
+                Bitmap objetoBitmap = new Bitmap(this.DgvListaDellesH.Width, this.DgvListaDellesH.Height);
+                // Colocar la lista
+                DgvListaDellesH.DrawToBitmap(objetoBitmap, new Rectangle(0, 0, this.DgvListaDellesH.Width, this.DgvListaDellesH.Height));
+                // 100 y 50 imprima 100 abajo y 50 a la derecha
+                e.Graphics.DrawImage(objetoBitmap, 20, 320);
+                // Colocar titulo a la lista con fuente TNR 20 negro en la parte superior
+                e.Graphics.DrawString("Documento de entrada", new Font("Consolas", 18, FontStyle.Bold), Brushes.Black, new Point(100, 90));
+                e.Graphics.DrawString(mensaje, new Font("Consolas", 14, FontStyle.Bold), Brushes.Black, new Point(150, 140));
+            }
+            catch (Exception l)
+            {
+                MessageBox.Show(l.ToString(), "Error al realizar la operacion");
+            }
+
+        }
+
+        private void ImprimirListaSeleccionada(object sender, EventArgs e)
+        {
+            try
+            {
+                //Print preview Dialog
+                PpdEntrada.Document = PdDgvEntrada;
+                PpdEntrada.ShowDialog();
+            }
+            catch (Exception l)
+            {
+                MessageBox.Show(l.ToString(), "Error al realizar la operacion");
+            }
+
+        }
+
 
         private void MostrarDetallesBusquedaEntrada(object sender, DataGridViewCellEventArgs e)
         {

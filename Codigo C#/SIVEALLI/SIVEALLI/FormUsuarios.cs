@@ -61,7 +61,7 @@ namespace SIVEALLI
                 // 100 y 50 imprima 100 abajo y 50 a la derecha
                 e.Graphics.DrawImage(objetoBitmap, 50, 100);
                 // Colocar titulo a la lista con fuente TNR 20 negro en la parte superior
-                e.Graphics.DrawString("Lista actual de Proveedores", new Font("Times new Roman", 20, FontStyle.Bold), Brushes.Black, new Point(300, 30));
+                e.Graphics.DrawString("Lista de Usuarios seleccionados", new Font("Times new Roman", 20, FontStyle.Bold), Brushes.Black, new Point(300, 30));
             }
             catch (Exception l)
             {
