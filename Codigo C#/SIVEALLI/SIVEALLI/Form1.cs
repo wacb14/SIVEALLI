@@ -31,6 +31,17 @@ namespace SIVEALLI
             //MessageBox.Show(ScHorizontal.Panel2.Width.ToString() + "--" + ScHorizontal.Panel2.Height.ToString());
 
             labelUsuario.Text = codigoUsuario;
+
+            //Evento cerrar ventana
+            this.BtnCerrar.Click += new EventHandler(CerrarVentana);
+        }
+
+        private void CerrarVentana(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormLogin fu = new FormLogin();
+            fu.Closed += (s, args) => this.Close();
+            fu.Show();
         }
 
         protected virtual void AbrirFormPanel(Form Ventana)
@@ -41,7 +52,7 @@ namespace SIVEALLI
             Ventana.Dock = DockStyle.Fill;
             //--Se agrega el form al panel
             ScHorizontal.Panel2.Controls.Add(Ventana);
-            ScHorizontal.Panel2.Tag = Ventana;
+            ScHorizontal.Panel2.Tag = Ventana; 
             Ventana.Show();//--Se inicia el form
         }
         public virtual void DeshabilitarVisible()
