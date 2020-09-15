@@ -63,13 +63,14 @@
             this.BtnBuscar = new System.Windows.Forms.Button();
             this.CboBuscarPor = new System.Windows.Forms.ComboBox();
             this.gbListaUsuarios = new System.Windows.Forms.GroupBox();
-            this.BtnCerrar = new System.Windows.Forms.Button();
             this.PpdUsuarios = new System.Windows.Forms.PrintPreviewDialog();
             this.PdDgvUsuarios = new System.Drawing.Printing.PrintDocument();
+            this.PbCerrar = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             this.gbDatosUsuarios.SuspendLayout();
             this.GbBusqueda.SuspendLayout();
             this.gbListaUsuarios.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PbCerrar)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -442,19 +443,6 @@
             this.gbListaUsuarios.TabStop = false;
             this.gbListaUsuarios.Text = "Lista de usuarios";
             // 
-            // BtnCerrar
-            // 
-            this.BtnCerrar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.BtnCerrar.FlatAppearance.BorderSize = 0;
-            this.BtnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("BtnCerrar.Image")));
-            this.BtnCerrar.Location = new System.Drawing.Point(1028, 9);
-            this.BtnCerrar.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnCerrar.Name = "BtnCerrar";
-            this.BtnCerrar.Size = new System.Drawing.Size(33, 33);
-            this.BtnCerrar.TabIndex = 63;
-            this.BtnCerrar.UseVisualStyleBackColor = true;
-            // 
             // PpdUsuarios
             // 
             this.PpdUsuarios.AutoScrollMargin = new System.Drawing.Size(0, 0);
@@ -465,13 +453,25 @@
             this.PpdUsuarios.Name = "Ppd1";
             this.PpdUsuarios.Visible = false;
             // 
+            // PbCerrar
+            // 
+            this.PbCerrar.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.PbCerrar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PbCerrar.BackgroundImage")));
+            this.PbCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PbCerrar.Image = ((System.Drawing.Image)(resources.GetObject("PbCerrar.Image")));
+            this.PbCerrar.Location = new System.Drawing.Point(1052, 12);
+            this.PbCerrar.Name = "PbCerrar";
+            this.PbCerrar.Size = new System.Drawing.Size(25, 25);
+            this.PbCerrar.TabIndex = 49;
+            this.PbCerrar.TabStop = false;
+            // 
             // FormUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1070, 555);
-            this.Controls.Add(this.BtnCerrar);
+            this.Controls.Add(this.PbCerrar);
             this.Controls.Add(this.gbListaUsuarios);
             this.Controls.Add(this.GbBusqueda);
             this.Controls.Add(this.gbDatosUsuarios);
@@ -487,6 +487,7 @@
             this.GbBusqueda.PerformLayout();
             this.gbListaUsuarios.ResumeLayout(false);
             this.gbListaUsuarios.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PbCerrar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -516,7 +517,6 @@
         private System.Windows.Forms.Label Lbl9;
         private System.Windows.Forms.Button BtnBuscar;
         private System.Windows.Forms.ComboBox CboBuscarPor;
-        protected System.Windows.Forms.Button BtnCerrar;
         protected System.Windows.Forms.Button btnRestaurarContra;
         protected System.Windows.Forms.Button BtnLimpiar;
         protected System.Windows.Forms.Button BtnGuardar;
@@ -530,5 +530,6 @@
         protected System.Windows.Forms.ComboBox CbTipo;
         private System.Windows.Forms.PrintPreviewDialog PpdUsuarios;
         private System.Drawing.Printing.PrintDocument PdDgvUsuarios;
+        private System.Windows.Forms.PictureBox PbCerrar;
     }
 }

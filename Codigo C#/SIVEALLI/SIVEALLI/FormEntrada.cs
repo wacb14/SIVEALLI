@@ -32,6 +32,9 @@ namespace SIVEALLI
 
             this.codigoUsuario = usuario;
             aFecha = fecha;
+
+            //para busqueda de entradas
+            DtpFechaBusqueda.Visible = false;
         }
 
         private void EventosYValidaciones()
@@ -47,9 +50,11 @@ namespace SIVEALLI
             this.buttonLimpiar.Click += new EventHandler(LimpiarForm);
             this.dgvDetalleEntrada.CellClick += new DataGridViewCellEventHandler(EditarCantidad);
             this.BtnBuscar.Click += new EventHandler(BuscarPorCampo);
+            this.CbBuscarPor.SelectedIndexChanged += new EventHandler(CambiarControlBusqueda);
             this.DgvBusquedaEntrada.CellClick += new DataGridViewCellEventHandler(MostrarDetallesBusquedaEntrada);
             this.BtnImprimir.Click += new EventHandler(ImprimirListaSeleccionada);
             this.PdDgvEntradaH.PrintPage += new PrintPageEventHandler(ImprimirDgv);
+            this.BtnCerrar.Click += new EventHandler(CerrarVentana);
 
             this.BtnImprimirNentrada.Click += new EventHandler(ImprimirNuevaEntrada);
             this.PdNuevaEntrada.PrintPage += new PrintPageEventHandler(ImprimirNuevoDgv);
@@ -57,6 +62,34 @@ namespace SIVEALLI
             this.CbCodigoProducto.DropDown += new EventHandler(CargarDatosProductos);
             this.comboBoxCodigoProveedor.DropDown += new EventHandler(CargarDatosProveedores);
             //this.tbCodigoEntrada.DropDown += new EventHandler(CargarCodigosEntrada);
+        }
+
+        private void CerrarVentana(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void CambiarControlBusqueda(object sender, EventArgs e)
+        {
+            switch (CbBuscarPor.Text)
+            {
+                case "Id Entrada":
+                    TbValorBusqueda.Visible = true;
+                    DtpFechaBusqueda.Visible = false;
+                    break;
+                case "Id Proveedor":
+                    TbValorBusqueda.Visible = true;
+                    DtpFechaBusqueda.Visible = false;
+                    break;
+                case "Id Usuario":
+                    TbValorBusqueda.Visible = true;
+                    DtpFechaBusqueda.Visible = false;
+                    break;
+                case "Fecha":
+                    TbValorBusqueda.Visible = false;
+                    DtpFechaBusqueda.Visible = true;
+                    break;
+            }
         }
 
         private void ImprimirNuevoDgv(object sender, PrintPageEventArgs e)
@@ -220,7 +253,10 @@ namespace SIVEALLI
             for (int i = 0; i < Lista.Rows.Count; i++)
             {
                 string ValorProd = Lista.Rows[i][Valor].ToString();
-                if (Procesos.BuscarPalabraEnCadena(TbValorBusqueda.Text, ValorProd))
+                string valorBusqueda = TbValorBusqueda.Text;
+                if (Valor.Equals("Fecha"))
+                    valorBusqueda = DtpFechaBusqueda.Value.Date.ToString();
+                if (Procesos.BuscarPalabraEnCadena(valorBusqueda, ValorProd))
                 {
                     tablaMostrar.ImportRow(Lista.Rows[i]);
                 }

@@ -40,7 +40,7 @@ namespace SIVEALLI
             this.btnNuevoUsuario.Click += new EventHandler(GenerarCodigoNuevoUsuario);
             this.BtnRestaurarLista.Click += new EventHandler(RestaurarListaUsuarios);
             this.BtnBuscar.Click += new EventHandler(BuscarPorCampo);
-            this.BtnCerrar.Click += new EventHandler(CerrarVentana);
+            this.PbCerrar.Click += new EventHandler(CerrarVentana);
             this.BtnImprimirLista.Click += new EventHandler(ImprimirListaSeleccionada);
             this.PdDgvUsuarios.PrintPage += new PrintPageEventHandler(ImprimirDgv);
 

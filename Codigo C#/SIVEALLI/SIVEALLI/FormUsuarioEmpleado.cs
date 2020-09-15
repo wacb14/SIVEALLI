@@ -15,8 +15,9 @@ namespace SIVEALLI
     {
         public FormUsuarioEmpleado(string usuario) : base(usuario)
         {
-            this.gbListaUsuarios.Visible = false;
+            //this.BtnCerrar.Visible = false;
             this.GbBusqueda.Visible = false;
+            this.gbListaUsuarios.Visible = false;
 
             this.btnRestaurarContra.Visible = false;
             this.BtnLimpiar.Visible = false;
