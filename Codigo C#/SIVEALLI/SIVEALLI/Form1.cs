@@ -33,7 +33,7 @@ namespace SIVEALLI
             labelUsuario.Text = codigoUsuario;
 
             //Evento cerrar ventana
-            this.BtnCerrar.Click += new EventHandler(CerrarVentana);
+            this.BtnCerrarSesion.Click += new EventHandler(CerrarVentana);
         }
 
         private void CerrarVentana(object sender, EventArgs e)

@@ -290,9 +290,9 @@ namespace SIVEALLI
                 // Coloca a los proveedores con el formato PR al inicio
                 int cant = aEntidad.NumeroRegistros();
                 string cantCeros = "";
-                if (cant < 10)
+                if (cant < 9)
                     cantCeros = "00";
-                else if (cant < 100)
+                else if (cant < 99)
                     cantCeros = "0";
                 InicializarAtributos();
                 TxtCodigo.Text = "PR" + cantCeros + (cant + 1);

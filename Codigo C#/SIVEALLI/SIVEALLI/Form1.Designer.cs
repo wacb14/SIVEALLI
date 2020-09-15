@@ -29,7 +29,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSupervisor));
             this.ScVertical = new System.Windows.Forms.SplitContainer();
             this.btnNegocio = new System.Windows.Forms.Button();
             this.BtnVentas = new System.Windows.Forms.Button();
@@ -44,7 +43,7 @@
             this.ScHorizontal = new System.Windows.Forms.SplitContainer();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.labelUsuario = new System.Windows.Forms.Label();
-            this.BtnCerrar = new System.Windows.Forms.Button();
+            this.BtnCerrarSesion = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ScVertical)).BeginInit();
             this.ScVertical.Panel1.SuspendLayout();
             this.ScVertical.Panel2.SuspendLayout();
@@ -202,7 +201,7 @@
             // ScHorizontal.Panel1
             // 
             this.ScHorizontal.Panel1.BackColor = System.Drawing.Color.White;
-            this.ScHorizontal.Panel1.Controls.Add(this.BtnCerrar);
+            this.ScHorizontal.Panel1.Controls.Add(this.BtnCerrarSesion);
             this.ScHorizontal.Panel1.Controls.Add(this.dtpFecha);
             this.ScHorizontal.Panel1.Controls.Add(this.labelUsuario);
             // 
@@ -229,18 +228,15 @@
             this.labelUsuario.Size = new System.Drawing.Size(0, 19);
             this.labelUsuario.TabIndex = 0;
             // 
-            // BtnCerrar
+            // BtnCerrarSesion
             // 
-            this.BtnCerrar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.BtnCerrar.FlatAppearance.BorderSize = 0;
-            this.BtnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("BtnCerrar.Image")));
-            this.BtnCerrar.Location = new System.Drawing.Point(1044, 9);
-            this.BtnCerrar.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnCerrar.Name = "BtnCerrar";
-            this.BtnCerrar.Size = new System.Drawing.Size(33, 33);
-            this.BtnCerrar.TabIndex = 64;
-            this.BtnCerrar.UseVisualStyleBackColor = true;
+            this.BtnCerrarSesion.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnCerrarSesion.Location = new System.Drawing.Point(926, 12);
+            this.BtnCerrarSesion.Name = "BtnCerrarSesion";
+            this.BtnCerrarSesion.Size = new System.Drawing.Size(148, 34);
+            this.BtnCerrarSesion.TabIndex = 10;
+            this.BtnCerrarSesion.Text = "Cerrar Sesión";
+            this.BtnCerrarSesion.UseVisualStyleBackColor = true;
             // 
             // FormSupervisor
             // 
@@ -279,7 +275,7 @@
         protected System.Windows.Forms.Button BtnDevoluciones;
         protected System.Windows.Forms.Button BtnVentas;
         protected System.Windows.Forms.Button btnNegocio;
-        protected System.Windows.Forms.Button BtnCerrar;
+        protected System.Windows.Forms.Button BtnCerrarSesion;
     }
 }
 
