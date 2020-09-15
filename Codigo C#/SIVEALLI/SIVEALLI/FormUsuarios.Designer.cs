@@ -426,6 +426,7 @@
             this.CboBuscarPor.Name = "CboBuscarPor";
             this.CboBuscarPor.Size = new System.Drawing.Size(219, 27);
             this.CboBuscarPor.TabIndex = 19;
+            this.CboBuscarPor.SelectedIndex = 0;
             // 
             // gbListaUsuarios
             // 
