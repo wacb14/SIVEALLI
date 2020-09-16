@@ -29,7 +29,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.ScVertical = new System.Windows.Forms.SplitContainer();
+            this.BtnNotificaciones = new System.Windows.Forms.Button();
             this.btnNegocio = new System.Windows.Forms.Button();
             this.BtnVentas = new System.Windows.Forms.Button();
             this.BtnDevoluciones = new System.Windows.Forms.Button();
@@ -41,9 +43,10 @@
             this.BtnEntrada = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.ScHorizontal = new System.Windows.Forms.SplitContainer();
+            this.BtnCerrarSesion = new System.Windows.Forms.Button();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.labelUsuario = new System.Windows.Forms.Label();
-            this.BtnCerrarSesion = new System.Windows.Forms.Button();
+            this.timerNotificaciones = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ScVertical)).BeginInit();
             this.ScVertical.Panel1.SuspendLayout();
             this.ScVertical.Panel2.SuspendLayout();
@@ -63,6 +66,7 @@
             // ScVertical.Panel1
             // 
             this.ScVertical.Panel1.BackColor = System.Drawing.Color.White;
+            this.ScVertical.Panel1.Controls.Add(this.BtnNotificaciones);
             this.ScVertical.Panel1.Controls.Add(this.btnNegocio);
             this.ScVertical.Panel1.Controls.Add(this.BtnVentas);
             this.ScVertical.Panel1.Controls.Add(this.BtnDevoluciones);
@@ -80,6 +84,16 @@
             this.ScVertical.Size = new System.Drawing.Size(1264, 681);
             this.ScVertical.SplitterDistance = 174;
             this.ScVertical.TabIndex = 0;
+            // 
+            // BtnNotificaciones
+            // 
+            this.BtnNotificaciones.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnNotificaciones.Location = new System.Drawing.Point(12, 389);
+            this.BtnNotificaciones.Name = "BtnNotificaciones";
+            this.BtnNotificaciones.Size = new System.Drawing.Size(148, 34);
+            this.BtnNotificaciones.TabIndex = 10;
+            this.BtnNotificaciones.Text = "Notificaciones";
+            this.BtnNotificaciones.UseVisualStyleBackColor = true;
             // 
             // btnNegocio
             // 
@@ -213,6 +227,16 @@
             this.ScHorizontal.SplitterDistance = 119;
             this.ScHorizontal.TabIndex = 0;
             // 
+            // BtnCerrarSesion
+            // 
+            this.BtnCerrarSesion.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnCerrarSesion.Location = new System.Drawing.Point(926, 12);
+            this.BtnCerrarSesion.Name = "BtnCerrarSesion";
+            this.BtnCerrarSesion.Size = new System.Drawing.Size(148, 34);
+            this.BtnCerrarSesion.TabIndex = 10;
+            this.BtnCerrarSesion.Text = "Cerrar Sesión";
+            this.BtnCerrarSesion.UseVisualStyleBackColor = true;
+            // 
             // dtpFecha
             // 
             this.dtpFecha.Location = new System.Drawing.Point(462, 35);
@@ -228,15 +252,10 @@
             this.labelUsuario.Size = new System.Drawing.Size(0, 19);
             this.labelUsuario.TabIndex = 0;
             // 
-            // BtnCerrarSesion
+            // timerNotificaciones
             // 
-            this.BtnCerrarSesion.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnCerrarSesion.Location = new System.Drawing.Point(926, 12);
-            this.BtnCerrarSesion.Name = "BtnCerrarSesion";
-            this.BtnCerrarSesion.Size = new System.Drawing.Size(148, 34);
-            this.BtnCerrarSesion.TabIndex = 10;
-            this.BtnCerrarSesion.Text = "Cerrar Sesión";
-            this.BtnCerrarSesion.UseVisualStyleBackColor = true;
+            this.timerNotificaciones.Enabled = true;
+            this.timerNotificaciones.Interval = 4000;
             // 
             // FormSupervisor
             // 
@@ -276,6 +295,8 @@
         protected System.Windows.Forms.Button BtnVentas;
         protected System.Windows.Forms.Button btnNegocio;
         protected System.Windows.Forms.Button BtnCerrarSesion;
+        protected System.Windows.Forms.Button BtnNotificaciones;
+        private System.Windows.Forms.Timer timerNotificaciones;
     }
 }
 

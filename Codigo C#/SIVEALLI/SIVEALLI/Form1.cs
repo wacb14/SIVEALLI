@@ -33,10 +33,30 @@ namespace SIVEALLI
             labelUsuario.Text = codigoUsuario;
 
             //Evento cerrar ventana
-            this.BtnCerrarSesion.Click += new EventHandler(CerrarVentana);
+            this.BtnCerrarSesion.Click += new EventHandler(CerrarSesion);
+            this.timerNotificaciones.Tick += new EventHandler(ComprobarNotificaciones);
+            //this.BtnNotificaciones.Click += delegate (object sender, EventArgs e) { ComprobarNotificaciones(sender, e, nuevaNotificacion); };
         }
 
-        private void CerrarVentana(object sender, EventArgs e)
+        private void ComprobarNotificaciones(object sender, EventArgs e)
+        {
+            //se revisara si hay nuevas notificaciones
+            //aNotificaciones.ExisteNuevasNotificaciones();
+            //MessageBox.Show("hola");
+            Random rnd = new Random();
+            int month = rnd.Next(1, 5);  // creates a number between 1 and 12
+            if(month == 1)
+                this.BtnNotificaciones.BackColor = Color.Red;
+            else if (month == 2)
+                this.BtnNotificaciones.BackColor = Color.Blue;
+            else if (month == 3)
+                this.BtnNotificaciones.BackColor = Color.Yellow;
+            else if (month == 4)
+                this.BtnNotificaciones.BackColor = Color.Green;
+
+        }
+
+        private void CerrarSesion(object sender, EventArgs e)
         {
             this.Hide();
             FormLogin fu = new FormLogin();
