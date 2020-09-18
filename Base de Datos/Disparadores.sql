@@ -69,7 +69,7 @@ as
 				if @CantidadAnterior < @minimaCantidad
 				begin
 					set @mensaje = 'El producto de codigo ' + @IdProducto + ' ha alcanzado la minima cantidad de productos en almacen.'
-					insert into TNotificaciones values (@mensaje,'NO LEIDO')
+					insert into TNotificaciones values (@mensaje,SYSDATETIME(), 'NO LEIDO')
 				end;
 				--------------------------------------------------------
 
