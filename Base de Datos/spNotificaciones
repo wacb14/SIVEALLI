@@ -1,0 +1,6 @@
+create procedure MensajesNoLeidos
+as
+begin 
+	select * from TNotificaciones
+	where Estado = 'NO LEIDO'
+end;
