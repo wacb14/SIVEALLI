@@ -39,7 +39,14 @@ as
 
 		declare @CantidadAnterior int
 		select @CantidadAnterior = Cantidad from TProducto where IdProducto = @IdProducto
-		
+
+		--a√±adido-------------------------------------------------
+		declare @minimaCantidad int
+		select @minimaCantidad = Minimo from TProducto
+		where IdProducto = @IdProducto
+		declare @mensaje varchar(150)
+		 -------------------------------------------------------------
+		 
 		-- Validamos que existan suficientes productos para vender, sino se deshace las inserciones
 		if @Cantidad>@CantidadAnterior
 			ROLLBACK
@@ -51,17 +58,28 @@ as
 			begin
 				UPDATE TProducto SET Cantidad = @CantidadAnterior, Estado = 'RETIRADO'
 					where IdProducto = @IdProducto
+
 			end;
 			else
 			begin
 				UPDATE TProducto SET Cantidad = @CantidadAnterior
 					where IdProducto = @IdProducto
+
+				-----------------------------------------------a√±adido
+				if @CantidadAnterior < @minimaCantidad
+				begin
+					set @mensaje = 'El producto de codigo ' + @IdProducto + ' ha alcanzado la minima cantidad de productos en almacen.'
+					insert into TNotificaciones values (@mensaje,'NO LEIDO')
+				end;
+				--------------------------------------------------------
+
 			end;
 				
 		end;
 		
 	end;
 go
+
 
 -----------------------------------------------------------------
 create trigger triggerAgregarModificacionTNegocio on TNegocio for insert
@@ -101,8 +119,8 @@ go
 set dateformat dmy
 ---------- DATOS PRODUCTO ----------------------
 insert into TProducto values('PR000001','Portaminas Mars','Lapices y portaminas','Portaminas Mars Technico 780 HB con Clip','Staedtler',25.90,'Portaminas Mars.jpg','ACTIVO', 0, 100, 10)
-insert into TProducto values('PR000002','L·piz Grafito','Lapices y portaminas','L·piz Grafito Escolar FantasÌa','Artesco',0.90,'Lapiz_Grafito.jpg','ACTIVO', 0, 100, 10)
-insert into TProducto values('PR000003','Diccionario InglÈs - EspaÒol','Libros','Diccionario Tapa Dura Biling¸e InglÈs - EspaÒol Plus','Norma',11.90,'DiccionarioIngles.jpg','ACTIVO', 0, 100, 10)
+insert into TProducto values('PR000002','L√°piz Grafito','Lapices y portaminas','L√°piz Grafito Escolar Fantas√≠a','Artesco',0.90,'Lapiz_Grafito.jpg','ACTIVO', 0, 100, 10)
+insert into TProducto values('PR000003','Diccionario Ingl√©s - Espa√±ol','Libros','Diccionario Tapa Dura Biling√ºe Ingl√©s - Espa√±ol Plus','Norma',11.90,'DiccionarioIngles.jpg','ACTIVO', 0, 100, 10)
 insert into TProducto values('PR000004','Papel Bulky A4','Papel y sobres','Papel Bulky A4 x 500 Hojas','Gallo',12.40,'Papel Bulky A4.jpg','ACTIVO', 0, 100, 10 )
 insert into TProducto values('PR000005','Papel Bond Premium A4','Papel y sobres','Papel Bond Premium A4 80 g Paquete x 500 Hojas','Stanford',10.90,'PapelBond.jpg','ACTIVO', 0, 100, 10)
 
@@ -122,7 +140,7 @@ insert into TUsuario values('US006','Dolores','Waywa','Me la pelas','936686352',
 --------- DATOS CLIENTE ----------------------
 insert into TCliente values('CL000001','Jose','Carreta','El valle de la felicidad','936683452','Jose@15asoc.com')
 insert into TCliente values('CL000002','Marco','Sudado Pinto','Que te importa','936456352','GAaaa@15asoc.com')
-insert into TCliente values('CL000003','Pedro','Waywa','El abismo','936645652','TengoSueÒo@15asoc.com')
+insert into TCliente values('CL000003','Pedro','Waywa','El abismo','936645652','TengoSue√±o@15asoc.com')
 insert into TCliente values('CL000004','Carlos','Ascci','Quien sabe pero hay wifi wiii...','936656752','ElAbismo@15asoc.com')
 insert into TCliente values('CL000005','Martin','plin plin plon','Detras de ti prro','933456352','Lobo@15asoc.com')
 insert into TCliente values('CL000006','Juan','gwyn','A ver, no se, san algo nro algo?','936678952','Espada@15asoc.com')
@@ -153,7 +171,7 @@ insert into TDevolucion values ('DE000001','US001','VE000001','No me gusto, no h
 insert into TDevolucionDetalle values ('DE000001','PR000001',1,'NUEVO',25.90)
 insert into TDevolucionDetalle values ('DE000001','PR000003',1,'NUEVO',25.90)
 
-insert into TDevolucion values ('DE000002','US002','VE000002','No se podia ver el abismo en Èl','20/08/2020')
+insert into TDevolucion values ('DE000002','US002','VE000002','No se podia ver el abismo en √©l','20/08/2020')
 insert into TDevolucionDetalle values ('DE000002','PR000001',1,'DESGASTADO',10.90)
 --------- DATOS NEGOCIO --------------------------
 insert into TNegocio values ('LAS VERGONIAS S.A.C.','logo.png', 'Marcelo Choque Navarro','12345678910','987654321', 'ACM1PT@unsaac.edu.pe','Los vergales 123 - Wanchaq Cusco',18,2000,2,'05/09/2020')
