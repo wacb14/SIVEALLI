@@ -189,6 +189,7 @@ create table TNegocio
 (
 	IdModificacion int identity(0,1) not null,
 	Nombre varchar(25),
+	Logo varchar(MAX),
 	Duegno varchar(40),
 	RUC varchar(11),
 	Telefono varchar(11),

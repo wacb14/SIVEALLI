@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BibClases;
 using System.Text.RegularExpressions;
+using System.Drawing.Printing;
 
 namespace SIVEALLI
 {
@@ -302,7 +303,12 @@ namespace SIVEALLI
                 MessageBox.Show("Por favor registre la venta antes de continuar con la impresión del comprobante", "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             else
             {
-                MessageBox.Show("Imprimiendo....");
+                ImpNuevaVenta = new PrintDocument();
+                PrinterSettings ps = new PrinterSettings();
+                ImpNuevaVenta.PrinterSettings = ps;
+                ImpNuevaVenta.PrintPage += ImpNuevaVenta_PrintPage;
+                PrevioImpresion.Document = ImpNuevaVenta;
+                PrevioImpresion.ShowDialog();
             }
         }
         /// <summary>
@@ -488,6 +494,107 @@ namespace SIVEALLI
                 TxtValorBusqueda2.Visible = true;
                 DtpFechaBusqueda.Visible = false;
             }
+        }
+        private void DibujarFila(string[] Valores, float x, float y, PrintPageEventArgs e)
+        {
+            Font FuenteCuerpo = new Font("Arial", 9);
+            //-- Tamaño de la hoja 300x1165
+            //-- Margenes 10
+            //float Ancho = 280;
+            float Altura = 18;
+            //Texto
+            e.Graphics.DrawString(Valores[0], FuenteCuerpo, Brushes.DarkBlue, new RectangleF(x, y, 25, Altura));
+            e.Graphics.DrawString(Valores[1], FuenteCuerpo, Brushes.DarkBlue, new RectangleF(x + 25, y, 195, Altura));
+            e.Graphics.DrawString(Valores[2], FuenteCuerpo, Brushes.DarkBlue, new RectangleF(x + 220, y, 60, Altura));
+        }
+        private void ImpNuevaVenta_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            if (Negocio.ExisteClavePrimaria("1"))
+            {
+                //-- Encabezado del documento
+                Font FuenteTitulo = new Font("Arial", 16, FontStyle.Bold);
+                Font FuenteSubTitulo = new Font("Arial", 12, FontStyle.Bold);
+                Font FuenteCuerpo = new Font("Arial", 11, FontStyle.Bold);
+                e.Graphics.DrawString("LIBRERIA", FuenteSubTitulo, Brushes.DarkBlue, new RectangleF(100, 10, 805, 25));
+                e.Graphics.DrawString(Negocio.ValorAtributo("Nombre"), FuenteTitulo, Brushes.DarkBlue, new RectangleF(30, 35, 805, 35));
+                e.Graphics.DrawString("-----------", FuenteSubTitulo, Brushes.DarkBlue, new RectangleF(100, 70, 805, 25));
+                string[] Direc = Negocio.ValorAtributo("Direccion").Split('-');
+                e.Graphics.DrawString(Direc[0] + "\n" + Direc[1], FuenteCuerpo, Brushes.DarkBlue, new RectangleF(80, 95, 805, 45));
+                e.Graphics.DrawString("R.U.C. N°" + Negocio.ValorAtributo("RUC") + "\nN° de serie 6802328", FuenteSubTitulo, Brushes.DarkBlue, new RectangleF(50, 140, 805, 50));
+                e.Graphics.DrawString("5411077", FuenteSubTitulo, Brushes.DarkBlue, new RectangleF(170, 190, 150, 20));
+                e.Graphics.DrawString(DateTime.Now.ToString("dd-MM-yyyy"), FuenteSubTitulo, Brushes.DarkBlue, new RectangleF(30, 210, 140, 20));
+                e.Graphics.DrawString(DateTime.Now.ToString("hh:mm") + " Hrs", FuenteSubTitulo, Brushes.DarkBlue, new RectangleF(170, 210, 140, 20));
+
+                //-- Cuerpo del documento (lista de detalles)
+                for (int i = 0; i < DgvVentaDetalle.Rows.Count; i++)
+                {
+                    string Cantidad = DgvVentaDetalle.Rows[i].Cells["colCantidad"].Value.ToString();
+                    string Nombre = DgvVentaDetalle.Rows[i].Cells["colNombre"].Value.ToString();
+                    string Subtotal = DgvVentaDetalle.Rows[i].Cells["colSubtotal"].Value.ToString();
+                    DibujarFila(new string[] { Cantidad, Nombre, Subtotal }, 10, 230 + ((i + 1) * 18), e);
+                }
+                float UltLinea = 230 + ((DgvVentaDetalle.Rows.Count) * 18);
+                e.Graphics.DrawLine(Pens.DarkBlue, 10, UltLinea + 18, 290, UltLinea + 18);
+                DibujarFila(new string[] { "*", "Subtotal", LblSubtotal.Text }, 10, UltLinea + 18, e);
+                DibujarFila(new string[] { "*", "Descuento", LblDescuento.Text }, 10, UltLinea + 36, e);
+                DibujarFila(new string[] { "*", "Impuesto", LblImpuesto.Text }, 10, UltLinea + 54, e);
+                DibujarFila(new string[] { "+", "Total", LblTotal.Text }, 10, UltLinea + 72, e);
+            }
+        }
+
+        private void ImpHistorialVenta_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            if (Negocio.ExisteClavePrimaria("1"))
+            {
+                //-- Encabezado del documento
+                Font FuenteTitulo = new Font("Arial", 16, FontStyle.Bold);
+                Font FuenteSubTitulo = new Font("Arial", 12, FontStyle.Bold);
+                Font FuenteCuerpo = new Font("Arial", 11, FontStyle.Bold);
+                e.Graphics.DrawString("LIBRERIA", FuenteSubTitulo, Brushes.DarkBlue, new RectangleF(100, 10, 805, 25));
+                e.Graphics.DrawString(Negocio.ValorAtributo("Nombre"), FuenteTitulo, Brushes.DarkBlue, new RectangleF(30, 35, 805, 35));
+                e.Graphics.DrawString("REIMPRESION", FuenteSubTitulo, Brushes.DarkBlue, new RectangleF(100, 70, 805, 25));
+                string[] Direc = Negocio.ValorAtributo("Direccion").Split('-');
+                e.Graphics.DrawString(Direc[0]+"\n"+Direc[1], FuenteCuerpo, Brushes.DarkBlue, new RectangleF(80, 95, 805, 45));
+                e.Graphics.DrawString("R.U.C. N°"+Negocio.ValorAtributo("RUC") +"\nN° de serie 6802328", FuenteSubTitulo, Brushes.DarkBlue, new RectangleF(50, 140, 805, 50));
+                e.Graphics.DrawString("5411077", FuenteSubTitulo, Brushes.DarkBlue, new RectangleF(170, 190, 150, 20));
+                e.Graphics.DrawString(DateTime.Now.ToString("dd-MM-yyyy"), FuenteSubTitulo, Brushes.DarkBlue, new RectangleF(30, 210, 140, 20));
+                e.Graphics.DrawString(DateTime.Now.ToString("hh:mm")+" Hrs", FuenteSubTitulo, Brushes.DarkBlue, new RectangleF(170, 210, 140, 20));
+
+                //-- Cuerpo del documento (lista de detalles)
+                for (int i = 0; i < DgvDetallesVenta2.Rows.Count; i++)
+                {
+                    string Cantidad = DgvDetallesVenta2.Rows[i].Cells["Cantidad"].Value.ToString();
+                    string Nombre = DgvDetallesVenta2.Rows[i].Cells["Nombre"].Value.ToString();
+                    string Subtotal = DgvDetallesVenta2.Rows[i].Cells["Subtotal"].Value.ToString();
+                    DibujarFila(new string[] { Cantidad, Nombre, Subtotal }, 10, 230 + ((i + 1) * 18), e);
+                }
+                float UltLinea = 230 + ((DgvDetallesVenta2.Rows.Count) * 18);
+                e.Graphics.DrawLine(Pens.DarkBlue, 10, UltLinea + 18, 290, UltLinea + 18);
+                DibujarFila(new string[] { "*", "Subtotal", LblSubtotal2.Text }, 10, UltLinea + 18, e);
+                DibujarFila(new string[] { "*", "Descuento", LblDescuento2.Text }, 10, UltLinea + 36, e);
+                DibujarFila(new string[] { "*", "Impuesto", LblImpuesto2.Text}, 10, UltLinea + 54, e);
+                DibujarFila(new string[] { "+", "Total", LblTotal2.Text }, 10, UltLinea + 72, e);
+            }
+        }
+
+        private void BtnImprimirComprobante2_Click(object sender, EventArgs e)
+        {
+            if (DgvDetallesVenta2.Rows.Count == 0) // Validamos si ya existe una venta registrada con el mismo codigo
+                MessageBox.Show("Cargue los detalles de la venta que desea imprimir.\n(Haga click en uno de los registros del historial) ", "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            else
+            {
+                ImpHistorialVenta = new PrintDocument();
+                PrinterSettings ps = new PrinterSettings();
+                ImpHistorialVenta.PrinterSettings = ps;
+                ImpHistorialVenta.PrintPage += ImpHistorialVenta_PrintPage;
+                PrevioImpresion.Document = ImpHistorialVenta;
+                PrevioImpresion.ShowDialog();
+            }
+        }
+
+        private void PbCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

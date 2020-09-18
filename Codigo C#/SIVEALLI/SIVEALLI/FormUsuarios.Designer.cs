@@ -54,7 +54,7 @@
             this.gbDatosUsuarios = new System.Windows.Forms.GroupBox();
             this.BtnRestaurarLista = new System.Windows.Forms.Button();
             this.LblTotalUsuarios = new System.Windows.Forms.Label();
-            this.BtnImprimirLista = new System.Windows.Forms.Button();
+            this.BtnImprimir = new System.Windows.Forms.Button();
             this.Lbl11 = new System.Windows.Forms.Label();
             this.GbBusqueda = new System.Windows.Forms.GroupBox();
             this.TbValorBusqueda = new System.Windows.Forms.TextBox();
@@ -63,9 +63,9 @@
             this.BtnBuscar = new System.Windows.Forms.Button();
             this.CboBuscarPor = new System.Windows.Forms.ComboBox();
             this.gbListaUsuarios = new System.Windows.Forms.GroupBox();
-            this.PpdUsuarios = new System.Windows.Forms.PrintPreviewDialog();
-            this.PdDgvUsuarios = new System.Drawing.Printing.PrintDocument();
             this.PbCerrar = new System.Windows.Forms.PictureBox();
+            this.PrevioImpresion = new System.Windows.Forms.PrintPreviewDialog();
+            this.ImpresoraUsuarios = new System.Drawing.Printing.PrintDocument();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             this.gbDatosUsuarios.SuspendLayout();
             this.GbBusqueda.SuspendLayout();
@@ -337,15 +337,16 @@
             this.LblTotalUsuarios.TabIndex = 46;
             this.LblTotalUsuarios.Text = "0";
             // 
-            // BtnImprimirLista
+            // BtnImprimir
             // 
-            this.BtnImprimirLista.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnImprimirLista.Location = new System.Drawing.Point(556, 359);
-            this.BtnImprimirLista.Name = "BtnImprimirLista";
-            this.BtnImprimirLista.Size = new System.Drawing.Size(127, 27);
-            this.BtnImprimirLista.TabIndex = 44;
-            this.BtnImprimirLista.Text = "Imprimir Lista";
-            this.BtnImprimirLista.UseVisualStyleBackColor = true;
+            this.BtnImprimir.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnImprimir.Location = new System.Drawing.Point(556, 359);
+            this.BtnImprimir.Name = "BtnImprimir";
+            this.BtnImprimir.Size = new System.Drawing.Size(127, 27);
+            this.BtnImprimir.TabIndex = 44;
+            this.BtnImprimir.Text = "Imprimir Lista";
+            this.BtnImprimir.UseVisualStyleBackColor = true;
+            this.BtnImprimir.Click += new System.EventHandler(this.BtnImprimir_Click);
             // 
             // Lbl11
             // 
@@ -427,13 +428,12 @@
             this.CboBuscarPor.Name = "CboBuscarPor";
             this.CboBuscarPor.Size = new System.Drawing.Size(219, 27);
             this.CboBuscarPor.TabIndex = 19;
-            this.CboBuscarPor.SelectedIndex = 0;
             // 
             // gbListaUsuarios
             // 
             this.gbListaUsuarios.Controls.Add(this.dgvUsuarios);
             this.gbListaUsuarios.Controls.Add(this.BtnRestaurarLista);
-            this.gbListaUsuarios.Controls.Add(this.BtnImprimirLista);
+            this.gbListaUsuarios.Controls.Add(this.BtnImprimir);
             this.gbListaUsuarios.Controls.Add(this.LblTotalUsuarios);
             this.gbListaUsuarios.Controls.Add(this.Lbl11);
             this.gbListaUsuarios.Location = new System.Drawing.Point(369, 45);
@@ -442,16 +442,6 @@
             this.gbListaUsuarios.TabIndex = 48;
             this.gbListaUsuarios.TabStop = false;
             this.gbListaUsuarios.Text = "Lista de usuarios";
-            // 
-            // PpdUsuarios
-            // 
-            this.PpdUsuarios.AutoScrollMargin = new System.Drawing.Size(0, 0);
-            this.PpdUsuarios.AutoScrollMinSize = new System.Drawing.Size(0, 0);
-            this.PpdUsuarios.ClientSize = new System.Drawing.Size(400, 300);
-            this.PpdUsuarios.Enabled = true;
-            this.PpdUsuarios.Icon = ((System.Drawing.Icon)(resources.GetObject("PpdUsuarios.Icon")));
-            this.PpdUsuarios.Name = "Ppd1";
-            this.PpdUsuarios.Visible = false;
             // 
             // PbCerrar
             // 
@@ -464,6 +454,20 @@
             this.PbCerrar.Size = new System.Drawing.Size(25, 25);
             this.PbCerrar.TabIndex = 49;
             this.PbCerrar.TabStop = false;
+            // 
+            // PrevioImpresion
+            // 
+            this.PrevioImpresion.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.PrevioImpresion.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.PrevioImpresion.ClientSize = new System.Drawing.Size(400, 300);
+            this.PrevioImpresion.Enabled = true;
+            this.PrevioImpresion.Icon = ((System.Drawing.Icon)(resources.GetObject("PrevioImpresion.Icon")));
+            this.PrevioImpresion.Name = "PrevioImpresion";
+            this.PrevioImpresion.Visible = false;
+            // 
+            // ImpresoraUsuarios
+            // 
+            this.ImpresoraUsuarios.DocumentName = "Productos";
             // 
             // FormUsuarios
             // 
@@ -510,7 +514,7 @@
         private System.Windows.Forms.Button btnCambioContra;
         private System.Windows.Forms.Button BtnRestaurarLista;
         private System.Windows.Forms.Label LblTotalUsuarios;
-        private System.Windows.Forms.Button BtnImprimirLista;
+        private System.Windows.Forms.Button BtnImprimir;
         private System.Windows.Forms.Label Lbl11;
         private System.Windows.Forms.TextBox TbValorBusqueda;
         private System.Windows.Forms.Label Lbl10;
@@ -528,8 +532,8 @@
         protected System.Windows.Forms.Label LblTipo;
         protected System.Windows.Forms.ComboBox CbEstado;
         protected System.Windows.Forms.ComboBox CbTipo;
-        private System.Windows.Forms.PrintPreviewDialog PpdUsuarios;
-        private System.Drawing.Printing.PrintDocument PdDgvUsuarios;
         private System.Windows.Forms.PictureBox PbCerrar;
+        private System.Windows.Forms.PrintPreviewDialog PrevioImpresion;
+        private System.Drawing.Printing.PrintDocument ImpresoraUsuarios;
     }
 }

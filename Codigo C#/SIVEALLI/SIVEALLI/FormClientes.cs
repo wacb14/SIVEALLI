@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BibClases;
 using System.Text.RegularExpressions;
-
+using System.Drawing.Printing;
 namespace SIVEALLI
 {
     public partial class FormClientes : Form
@@ -21,6 +21,7 @@ namespace SIVEALLI
             InitializeComponent();
             CargarListaClientes();
             CbNuevoPed.Checked = true;
+            CbBuscar.SelectedIndex = 0;
         }
         //--Cargar el el id del pedido automaticamente
         public void CargarIdCliente()
@@ -224,6 +225,86 @@ namespace SIVEALLI
             //--Sila tecla no es digito o borrar, no se escribe
             if (!(char.IsDigit(e.KeyChar)) && !(key == Keys.Back))
                 e.Handled = true;
+        }
+        private void DibujarEncabezado(string[] Cabeceras, float x, float y, PrintPageEventArgs e)
+        {
+            Font FuenteCuerpo = new Font("Arial", 11);
+            //-- Tamaño de la hoja 825x1165
+            //-- Margenes 50
+            float Ancho = 725;
+            float Altura = 20;
+            x = 50;  // Coordenada x del punto superior izquierdo de la tabla
+            y = 200; // Coordenada y del punto superior izquierdo de la tabla
+
+            //Lineas Horizontales
+            e.Graphics.DrawLine(Pens.DarkGreen, x, y, x + Ancho, y);
+            e.Graphics.DrawLine(Pens.DarkGreen, x, y + Altura, x + Ancho, y + Altura);
+            //Lineas Verticales
+            e.Graphics.DrawLine(Pens.DarkGreen, x, y, x, y + Altura);
+            e.Graphics.DrawLine(Pens.DarkGreen, x + Ancho, y, x + Ancho, y + Altura);
+            //Texto
+            float LongCasillero = Ancho / Cabeceras.Length;
+            for (int i = 0; i < Cabeceras.Length; i++)
+                e.Graphics.DrawString(Cabeceras[i], FuenteCuerpo, Brushes.DarkGreen, new RectangleF(x + (i * LongCasillero), y, LongCasillero, Altura));
+            //Lineas intermedias
+            for (int i = 1; i < Cabeceras.Length; i++)
+            {
+                float dist = i * LongCasillero;
+                e.Graphics.DrawLine(Pens.DarkGreen, x + dist, y, x + dist, y + Altura);
+            }
+        }
+        private void DibujarFila(string[] Valores, float x, float y, PrintPageEventArgs e)
+        {
+            Font FuenteCuerpo = new Font("Arial", 11);
+            //-- Tamaño de la hoja 825x1165
+            //-- Margenes 50
+            float Ancho = 725;
+            float Altura = 20;
+            //Linea Horizontal
+            e.Graphics.DrawLine(Pens.DarkGreen, x, y + Altura, x + Ancho, y + Altura);
+            //Lineas Verticales
+            e.Graphics.DrawLine(Pens.DarkGreen, x, y, x, y + Altura);
+            e.Graphics.DrawLine(Pens.DarkGreen, x + Ancho, y, x + Ancho, y + Altura);
+            //Texto
+            float LongCasillero = Ancho / Valores.Length;
+            for (int i = 0; i < Valores.Length; i++)
+                e.Graphics.DrawString(Valores[i], FuenteCuerpo, Brushes.Black, new RectangleF(x + (i * LongCasillero), y, LongCasillero, Altura));
+            //Lineas intermedias
+            for (int i = 1; i < Valores.Length; i++)
+            {
+                float dist = i * LongCasillero;
+                e.Graphics.DrawLine(Pens.DarkGreen, x + dist, y, x + dist, y + Altura);
+            }
+        }
+        private void BtnImprimir_Click(object sender, EventArgs e)
+        {
+            ImpresoraClientes = new PrintDocument();
+            PrinterSettings ps = new PrinterSettings();
+            ImpresoraClientes.PrinterSettings = ps;
+            ImpresoraClientes.PrintPage += ImpresoraClientes_PrintPage;
+            PrevioImpresion.Document = ImpresoraClientes;
+            PrevioImpresion.ShowDialog();
+        }
+        private void ImpresoraClientes_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            //-- Encabezado del documento
+            Font FuenteTitulo = new Font("Arial", 25, FontStyle.Bold);
+            Image Logo = Image.FromFile("..\\logo.png");
+            e.Graphics.DrawImage(Logo, new Rectangle(150, 50, 125, 125));
+            e.Graphics.DrawString("LISTA DE CLIENTES", FuenteTitulo, Brushes.DarkGreen, new RectangleF(290, 100, 500, 50));
+
+            //-- Cuerpo del documento (tabla de productos)
+            //-- Encabezado
+            DibujarEncabezado(new string[] { "Nombres", "Apellidos", "Direccion", "Telefono", "Correo" }, 50, 200, e);
+            for (int i = 0; i < DgvClientes.Rows.Count; i++)
+            {
+                string Nombres = DgvClientes.Rows[i].Cells["Nombres"].Value.ToString();
+                string Apellidos = DgvClientes.Rows[i].Cells["Apellidos"].Value.ToString();
+                string Direccion = DgvClientes.Rows[i].Cells["Direccion"].Value.ToString();
+                string Telefono = DgvClientes.Rows[i].Cells["Telefono"].Value.ToString();
+                string Correo = DgvClientes.Rows[i].Cells["Correo"].Value.ToString();
+                DibujarFila(new string[] { Nombres, Apellidos, Direccion, Telefono, Correo }, 50, 200 + ((i + 1) * 20), e);
+            }
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormVentas));
             this.TbcVentas = new System.Windows.Forms.TabControl();
             this.TbpVentaNueva = new System.Windows.Forms.TabPage();
             this.GbRegistrarVenta = new System.Windows.Forms.GroupBox();
@@ -93,6 +94,10 @@
             this.CboBuscarPor2 = new System.Windows.Forms.ComboBox();
             this.TxtValorBusqueda2 = new System.Windows.Forms.TextBox();
             this.DtpFechaBusqueda = new System.Windows.Forms.DateTimePicker();
+            this.PrevioImpresion = new System.Windows.Forms.PrintPreviewDialog();
+            this.ImpNuevaVenta = new System.Drawing.Printing.PrintDocument();
+            this.ImpHistorialVenta = new System.Drawing.Printing.PrintDocument();
+            this.PbCerrar = new System.Windows.Forms.PictureBox();
             this.TbcVentas.SuspendLayout();
             this.TbpVentaNueva.SuspendLayout();
             this.GbRegistrarVenta.SuspendLayout();
@@ -105,6 +110,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.DgvDetallesVenta2)).BeginInit();
             this.GbListaVentas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaVentas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbCerrar)).BeginInit();
             this.SuspendLayout();
             // 
             // TbcVentas
@@ -272,6 +278,7 @@
             // 
             // GbDatosVenta
             // 
+            this.GbDatosVenta.Controls.Add(this.PbCerrar);
             this.GbDatosVenta.Controls.Add(this.TxtValorBusqueda);
             this.GbDatosVenta.Controls.Add(this.Lbl10);
             this.GbDatosVenta.Controls.Add(this.Lbl9);
@@ -448,9 +455,9 @@
             this.Lbl2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl2.Location = new System.Drawing.Point(18, 76);
             this.Lbl2.Name = "Lbl2";
-            this.Lbl2.Size = new System.Drawing.Size(68, 19);
+            this.Lbl2.Size = new System.Drawing.Size(203, 19);
             this.Lbl2.TabIndex = 6;
-            this.Lbl2.Text = "Id Cliente";
+            this.Lbl2.Text = "Nombre del Cliente o Id Cliente";
             // 
             // TxtIdVenta
             // 
@@ -698,6 +705,7 @@
             this.BtnImprimirComprobante2.TabIndex = 28;
             this.BtnImprimirComprobante2.Text = "Imprimir Comprobante";
             this.BtnImprimirComprobante2.UseVisualStyleBackColor = true;
+            this.BtnImprimirComprobante2.Click += new System.EventHandler(this.BtnImprimirComprobante2_Click);
             // 
             // GbListaVentas
             // 
@@ -794,6 +802,38 @@
             this.DtpFechaBusqueda.TabIndex = 3;
             this.DtpFechaBusqueda.Visible = false;
             // 
+            // PrevioImpresion
+            // 
+            this.PrevioImpresion.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.PrevioImpresion.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.PrevioImpresion.ClientSize = new System.Drawing.Size(400, 300);
+            this.PrevioImpresion.Enabled = true;
+            this.PrevioImpresion.Icon = ((System.Drawing.Icon)(resources.GetObject("PrevioImpresion.Icon")));
+            this.PrevioImpresion.Name = "PrevioImpresion";
+            this.PrevioImpresion.Visible = false;
+            // 
+            // ImpNuevaVenta
+            // 
+            this.ImpNuevaVenta.DocumentName = "Productos";
+            this.ImpNuevaVenta.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.ImpNuevaVenta_PrintPage);
+            // 
+            // ImpHistorialVenta
+            // 
+            this.ImpHistorialVenta.DocumentName = "Productos";
+            this.ImpHistorialVenta.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.ImpHistorialVenta_PrintPage);
+            // 
+            // PbCerrar
+            // 
+            this.PbCerrar.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.PbCerrar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PbCerrar.BackgroundImage")));
+            this.PbCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PbCerrar.Location = new System.Drawing.Point(1031, 2);
+            this.PbCerrar.Name = "PbCerrar";
+            this.PbCerrar.Size = new System.Drawing.Size(25, 25);
+            this.PbCerrar.TabIndex = 27;
+            this.PbCerrar.TabStop = false;
+            this.PbCerrar.Click += new System.EventHandler(this.PbCerrar_Click);
+            // 
             // FormVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -818,6 +858,7 @@
             this.GbListaVentas.ResumeLayout(false);
             this.GbListaVentas.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaVentas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbCerrar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -889,5 +930,9 @@
         private System.Windows.Forms.Label LblImpuesto2;
         private System.Windows.Forms.Label Lbl16;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.PrintPreviewDialog PrevioImpresion;
+        private System.Drawing.Printing.PrintDocument ImpNuevaVenta;
+        private System.Drawing.Printing.PrintDocument ImpHistorialVenta;
+        private System.Windows.Forms.PictureBox PbCerrar;
     }
 }

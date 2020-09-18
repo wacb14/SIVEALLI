@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BibClases;
 using System.IO;
+using System.Drawing.Printing;
 
 namespace SIVEALLI
 {
@@ -425,6 +426,93 @@ namespace SIVEALLI
         private void TxtPrecioUnitario_KeyPress(object sender, KeyPressEventArgs e)
         {
             ValidarCadenaReales(sender, e);
+        }
+        private void BtnImprimirLista_Click(object sender, EventArgs e)
+        {
+            ImpresoraProductos = new PrintDocument();
+            PrinterSettings ps = new PrinterSettings();
+            ImpresoraProductos.PrinterSettings = ps;
+            ImpresoraProductos.PrintPage += ImpresoraProductos_PrintPage;
+            PrevioImpresion.Document = ImpresoraProductos;
+            PrevioImpresion.ShowDialog();
+        }
+        private void DibujarEncabezado(string[] Cabeceras, float x, float y, PrintPageEventArgs e)
+        {
+            Font FuenteCuerpo = new Font("Arial", 11);
+            //-- Tamaño de la hoja 825x1165
+            //-- Margenes 50
+            float Ancho = 725;
+            float Altura = 20;
+            x = 50;  // Coordenada x del punto superior izquierdo de la tabla
+            y = 200; // Coordenada y del punto superior izquierdo de la tabla
+
+            //Lineas Horizontales
+            e.Graphics.DrawLine(Pens.DarkGreen, x, y, x + Ancho, y);
+            e.Graphics.DrawLine(Pens.DarkGreen, x, y + Altura, x + Ancho, y + Altura);
+            //Lineas Verticales
+            e.Graphics.DrawLine(Pens.DarkGreen, x, y, x, y + Altura);
+            e.Graphics.DrawLine(Pens.DarkGreen, x + Ancho, y, x + Ancho, y + Altura);
+            //Texto
+            float LongCasillero = Ancho / Cabeceras.Length;
+            for (int i = 0; i < Cabeceras.Length; i++)
+                e.Graphics.DrawString(Cabeceras[i], FuenteCuerpo, Brushes.DarkGreen, new RectangleF(x + (i * LongCasillero), y, LongCasillero, Altura));
+            //Lineas intermedias
+            for (int i = 1; i < Cabeceras.Length; i++)
+            {
+                float dist = i * LongCasillero;
+                e.Graphics.DrawLine(Pens.DarkGreen, x + dist, y, x + dist, y + Altura);
+            }
+        }
+        private void DibujarFila(string[] Valores, float x, float y, PrintPageEventArgs e)
+        {
+            Font FuenteCuerpo = new Font("Arial", 11);
+            //-- Tamaño de la hoja 825x1165
+            //-- Margenes 50
+            float Ancho = 725;
+            float Altura = 20;
+            //Linea Horizontal
+            e.Graphics.DrawLine(Pens.DarkGreen, x, y + Altura, x + Ancho, y + Altura);
+            //Lineas Verticales
+            e.Graphics.DrawLine(Pens.DarkGreen, x, y, x, y + Altura);
+            e.Graphics.DrawLine(Pens.DarkGreen, x + Ancho, y, x + Ancho, y + Altura);
+            //Texto
+            float LongCasillero = Ancho / Valores.Length;
+            for (int i = 0; i < Valores.Length; i++)
+                e.Graphics.DrawString(Valores[i], FuenteCuerpo, Brushes.Black, new RectangleF(x + (i * LongCasillero), y, LongCasillero, Altura));
+            //Lineas intermedias
+            for (int i = 1; i < Valores.Length; i++)
+            {
+                float dist = i * LongCasillero;
+                e.Graphics.DrawLine(Pens.DarkGreen, x + dist, y, x + dist, y + Altura);
+            }
+        }
+        private void ImpresoraProductos_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            //-- Encabezado del documento
+            Font FuenteTitulo = new Font("Arial", 25, FontStyle.Bold);
+            Image Logo = Image.FromFile("..\\logo.png");
+            e.Graphics.DrawImage(Logo, new Rectangle(150, 50, 125, 125));
+            e.Graphics.DrawString("LISTA DE PRODUCTOS", FuenteTitulo, Brushes.DarkGreen, new RectangleF(290, 100, 500, 50));
+
+            //-- Cuerpo del documento (tabla de productos)
+            //-- Encabezado
+            DibujarEncabezado(new string[] { "IdProducto", "Nombre", "Categoria", "Marca", "Precio Unit.", "Estado", "Cantidad" }, 50, 200, e);
+            for (int i = 0; i < DgvProductos.Rows.Count; i++)
+            {
+                string IdProd = DgvProductos.Rows[i].Cells["IdProducto"].Value.ToString();
+                string Nombre = DgvProductos.Rows[i].Cells["Nombre"].Value.ToString();
+                string Categoria = DgvProductos.Rows[i].Cells["Categoria"].Value.ToString();
+                string Marca = DgvProductos.Rows[i].Cells["Marca"].Value.ToString();
+                string PrecioUnitario = DgvProductos.Rows[i].Cells["PrecioUnitario"].Value.ToString();
+                string Estado = DgvProductos.Rows[i].Cells["Estado"].Value.ToString();
+                string Cantidad = DgvProductos.Rows[i].Cells["Cantidad"].Value.ToString();
+                DibujarFila(new string[] { IdProd, Nombre, Categoria, Marca, PrecioUnitario, Estado, Cantidad }, 50, 200 + ((i+1) * 20), e);
+            }
+        }
+
+        private void PbCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

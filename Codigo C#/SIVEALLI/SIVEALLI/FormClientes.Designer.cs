@@ -44,8 +44,11 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.TbNombres = new System.Windows.Forms.TextBox();
-            this.button5 = new System.Windows.Forms.Button();
+            this.Btn_Imprimir = new System.Windows.Forms.Button();
             this.GbClientes = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.PbCerrar = new System.Windows.Forms.PictureBox();
+            this.LblCant = new System.Windows.Forms.Label();
             this.BtnMostrarTodo = new System.Windows.Forms.Button();
             this.BtnBuscar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -55,14 +58,13 @@
             this.BtnNuevo = new System.Windows.Forms.Button();
             this.CbNuevoPed = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.PbCerrar = new System.Windows.Forms.PictureBox();
             this.GbBusqueda = new System.Windows.Forms.GroupBox();
-            this.LblCant = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.PrevioImpresion = new System.Windows.Forms.PrintPreviewDialog();
+            this.ImpresoraClientes = new System.Drawing.Printing.PrintDocument();
             ((System.ComponentModel.ISupportInitialize)(this.DgvClientes)).BeginInit();
             this.GbClientes.SuspendLayout();
-            this.GbCliente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbCerrar)).BeginInit();
+            this.GbCliente.SuspendLayout();
             this.GbBusqueda.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,7 +82,6 @@
             this.CbBuscar.Name = "CbBuscar";
             this.CbBuscar.Size = new System.Drawing.Size(141, 27);
             this.CbBuscar.TabIndex = 19;
-            this.CbBuscar.Text = "ID Cliente";
             // 
             // BtnGuardar
             // 
@@ -210,22 +211,24 @@
             this.TbNombres.Size = new System.Drawing.Size(254, 26);
             this.TbNombres.TabIndex = 3;
             // 
-            // button5
+            // Btn_Imprimir
             // 
-            this.button5.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(517, 400);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(137, 29);
-            this.button5.TabIndex = 20;
-            this.button5.Text = "Imprimir registros";
-            this.button5.UseVisualStyleBackColor = true;
+            this.Btn_Imprimir.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Imprimir.Location = new System.Drawing.Point(517, 400);
+            this.Btn_Imprimir.Name = "Btn_Imprimir";
+            this.Btn_Imprimir.Size = new System.Drawing.Size(137, 29);
+            this.Btn_Imprimir.TabIndex = 20;
+            this.Btn_Imprimir.Text = "Imprimir Lista";
+            this.Btn_Imprimir.UseVisualStyleBackColor = true;
+            this.Btn_Imprimir.Click += new System.EventHandler(this.BtnImprimir_Click);
             // 
             // GbClientes
             // 
             this.GbClientes.Controls.Add(this.label8);
+            this.GbClientes.Controls.Add(this.PbCerrar);
             this.GbClientes.Controls.Add(this.LblCant);
             this.GbClientes.Controls.Add(this.BtnMostrarTodo);
-            this.GbClientes.Controls.Add(this.button5);
+            this.GbClientes.Controls.Add(this.Btn_Imprimir);
             this.GbClientes.Controls.Add(this.DgvClientes);
             this.GbClientes.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GbClientes.Location = new System.Drawing.Point(398, 12);
@@ -234,6 +237,39 @@
             this.GbClientes.TabIndex = 5;
             this.GbClientes.TabStop = false;
             this.GbClientes.Text = "Lista de clientes";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(233, 404);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(133, 19);
+            this.label8.TabIndex = 23;
+            this.label8.Text = "Numero de clientes: ";
+            // 
+            // PbCerrar
+            // 
+            this.PbCerrar.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.PbCerrar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PbCerrar.BackgroundImage")));
+            this.PbCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PbCerrar.Location = new System.Drawing.Point(633, 0);
+            this.PbCerrar.Name = "PbCerrar";
+            this.PbCerrar.Size = new System.Drawing.Size(25, 25);
+            this.PbCerrar.TabIndex = 7;
+            this.PbCerrar.TabStop = false;
+            this.PbCerrar.Click += new System.EventHandler(this.PbCerrar_Click);
+            // 
+            // LblCant
+            // 
+            this.LblCant.AutoSize = true;
+            this.LblCant.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LblCant.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblCant.Location = new System.Drawing.Point(372, 404);
+            this.LblCant.Name = "LblCant";
+            this.LblCant.Size = new System.Drawing.Size(19, 21);
+            this.LblCant.TabIndex = 22;
+            this.LblCant.Text = "0";
             // 
             // BtnMostrarTodo
             // 
@@ -344,18 +380,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Id cliente";
             // 
-            // PbCerrar
-            // 
-            this.PbCerrar.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.PbCerrar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PbCerrar.BackgroundImage")));
-            this.PbCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PbCerrar.Location = new System.Drawing.Point(1060, 3);
-            this.PbCerrar.Name = "PbCerrar";
-            this.PbCerrar.Size = new System.Drawing.Size(25, 25);
-            this.PbCerrar.TabIndex = 7;
-            this.PbCerrar.TabStop = false;
-            this.PbCerrar.Click += new System.EventHandler(this.PbCerrar_Click);
-            // 
             // GbBusqueda
             // 
             this.GbBusqueda.Controls.Add(this.label9);
@@ -372,26 +396,19 @@
             this.GbBusqueda.TabStop = false;
             this.GbBusqueda.Text = "Busqueda de proveedores";
             // 
-            // LblCant
+            // PrevioImpresion
             // 
-            this.LblCant.AutoSize = true;
-            this.LblCant.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.LblCant.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblCant.Location = new System.Drawing.Point(372, 404);
-            this.LblCant.Name = "LblCant";
-            this.LblCant.Size = new System.Drawing.Size(19, 21);
-            this.LblCant.TabIndex = 22;
-            this.LblCant.Text = "0";
+            this.PrevioImpresion.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.PrevioImpresion.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.PrevioImpresion.ClientSize = new System.Drawing.Size(400, 300);
+            this.PrevioImpresion.Enabled = true;
+            this.PrevioImpresion.Icon = ((System.Drawing.Icon)(resources.GetObject("PrevioImpresion.Icon")));
+            this.PrevioImpresion.Name = "PrevioImpresion";
+            this.PrevioImpresion.Visible = false;
             // 
-            // label8
+            // ImpresoraClientes
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(233, 404);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(133, 19);
-            this.label8.TabIndex = 23;
-            this.label8.Text = "Numero de clientes: ";
+            this.ImpresoraClientes.DocumentName = "Productos";
             // 
             // FormClientes
             // 
@@ -400,7 +417,6 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1070, 555);
             this.Controls.Add(this.GbBusqueda);
-            this.Controls.Add(this.PbCerrar);
             this.Controls.Add(this.GbClientes);
             this.Controls.Add(this.GbCliente);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -410,9 +426,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.DgvClientes)).EndInit();
             this.GbClientes.ResumeLayout(false);
             this.GbClientes.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PbCerrar)).EndInit();
             this.GbCliente.ResumeLayout(false);
             this.GbCliente.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PbCerrar)).EndInit();
             this.GbBusqueda.ResumeLayout(false);
             this.GbBusqueda.PerformLayout();
             this.ResumeLayout(false);
@@ -436,7 +452,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox TbNombres;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button Btn_Imprimir;
         private System.Windows.Forms.GroupBox GbClientes;
         private System.Windows.Forms.Button BtnBuscar;
         private System.Windows.Forms.Label label2;
@@ -451,5 +467,7 @@
         private System.Windows.Forms.GroupBox GbBusqueda;
         private System.Windows.Forms.Label LblCant;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.PrintPreviewDialog PrevioImpresion;
+        private System.Drawing.Printing.PrintDocument ImpresoraClientes;
     }
 }

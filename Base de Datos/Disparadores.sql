@@ -156,4 +156,4 @@ insert into TDevolucionDetalle values ('DE000001','PR000003',1,'NUEVO',25.90)
 insert into TDevolucion values ('DE000002','US002','VE000002','No se podia ver el abismo en él','20/08/2020')
 insert into TDevolucionDetalle values ('DE000002','PR000001',1,'DESGASTADO',10.90)
 --------- DATOS NEGOCIO --------------------------
-insert into TNegocio values ('LIBRERIA LAS VERGONIAS', 'Marcelo Choque Navarro','12345678910','987654321', 'ACM1PT@unsaac.edu.pe','Los vergales 123',18,2000,2,'05/09/2020')
+insert into TNegocio values ('LAS VERGONIAS S.A.C.','logo.png', 'Marcelo Choque Navarro','12345678910','987654321', 'ACM1PT@unsaac.edu.pe','Los vergales 123 - Wanchaq Cusco',18,2000,2,'05/09/2020')

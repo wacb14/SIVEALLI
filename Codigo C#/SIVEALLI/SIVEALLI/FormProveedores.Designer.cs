@@ -32,14 +32,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.PbCerrar = new System.Windows.Forms.PictureBox();
-            this.PrdDgv = new System.Drawing.Printing.PrintDocument();
             this.GbBusqueda = new System.Windows.Forms.GroupBox();
             this.Lbl9 = new System.Windows.Forms.Label();
             this.BtnBuscar = new System.Windows.Forms.Button();
             this.Lbl10 = new System.Windows.Forms.Label();
             this.TxtValorBusqueda = new System.Windows.Forms.TextBox();
             this.CboBuscarPor = new System.Windows.Forms.ComboBox();
-            this.Ppd1 = new System.Windows.Forms.PrintPreviewDialog();
             this.TxtCodigo = new System.Windows.Forms.TextBox();
             this.CboEstado = new System.Windows.Forms.ComboBox();
             this.BtnLimpiar = new System.Windows.Forms.Button();
@@ -61,6 +59,8 @@
             this.BtnCargarTabla = new System.Windows.Forms.Button();
             this.LblNumeroProveedores = new System.Windows.Forms.Label();
             this.DgvProveedores = new System.Windows.Forms.DataGridView();
+            this.PrevioImpresion = new System.Windows.Forms.PrintPreviewDialog();
+            this.ImpresoraProveedores = new System.Drawing.Printing.PrintDocument();
             ((System.ComponentModel.ISupportInitialize)(this.PbCerrar)).BeginInit();
             this.GbBusqueda.SuspendLayout();
             this.GbProveedores.SuspendLayout();
@@ -79,10 +79,6 @@
             this.PbCerrar.TabIndex = 68;
             this.PbCerrar.TabStop = false;
             this.PbCerrar.Click += new System.EventHandler(this.PbCerrar_Click);
-            // 
-            // PrdDgv
-            // 
-            this.PrdDgv.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.PrdDgv_PrintPage);
             // 
             // GbBusqueda
             // 
@@ -159,16 +155,6 @@
             this.CboBuscarPor.Name = "CboBuscarPor";
             this.CboBuscarPor.Size = new System.Drawing.Size(195, 27);
             this.CboBuscarPor.TabIndex = 66;
-            // 
-            // Ppd1
-            // 
-            this.Ppd1.AutoScrollMargin = new System.Drawing.Size(0, 0);
-            this.Ppd1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
-            this.Ppd1.ClientSize = new System.Drawing.Size(400, 300);
-            this.Ppd1.Enabled = true;
-            this.Ppd1.Icon = ((System.Drawing.Icon)(resources.GetObject("Ppd1.Icon")));
-            this.Ppd1.Name = "Ppd1";
-            this.Ppd1.Visible = false;
             // 
             // TxtCodigo
             // 
@@ -393,7 +379,7 @@
             this.BtnImprimir.Name = "BtnImprimir";
             this.BtnImprimir.Size = new System.Drawing.Size(150, 32);
             this.BtnImprimir.TabIndex = 68;
-            this.BtnImprimir.Text = "Imprimir lista";
+            this.BtnImprimir.Text = "Imprimir Lista";
             this.BtnImprimir.UseVisualStyleBackColor = true;
             this.BtnImprimir.Click += new System.EventHandler(this.BtnImprimir_Click);
             // 
@@ -444,6 +430,20 @@
             this.DgvProveedores.TabIndex = 37;
             this.DgvProveedores.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvProveedores_CellContentClick);
             // 
+            // PrevioImpresion
+            // 
+            this.PrevioImpresion.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.PrevioImpresion.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.PrevioImpresion.ClientSize = new System.Drawing.Size(400, 300);
+            this.PrevioImpresion.Enabled = true;
+            this.PrevioImpresion.Icon = ((System.Drawing.Icon)(resources.GetObject("PrevioImpresion.Icon")));
+            this.PrevioImpresion.Name = "PrevioImpresion";
+            this.PrevioImpresion.Visible = false;
+            // 
+            // ImpresoraProveedores
+            // 
+            this.ImpresoraProveedores.DocumentName = "Productos";
+            // 
             // FormProveedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -473,14 +473,12 @@
         #endregion
 
         private System.Windows.Forms.PictureBox PbCerrar;
-        private System.Drawing.Printing.PrintDocument PrdDgv;
         private System.Windows.Forms.GroupBox GbBusqueda;
         private System.Windows.Forms.Label Lbl9;
         private System.Windows.Forms.Button BtnBuscar;
         private System.Windows.Forms.Label Lbl10;
         private System.Windows.Forms.TextBox TxtValorBusqueda;
         private System.Windows.Forms.ComboBox CboBuscarPor;
-        private System.Windows.Forms.PrintPreviewDialog Ppd1;
         private System.Windows.Forms.TextBox TxtCodigo;
         private System.Windows.Forms.ComboBox CboEstado;
         protected System.Windows.Forms.Button BtnLimpiar;
@@ -502,5 +500,7 @@
         private System.Windows.Forms.Button BtnCargarTabla;
         private System.Windows.Forms.Label LblNumeroProveedores;
         private System.Windows.Forms.DataGridView DgvProveedores;
+        private System.Windows.Forms.PrintPreviewDialog PrevioImpresion;
+        private System.Drawing.Printing.PrintDocument ImpresoraProveedores;
     }
 }

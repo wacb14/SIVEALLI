@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProductos));
             this.GbProducto = new System.Windows.Forms.GroupBox();
             this.TxtCantidad = new System.Windows.Forms.TextBox();
             this.Lbl12 = new System.Windows.Forms.Label();
@@ -68,6 +69,9 @@
             this.Lbl10 = new System.Windows.Forms.Label();
             this.GbBusqueda = new System.Windows.Forms.GroupBox();
             this.OfdImagen = new System.Windows.Forms.OpenFileDialog();
+            this.ImpresoraProductos = new System.Drawing.Printing.PrintDocument();
+            this.PrevioImpresion = new System.Windows.Forms.PrintPreviewDialog();
+            this.PbCerrar = new System.Windows.Forms.PictureBox();
             this.GbProducto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NudMaximo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NudMinimo)).BeginInit();
@@ -75,6 +79,7 @@
             this.GbProductos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvProductos)).BeginInit();
             this.GbBusqueda.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PbCerrar)).BeginInit();
             this.SuspendLayout();
             // 
             // GbProducto
@@ -365,6 +370,7 @@
             // 
             // GbProductos
             // 
+            this.GbProductos.Controls.Add(this.PbCerrar);
             this.GbProductos.Controls.Add(this.BtnRestaurarLista);
             this.GbProductos.Controls.Add(this.LblTotalProductos);
             this.GbProductos.Controls.Add(this.BtnImprimirLista);
@@ -409,6 +415,7 @@
             this.BtnImprimirLista.TabIndex = 15;
             this.BtnImprimirLista.Text = "Imprimir Lista";
             this.BtnImprimirLista.UseVisualStyleBackColor = true;
+            this.BtnImprimirLista.Click += new System.EventHandler(this.BtnImprimirLista_Click);
             // 
             // Lbl11
             // 
@@ -507,6 +514,33 @@
             // 
             this.OfdImagen.Filter = "Archivos de imagenes|*.jpg;*.png;*.jpeg;*.gif";
             // 
+            // ImpresoraProductos
+            // 
+            this.ImpresoraProductos.DocumentName = "Productos";
+            this.ImpresoraProductos.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.ImpresoraProductos_PrintPage);
+            // 
+            // PrevioImpresion
+            // 
+            this.PrevioImpresion.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.PrevioImpresion.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.PrevioImpresion.ClientSize = new System.Drawing.Size(400, 300);
+            this.PrevioImpresion.Enabled = true;
+            this.PrevioImpresion.Icon = ((System.Drawing.Icon)(resources.GetObject("PrevioImpresion.Icon")));
+            this.PrevioImpresion.Name = "PrevioImpresion";
+            this.PrevioImpresion.Visible = false;
+            // 
+            // PbCerrar
+            // 
+            this.PbCerrar.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.PbCerrar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PbCerrar.BackgroundImage")));
+            this.PbCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PbCerrar.Location = new System.Drawing.Point(645, -1);
+            this.PbCerrar.Name = "PbCerrar";
+            this.PbCerrar.Size = new System.Drawing.Size(25, 25);
+            this.PbCerrar.TabIndex = 28;
+            this.PbCerrar.TabStop = false;
+            this.PbCerrar.Click += new System.EventHandler(this.PbCerrar_Click);
+            // 
             // FormProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -527,6 +561,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.DgvProductos)).EndInit();
             this.GbBusqueda.ResumeLayout(false);
             this.GbBusqueda.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PbCerrar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -573,5 +608,8 @@
         private System.Windows.Forms.NumericUpDown NudMinimo;
         private System.Windows.Forms.TextBox TxtCantidad;
         private System.Windows.Forms.Label Lbl12;
+        private System.Drawing.Printing.PrintDocument ImpresoraProductos;
+        private System.Windows.Forms.PrintPreviewDialog PrevioImpresion;
+        private System.Windows.Forms.PictureBox PbCerrar;
     }
 }
