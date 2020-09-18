@@ -201,3 +201,14 @@ create table TNegocio
 	Fecha date,
 	primary key (IdModificacion)
 )
+
+
+create table TNotificaciones
+(
+	IdNotificacion int identity (0,1) not null,
+	Mensaje varchar(150),
+	Fecha datetime,
+	Estado varchar(8) check(Estado in ('LEIDO', 'NO LEIDO'))
+	primary key(IdNotificacion)
+)
+go
