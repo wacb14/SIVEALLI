@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BibClases;
 
 namespace SIVEALLI
 {
@@ -22,6 +23,7 @@ namespace SIVEALLI
         FormVentas fv;
         FormNegocio fn;
         FormEntrada fe;
+        FormNotificaciones fnot;
 
         protected FormUsuarioEmpleado fue;
 
@@ -34,8 +36,21 @@ namespace SIVEALLI
 
             //Evento cerrar ventana
             this.BtnCerrarSesion.Click += new EventHandler(CerrarSesion);
+            this.BtnNotificaciones.Click += new EventHandler(AbrirNotificaciones);
             this.timerNotificaciones.Tick += new EventHandler(ComprobarNotificaciones);
             //this.BtnNotificaciones.Click += delegate (object sender, EventArgs e) { ComprobarNotificaciones(sender, e, nuevaNotificacion); };
+        }
+
+        private void AbrirNotificaciones(object sender, EventArgs e)
+        {
+            DeshabilitarVisible();
+            if (ScHorizontal.Panel2.Controls.Contains(fnot))
+                fnot.Visible = true;
+            else
+            {
+                fnot = new FormNotificaciones();
+                AbrirFormPanel(fnot);
+            }
         }
 
         private void ComprobarNotificaciones(object sender, EventArgs e)
@@ -43,6 +58,19 @@ namespace SIVEALLI
             //se revisara si hay nuevas notificaciones
             //aNotificaciones.ExisteNuevasNotificaciones();
             //MessageBox.Show("hola");
+            CNotificaciones not = new CNotificaciones();
+            DataTable dt = not.ListaNoLeidos();
+
+            if(dt.Rows.Count > 0)
+            {
+                this.BtnNotificaciones.BackColor = Color.Red;
+            }
+            else
+            {
+                this.BtnNotificaciones.BackColor = Color.Gray;
+            }
+
+            /*
             Random rnd = new Random();
             int month = rnd.Next(1, 5);  // creates a number between 1 and 12
             if(month == 1)
@@ -53,7 +81,7 @@ namespace SIVEALLI
                 this.BtnNotificaciones.BackColor = Color.Yellow;
             else if (month == 4)
                 this.BtnNotificaciones.BackColor = Color.Green;
-
+            */
         }
 
         private void CerrarSesion(object sender, EventArgs e)
@@ -99,6 +127,8 @@ namespace SIVEALLI
                 fn.Visible = false;
             if (ScHorizontal.Panel2.Controls.Contains(fu))
                 fu.Visible = false;
+            if (ScHorizontal.Panel2.Controls.Contains(fnot))
+                fnot.Visible = false;
         }
         protected virtual void buttonUsuarios_Click(object sender, EventArgs e)
         {
