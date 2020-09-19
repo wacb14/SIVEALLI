@@ -18,7 +18,7 @@ namespace BibClases
         {
             return new string[]
             {
-                "IdNotificacion", "Mensaje","Estado"
+                "IdNotificacion", "Mensaje","Estado","Fecha"
             };
         }
 
@@ -27,6 +27,25 @@ namespace BibClases
             string CadenaListar = "exec MensajesNoLeidos";
             aConexion.EjecutarSelect(CadenaListar);
             return aConexion.Datos.Tables[0];
+        }
+
+        public DataTable ListaLeidos()
+        {
+            string CadenaListar = "exec MensajesLeidos";
+            aConexion.EjecutarSelect(CadenaListar);
+            return aConexion.Datos.Tables[0];
+        }
+
+        public void MarcarMensajeComoLeido(string codigo)
+        {
+            string CadenaListar = "exec MarcarComoLeido '" + codigo + "' ";
+            aConexion.EjecutarComando(CadenaListar);
+        }
+
+        public void EliminarMensajesLeidos()
+        {
+            string CadenaListar = "exec BorrarMensajeLeidos";
+            aConexion.EjecutarComando(CadenaListar);
         }
     }
 }

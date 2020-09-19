@@ -26,6 +26,7 @@ namespace SIVEALLI
             this.btnNegocio.Visible = false;
             this.BtnPedidos.Visible = false;
             this.BtnEntrada.Visible = false;
+            this.BtnNotificaciones.Visible = false;
         }
 
         protected override void buttonUsuarios_Click(object sender, EventArgs e)
