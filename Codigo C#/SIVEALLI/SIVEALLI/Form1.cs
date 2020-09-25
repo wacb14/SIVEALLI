@@ -13,17 +13,17 @@ namespace SIVEALLI
 {
     public partial class FormSupervisor : Form
     {
-        FormClientes fc;
-        FormPedidos fp;
+        protected FormClientes fc;
+        protected FormPedidos fp;
         protected FormUsuarios fu;
-        FormProveedores P;
-        FormProductos Fp;
-        FrmReportes R;
-        FormDevoluciones fd;
-        FormVentas fv;
-        FormNegocio fn;
-        FormEntrada fe;
-        FormNotificaciones fnot;
+        protected FormProveedores P;
+        protected FormProductos Fp;
+        protected FrmReportes R;
+        protected FormDevoluciones fd;
+        protected FormVentas fv;
+        protected FormNegocio fn;
+        protected FormEntrada fe;
+        protected FormNotificaciones fnot;
 
         protected FormUsuarioEmpleado fue;
 
@@ -142,7 +142,7 @@ namespace SIVEALLI
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        protected virtual void button2_Click(object sender, EventArgs e)
         {
             DeshabilitarVisible();
             if (ScHorizontal.Panel2.Controls.Contains(P))
@@ -155,7 +155,7 @@ namespace SIVEALLI
             //P.Show();
         }
 
-        private void BtnClientes_Click(object sender, EventArgs e)
+        protected virtual void BtnClientes_Click(object sender, EventArgs e)
         {
             DeshabilitarVisible();
             if (ScHorizontal.Panel2.Controls.Contains(fc))
@@ -168,7 +168,7 @@ namespace SIVEALLI
             }
         }
 
-        private void buttonEntrada_Click(object sender, EventArgs e)
+        protected void buttonEntrada_Click(object sender, EventArgs e)
         {
             DeshabilitarVisible();
             if (ScHorizontal.Panel2.Controls.Contains(fe))
@@ -182,7 +182,7 @@ namespace SIVEALLI
 
         }
 
-        private void BtnPedidos_Click(object sender, EventArgs e)
+        protected void BtnPedidos_Click(object sender, EventArgs e)
         {
             DeshabilitarVisible();
             //FormPedidos fp = new FormPedidos(labelUsuario.Text, dtpFecha.Value.ToString().Split(' ')[0]);
@@ -195,7 +195,7 @@ namespace SIVEALLI
             }
         }
 
-        private void BtnProductos_Click(object sender, EventArgs e)
+        protected virtual void BtnProductos_Click(object sender, EventArgs e)
         {
             DeshabilitarVisible();
             if (ScHorizontal.Panel2.Controls.Contains(Fp))
@@ -208,7 +208,7 @@ namespace SIVEALLI
             }
         }
 
-        private void BtnReportes_Click(object sender, EventArgs e)
+        protected virtual void BtnReportes_Click(object sender, EventArgs e)
         {
             DeshabilitarVisible();
             if (ScHorizontal.Panel2.Controls.Contains(R))
@@ -220,7 +220,7 @@ namespace SIVEALLI
             }
         }
 
-        private void BtnDevoluciones_Click(object sender, EventArgs e)
+        protected virtual void BtnDevoluciones_Click(object sender, EventArgs e)
         {
             DeshabilitarVisible();
             if (ScHorizontal.Panel2.Controls.Contains(fd))
@@ -231,7 +231,7 @@ namespace SIVEALLI
                 AbrirFormPanel(fd);
             }
         }
-        private void BtnVentas_Click(object sender, EventArgs e)
+        protected virtual void BtnVentas_Click(object sender, EventArgs e)
         {
             DeshabilitarVisible();
             if (ScHorizontal.Panel2.Controls.Contains(fv))
@@ -243,7 +243,7 @@ namespace SIVEALLI
             }
         }
 
-        private void btnNegocio_Click(object sender, EventArgs e)
+        protected void btnNegocio_Click(object sender, EventArgs e)
         {
             DeshabilitarVisible();
             if (ScHorizontal.Panel2.Controls.Contains(fn))
