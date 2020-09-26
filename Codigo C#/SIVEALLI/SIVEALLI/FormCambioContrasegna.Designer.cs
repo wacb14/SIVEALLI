@@ -74,6 +74,7 @@
             this.tbActual.Name = "tbActual";
             this.tbActual.Size = new System.Drawing.Size(148, 26);
             this.tbActual.TabIndex = 3;
+            this.tbActual.UseSystemPasswordChar = true;
             // 
             // tbNueva
             // 
@@ -82,6 +83,7 @@
             this.tbNueva.Name = "tbNueva";
             this.tbNueva.Size = new System.Drawing.Size(148, 26);
             this.tbNueva.TabIndex = 4;
+            this.tbNueva.UseSystemPasswordChar = true;
             // 
             // btnCancelar
             // 

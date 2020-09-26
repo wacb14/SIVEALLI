@@ -67,7 +67,7 @@ namespace SIVEALLI
             }
             else
             {
-                this.BtnNotificaciones.BackColor = Color.Gray;
+                this.BtnNotificaciones.BackColor = Color.LightGray;
             }
 
             /*
