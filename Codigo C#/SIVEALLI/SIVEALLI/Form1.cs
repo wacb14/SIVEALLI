@@ -238,7 +238,7 @@ namespace SIVEALLI
                 fv.Visible = true;
             else
             {
-                fv = new FormVentas(labelUsuario.Text, dtpFecha.Value.ToString("yyyy-MM-dd"));
+                fv = new FormVentas(labelUsuario.Text, dtpFecha.Value.ToString(dtpFecha.Value.Date.ToString ()));
                 AbrirFormPanel(fv);
             }
         }

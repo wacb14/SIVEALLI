@@ -519,7 +519,7 @@ namespace SIVEALLI
                 e.Graphics.DrawString(Negocio.ValorAtributo("Nombre"), FuenteTitulo, Brushes.DarkBlue, new RectangleF(30, 35, 805, 35));
                 e.Graphics.DrawString("-----------", FuenteSubTitulo, Brushes.DarkBlue, new RectangleF(100, 70, 805, 25));
                 string[] Direc = Negocio.ValorAtributo("Direccion").Split('-');
-                e.Graphics.DrawString(Direc[0] + "\n" + Direc[1], FuenteCuerpo, Brushes.DarkBlue, new RectangleF(80, 95, 805, 45));
+                e.Graphics.DrawString(Direc[0] + "\n", FuenteCuerpo, Brushes.DarkBlue, new RectangleF(80, 95, 805, 45));
                 e.Graphics.DrawString("R.U.C. N°" + Negocio.ValorAtributo("RUC") + "\nN° de serie 6802328", FuenteSubTitulo, Brushes.DarkBlue, new RectangleF(50, 140, 805, 50));
                 e.Graphics.DrawString("5411077", FuenteSubTitulo, Brushes.DarkBlue, new RectangleF(170, 190, 150, 20));
                 e.Graphics.DrawString(DateTime.Now.ToString("dd-MM-yyyy"), FuenteSubTitulo, Brushes.DarkBlue, new RectangleF(30, 210, 140, 20));
@@ -554,7 +554,8 @@ namespace SIVEALLI
                 e.Graphics.DrawString(Negocio.ValorAtributo("Nombre"), FuenteTitulo, Brushes.DarkBlue, new RectangleF(30, 35, 805, 35));
                 e.Graphics.DrawString("REIMPRESION", FuenteSubTitulo, Brushes.DarkBlue, new RectangleF(100, 70, 805, 25));
                 string[] Direc = Negocio.ValorAtributo("Direccion").Split('-');
-                e.Graphics.DrawString(Direc[0]+"\n"+Direc[1], FuenteCuerpo, Brushes.DarkBlue, new RectangleF(80, 95, 805, 45));
+                //e.Graphics.DrawString(Direc[0]+"\n"+Direc[1], FuenteCuerpo, Brushes.DarkBlue, new RectangleF(80, 95, 805, 45));
+                e.Graphics.DrawString(Direc[0]+"\n", FuenteCuerpo, Brushes.DarkBlue, new RectangleF(80, 95, 805, 45));
                 e.Graphics.DrawString("R.U.C. N°"+Negocio.ValorAtributo("RUC") +"\nN° de serie 6802328", FuenteSubTitulo, Brushes.DarkBlue, new RectangleF(50, 140, 805, 50));
                 e.Graphics.DrawString("5411077", FuenteSubTitulo, Brushes.DarkBlue, new RectangleF(170, 190, 150, 20));
                 e.Graphics.DrawString(DateTime.Now.ToString("dd-MM-yyyy"), FuenteSubTitulo, Brushes.DarkBlue, new RectangleF(30, 210, 140, 20));
