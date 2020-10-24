@@ -37,7 +37,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(58, 20);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(203, 19);
             this.label1.TabIndex = 1;
@@ -45,7 +45,7 @@
             // 
             // NudCantidad
             // 
-            this.NudCantidad.Location = new System.Drawing.Point(16, 31);
+            this.NudCantidad.Location = new System.Drawing.Point(114, 51);
             this.NudCantidad.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -67,9 +67,9 @@
             // 
             // BtnAceptar
             // 
-            this.BtnAceptar.Location = new System.Drawing.Point(74, 63);
+            this.BtnAceptar.Location = new System.Drawing.Point(102, 92);
             this.BtnAceptar.Name = "BtnAceptar";
-            this.BtnAceptar.Size = new System.Drawing.Size(81, 32);
+            this.BtnAceptar.Size = new System.Drawing.Size(107, 26);
             this.BtnAceptar.TabIndex = 3;
             this.BtnAceptar.Text = "Aceptar";
             this.BtnAceptar.UseVisualStyleBackColor = true;
@@ -79,7 +79,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(231, 104);
+            this.ClientSize = new System.Drawing.Size(316, 130);
             this.Controls.Add(this.BtnAceptar);
             this.Controls.Add(this.NudCantidad);
             this.Controls.Add(this.label1);

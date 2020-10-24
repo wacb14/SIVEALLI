@@ -38,9 +38,9 @@
             // 
             // BtnAceptar
             // 
-            this.BtnAceptar.Location = new System.Drawing.Point(73, 65);
+            this.BtnAceptar.Location = new System.Drawing.Point(138, 117);
             this.BtnAceptar.Name = "BtnAceptar";
-            this.BtnAceptar.Size = new System.Drawing.Size(81, 32);
+            this.BtnAceptar.Size = new System.Drawing.Size(104, 27);
             this.BtnAceptar.TabIndex = 6;
             this.BtnAceptar.Text = "Aceptar";
             this.BtnAceptar.UseVisualStyleBackColor = true;
@@ -48,7 +48,7 @@
             // 
             // NudCantidad
             // 
-            this.NudCantidad.Location = new System.Drawing.Point(145, 32);
+            this.NudCantidad.Location = new System.Drawing.Point(147, 63);
             this.NudCantidad.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -71,7 +71,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(141, 10);
+            this.label1.Location = new System.Drawing.Point(53, 70);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(67, 19);
             this.label1.TabIndex = 4;
@@ -84,16 +84,16 @@
             "Nuevo",
             "Defectuoso",
             "Roto"});
-            this.CbEstC.Location = new System.Drawing.Point(16, 30);
+            this.CbEstC.Location = new System.Drawing.Point(147, 24);
             this.CbEstC.Name = "CbEstC";
-            this.CbEstC.Size = new System.Drawing.Size(96, 27);
+            this.CbEstC.Size = new System.Drawing.Size(164, 27);
             this.CbEstC.TabIndex = 7;
             this.CbEstC.Text = "Nuevo";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 9);
+            this.label2.Location = new System.Drawing.Point(53, 27);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 19);
             this.label2.TabIndex = 8;
@@ -103,7 +103,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(238, 109);
+            this.ClientSize = new System.Drawing.Size(370, 162);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.CbEstC);
             this.Controls.Add(this.BtnAceptar);

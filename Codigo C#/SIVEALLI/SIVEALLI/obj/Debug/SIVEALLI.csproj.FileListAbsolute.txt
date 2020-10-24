@@ -478,3 +478,4 @@ C:\Users\Marcelo\Desktop\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj\Debug\SIVEALLI
 C:\Users\Marcelo\Desktop\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj\Debug\SIVEALLI.csproj.CopyComplete
 C:\Users\Marcelo\Desktop\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj\Debug\SIVEALLI.exe
 C:\Users\Marcelo\Desktop\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj\Debug\SIVEALLI.pdb
+B:\SIVEALLI\Codigo C#\SIVEALLI\SIVEALLI\obj\Debug\SIVEALLI.FormNotificaciones.resources

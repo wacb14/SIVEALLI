@@ -233,7 +233,6 @@ namespace SIVEALLI
                             string NombreImagen = Producto.ValorAtributo("Nombre") + Path.GetExtension(OfdImagen.FileName);
                             if (OfdImagen.FileName != "")
                             { //Este es el caso cuando hay un cambio de imagen
-
                                 Producto.Actualizar(new string[] { TxtIdProducto.Text.Trim(), TxtNombre.Text.Trim(), TxtCategoria.Text.Trim(), TxtDescripcion.Text.Trim(), TxtMarca.Text.Trim(), TxtPrecioUnitario.Text.Trim(), NombreImagen, CboEstado.Text.Trim(), Cantidad, NudMaximo.Value.ToString().Trim(), NudMinimo.Value.ToString().Trim() });
                                 ActualizarNuevaImagen(NombreImagen);
                             }

@@ -101,7 +101,7 @@ namespace SIVEALLI
         {
             try
             {
-                if (Negocio.ExisteClavePrimaria(new string[] { "1" }))
+                if (Negocio.ExisteClavePrimaria(new string[] { "0" }))
                 {
                     float Impuesto = float.Parse(Negocio.ValorAtributo("IGV")); // En porcentaje (ejem 18.5%)
                     float Descuento = float.Parse(Negocio.ValorAtributo("PorcentajeDescuento")); ; // En porcentaje
@@ -509,7 +509,7 @@ namespace SIVEALLI
         }
         private void ImpNuevaVenta_PrintPage(object sender, PrintPageEventArgs e)
         {
-            if (Negocio.ExisteClavePrimaria("1"))
+            if (Negocio.ExisteClavePrimaria("0"))
             {
                 //-- Encabezado del documento
                 Font FuenteTitulo = new Font("Arial", 16, FontStyle.Bold);

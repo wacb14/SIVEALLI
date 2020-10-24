@@ -26,19 +26,28 @@ namespace SIVEALLI
         protected FormNotificaciones fnot;
 
         protected FormUsuarioEmpleado fue;
-
+        CNegocio aNegocio = new CNegocio();
+        string RutaCarpetaImagenes = "..\\Libreria";
         public FormSupervisor(string codigoUsuario)
         {
             InitializeComponent();
             //MessageBox.Show(ScHorizontal.Panel2.Width.ToString() + "--" + ScHorizontal.Panel2.Height.ToString());
 
             labelUsuario.Text = codigoUsuario;
-
+            LblHora.Text = DateTime.Now.ToLongTimeString();
+            CargarLogo();
             //Evento cerrar ventana
             this.BtnCerrarSesion.Click += new EventHandler(CerrarSesion);
             this.BtnNotificaciones.Click += new EventHandler(AbrirNotificaciones);
             this.timerNotificaciones.Tick += new EventHandler(ComprobarNotificaciones);
             //this.BtnNotificaciones.Click += delegate (object sender, EventArgs e) { ComprobarNotificaciones(sender, e, nuevaNotificacion); };
+        }
+        private void CargarLogo()
+        {
+            if (aNegocio.ExisteClavePrimaria(new string[] { "0" }))
+            {
+                PctBLogo.ImageLocation = RutaCarpetaImagenes + "\\" + aNegocio.ValorAtributo("Logo");
+            }
         }
 
         private void AbrirNotificaciones(object sender, EventArgs e)
@@ -238,7 +247,7 @@ namespace SIVEALLI
                 fv.Visible = true;
             else
             {
-                fv = new FormVentas(labelUsuario.Text, dtpFecha.Value.ToString(dtpFecha.Value.Date.ToString ()));
+                fv = new FormVentas(labelUsuario.Text, dtpFecha.Value.ToString("yyyy-MM-dd"));
                 AbrirFormPanel(fv);
             }
         }
@@ -250,9 +259,15 @@ namespace SIVEALLI
                 fn.Visible = true;
             else
             {
-                fn = new FormNegocio();
+                fn = new FormNegocio(dtpFecha.Value.ToString("yyyy-MM-dd"));
                 AbrirFormPanel(fn);
             }
         }
+
+        private void TimHora_Tick(object sender, EventArgs e)
+        {
+            LblHora.Text = DateTime.Now.ToLongTimeString();
+        }
+
     }
 }

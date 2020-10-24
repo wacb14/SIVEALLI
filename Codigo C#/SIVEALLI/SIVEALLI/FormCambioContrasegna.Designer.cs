@@ -50,38 +50,38 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(55, 65);
+            this.label2.Location = new System.Drawing.Point(13, 65);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(161, 19);
+            this.label2.Size = new System.Drawing.Size(168, 19);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Ingrese contraseña actual";
+            this.label2.Text = "Ingrese contraseña actual :";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(55, 99);
+            this.label3.Location = new System.Drawing.Point(13, 99);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(161, 19);
+            this.label3.Size = new System.Drawing.Size(168, 19);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Ingrese nueva contraseña";
+            this.label3.Text = "Ingrese nueva contraseña :";
             // 
             // tbActual
             // 
-            this.tbActual.Location = new System.Drawing.Point(231, 62);
+            this.tbActual.Location = new System.Drawing.Point(189, 62);
             this.tbActual.Margin = new System.Windows.Forms.Padding(4);
             this.tbActual.Name = "tbActual";
-            this.tbActual.Size = new System.Drawing.Size(148, 26);
+            this.tbActual.Size = new System.Drawing.Size(219, 26);
             this.tbActual.TabIndex = 3;
             this.tbActual.UseSystemPasswordChar = true;
             // 
             // tbNueva
             // 
-            this.tbNueva.Location = new System.Drawing.Point(231, 96);
+            this.tbNueva.Location = new System.Drawing.Point(189, 96);
             this.tbNueva.Margin = new System.Windows.Forms.Padding(4);
             this.tbNueva.Name = "tbNueva";
-            this.tbNueva.Size = new System.Drawing.Size(148, 26);
+            this.tbNueva.Size = new System.Drawing.Size(219, 26);
             this.tbNueva.TabIndex = 4;
             this.tbNueva.UseSystemPasswordChar = true;
             // 
@@ -91,7 +91,7 @@
             this.btnCancelar.FlatAppearance.BorderSize = 0;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
-            this.btnCancelar.Location = new System.Drawing.Point(231, 130);
+            this.btnCancelar.Location = new System.Drawing.Point(136, 130);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(68, 66);
@@ -104,7 +104,7 @@
             this.btnCambiar.FlatAppearance.BorderSize = 0;
             this.btnCambiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCambiar.Image = ((System.Drawing.Image)(resources.GetObject("btnCambiar.Image")));
-            this.btnCambiar.Location = new System.Drawing.Point(311, 130);
+            this.btnCambiar.Location = new System.Drawing.Point(212, 130);
             this.btnCambiar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCambiar.Name = "btnCambiar";
             this.btnCambiar.Size = new System.Drawing.Size(68, 66);
@@ -127,6 +127,7 @@
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormCambioContrasegna";
+            this.Text = "Cambio de contraseña";
             this.ResumeLayout(false);
             this.PerformLayout();
 

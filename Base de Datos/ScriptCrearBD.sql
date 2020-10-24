@@ -198,7 +198,7 @@ create table TNegocio
 	IGV float,
 	MontoSuperarDescuento float,
 	PorcentajeDescuento float,
-	Fecha date,
+	Fecha datetime,
 	primary key (IdModificacion)
 )
 

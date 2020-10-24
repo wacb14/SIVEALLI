@@ -53,8 +53,8 @@ namespace SIVEALLI
             }
 
             CNegocio negocio = new CNegocio();
-            negocio.InsertarPrimeraVez("","","","","","","","","", dtpFecha.Value.Date.ToString());
-            FormNegocio fu = new FormNegocio();
+            negocio.InsertarPrimeraVez("","","","","","","","","","", dtpFecha.Value.Date.ToString());
+            FormNegocio fu = new FormNegocio(dtpFecha.Value.ToString(dtpFecha.Value.Date.ToString()));
             fu.Show();
         }
 

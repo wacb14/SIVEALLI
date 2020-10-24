@@ -52,16 +52,16 @@
             // 
             this.DtpFecha.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtpFecha.Location = new System.Drawing.Point(9, 57);
+            this.DtpFecha.Location = new System.Drawing.Point(13, 106);
             this.DtpFecha.Name = "DtpFecha";
-            this.DtpFecha.Size = new System.Drawing.Size(200, 26);
+            this.DtpFecha.Size = new System.Drawing.Size(152, 26);
             this.DtpFecha.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 31);
+            this.label1.Location = new System.Drawing.Point(6, 50);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(155, 19);
             this.label1.TabIndex = 1;
@@ -70,9 +70,9 @@
             // BtnReporteVentas
             // 
             this.BtnReporteVentas.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnReporteVentas.Location = new System.Drawing.Point(64, 139);
+            this.BtnReporteVentas.Location = new System.Drawing.Point(143, 227);
             this.BtnReporteVentas.Name = "BtnReporteVentas";
-            this.BtnReporteVentas.Size = new System.Drawing.Size(135, 48);
+            this.BtnReporteVentas.Size = new System.Drawing.Size(149, 35);
             this.BtnReporteVentas.TabIndex = 2;
             this.BtnReporteVentas.Text = "Ventas";
             this.BtnReporteVentas.UseVisualStyleBackColor = true;
@@ -82,16 +82,16 @@
             // 
             this.DtpFecha2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DtpFecha2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtpFecha2.Location = new System.Drawing.Point(250, 57);
+            this.DtpFecha2.Location = new System.Drawing.Point(252, 106);
             this.DtpFecha2.Name = "DtpFecha2";
-            this.DtpFecha2.Size = new System.Drawing.Size(200, 26);
+            this.DtpFecha2.Size = new System.Drawing.Size(157, 26);
             this.DtpFecha2.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(215, 46);
+            this.label2.Location = new System.Drawing.Point(198, 95);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 39);
             this.label2.TabIndex = 4;
@@ -109,9 +109,9 @@
             this.GbReportes.Controls.Add(this.DtpFecha2);
             this.GbReportes.Controls.Add(this.BtnReporteVentas);
             this.GbReportes.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GbReportes.Location = new System.Drawing.Point(12, 85);
+            this.GbReportes.Location = new System.Drawing.Point(72, 32);
             this.GbReportes.Name = "GbReportes";
-            this.GbReportes.Size = new System.Drawing.Size(492, 290);
+            this.GbReportes.Size = new System.Drawing.Size(432, 465);
             this.GbReportes.TabIndex = 5;
             this.GbReportes.TabStop = false;
             this.GbReportes.Text = "Con rango de Fechas";
@@ -119,9 +119,9 @@
             // BtnReportePedidos
             // 
             this.BtnReportePedidos.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnReportePedidos.Location = new System.Drawing.Point(286, 193);
+            this.BtnReportePedidos.Location = new System.Drawing.Point(143, 335);
             this.BtnReportePedidos.Name = "BtnReportePedidos";
-            this.BtnReportePedidos.Size = new System.Drawing.Size(135, 48);
+            this.BtnReportePedidos.Size = new System.Drawing.Size(149, 35);
             this.BtnReportePedidos.TabIndex = 9;
             this.BtnReportePedidos.Text = "Pedidos";
             this.BtnReportePedidos.UseVisualStyleBackColor = true;
@@ -130,9 +130,9 @@
             // BtnReporteEntradas
             // 
             this.BtnReporteEntradas.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnReporteEntradas.Location = new System.Drawing.Point(286, 139);
+            this.BtnReporteEntradas.Location = new System.Drawing.Point(143, 281);
             this.BtnReporteEntradas.Name = "BtnReporteEntradas";
-            this.BtnReporteEntradas.Size = new System.Drawing.Size(135, 48);
+            this.BtnReporteEntradas.Size = new System.Drawing.Size(149, 35);
             this.BtnReporteEntradas.TabIndex = 8;
             this.BtnReporteEntradas.Text = "Entradas";
             this.BtnReporteEntradas.UseVisualStyleBackColor = true;
@@ -141,9 +141,9 @@
             // BtnReporteDevoluciones
             // 
             this.BtnReporteDevoluciones.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnReporteDevoluciones.Location = new System.Drawing.Point(64, 193);
+            this.BtnReporteDevoluciones.Location = new System.Drawing.Point(143, 391);
             this.BtnReporteDevoluciones.Name = "BtnReporteDevoluciones";
-            this.BtnReporteDevoluciones.Size = new System.Drawing.Size(135, 48);
+            this.BtnReporteDevoluciones.Size = new System.Drawing.Size(149, 35);
             this.BtnReporteDevoluciones.TabIndex = 7;
             this.BtnReporteDevoluciones.Text = "Devoluciones";
             this.BtnReporteDevoluciones.UseVisualStyleBackColor = true;
@@ -153,7 +153,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(6, 109);
+            this.label4.Location = new System.Drawing.Point(27, 174);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(193, 19);
             this.label4.TabIndex = 6;
@@ -167,9 +167,9 @@
             this.GbReportes2.Controls.Add(this.label3);
             this.GbReportes2.Controls.Add(this.BtnReporteClientes);
             this.GbReportes2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GbReportes2.Location = new System.Drawing.Point(543, 85);
+            this.GbReportes2.Location = new System.Drawing.Point(543, 32);
             this.GbReportes2.Name = "GbReportes2";
-            this.GbReportes2.Size = new System.Drawing.Size(492, 241);
+            this.GbReportes2.Size = new System.Drawing.Size(458, 465);
             this.GbReportes2.TabIndex = 6;
             this.GbReportes2.TabStop = false;
             this.GbReportes2.Text = "Sin Rango de Fechas";
@@ -177,9 +177,9 @@
             // BtnReporteProductos
             // 
             this.BtnReporteProductos.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnReporteProductos.Location = new System.Drawing.Point(319, 138);
+            this.BtnReporteProductos.Location = new System.Drawing.Point(178, 345);
             this.BtnReporteProductos.Name = "BtnReporteProductos";
-            this.BtnReporteProductos.Size = new System.Drawing.Size(135, 48);
+            this.BtnReporteProductos.Size = new System.Drawing.Size(149, 35);
             this.BtnReporteProductos.TabIndex = 14;
             this.BtnReporteProductos.Text = "Productos";
             this.BtnReporteProductos.UseVisualStyleBackColor = true;
@@ -188,9 +188,9 @@
             // BtnReporteProveedores
             // 
             this.BtnReporteProveedores.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnReporteProveedores.Location = new System.Drawing.Point(319, 84);
+            this.BtnReporteProveedores.Location = new System.Drawing.Point(178, 273);
             this.BtnReporteProveedores.Name = "BtnReporteProveedores";
-            this.BtnReporteProveedores.Size = new System.Drawing.Size(135, 48);
+            this.BtnReporteProveedores.Size = new System.Drawing.Size(149, 35);
             this.BtnReporteProveedores.TabIndex = 13;
             this.BtnReporteProveedores.Text = "Proveedores";
             this.BtnReporteProveedores.UseVisualStyleBackColor = true;
@@ -199,9 +199,9 @@
             // BtnReporteUsuarios
             // 
             this.BtnReporteUsuarios.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnReporteUsuarios.Location = new System.Drawing.Point(97, 138);
+            this.BtnReporteUsuarios.Location = new System.Drawing.Point(178, 204);
             this.BtnReporteUsuarios.Name = "BtnReporteUsuarios";
-            this.BtnReporteUsuarios.Size = new System.Drawing.Size(135, 48);
+            this.BtnReporteUsuarios.Size = new System.Drawing.Size(149, 35);
             this.BtnReporteUsuarios.TabIndex = 12;
             this.BtnReporteUsuarios.Text = "Usuarios";
             this.BtnReporteUsuarios.UseVisualStyleBackColor = true;
@@ -211,7 +211,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(39, 54);
+            this.label3.Location = new System.Drawing.Point(20, 80);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(193, 19);
             this.label3.TabIndex = 11;
@@ -220,9 +220,9 @@
             // BtnReporteClientes
             // 
             this.BtnReporteClientes.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnReporteClientes.Location = new System.Drawing.Point(97, 84);
+            this.BtnReporteClientes.Location = new System.Drawing.Point(178, 136);
             this.BtnReporteClientes.Name = "BtnReporteClientes";
-            this.BtnReporteClientes.Size = new System.Drawing.Size(135, 48);
+            this.BtnReporteClientes.Size = new System.Drawing.Size(149, 35);
             this.BtnReporteClientes.TabIndex = 10;
             this.BtnReporteClientes.Text = "Clientes";
             this.BtnReporteClientes.UseVisualStyleBackColor = true;

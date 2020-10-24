@@ -1128,6 +1128,7 @@ go
 
 create procedure spu_TNegocio_Insertar
 	@Nombre varchar(25),
+	@Logo varchar(MAX),
 	@Duegno varchar(40),
 	@RUC varchar(11),
 	@Telefono varchar(11),
@@ -1136,10 +1137,10 @@ create procedure spu_TNegocio_Insertar
 	@IGV float,
 	@MontoSuperarDescuento float,
 	@PorcentajeDescuento float,
-	@Fecha date
+	@Fecha datetime
 as
 begin  --verificacion de clave primaria
-	insert into TNegocio values (@Nombre, @Duegno, @RUC, @Telefono, @Correo, @Direccion, @IGV, @MontoSuperarDescuento, @PorcentajeDescuento, @Fecha)
+	insert into TNegocio values (@Nombre,@Logo, @Duegno, @RUC, @Telefono, @Correo, @Direccion, @IGV, @MontoSuperarDescuento, @PorcentajeDescuento, @Fecha)
 	select codError = 0, mensaje = 'TNegocio insertado correctamente'
 end;
 go
@@ -1151,6 +1152,7 @@ go
 create procedure spu_TNegocio_Modificar
 	@IdModificacion int,
 	@Nombre varchar(25),
+	@Logo varchar(MAX),
 	@Duegno varchar(40),
 	@RUC varchar(11),
 	@Telefono varchar(11),
@@ -1159,13 +1161,13 @@ create procedure spu_TNegocio_Modificar
 	@IGV float,
 	@MontoSuperarDescuento float,
 	@PorcentajeDescuento float,
-	@Fecha date
+	@Fecha datetime
 as
 begin  --verificacion de clave primaria
 	if exists (select * from TNegocio where IdModificacion = @IdModificacion)
 	begin
 		update TNegocio
-		set Nombre = @Nombre, Duegno = @Duegno, RUC = @RUC, Telefono = @Telefono, Correo = @Correo, Direccion = @Direccion, IGV = @IGV, MontoSuperarDescuento = @MontoSuperarDescuento, PorcentajeDescuento = @PorcentajeDescuento, Fecha = @Fecha
+		set Nombre = @Nombre,Logo=@Logo, Duegno = @Duegno, RUC = @RUC, Telefono = @Telefono, Correo = @Correo, Direccion = @Direccion, IGV = @IGV, MontoSuperarDescuento = @MontoSuperarDescuento, PorcentajeDescuento = @PorcentajeDescuento, Fecha = @Fecha
 		where IdModificacion = @IdModificacion
 		select codError = 0, mensaje = 'TNegocio actualizado correctamente'
 	end;

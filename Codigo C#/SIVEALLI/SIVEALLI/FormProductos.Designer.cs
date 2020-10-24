@@ -57,6 +57,7 @@
             this.PctBImagen = new System.Windows.Forms.PictureBox();
             this.TxtDescripcion = new System.Windows.Forms.TextBox();
             this.GbProductos = new System.Windows.Forms.GroupBox();
+            this.PbCerrar = new System.Windows.Forms.PictureBox();
             this.BtnRestaurarLista = new System.Windows.Forms.Button();
             this.LblTotalProductos = new System.Windows.Forms.Label();
             this.BtnImprimirLista = new System.Windows.Forms.Button();
@@ -71,15 +72,14 @@
             this.OfdImagen = new System.Windows.Forms.OpenFileDialog();
             this.ImpresoraProductos = new System.Drawing.Printing.PrintDocument();
             this.PrevioImpresion = new System.Windows.Forms.PrintPreviewDialog();
-            this.PbCerrar = new System.Windows.Forms.PictureBox();
             this.GbProducto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NudMaximo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NudMinimo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PctBImagen)).BeginInit();
             this.GbProductos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PbCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgvProductos)).BeginInit();
             this.GbBusqueda.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PbCerrar)).BeginInit();
             this.SuspendLayout();
             // 
             // GbProducto
@@ -384,6 +384,18 @@
             this.GbProductos.TabStop = false;
             this.GbProductos.Text = "Lista de Productos";
             // 
+            // PbCerrar
+            // 
+            this.PbCerrar.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.PbCerrar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PbCerrar.BackgroundImage")));
+            this.PbCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PbCerrar.Location = new System.Drawing.Point(645, -1);
+            this.PbCerrar.Name = "PbCerrar";
+            this.PbCerrar.Size = new System.Drawing.Size(25, 25);
+            this.PbCerrar.TabIndex = 28;
+            this.PbCerrar.TabStop = false;
+            this.PbCerrar.Click += new System.EventHandler(this.PbCerrar_Click);
+            // 
             // BtnRestaurarLista
             // 
             this.BtnRestaurarLista.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -443,7 +455,7 @@
             // BtnBuscar
             // 
             this.BtnBuscar.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnBuscar.Location = new System.Drawing.Point(528, 60);
+            this.BtnBuscar.Location = new System.Drawing.Point(528, 66);
             this.BtnBuscar.Name = "BtnBuscar";
             this.BtnBuscar.Size = new System.Drawing.Size(92, 26);
             this.BtnBuscar.TabIndex = 18;
@@ -463,7 +475,7 @@
             "Marca",
             "Precio Unitario",
             "Estado"});
-            this.CboBuscarPor.Location = new System.Drawing.Point(27, 60);
+            this.CboBuscarPor.Location = new System.Drawing.Point(27, 66);
             this.CboBuscarPor.Name = "CboBuscarPor";
             this.CboBuscarPor.Size = new System.Drawing.Size(219, 27);
             this.CboBuscarPor.TabIndex = 19;
@@ -472,7 +484,7 @@
             // 
             this.Lbl9.AutoSize = true;
             this.Lbl9.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl9.Location = new System.Drawing.Point(23, 38);
+            this.Lbl9.Location = new System.Drawing.Point(23, 33);
             this.Lbl9.Name = "Lbl9";
             this.Lbl9.Size = new System.Drawing.Size(144, 19);
             this.Lbl9.TabIndex = 18;
@@ -480,7 +492,7 @@
             // 
             // TxtValorBusqueda
             // 
-            this.TxtValorBusqueda.Location = new System.Drawing.Point(273, 61);
+            this.TxtValorBusqueda.Location = new System.Drawing.Point(273, 67);
             this.TxtValorBusqueda.Name = "TxtValorBusqueda";
             this.TxtValorBusqueda.Size = new System.Drawing.Size(219, 26);
             this.TxtValorBusqueda.TabIndex = 17;
@@ -489,7 +501,7 @@
             // 
             this.Lbl10.AutoSize = true;
             this.Lbl10.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl10.Location = new System.Drawing.Point(269, 38);
+            this.Lbl10.Location = new System.Drawing.Point(269, 33);
             this.Lbl10.Name = "Lbl10";
             this.Lbl10.Size = new System.Drawing.Size(171, 19);
             this.Lbl10.TabIndex = 15;
@@ -529,18 +541,6 @@
             this.PrevioImpresion.Name = "PrevioImpresion";
             this.PrevioImpresion.Visible = false;
             // 
-            // PbCerrar
-            // 
-            this.PbCerrar.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.PbCerrar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PbCerrar.BackgroundImage")));
-            this.PbCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PbCerrar.Location = new System.Drawing.Point(645, -1);
-            this.PbCerrar.Name = "PbCerrar";
-            this.PbCerrar.Size = new System.Drawing.Size(25, 25);
-            this.PbCerrar.TabIndex = 28;
-            this.PbCerrar.TabStop = false;
-            this.PbCerrar.Click += new System.EventHandler(this.PbCerrar_Click);
-            // 
             // FormProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -558,10 +558,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.PctBImagen)).EndInit();
             this.GbProductos.ResumeLayout(false);
             this.GbProductos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PbCerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgvProductos)).EndInit();
             this.GbBusqueda.ResumeLayout(false);
             this.GbBusqueda.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PbCerrar)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -19,9 +19,7 @@ namespace SIVEALLI
         {
             codigoUsuario = usuario;
             aUsuario = new CUsuario();
-
             InitializeComponent();
-
             Eventos();
         }
 

@@ -39,5 +39,13 @@ namespace SIVEALLI
             else
                 BtnAceptar.DialogResult = DialogResult.None;
         }
+
+        private void FormVentasCantidad_Load(object sender, EventArgs e)
+        {
+            if (NudCantidad.Value <= Maxim)
+                BtnAceptar.DialogResult = DialogResult.OK;
+            else
+                BtnAceptar.DialogResult = DialogResult.None;
+        }
     }
 }

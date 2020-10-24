@@ -59,11 +59,11 @@
             this.ColumnFecha,
             this.ColumnEstado,
             this.ColumnLeerMensaje});
-            this.dgvNotificaciones.Location = new System.Drawing.Point(7, 7);
+            this.dgvNotificaciones.Location = new System.Drawing.Point(13, 21);
             this.dgvNotificaciones.Margin = new System.Windows.Forms.Padding(4);
             this.dgvNotificaciones.Name = "dgvNotificaciones";
             this.dgvNotificaciones.ReadOnly = true;
-            this.dgvNotificaciones.Size = new System.Drawing.Size(1024, 346);
+            this.dgvNotificaciones.Size = new System.Drawing.Size(1010, 453);
             this.dgvNotificaciones.TabIndex = 0;
             // 
             // ColumnId
@@ -141,7 +141,7 @@
             // 
             // BtnEliminarMensajesLeido
             // 
-            this.BtnEliminarMensajesLeido.Location = new System.Drawing.Point(6, 465);
+            this.BtnEliminarMensajesLeido.Location = new System.Drawing.Point(815, 461);
             this.BtnEliminarMensajesLeido.Name = "BtnEliminarMensajesLeido";
             this.BtnEliminarMensajesLeido.Size = new System.Drawing.Size(176, 28);
             this.BtnEliminarMensajesLeido.TabIndex = 2;
@@ -155,11 +155,11 @@
             this.dgvMensajesLeidos.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvMensajesLeidos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvMensajesLeidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMensajesLeidos.Location = new System.Drawing.Point(4, 7);
+            this.dgvMensajesLeidos.Location = new System.Drawing.Point(47, 23);
             this.dgvMensajesLeidos.Margin = new System.Windows.Forms.Padding(4);
             this.dgvMensajesLeidos.Name = "dgvMensajesLeidos";
             this.dgvMensajesLeidos.ReadOnly = true;
-            this.dgvMensajesLeidos.Size = new System.Drawing.Size(948, 451);
+            this.dgvMensajesLeidos.Size = new System.Drawing.Size(944, 421);
             this.dgvMensajesLeidos.TabIndex = 1;
             // 
             // FormNotificaciones

@@ -35,25 +35,29 @@
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.PctBLogo = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.PctBLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(78, 127);
+            this.label1.Location = new System.Drawing.Point(94, 189);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(101, 19);
+            this.label1.Size = new System.Drawing.Size(127, 19);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Código usuario";
+            this.label1.Text = "Código de usuario :";
             // 
             // textBoxCodigoUsuario
             // 
-            this.textBoxCodigoUsuario.Location = new System.Drawing.Point(82, 150);
+            this.textBoxCodigoUsuario.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.textBoxCodigoUsuario.Location = new System.Drawing.Point(90, 224);
             this.textBoxCodigoUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxCodigoUsuario.Name = "textBoxCodigoUsuario";
-            this.textBoxCodigoUsuario.Size = new System.Drawing.Size(148, 26);
+            this.textBoxCodigoUsuario.Size = new System.Drawing.Size(135, 26);
             this.textBoxCodigoUsuario.TabIndex = 1;
+            this.textBoxCodigoUsuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // buttonAceptar
             // 
@@ -61,11 +65,11 @@
             this.buttonAceptar.FlatAppearance.BorderSize = 0;
             this.buttonAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAceptar.Image = ((System.Drawing.Image)(resources.GetObject("buttonAceptar.Image")));
-            this.buttonAceptar.Location = new System.Drawing.Point(155, 265);
+            this.buttonAceptar.Location = new System.Drawing.Point(179, 328);
             this.buttonAceptar.Margin = new System.Windows.Forms.Padding(4);
             this.buttonAceptar.Name = "buttonAceptar";
             this.buttonAceptar.Size = new System.Drawing.Size(68, 66);
-            this.buttonAceptar.TabIndex = 1;
+            this.buttonAceptar.TabIndex = 3;
             this.buttonAceptar.UseVisualStyleBackColor = true;
             // 
             // buttonCancelar
@@ -74,31 +78,40 @@
             this.buttonCancelar.FlatAppearance.BorderSize = 0;
             this.buttonCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCancelar.Image = ((System.Drawing.Image)(resources.GetObject("buttonCancelar.Image")));
-            this.buttonCancelar.Location = new System.Drawing.Point(75, 265);
+            this.buttonCancelar.Location = new System.Drawing.Point(76, 328);
             this.buttonCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(68, 66);
-            this.buttonCancelar.TabIndex = 43;
+            this.buttonCancelar.TabIndex = 4;
             this.buttonCancelar.UseVisualStyleBackColor = true;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(82, 231);
+            this.textBox1.Location = new System.Drawing.Point(48, 294);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(148, 26);
-            this.textBox1.TabIndex = 45;
+            this.textBox1.Size = new System.Drawing.Size(216, 26);
+            this.textBox1.TabIndex = 2;
             this.textBox1.UseSystemPasswordChar = true;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(78, 208);
+            this.label2.Location = new System.Drawing.Point(115, 265);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 19);
+            this.label2.Size = new System.Drawing.Size(85, 19);
             this.label2.TabIndex = 44;
-            this.label2.Text = "Contraseña";
+            this.label2.Text = "Contraseña :";
+            // 
+            // PctBLogo
+            // 
+            this.PctBLogo.Location = new System.Drawing.Point(48, 12);
+            this.PctBLogo.Name = "PctBLogo";
+            this.PctBLogo.Size = new System.Drawing.Size(216, 163);
+            this.PctBLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.PctBLogo.TabIndex = 45;
+            this.PctBLogo.TabStop = false;
             // 
             // FormLogin
             // 
@@ -106,6 +119,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(319, 413);
+            this.Controls.Add(this.PctBLogo);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonCancelar);
@@ -116,6 +130,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormLogin";
             this.Text = "Login";
+            ((System.ComponentModel.ISupportInitialize)(this.PctBLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -129,5 +144,6 @@
         protected System.Windows.Forms.Button buttonCancelar;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox PctBLogo;
     }
 }

@@ -89,6 +89,7 @@
             this.Controls.Add(this.Lbl1);
             this.Name = "FormVentasCantidad";
             this.Text = "Cantidad Producto";
+            this.Load += new System.EventHandler(this.FormVentasCantidad_Load);
             ((System.ComponentModel.ISupportInitialize)(this.NudCantidad)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

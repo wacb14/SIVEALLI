@@ -27,9 +27,7 @@ namespace SIVEALLI
             else
             {
                 Application.Run(new FormInicioSistema());
-            }
-
-            
+            }            
         }
     }
 }

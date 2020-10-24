@@ -17,10 +17,10 @@ namespace SIVEALLI
         bool aag;
         int afila;
         int aCantMax;
-        public FormDevolucionCantidad(DataGridView ProDev,bool Ag,DataGridView devDet,int pfila,int cant,int NroObj=1,string Est="Nuevo")
+        public FormDevolucionCantidad(DataGridView ProDev, bool Ag, DataGridView devDet, int pfila, int cant, int NroObj = 1, string Est = "Nuevo")
         {
             InitializeComponent();
-            DgvDevolucionsDetalle= devDet;
+            DgvDevolucionsDetalle = devDet;
             afila = pfila;
             aCantMax = cant;
 
@@ -43,7 +43,7 @@ namespace SIVEALLI
                     string Estado = DgvDevolucionsDetalle.Rows[afila].Cells[3].Value.ToString();
                     string Cantidad = DgvDevolucionsDetalle.Rows[afila].Cells[5].Value.ToString();
                     string Total = DgvDevolucionsDetalle.Rows[afila].Cells[6].Value.ToString();
-                    DgvProd.Rows.Add(id,Estado,Cantidad,Total);
+                    DgvProd.Rows.Add(id, Estado, Cantidad, Total);
                 }
                 else
                 {

@@ -15,11 +15,12 @@ namespace SIVEALLI
     {
 
         CUsuario aUsuario = new CUsuario();
-
+        CNegocio aNegocio = new CNegocio();
+        string RutaCarpetaImagenes = "..\\Libreria";
         public FormLogin()
         {
             InitializeComponent();
-
+            CargarLogo();
             this.buttonAceptar.Click += new EventHandler(VerificarUsuario);
             this.buttonCancelar.Click += new EventHandler(LimpiarFormulario);
         }
@@ -28,7 +29,13 @@ namespace SIVEALLI
         {
             this.textBoxCodigoUsuario.Clear();
         }
-
+        private void CargarLogo()
+        {
+            if (aNegocio.ExisteClavePrimaria(new string[] { "0" }))
+            {
+                PctBLogo.ImageLocation = RutaCarpetaImagenes + "\\" + aNegocio.ValorAtributo("Logo");
+            }
+        }
         private void VerificarUsuario(object sender, EventArgs e)
         {
             if (textBoxCodigoUsuario.Text.Length != 5)
